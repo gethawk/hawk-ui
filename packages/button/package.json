@@ -1,0 +1,18 @@
+{
+  "name": "@hawk-ui/button",
+  "version": "1.0.0",
+  "description": "hawk-ui: Basic Button Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=button"
+  },
+  "author": "saurabh gaur",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
