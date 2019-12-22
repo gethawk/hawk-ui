@@ -1,0 +1,23 @@
+.hawk-button {
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 0.05px;
+  outline: none;
+  -webkit-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
+  -moz-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
+  -ms-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
+  &__disabled {
+    border: unset;
+    cursor: not-allowed;
+  }
+}
