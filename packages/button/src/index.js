@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import isFunction from 'lodash.isfunction';
-
+// css modules
 import './index.scss';
 
 /**
  * @example ../README.md
  */
-// eslint-disable-next-line react/prefer-stateless-function
 export default class Button extends Component {
   static propTypes = {
     className: PropTypes.string,

@@ -8,7 +8,4 @@ export const keyCodes = {
   RIGHT_ARROW: 39,
   DOWN_ARROW: 40,
   ESCAPE: 27,
-  LETTER_S: 83,
-  LETTER_M: 77,
-  LETTER_I: 73,
 };
