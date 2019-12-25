@@ -33,7 +33,6 @@ module.exports = {
           loader: 'babel',
           options: {
             presets: [['es2015', { modules: false }], 'stage-0', 'react'],
-            // presets: ['@babel/preset-env', '@babel/preset-react'],
             plugins: ['transform-runtime', 'lodash'],
           },
         },
