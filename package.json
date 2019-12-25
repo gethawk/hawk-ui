@@ -1,7 +1,7 @@
 {
 		"scripts": {
 				"setup": "yarn install && lerna exec --parallel yarn install --force --no-lockfile",
-				"lint": "eslint --ext .jsx --ext js ./packages/button/src/",
+				"lint": "eslint --ext .jsx --ext js ./packages/button/src/ ./packages/input/src/",
 				"styleguide": "styleguidist server --config ./styleguide/config.js",
 				"styleguide:build": "rm -rf build && rm -f index.html && styleguidist build --config ./styleguide/config.js && mv ./styleguide/styleguide/* ./",
 				"publish:npm": "lerna bootstrap && lerna exec --parallel yarn run build && lerna publish --skip-git --registry=https://registry.npmjs.org/"
