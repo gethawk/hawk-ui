@@ -10,6 +10,7 @@ module.exports = {
         '../packages/button/src/index.js',
         '../packages/input/src/index.js',
         '../packages/checkbox/src/index.js',
+        '../packages/radio/src/index.js',
       ]),
     },
   ],
