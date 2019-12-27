@@ -11,6 +11,7 @@ module.exports = {
         '../packages/input/src/index.js',
         '../packages/checkbox/src/index.js',
         '../packages/radio/src/index.js',
+        '../packages/toggle/src/index.js',
       ]),
     },
   ],

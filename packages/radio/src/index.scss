@@ -6,7 +6,7 @@
   position: relative;
   padding-left: 30px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: $standard-font-size;
   font-weight: 500;
   height: 20px;
   -webkit-user-select: none;
@@ -18,7 +18,7 @@
     opacity: 0;
     cursor: pointer;
     &:checked ~ .hawk-radio__checkmark {
-      background-color: #66afe9;
+      background-color: $blue-1;
       &::after {
         display: block;
       }
@@ -30,7 +30,7 @@
     left: 0;
     height: 20px;
     width: 20px;
-    background-color: #eee;
+    background-color: $gray-2;
     border-radius: 50%;
     &::after {
       content: "";
