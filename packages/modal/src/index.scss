@@ -21,11 +21,29 @@
     }
   }
   &__content {
-    width: 840px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 4px;
     background-color: $white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 20px;
+    &-center {
+      width: 840px;
+      margin: auto;
+      border-radius: 4px;
+    }
+    &-left {
+      width: 300px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    &-right {
+      width: 300px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
     &-header {
       display: flex;
       justify-content: space-between;

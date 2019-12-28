@@ -24,8 +24,12 @@ export default class Modal extends Component {
       PropTypes.array,
     ]),
     type: PropTypes.oneOf(['light', 'dark']),
+    position: PropTypes.oneOf(['left', 'right', 'center']),
   };
-  state = {};
+  static defaultProps = {
+    type: 'dark',
+    position: 'center',
+  };
 
   componentDidMount() {
     document.addEventListener('keydown', this.onKeyDown, false);
@@ -42,7 +46,7 @@ export default class Modal extends Component {
   }
 
   render() {
-    const { title, className, isModalOpen, onModalClose, children, type, isCloseOption } = this.props;
+    const { title, className, isModalOpen, onModalClose, children, type, isCloseOption, position } = this.props;
 
     return (
       <div
@@ -51,7 +55,9 @@ export default class Modal extends Component {
           [`hawk-modal__type-${type}`]: type,
         })}
       >
-        <div className="hawk-modal__content" id="hawk-modal">
+        <div
+          className={getClassnames('hawk-modal__content', `hawk-modal__content-${position}`)}
+        >
           <div className="hawk-modal__content-header">
             {title ? (
               <div className="hawk-modal__content-header__title">Hello</div>
