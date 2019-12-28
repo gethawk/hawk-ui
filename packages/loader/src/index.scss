@@ -1,0 +1,145 @@
+@import '../../../assets/scss/utils/variables';
+
+/**
+ * ==============================================
+ * Hawk Loader Pulse
+ * ==============================================
+ */
+
+.hawk-loader {
+  &-pulse {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $blue-1;
+    color: $blue-1;
+    box-shadow: 9999px 0 0 -5px $blue-1;
+    animation: hawkLoaderPulse 1.5s infinite linear;
+    animation-delay: .25s;
+    &::before, &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: $blue-1;
+      color: $blue-1;
+    }
+    &::before {
+      box-shadow: 9984px 0 0 -5px $blue-1;
+      animation: hawkLoaderPulseBefore 1.5s infinite linear;
+      animation-delay: 0s;
+    }
+    &::after {
+      box-shadow: 10014px 0 0 -5px $blue-1;
+      animation: hawkLoaderPulseAfter 1.5s infinite linear;
+      animation-delay: .5s;
+    }
+  }
+}
+
+@keyframes hawkLoaderPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px $blue-1;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px $blue-1;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px $blue-1;
+  }
+}
+
+@keyframes hawkLoaderPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px $blue-1;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px $blue-1;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px $blue-1;
+  }
+}
+
+@keyframes hawkLoaderPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px $blue-1;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px $blue-1;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px $blue-1;
+  }
+}
+
+/**
+ * ==============================================
+ * Hawk Loader Bricks
+ * ==============================================
+ */
+
+.hawk-loader {
+  &-bricks {
+    position: relative;
+    top: 8px;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $blue-1;
+    color: $blue-1;
+    box-shadow: 9991px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1, 10007px 0 0 0 $blue-1;
+    animation: hawkLoaderBricks 2s infinite ease;
+  }
+}
+
+@keyframes hawkLoaderBricks {
+  0% {
+    box-shadow: 9991px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1, 10007px 0 0 0 $blue-1;
+  }
+  8.333% {
+    box-shadow: 10007px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1, 10007px 0 0 0 $blue-1;
+  }
+  16.667% {
+    box-shadow: 10007px -16px 0 0 $blue-1, 9991px -16px 0 0 $blue-1, 10007px 0 0 0 $blue-1;
+  }
+  25% {
+    box-shadow: 10007px -16px 0 0 $blue-1, 9991px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1;
+  }
+  33.333% {
+    box-shadow: 10007px 0 0 0 $blue-1, 9991px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1;
+  }
+  41.667% {
+    box-shadow: 10007px 0 0 0 $blue-1, 10007px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1;
+  }
+  50% {
+    box-shadow: 10007px 0 0 0 $blue-1, 10007px -16px 0 0 $blue-1, 9991px -16px 0 0 $blue-1;
+  }
+  58.333% {
+    box-shadow: 9991px 0 0 0 $blue-1, 10007px -16px 0 0 $blue-1, 9991px -16px 0 0 $blue-1;
+  }
+  66.666% {
+    box-shadow: 9991px 0 0 0 $blue-1, 10007px 0 0 0 $blue-1, 9991px -16px 0 0 $blue-1;
+  }
+  75% {
+    box-shadow: 9991px 0 0 0 $blue-1, 10007px 0 0 0 $blue-1, 10007px -16px 0 0 $blue-1;
+  }
+  83.333% {
+    box-shadow: 9991px -16px 0 0 $blue-1, 10007px 0 0 0 $blue-1, 10007px -16px 0 0 $blue-1;
+  }
+  91.667% {
+    box-shadow: 9991px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1, 10007px -16px 0 0 $blue-1;
+  }
+  100% {
+    box-shadow: 9991px -16px 0 0 $blue-1, 9991px 0 0 0 $blue-1, 10007px 0 0 0 $blue-1;
+  }
+}
