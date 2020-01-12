@@ -1,0 +1,73 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-toast {
+  position: fixed;
+  z-index: 1;
+  margin: 20px;
+  &__content {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    padding: 15px;
+    overflow: hidden;
+    font-size: 14px;
+    background-color: rgba(255,255,255,.85);
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    // opacity: 0;
+    border-radius: 6px;
+    .fa {
+      font-size: 20px;
+      &-check-circle {
+        color: $green-1;
+      }
+      &-times-circle {
+        color: $red-1;
+      }
+    }
+    &-message {
+      margin-left: 10px;
+      font-size: 14px;
+    }
+    &-fadeIn {
+      opacity: 1;
+      -webkit-animation: fadeInOut 8s linear forwards;
+      animation: fadeInOut 8s linear forwards;
+    }
+    &-fadeOut {
+      opacity: 0;
+    }
+  }
+  &__top {
+    &-left {
+      top: 0;
+      left: 0;
+    }
+    &-right {
+      top: 0;
+      right: 0;
+    }
+  }
+  &__bottom {
+    &-left {
+      bottom: 0;
+      left: 0;
+    }
+    &-right {
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+@-webkit-keyframes fadeInOut {
+  0%,100% { opacity: 0; }
+  10% { opacity: 1; }
+}
+
+@keyframes fadeInOut {
+  0%,100% { opacity: 0; }
+  10% { opacity: 1; }
+}

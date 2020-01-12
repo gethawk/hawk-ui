@@ -1,0 +1,21 @@
+{
+  "name": "@hawk-ui/toast",
+  "version": "1.0.10",
+  "description": "hawk-ui: Basic Toast Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=toast"
+  },
+  "author": "saurabh gaur",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
