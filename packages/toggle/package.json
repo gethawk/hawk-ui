@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/toggle",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "hawk-ui: Basic Toggle Component",
   "main": "dist/index.min.js",
   "scripts": {
