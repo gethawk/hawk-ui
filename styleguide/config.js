@@ -15,6 +15,7 @@ module.exports = {
         '../packages/loader/src/index.js',
         '../packages/modal/src/index.js',
         '../packages/pagination/src/index.js',
+        '../packages/table/src/index.js',
       ]),
     },
   ],

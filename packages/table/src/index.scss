@@ -1,0 +1,59 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-table {
+  &__filter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .hawk-input__label {
+      margin-bottom: 0;
+    }
+    .hawk-input {
+      width: 160px;
+      margin-left: 10px;
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    th {
+      background-color: #f5f6f7;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  td, th {
+    border: 1px solid #f7f8fa;
+    text-align: left;
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f7f8fa;
+  }
+
+  .hawk-pagination {
+    justify-content: flex-end;
+    .hawk-pagination__page {
+      color: #ffffff;
+      background-color: #337ab7;
+      /* border-color: #2e6da4; */
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      border: 1px solid transparent;
+      padding: 4px 10px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      border-radius: 4px;
+      user-select: none;
+      text-decoration: none;
+      margin-right: 1px;
+    }
+  }
+}
