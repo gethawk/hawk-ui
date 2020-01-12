@@ -14,6 +14,7 @@ module.exports = {
         '../packages/toggle/src/index.js',
         '../packages/loader/src/index.js',
         '../packages/modal/src/index.js',
+        '../packages/pagination/src/index.js',
       ]),
     },
   ],

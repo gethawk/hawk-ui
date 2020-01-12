@@ -1,0 +1,27 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-pagination {
+	display: flex;
+	list-style-type: none;
+	&__page {
+		margin: 0 5px 0 5px;
+		line-height: 1.4;
+		font-size: $standard-font-size;
+		&:hover {
+			color: $blue-1;
+		}
+	}
+	&__page-first-last {
+		line-height: 1.2;
+		font-size: $standard-font-size;
+		&:hover {
+			color: $blue-1;
+		}
+	}
+	&__page--selected {
+		color: $blue-1;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
