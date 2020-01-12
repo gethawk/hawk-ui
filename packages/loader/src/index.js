@@ -11,19 +11,19 @@ import './index.scss';
 export default class Loader extends Component {
   static propTypes = {
     className: PropTypes.string,
-    type: PropTypes.oneOf(['pulse', 'bricks']),
   };
-  static defaultProps = {
-    type: 'pulse',
-  };
+  state = {};
 
   render() {
-    const { className, type } = this.props;
+    const { className } = this.props;
 
     return (
-      <div
-        className={getClassnames(`hawk-loader-${type}`, className)}
-      />
+      <div className="hawk-loader">
+        <div className="hawk-loader__container">
+          <div className="hawk-loader__shadow" />
+          <div className={getClassnames('hawk-loader__box', className)} />
+        </div>
+      </div>
     );
   }
 }
