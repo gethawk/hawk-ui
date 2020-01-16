@@ -17,6 +17,7 @@ module.exports = {
         '../packages/pagination/src/index.js',
         '../packages/table/src/index.js',
         '../packages/toast/src/index.js',
+        '../packages/dropdown/src/index.js',
       ]),
     },
   ],

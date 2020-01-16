@@ -1,0 +1,63 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-dropdown {
+  position: relative;
+  &__button {
+    display: flex;
+    align-items: center;
+    &-text {
+      font-size: 14px;
+      &__icon {
+        margin-right: 5px;
+      }
+    }
+    &-icon {
+      margin-top: -6px;
+      font-size: 16px;
+    }
+  }
+  &__menu {
+    position: absolute;
+    will-change: transform;
+    top: 0px;
+    left: 0px;
+    transform: translate3d(0px, 37px, 0px);
+    float: left;
+    min-width: 160px;
+    padding: 2px 0;
+    font-size: 14px;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    &-transform {
+      transform: translate3d(0px, 29px, 0px);
+    }
+  }
+  &__item {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+}
+
+.hawk-dropdown__menu[x-placement^=bottom],
+.hawk-dropdown__menu[x-placement^=left],
+.hawk-dropdown__menu[x-placement^=right],
+.hawk-dropdown__menu[x-placement^=top] {
+  right: auto;
+  bottom: auto;
+}
