@@ -56,7 +56,11 @@ export default class Dropdown extends Component {
               <div
                 className="hawk-dropdown__item"
                 key={index}
-                onClick={() => { selectValue(index, item); }}
+                onClick={() => {
+                  this.setState({ shouldDropdownShow: false }, () => {
+                    selectValue(index, item);
+                  });
+                }}
               >
                 {renderSuggestion(item)}
               </div>
