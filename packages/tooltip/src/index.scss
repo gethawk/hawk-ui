@@ -3,7 +3,6 @@
 .hawk-tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted $black;
   &:hover {
     .hawk-tooltip__content {
       visibility: visible;
