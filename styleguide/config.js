@@ -19,6 +19,7 @@ module.exports = {
         '../packages/toast/src/index.js',
         '../packages/dropdown/src/index.js',
         '../packages/select-dropdown/src/index.js',
+        '../packages/tooltip/src/index.js',
       ]),
     },
   ],
