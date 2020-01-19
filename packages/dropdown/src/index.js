@@ -48,7 +48,7 @@ export default class Dropdown extends Component {
             <i className="fa fa-sort-down hawk-dropdown__button-icon" />
           ) : null}
         </Button>
-        {this.state.shouldDropdownShow ? (
+        {this.state.shouldDropdownShow && !_.isEmpty(suggestions) ? (
           <div
             className={getClassnames('hawk-dropdown__menu', {
               'hawk-dropdown__menu-transform': _.isEmpty(title),
