@@ -14,6 +14,7 @@ import './index.scss';
 export default class SelectDropdown extends Component {
   static propTypes = {
     isInput: PropTypes.bool,
+    isIcon: PropTypes.bool,
     suggestions: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
@@ -36,6 +37,12 @@ export default class SelectDropdown extends Component {
     selectedIndex: -1,
     shouldDropdownShow: false,
   };
+
+  componentWillReceiveProps() {
+    this.setState({
+      selectedIndex: -1,
+    });
+  }
 
   handleKeyDown = (event) => {
     switch (event.keyCode) {
@@ -76,16 +83,18 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { isInput, suggestions, renderSuggestion, onSuggestionSelect, onSearch, searchValue, renderSelectedItem, placeholder } = this.props;
+    const { isInput, isIcon, suggestions, renderSuggestion, onSuggestionSelect, onSearch, searchValue, renderSelectedItem, placeholder } = this.props;
 
     return (
       <div className="hawk-select-dropdown">
         {isInput ? (
           <Fragment>
-            <i
-              className="fa fa-sort-down hawk-select-dropdown__input-icon"
-              onClick={() => { this.setState({ shouldDropdownShow: !this.state.shouldDropdownShow }); }}
-            />
+            {isIcon ? (
+              <i
+                className="fa fa-sort-down hawk-select-dropdown__input-icon"
+                onClick={() => { this.setState({ shouldDropdownShow: !this.state.shouldDropdownShow }); }}
+              />
+            ) : null}
             <Input
               className="hawk-select-dropdown__input"
               value={searchValue}
@@ -110,7 +119,7 @@ export default class SelectDropdown extends Component {
             <i className="fa fa-sort-down hawk-select-dropdown__icon" />
           </div>
         )}
-        {this.state.shouldDropdownShow ? (
+        {this.state.shouldDropdownShow && !_.isEmpty(suggestions) ? (
           <div
             className={getClassnames('hawk-select-dropdown__menu', {
               'hawk-select-dropdown__menu-transform': isInput,

@@ -36,6 +36,7 @@ initialState = {
   <SelectDropdown
     suggestions={state.suggestionContent}
     isInput
+    isIcon
     placeholder="Select anyone"
     searchValue={state.searchValue}
     renderSuggestion={(suggestion) => suggestion.title}
