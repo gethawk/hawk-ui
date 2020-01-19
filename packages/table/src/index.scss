@@ -36,6 +36,7 @@
   }
 
   .hawk-pagination {
+    display: flex;
     justify-content: flex-end;
     .hawk-pagination__page {
       color: #ffffff;
