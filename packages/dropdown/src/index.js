@@ -14,7 +14,10 @@ export default class Dropdown extends Component {
   static propTypes = {
     title: PropTypes.string,
     isIcon: PropTypes.bool,
-    suggestions: PropTypes.object,
+    suggestions: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+    ]),
     renderSuggestion: PropTypes.func,
     selectValue: PropTypes.func,
   };

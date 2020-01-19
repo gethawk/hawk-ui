@@ -1,29 +1,30 @@
 @import '../../../assets/scss/utils/variables';
 
-.hawk-dropdown {
+.hawk-select-dropdown {
   position: relative;
-  &__button {
+  &__container {
     display: flex;
     align-items: center;
-    &-text {
-      font-size: 14px;
-      &__icon {
-        margin-right: 5px;
-      }
-    }
-    &-icon {
-      margin-top: -6px;
-      font-size: 16px;
-    }
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 14px;
+  }
+  &__icon {
+    margin-top: -6px;
+    font-size: 16px;
   }
   &__menu {
     position: absolute;
+    z-index: 1;
+    width: 100%;
+    max-height: 200px;
+    overflow: auto;
     will-change: transform;
     top: 0px;
     left: 0px;
-    transform: translate3d(0px, 37px, 0px);
+    transform: translate3d(0px, 15px, 0px);
     float: left;
-    min-width: 160px;
     padding: 2px 0;
     font-size: 14px;
     color: #212529;
@@ -34,7 +35,7 @@
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 4px;
     &-transform {
-      transform: translate3d(0px, 29px, 0px);
+      transform: translate3d(0px, 36px, 0px);
     }
   }
   &__item {
@@ -48,8 +49,24 @@
     white-space: nowrap;
     background-color: transparent;
     border: 0;
+    &-hover {
+      background-color: #f8f9fa;
+    }
     &:hover {
       background-color: #f8f9fa;
+    }
+  }
+  &__input {
+    padding: 4px 35px 4px 10px;
+    &-icon {
+      cursor: pointer;
+      position: absolute;
+      right: 16px;
+      top: 9px;
+      opacity: .8;
+      margin: -3px;
+      -webkit-transition: opacity .1s ease;
+      transition: opacity .1s ease;
     }
   }
 }
