@@ -20,6 +20,7 @@ module.exports = {
         '../packages/dropdown/src/index.js',
         '../packages/select-dropdown/src/index.js',
         '../packages/tooltip/src/index.js',
+        '../packages/date-picker/src/index.js',
       ]),
     },
   ],

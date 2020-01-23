@@ -1,0 +1,233 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-date-picker {
+  position: relative;
+  &__input {
+    padding: 4px 35px 4px 10px;
+    cursor: pointer;
+    &-icon {
+      position: absolute;
+      right: 16px;
+      top: 9px;
+      opacity: .8;
+      margin: -3px;
+      -webkit-transition: opacity .1s ease;
+      transition: opacity .1s ease;
+    }
+  }
+  &__menu {
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    height: 290px;
+    will-change: transform;
+    top: 0px;
+    left: 0px;
+    transform: translate3d(0px, 36px, 0px);
+    float: left;
+    padding: 2px 0;
+    font-size: 14px;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    .SingleDatePicker_picker {
+      z-index: 1;
+      background-color: #fff;
+      position: absolute;
+      top: 0 !important;
+    }
+    .DateInput {
+      display: none;
+    }
+  }
+}
+
+.CalendarDay {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  &__defaultCursor {
+    cursor: default;
+  }
+  &__default {
+    color: #484848;
+    background: #fff;
+    &:hover {
+      background-color: #e9f8fa;
+    }
+  }
+  &__blocked_out_of_range, &__blocked_out_of_range:active, &__blocked_out_of_range:hover {
+    background: #fff;
+    color: #cacccd;
+  }
+  &__selected {
+    background-color: #e9f8fa;
+  }
+}
+
+.CalendarMonth {
+  background: #fff;
+  text-align: center;
+  vertical-align: top;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0px 4px !important;
+  outline: none;
+  &_caption {
+    color: #484848;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 37px;
+    caption-side: initial;
+  }
+  &_table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 10px;
+    tr td {
+      padding: 11px;
+      width: 0px !important;
+      height: 0px !important;
+    }
+  }
+}
+
+.CalendarMonthGrid {
+  background: #fff;
+  text-align: left;
+  z-index: 0;
+  &__horizontal {
+    position: absolute;
+    left: 9px;
+  }
+  &_month {
+    &__horizontal {
+      display: inline-block;
+      vertical-align: top;
+      min-height: 100%;
+    }
+    &__hideForAnimation {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      pointer-events: none;
+    }
+    &__hidden {
+      visibility: hidden;
+    }
+  }
+}
+
+.DayPickerNavigation {
+  position: relative;
+  z-index: 2;
+  &__horizontal {
+    height: 0;
+  }
+  &_button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    &__default {
+      background-color: #fff;
+      color: #757575;
+    }
+    &__horizontalDefault {
+      position: absolute;
+      top: 18px;
+      line-height: .78;
+      border-radius: 3px;
+      padding: 6px 9px;
+    }
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      border: 1px solid #e4e7e7;
+    }
+  }
+  &_leftButton__horizontalDefault {
+    left: 22px;
+  }
+  &_rightButton__horizontalDefault {
+    right: 22px;
+  }
+  &_svg__horizontal {
+    height: 16px;
+    width: 16px;
+    fill: #82888a;
+    display: block;
+  }
+}
+
+.DayPicker {
+  background: #fff;
+  position: relative;
+  text-align: left;
+  &__horizontal {
+    background: #fff;
+    width: 300px !important;
+    & > div > div {
+      width: 300px !important;
+    }
+  }
+  &_weekHeaders {
+    position: relative;
+    &__horizontal {
+      margin-left: 9px;
+    }
+    .DayPicker_weekHeader {
+      &:first-child {
+        display: none;
+      }
+      padding: 0px 9px !important;
+    }
+  }
+  &_weekHeader {
+    color: #757575;
+    position: absolute;
+    top: 62px;
+    left: 0px !important;
+    z-index: 2;
+    text-align: left;
+    &_ul {
+      list-style: none;
+      margin: 1px 0;
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 14px;
+    }
+    &_li {
+      display: inline-block;
+      text-align: center;
+    }
+  }
+  &_focusRegion {
+    outline: 0;
+  }
+  &_transitionContainer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    width: 290px !important;
+    &__horizontal {
+      -webkit-transition: height .2s ease-in-out;
+      -o-transition: height .2s ease-in-out;
+      transition: height .2s ease-in-out;
+    }
+  }
+}

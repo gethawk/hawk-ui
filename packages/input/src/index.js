@@ -17,6 +17,7 @@ export default class Input extends Component {
       PropTypes.string,
       PropTypes.number,
     ]),
+    readOnly: PropTypes.bool,
     isLabel: PropTypes.bool,
     label: PropTypes.string,
     isRequired: PropTypes.bool,
@@ -37,6 +38,7 @@ export default class Input extends Component {
   static defaultProps = {
     htmlAttributes: {},
     type: 'text',
+    readOnly: false,
     onBlur: () => {},
     onFocus: () => {},
     onEnter: () => {},
@@ -99,7 +101,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { type, isLabel, label, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { type, readOnly, isLabel, label, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
 
     return (
       <Fragment>
@@ -115,6 +117,7 @@ export default class Input extends Component {
               'hawk-textarea__error': isError,
             })}
             value={this.state.value}
+            readOnly={readOnly}
             placeholder={placeholder}
             onChange={this.onChange}
             onKeyDown={this.onKeyDown}
@@ -127,6 +130,7 @@ export default class Input extends Component {
             {...htmlAttributes}
             ref={(node) => { this.fieldNode = node; }}
             type={type}
+            readOnly={readOnly}
             className={getClassNames('hawk-input', className, {
               'hawk-input__disabled': isDisabled,
               'hawk-input__error': isError,
