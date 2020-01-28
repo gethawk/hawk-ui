@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/checkbox",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "hawk-ui: Basic Checkbox Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/input": "^1.1.9",
+    "@hawk-ui/input": "^1.1.10",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
