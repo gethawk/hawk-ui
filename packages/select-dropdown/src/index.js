@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import Input from '@hawk-ui/input';
@@ -88,12 +88,11 @@ export default class SelectDropdown extends Component {
     return (
       <div className="hawk-select-dropdown">
         {isInput ? (
-          <Fragment>
+          <div
+            onClick={() => { this.setState({ shouldDropdownShow: !this.state.shouldDropdownShow }); }}
+          >
             {isIcon ? (
-              <i
-                className="fa fa-sort-down hawk-select-dropdown__input-icon"
-                onClick={() => { this.setState({ shouldDropdownShow: !this.state.shouldDropdownShow }); }}
-              />
+              <i className="fa fa-sort-down hawk-select-dropdown__input-icon" />
             ) : null}
             <Input
               className="hawk-select-dropdown__input"
@@ -109,7 +108,7 @@ export default class SelectDropdown extends Component {
               }}
               onKeyDown={(event) => { this.handleKeyDown(event); }}
             />
-          </Fragment>
+          </div>
         ) : (
           <div
             className="hawk-select-dropdown__container"

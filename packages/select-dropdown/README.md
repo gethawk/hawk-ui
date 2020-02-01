@@ -16,7 +16,6 @@ const suggestions = [
 
 initialState = {
   suggestionContent: suggestions,
-  activePage: 1,
   selectedItem: '',
   searchValue: '',
 };
@@ -40,9 +39,6 @@ initialState = {
     placeholder="Select anyone"
     searchValue={state.searchValue}
     renderSuggestion={(suggestion) => suggestion.title}
-    renderSelectedItem={() => (
-      state.selectedItem ? state.selectedItem : 'Select anyone'
-    )}
     onSuggestionSelect={(item, meta) => {
       setState({ selectedItem: item.title, searchValue: item.title });
     }}
