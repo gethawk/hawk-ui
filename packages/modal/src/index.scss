@@ -25,6 +25,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding: 20px;
+    box-shadow: $box-shadow-modal;
     &-center {
       width: 840px;
       margin: auto;
