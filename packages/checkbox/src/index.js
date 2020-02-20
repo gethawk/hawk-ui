@@ -68,9 +68,7 @@ export default class Checkbox extends Component {
     errorMessage: PropTypes.string,
     onChange: PropTypes.func,
   };
-  state = {
-    checkedItems: new Map(),
-  };
+  state = {};
 
   render() {
     const { checkboxes, isError, errorMessage, onChange } = this.props;

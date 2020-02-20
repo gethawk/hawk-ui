@@ -9,7 +9,6 @@ initialState = {
     { value: 'orange', isChecked: false },
     { value: 'pineapple', isChecked: false },
   ],
-
 };
 
 <div className="styleguidist__btns-wrap">
