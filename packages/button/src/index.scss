@@ -1,29 +1,66 @@
 @import '../../../assets/scss/utils/variables';
 
 .hawk-button {
-  border-radius: 4px;
   font-size: $standard-font-size;
   font-weight: 500;
   text-align: center;
   padding: 8px;
+  border-radius: 4px;
   display: block;
   overflow: hidden;
   text-decoration: none;
   letter-spacing: 0.05px;
   outline: none;
-  background-color: $white;
-  color: $black;
-  -webkit-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
-  -moz-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
-  -ms-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
-  -o-transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: all .2s cubic-bezier(0.23, 1, 0.32, 1);
-  &:hover {
-    cursor: pointer;
-    box-shadow: $box-shadow-button;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  i {
+    margin-right: 5px;
   }
-  &__disabled {
-    cursor: not-allowed;
-    opacity: $opacity-disabled;
+  &__text {
+    border-color: transparent;
+    background-color: $white;
+    color: $blue-1;
+    &:hover {
+      background-color: $blue-2;
+    }
+    &-disabled {
+      cursor: not-allowed;
+      opacity: $opacity-disabled;
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+  &__outlined {
+    border-color: $blue-1;
+    background-color: $white;
+    color: $blue-1;
+    &:hover {
+      background-color: $blue-2;
+    }
+    &-disabled {
+      cursor: not-allowed;
+      opacity: $opacity-disabled;
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+  &__contained {
+    border-color: $blue-1;
+    background-color: $blue-1;
+    color: $white;
+    &:hover {
+      background-color: $blue-3;
+      box-shadow: $box-shadow-button;
+    }
+    &-disabled {
+      cursor: not-allowed;
+      opacity: $opacity-disabled;
+      &:hover {
+        background-color: $blue-1;
+      }
+    }
   }
 }
