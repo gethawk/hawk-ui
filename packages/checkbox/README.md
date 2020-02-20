@@ -2,22 +2,31 @@
 
 ```js
 initialState = {
-  name: 'fruits',
-  value: 'apple',
-  isChecked: false,
+  fruits: [
+    { value: 'apple', isChecked: false },
+    { value: 'mango', isChecked: false },
+    { value: 'banana', isChecked: false },
+    { value: 'orange', isChecked: false },
+    { value: 'pineapple', isChecked: false },
+  ],
+
 };
 
 <div className="styleguidist__btns-wrap">
   <p>Without Required</p>
   <br /><br />
   <Checkbox
-    label="checkbox"
-    name={state.name}
+    checkboxes={state.fruits}
     value={state.value}
-    isChecked={state.isChecked}
     onChange={(event) => {
+      let fruits = state.fruits;
+      fruits.forEach(fruit => {
+        if (fruit.value === event.target.value) {
+          fruit.isChecked = event.target.checked
+        }
+      })
       setState({
-        isChecked: !state.isChecked,
+        fruits: fruits,
       });
     }}
   />
@@ -25,13 +34,17 @@ initialState = {
   <p>With Required</p>
   <br /><br />
   <Checkbox
-    label="checkbox"
-    name={state.name}
+    checkboxes={state.fruits}
     value={state.value}
-    isChecked={state.isChecked}
     onChange={(event) => {
+      let fruits = state.fruits;
+      fruits.forEach(fruit => {
+        if (fruit.value === event.target.value) {
+          fruit.isChecked = event.target.checked
+        }
+      })
       setState({
-        isChecked: !state.isChecked,
+        fruits: fruits,
       });
     }}
     isError={!state.isChecked}

@@ -2,51 +2,97 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+import _ from 'lodash';
 // css modules
 import './index.scss';
+
+class CheckboxContent extends Component {
+  static propTypes = {
+    index: PropTypes.number,
+    value: PropTypes.string,
+    checked: PropTypes.bool,
+    onChange: PropTypes.func,
+    isError: PropTypes.bool,
+    checkboxes: PropTypes.array,
+  };
+  state = {};
+
+  render() {
+    const { index, value, checked, onChange, isError, checkboxes } = this.props;
+
+    return (
+      <label
+        className="hawk-checkbox"
+        key={index}
+      >
+        <span className="hawk-checkbox__label">{value}</span>
+        <input
+          type="checkbox"
+          value={value}
+          checked={checked}
+          onClick={onChange}
+        />
+        <span
+          className={getClassnames('hawk-checkbox__checkmark', {
+            'hawk-checkbox__checkmark-error': !isError,
+            'hawk-checkbox__error': (isError && !_.find(checkboxes, 'isChecked')),
+          })}
+        />
+      </label>
+    );
+  }
+}
+
+class CheckboxError extends Component {
+  static propTypes = {
+    errorMessage: PropTypes.string,
+  };
+  state = {};
+
+  render() {
+    const { errorMessage } = this.props;
+
+    return (
+      <span className="hawk-checkbox__error-message">{errorMessage}</span>
+    );
+  }
+}
 
 /**
  * @example ../README.md
  */
 export default class Checkbox extends Component {
   static propTypes = {
-    label: PropTypes.string,
-    className: PropTypes.string,
-    name: PropTypes.string,
-    value: PropTypes.string,
-    isChecked: PropTypes.bool,
-    onChange: PropTypes.func,
+    checkboxes: PropTypes.array,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
+    onChange: PropTypes.func,
   };
-  state = {};
+  state = {
+    checkedItems: new Map(),
+  };
 
   render() {
-    const { label, className, name, value, isChecked, onChange, isError, errorMessage } = this.props;
+    const { checkboxes, isError, errorMessage, onChange } = this.props;
 
     return (
       <Fragment>
-        <label
-          className={getClassnames('hawk-checkbox', className)}
-        >
-          {label}
-          <input
-            type="checkbox"
-            onChange={(event) => { onChange(event); }}
-            name={name}
-            value={value}
-            checked={isChecked}
-            isDisabled
+        <div className="hawk-checkbox__content">
+          {_.map(checkboxes, (item, index) => (
+            <CheckboxContent
+              checkboxes={checkboxes}
+              index={index}
+              value={item.value}
+              checked={item.isChecked}
+              onChange={onChange}
+              isError={isError}
+            />
+          ))}
+        </div>
+        {isError && !_.find(checkboxes, 'isChecked') ? (
+          <CheckboxError
+            errorMessage={errorMessage}
           />
-          <span
-            className={getClassnames('hawk-checkbox__checkmark', {
-              'hawk-checkbox__checkmark-error': !isError,
-              'hawk-checkbox__error': isError,
-            })}
-          />
-        </label>
-        {isError ? (
-          <span className="hawk-checkbox__error-message">{errorMessage}</span>
         ) : null}
       </Fragment>
     );
