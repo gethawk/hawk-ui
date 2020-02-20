@@ -3,7 +3,7 @@
 .hawk-toggle {
   display: flex;
   position: relative;
-  width: 60px;
+  width: 40px;
   height: 25px;
   input {
     opacity: 0;
@@ -11,17 +11,18 @@
     height: 0;
     &:checked {
       + .hawk-toggle__slider {
-        background-color: $blue-1;
+        background-color: $blue-2;
         &::before {
-          content: "ON";
+          content: "";
           color: $blue-1;
+          background-color: $blue-1;
         }
       }
       + .hawk-toggle__slider {
         &::before {
           -webkit-transform: translateX(27px);
           -ms-transform: translateX(27px);
-          transform: translateX(27px);
+          transform: translateX(20px);
         }
       }
     }
@@ -34,6 +35,7 @@
   &__slider {
     position: absolute;
     cursor: pointer;
+    height: 14px;
     top: 0;
     left: 0;
     right: 0;
@@ -43,12 +45,13 @@
     transition: .4s;
     &::before {
       position: absolute;
-      content: "OFF";
-      height: 19px;
-      width: 27px;
-      left: 3px;
+      content: "";
+      height: 20px;
+      width: 20px;
+      top: -3px;
+      left: 0;
       bottom: 3px;
-      background-color: $white;
+      background-color: #9e9e9e;
       -webkit-transition: .4s;
       transition: .4s;
       text-align: center;
@@ -57,9 +60,9 @@
       line-height: 1.5;
     }
     &-round {
-      border-radius: 4px;
+      border-radius: 50px;
       &::before {
-        border-radius: 4px;
+        border-radius: 50px;
       }
     }
   }

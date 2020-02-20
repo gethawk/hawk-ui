@@ -8,8 +8,22 @@ initialState = {
 };
 
 <div className="styleguidist__btns-wrap">
+  <p>Without Required</p>
+  <br /><br />
   <Toggle
-    label="One"
+    name={state.name}
+    value={state.value}
+    isChecked={state.isChecked}
+    onChange={(event) => {
+      setState({
+        isChecked: !state.isChecked,
+      });
+    }}
+  />
+  <br /><br />
+  <p>With Required</p>
+  <br /><br />
+  <Toggle
     name={state.name}
     value={state.value}
     isChecked={state.isChecked}

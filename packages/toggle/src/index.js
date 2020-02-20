@@ -10,7 +10,6 @@ import './index.scss';
  */
 export default class Toggle extends Component {
   static propTypes = {
-    label: PropTypes.string,
     className: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.string,
@@ -22,14 +21,13 @@ export default class Toggle extends Component {
   state = {};
 
   render() {
-    const { label, className, name, value, isChecked, onChange, isError, errorMessage } = this.props;
+    const { className, name, value, isChecked, onChange, isError, errorMessage } = this.props;
 
     return (
       <Fragment>
         <label
           className={getClassnames('hawk-toggle', className)}
         >
-          {label}
           <input
             type="checkbox"
             onChange={(event) => { onChange(event); }}
