@@ -69,8 +69,8 @@ export default class Pagination extends Component {
     activePage: 1,
     renderPrevPage: () => (<i className="fa fa-chevron-left"></i>),
     renderNextPage: () => (<i className="fa fa-chevron-right"></i>),
-    renderFirstPage: () => (<span>First |</span>),
-    renderLastPage: () => (<span>| Last</span>),
+    renderFirstPage: () => (<span>First</span>),
+    renderLastPage: () => (<span>Last</span>),
     isShowFirstAndLastOption: true,
   };
 

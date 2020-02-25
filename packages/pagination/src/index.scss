@@ -4,22 +4,26 @@
 	display: flex;
 	list-style-type: none;
 	&__page {
-		margin: 0 5px 0 5px;
+		margin: 0 3px 0 3px;
+		padding: 1px 4px;
+		border-radius: 25px;
 		line-height: 1.4;
 		font-size: $standard-font-size;
 		&:hover {
-			color: $blue-1;
+			background-color: $blue-2;
 		}
 	}
 	&__page-first-last {
 		line-height: 1.2;
 		font-size: $standard-font-size;
+		padding: 3px 6px;
+		border-radius: 25px;
 		&:hover {
-			color: $blue-1;
+			background-color: $blue-2;
 		}
 	}
 	&__page--selected {
-		color: $blue-1;
+		font-weight: bold;
 	}
 	&:hover {
 		cursor: pointer;
