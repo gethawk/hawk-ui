@@ -9,9 +9,6 @@
   left: 0;
   top: 0;
   overflow: auto;
-  &__hidden {
-    display: none;
-  }
   &__type {
     &-light {
       background: rgba(255,255,255,.9);

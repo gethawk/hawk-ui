@@ -15,7 +15,6 @@ export default class Modal extends Component {
     title: PropTypes.string,
     isCloseOption: PropTypes.bool,
     className: PropTypes.string,
-    isModalOpen: PropTypes.bool,
     onKeyDown: PropTypes.func,
     onModalClose: PropTypes.func,
     children: PropTypes.oneOfType([
@@ -33,30 +32,41 @@ export default class Modal extends Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this.onKeyDown, false);
+    document.addEventListener('click', this.onClick, false);
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.onKeyDown, false);
+    document.removeEventListener('click', this.onClick, false);
   }
 
   onKeyDown = (event) => {
-    if (event.keyCode === keyCodes.ESCAPE && this.props.isModalOpen) {
+    if (event.keyCode === keyCodes.ESCAPE) {
+      this.props.onKeyDown(event);
+    }
+  }
+
+  onClick = (event) => {
+    const element = document.getElementById('hawk-modal');
+    const target = element.contains(event.target);
+
+    if (!target) {
       this.props.onKeyDown(event);
     }
   }
 
   render() {
-    const { title, className, isModalOpen, onModalClose, children, type, isCloseOption, position } = this.props;
+    const { title, className, onModalClose, children, type, isCloseOption, position } = this.props;
 
     return (
       <div
         className={getClassnames('hawk-modal', className, {
-          'hawk-modal__hidden': !isModalOpen,
           [`hawk-modal__type-${type}`]: type,
         })}
       >
         <div
           className={getClassnames('hawk-modal__content', `hawk-modal__content-${position}`)}
+          id="hawk-modal"
         >
           <div className="hawk-modal__content-header">
             {title ? (

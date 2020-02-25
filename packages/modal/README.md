@@ -18,8 +18,8 @@ initialState = {
   <br /><br />
   <div style={{ display: 'flex', justifyContent: 'space-around' }}>
     <div>
+    {state.isLeftModalWithCloseButton ? (
       <Modal
-        isModalOpen={state.isLeftModalWithCloseButton}
         isCloseOption
         type="dark"
         title="Modal Title"
@@ -33,6 +33,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -45,8 +46,8 @@ initialState = {
       </button>
     </div>
     <div>
+    {state.isCenterModalWithCloseButton ? (
       <Modal
-        isModalOpen={state.isCenterModalWithCloseButton}
         isCloseOption
         type="dark"
         title="Modal Title"
@@ -59,6 +60,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -71,8 +73,8 @@ initialState = {
       </button>
     </div>
     <div>
+    {state.isRightModalWithCloseButton ? (
       <Modal
-        isModalOpen={state.isRightModalWithCloseButton}
         isCloseOption
         type="dark"
         title="Modal Title"
@@ -86,6 +88,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -103,8 +106,8 @@ initialState = {
   <br /><br />
   <div style={{ display: 'flex', justifyContent: 'space-around' }}>
     <div>
+    {state.isLeftModalWithoutCloseButton ? (
       <Modal
-        isModalOpen={state.isLeftModalWithoutCloseButton}
         type="dark"
         title="Modal Title"
         position="left"
@@ -117,6 +120,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -129,8 +133,8 @@ initialState = {
       </button>
     </div>
     <div>
+    {state.isCenterModalWithoutCloseButton ? (
       <Modal
-        isModalOpen={state.isCenterModalWithoutCloseButton}
         type="dark"
         title="Modal Title"
         onKeyDown={(event) => {
@@ -142,6 +146,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -154,8 +159,8 @@ initialState = {
       </button>
     </div>
     <div>
+    {state.isRightModalWithoutCloseButton ? (
       <Modal
-        isModalOpen={state.isRightModalWithoutCloseButton}
         type="dark"
         title="Modal Title"
         position="right"
@@ -168,6 +173,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -185,8 +191,8 @@ initialState = {
   <br /><br />
   <div style={{ display: 'flex', justifyContent: 'space-around' }}>
     <div>
+    {state.isLeftModalWithLightBackground ? (
       <Modal
-        isModalOpen={state.isLeftModalWithLightBackground}
         isCloseOption
         type="light"
         title="Modal Title"
@@ -200,6 +206,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -212,8 +219,8 @@ initialState = {
       </button>
     </div>
     <div>
+    {state.isCenterModalWithLightBackground ? (
       <Modal
-        isModalOpen={state.isCenterModalWithLightBackground}
         isCloseOption
         type="light"
         title="Modal Title"
@@ -226,6 +233,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
@@ -238,8 +246,8 @@ initialState = {
       </button>
     </div>
     <div>
+    {state.isRightModalWithLightBackground ? (
       <Modal
-        isModalOpen={state.isRightModalWithLightBackground}
         isCloseOption
         type="light"
         title="Modal Title"
@@ -253,6 +261,7 @@ initialState = {
       >
         <span>Modal Body</span>
       </Modal>
+    ) : null}
       <button
         type="button"
         className="hawk-button"
