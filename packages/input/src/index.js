@@ -18,10 +18,8 @@ export default class Input extends Component {
       PropTypes.number,
     ]),
     readOnly: PropTypes.bool,
-    isLabel: PropTypes.bool,
     label: PropTypes.string,
     isRequired: PropTypes.bool,
-    isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     isTextarea: PropTypes.bool,
     className: PropTypes.string,
@@ -101,11 +99,11 @@ export default class Input extends Component {
   }
 
   render() {
-    const { type, readOnly, isLabel, label, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { type, readOnly, label, isRequired, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
 
     return (
       <Fragment>
-        {isLabel ? (
+        {label ? (
           <span className="hawk-input__label">{label} {isRequired ? <span>*</span> : null}</span>
         ) : null}
         {isTextarea ? (
@@ -114,7 +112,7 @@ export default class Input extends Component {
             ref={(node) => { this.fieldNode = node; }}
             className={getClassNames('hawk-textarea', className, {
               'hawk-textarea__disabled': isDisabled,
-              'hawk-textarea__error': isError,
+              'hawk-textarea__error': isRequired,
             })}
             value={this.state.value}
             readOnly={readOnly}
@@ -133,7 +131,7 @@ export default class Input extends Component {
             readOnly={readOnly}
             className={getClassNames('hawk-input', className, {
               'hawk-input__disabled': isDisabled,
-              'hawk-input__error': isError,
+              'hawk-input__error': isRequired,
             })}
             value={this.state.value}
             placeholder={placeholder}
@@ -144,7 +142,7 @@ export default class Input extends Component {
             {...(isDisabled ? { disabled: 'true' } : {})}
           />
         )}
-        {isError ? (
+        {isRequired ? (
           <span className="hawk-input__error-message">{errorMessage}</span>
         ) : null}
       </Fragment>

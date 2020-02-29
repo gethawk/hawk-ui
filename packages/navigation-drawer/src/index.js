@@ -10,7 +10,7 @@ import './index.scss';
 /**
  * @example ../README.md
  */
-export default class Modal extends Component {
+export default class NavigationDrawer extends Component {
   static propTypes = {
     title: PropTypes.string,
     isCloseOption: PropTypes.bool,
@@ -22,10 +22,12 @@ export default class Modal extends Component {
       PropTypes.array,
     ]),
     type: PropTypes.oneOf(['light', 'dark']),
-    isModalOpen: PropTypes.bool,
+    position: PropTypes.oneOf(['left', 'right']),
+    isDrawerOpen: PropTypes.bool,
   };
   static defaultProps = {
     type: 'dark',
+    position: 'left',
   };
 
   componentDidMount() {
@@ -45,7 +47,7 @@ export default class Modal extends Component {
   }
 
   onClick = (event) => {
-    const element = document.getElementById('hawk-modal__overflow');
+    const element = document.getElementById('hawk-navigation-drawer__overflow');
 
     if (element === event.target) {
       this.props.onKeyDown(event);
@@ -53,41 +55,40 @@ export default class Modal extends Component {
   }
 
   render() {
-    const { title, onModalClose, children, type, isCloseOption, isModalOpen } = this.props;
+    const { title, onModalClose, children, type, isCloseOption, position, isDrawerOpen } = this.props;
 
     return (
-      <div
-        className={getClassnames('hawk-modal', {
-          'hawk-modal__closed': !isModalOpen,
-        })}
-      >
+      <div className="hawk-navigation-drawer">
         <div
-          className="hawk-modal__content"
-          id="hawk-modal__content"
+          className={getClassnames('hawk-navigation-drawer__content', `hawk-navigation-drawer__content-${position}`, {
+            [`hawk-navigation-drawer__content-${position}-closed`]: !isDrawerOpen,
+            [`hawk-navigation-drawer__content-${position}-opened`]: isDrawerOpen,
+          })}
+          id="hawk-navigation-drawer__content"
         >
-          <div className="hawk-modal__content-header">
+          <div className="hawk-navigation-drawer__content-header">
             {title ? (
-              <div className="hawk-modal__content-header__title">Hello</div>
+              <div className="hawk-navigation-drawer__content-header__title">Hello</div>
             ) : null}
             {isCloseOption ? (
               <span
-                className="hawk-modal__content-header__close"
+                className="hawk-navigation-drawer__content-header__close"
                 onClick={() => { onModalClose(); }}
               >
                 &times;
               </span>
             ) : null}
           </div>
-          <div className="hawk-modal__content-body">
+          <div className="hawk-navigation-drawer__content-body">
             {children}
           </div>
         </div>
-        {isModalOpen ? (
+        {isDrawerOpen ? (
           <div
-            className={getClassnames('hawk-modal__overflow', {
-              [`hawk-modal__overflow-type-${type}`]: type,
+            className={getClassnames('hawk-navigation-drawer__overflow', {
+              [`hawk-navigation-drawer__overflow-type-${type}`]: type,
             })}
-            id="hawk-modal__overflow"
+            id="hawk-navigation-drawer__overflow"
           />
         ) : null}
       </div>
