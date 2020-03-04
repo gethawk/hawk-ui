@@ -1,0 +1,35 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-suggestions {
+  &__wrap {
+    width: 100%;
+    max-height: 200px;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    padding: 2px 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: $white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    &-item {
+      cursor: pointer;
+      display: block;
+      padding: 10px;
+      clear: both;
+      font-weight: 400;
+      text-align: inherit;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+      &__selected {
+        background-color: $blue-2;
+      }
+      &:hover {
+        background-color: $blue-2;
+      }
+    }
+  }
+}

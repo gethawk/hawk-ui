@@ -2,16 +2,20 @@
 
 ```js
 const suggestions = [
-  {title: 'Alfreds Futterkiste', value: 'alfreds futterkiste'},
-  {title: 'Centro comercial Moctezuma', value: 'centro comercial moctezuma'},
-  {title: 'Ernst Handel', value: 'ernst handel'},
-  {title: 'Island Trading', value: 'island trading' },
-  {title: 'Alfreds Futterkiste', value: 'alfreds futterkiste' },
-  {title: 'Maria Anders', value: 'maria anders' },
-  {title: 'Francisco Chang', value: 'francisco chang' },
-  {title: 'Roland Mendel', value: 'roland mendel' },
-  {title: 'Helen Bennett', value: 'helen bennett' },
-  {title: 'Maria Anders', value: 'maria anders' },
+  {title: 'Argentina', value: 'argentina'},
+  {title: 'Australia', value: 'australia'},
+  {title: 'Belgium', value: 'belgium'},
+  {title: 'Bhutan', value: 'bhutan' },
+  {title: 'Brazil', value: 'brazil' },
+  {title: 'Canada', value: 'canada' },
+  {title: 'China', value: 'china' },
+  {title: 'Colombia', value: 'colombia' },
+  {title: 'Egypt', value: 'egypt' },
+  {title: 'Finland', value: 'finland' },
+  {title: 'Georgia', value: 'georgia' },
+  {title: 'Germany', value: 'germany' },
+  {title: 'India', value: 'india' },
+  {title: 'Indonesia', value: 'indonesia' },
 ];
 
 initialState = {

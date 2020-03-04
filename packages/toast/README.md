@@ -12,7 +12,6 @@ initialState = {
   <button
     type="button"
     className="hawk-button"
-    property="light"
     onClick={() => {
       setState({ isToast: state.isToast });
     }}
