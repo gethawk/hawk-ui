@@ -28,6 +28,24 @@ export default class Dropdown extends Component {
     shouldDropdownShow: false,
   };
 
+  componentDidMount() {
+    document.addEventListener('click', this.onClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClick, false);
+  }
+
+  onClick = (event) => {
+    const element = document.getElementById('hawk-dropdown__menu');
+
+    if (event.target.contains(element)) {
+      this.setState({
+        shouldDropdownShow: false,
+      });
+    }
+  }
+
   render() {
     const { title, isIcon, suggestions, renderSuggestion, selectValue } = this.props;
 
@@ -53,6 +71,7 @@ export default class Dropdown extends Component {
             className={getClassnames('hawk-dropdown__menu', {
               'hawk-dropdown__menu-transform': _.isEmpty(title),
             })}
+            id="hawk-dropdown__menu"
             x-placement="bottom-start"
           >
             {_.map(suggestions, (item, index) => (
