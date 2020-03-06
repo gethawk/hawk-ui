@@ -20,25 +20,22 @@ initialState = {
 
 <div className="styleguidist__btns-wrap">
   <Table
-    tableHeaderItem={tableHeader}
-    tableContentItem={state.searchContent.map(content => <tr><td>{content.company}</td><td>{content.contact}</td><td>{content.country}</td></tr>)}
-    pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
-    itemsCountPerPage={PAGE_SIZE}
-    totalItemsCount={TOTAL_RESULTS}
-    onPaginationChange={(pageNumber) => {
-      setState({ activePage: pageNumber });
-    }}
-    onSearch={(value) => {
-      const searchValue = value.toLowerCase();
-
-      const searchContent = tableContent.filter(content => (
-        content['company'].toLowerCase().indexOf(searchValue) !== -1 || !searchValue ||
-        content['contact'].toLowerCase().indexOf(searchValue) !== -1 || !searchValue ||
-        content['country'].toLowerCase().indexOf(searchValue) !== -1 || !searchValue
-      ));
-
-      setState({ searchContent });
-    }}
-  />
+    tableContent={state.searchContent}
+    tableRenderContent={['company', 'contact', 'country']}
+    tableSearchContent={['company', 'contact', 'country']}
+  >
+    <Table.SEARCH />
+    <Table.CONTENT
+      tableHeader={tableHeader}
+    />
+    <Table.PAGINATION
+      pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
+      itemsCountPerPage={PAGE_SIZE}
+      totalItemsCount={TOTAL_RESULTS}
+      onPaginationChange={(pageNumber) => {
+        setState({ activePage: pageNumber });
+      }}
+    />
+  </Table>
 </div>
 ```
