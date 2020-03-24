@@ -14,7 +14,6 @@ initialState = {
       isModalOpen={state.isModalWithCloseButton}
       isCloseOption
       type="dark"
-      title="Modal Title"
       position="center"
       onKeyDown={(event) => {
         setState({ isModalWithCloseButton: false });
@@ -23,7 +22,10 @@ initialState = {
         setState({ isModalWithCloseButton: false });
       }}
     >
-      <span>Modal Box</span>
+      <div>
+        <div style={{ fontSize: '24px', fontWeight: '500', color: '#555555' }}>Title</div>
+        <div style={{ marginTop: '20px' }}>Modal Box</div>
+      </div>
     </Modal>
     <button
       type="button"
@@ -42,7 +44,6 @@ initialState = {
     <Modal
       isModalOpen={state.isModalWithoutCloseButton}
       type="light"
-      title="Modal Title"
       position="center"
       onKeyDown={(event) => {
         setState({ isModalWithoutCloseButton: false });
@@ -51,7 +52,10 @@ initialState = {
         setState({ isModalWithoutCloseButton: false });
       }}
     >
-      <span>Modal Box</span>
+      <div>
+        <div style={{ fontSize: '24px', fontWeight: '500', color: '#555555' }}>Title</div>
+        <div style={{ marginTop: '20px' }}>Modal Box</div>
+      </div>
     </Modal>
     <button
       type="button"

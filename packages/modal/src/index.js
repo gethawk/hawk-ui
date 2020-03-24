@@ -12,7 +12,6 @@ import './index.scss';
  */
 export default class Modal extends Component {
   static propTypes = {
-    title: PropTypes.string,
     isCloseOption: PropTypes.bool,
     onKeyDown: PropTypes.func,
     onModalClose: PropTypes.func,
@@ -53,7 +52,7 @@ export default class Modal extends Component {
   }
 
   render() {
-    const { title, onModalClose, children, type, isCloseOption, isModalOpen } = this.props;
+    const { onModalClose, children, type, isCloseOption, isModalOpen } = this.props;
 
     return (
       <div
@@ -66,9 +65,6 @@ export default class Modal extends Component {
           id="hawk-modal__content"
         >
           <div className="hawk-modal__content-header">
-            {title ? (
-              <div className="hawk-modal__content-header__title">Hello</div>
-            ) : null}
             {isCloseOption ? (
               <span
                 className="hawk-modal__content-header__close"
