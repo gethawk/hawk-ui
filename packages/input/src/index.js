@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassNames from 'classnames';
+import _ from 'lodash';
 // utility modules
 import { keyCodes } from '../../../constants';
 // css modules
@@ -19,6 +20,7 @@ export default class Input extends Component {
     ]),
     readOnly: PropTypes.bool,
     label: PropTypes.string,
+    description: PropTypes.string,
     isRequired: PropTypes.bool,
     errorMessage: PropTypes.string,
     isTextarea: PropTypes.bool,
@@ -99,7 +101,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { type, readOnly, label, isRequired, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { type, readOnly, label, description, isRequired, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
 
     return (
       <Fragment>
@@ -142,9 +144,12 @@ export default class Input extends Component {
             {...(isDisabled ? { disabled: 'true' } : {})}
           />
         )}
-        {isRequired ? (
+        {!_.isEmpty(description) && (
+          <div className="hawk-input__description">{description}</div>
+        )}
+        {isRequired && (
           <span className="hawk-input__error-message">{errorMessage}</span>
-        ) : null}
+        )}
       </Fragment>
     );
   }

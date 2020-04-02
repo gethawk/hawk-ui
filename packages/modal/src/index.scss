@@ -45,11 +45,16 @@
     border-radius: 4px;
     &-header {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       &__close {
         font-size: 20px;
         font-weight: 500;
         cursor: pointer;
+        color: $gray-1;
+      }
+      &__title {
+        font-size: 24px;
+        font-weight: 500;
         color: $gray-1;
       }
     }

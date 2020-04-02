@@ -38,12 +38,17 @@
   }
   &__label {
     font-size: $standard-font-size;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 5px;
     display: inline-block;
+    color: $blue-4;
     span {
       color: $red-1;
     }
+  }
+  &__description {
+    font-size: $standard-font-size;
+    color: $blue-4;
   }
   &__error {
     border-color: $red-1;

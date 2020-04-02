@@ -14,6 +14,7 @@ initialState = {
       isModalOpen={state.isModalWithCloseButton}
       isCloseOption
       type="dark"
+      title="Modal Title"
       position="center"
       onKeyDown={(event) => {
         setState({ isModalWithCloseButton: false });
@@ -23,7 +24,6 @@ initialState = {
       }}
     >
       <div>
-        <div style={{ fontSize: '24px', fontWeight: '500', color: '#555555' }}>Title</div>
         <div style={{ marginTop: '20px' }}>Modal Box</div>
       </div>
     </Modal>

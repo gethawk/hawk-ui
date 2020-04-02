@@ -19,6 +19,7 @@ initialState = {
       alert(value);
     }}
     placeholder="Enter Username"
+    description="This is user input"
   />
   <br /><br />
   <p>With Label and With Required</p>

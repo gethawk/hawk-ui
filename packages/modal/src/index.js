@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+import _ from 'lodash';
 // utility modules
 import { keyCodes } from '../../../constants';
 // css modules
@@ -12,6 +13,7 @@ import './index.scss';
  */
 export default class Modal extends Component {
   static propTypes = {
+    title: PropTypes.string,
     isCloseOption: PropTypes.bool,
     onKeyDown: PropTypes.func,
     onModalClose: PropTypes.func,
@@ -52,7 +54,7 @@ export default class Modal extends Component {
   }
 
   render() {
-    const { onModalClose, children, type, isCloseOption, isModalOpen } = this.props;
+    const { title, onModalClose, children, type, isCloseOption, isModalOpen } = this.props;
 
     return (
       <div
@@ -65,6 +67,7 @@ export default class Modal extends Component {
           id="hawk-modal__content"
         >
           <div className="hawk-modal__content-header">
+            <div className="hawk-modal__content-header__title">{_.isString(title) ? title : null}</div>
             {isCloseOption ? (
               <span
                 className="hawk-modal__content-header__close"
