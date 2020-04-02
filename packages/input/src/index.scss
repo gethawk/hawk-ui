@@ -47,8 +47,9 @@
     }
   }
   &__description {
-    font-size: $standard-font-size;
-    color: $blue-4;
+    font-size: 12px;
+    margin-top: 6px;
+    color: $blue-5;
   }
   &__error {
     border-color: $red-1;
