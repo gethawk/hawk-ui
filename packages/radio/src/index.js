@@ -10,7 +10,8 @@ class RadioContent extends Component {
   static propTypes = {
     index: PropTypes.number,
     value: PropTypes.string,
-    selected: PropTypes.string,
+    label: PropTypes.string,
+    selectedItem: PropTypes.string,
     checked: PropTypes.bool,
     onChange: PropTypes.func,
     isError: PropTypes.bool,
@@ -18,14 +19,14 @@ class RadioContent extends Component {
   state = {};
 
   render() {
-    const { index, value, selected, checked, onChange, isError } = this.props;
+    const { index, value, label, selectedItem, checked, onChange, isError } = this.props;
 
     return (
       <label
         className="hawk-radio"
         key={index}
       >
-        <span className="hawk-radio__label">{value}</span>
+        <span className="hawk-radio__label">{label}</span>
         <input
           type="radio"
           value={value}
@@ -35,7 +36,7 @@ class RadioContent extends Component {
         <span
           className={getClassnames('hawk-radio__checkmark', {
             'hawk-radio__checkmark-error': !isError,
-            'hawk-radio__error': (isError && _.isEmpty(selected)),
+            'hawk-radio__error': (isError && _.isEmpty(selectedItem)),
           })}
         />
       </label>
@@ -64,7 +65,7 @@ class RadioError extends Component {
 export default class Radio extends Component {
   static propTypes = {
     options: PropTypes.array,
-    selected: PropTypes.string,
+    selectedItem: PropTypes.string,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     onChange: PropTypes.func,
@@ -72,7 +73,7 @@ export default class Radio extends Component {
   state = {};
 
   render() {
-    const { options, selected, isError, errorMessage, onChange } = this.props;
+    const { options, selectedItem, isError, errorMessage, onChange } = this.props;
 
     return (
       <Fragment>
@@ -80,15 +81,16 @@ export default class Radio extends Component {
           {_.map(options, (item, index) => (
             <RadioContent
               index={index}
-              value={item}
-              selected={selected}
-              checked={item === selected}
+              value={item.value}
+              label={item.label}
+              selectedItem={selectedItem}
+              checked={item.value === selectedItem}
               onChange={onChange}
               isError={isError}
             />
           ))}
         </div>
-        {isError && _.isEmpty(selected) ? (
+        {isError && _.isEmpty(selectedItem) ? (
           <RadioError
             errorMessage={errorMessage}
           />

@@ -13,6 +13,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  &__label {
+    text-transform: capitalize;
+  }
   &__content {
     display: flex;
     justify-content: space-between;

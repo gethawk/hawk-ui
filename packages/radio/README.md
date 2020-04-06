@@ -2,8 +2,14 @@
 
 ```js
 initialState = {
-  fruits: ['apple', 'mango', 'banana', 'orange', 'pineapple'],
-  selected: '',
+  fruits: [
+    { key: 1, label: 'apple', value: 'apple' },
+    { key: 1, label: 'mango', value: 'mango' },
+    { key: 1, label: 'banana', value: 'banana' },
+    { key: 1, label: 'orange', value: 'orange' },
+    { key: 1, label: 'pineapple', value: 'pineapple' },
+  ],
+  selectedItem: '',
 };
 
 <div className="styleguidist__btns-wrap">
@@ -11,10 +17,10 @@ initialState = {
   <br /><br />
   <Radio
     options={state.fruits}
-    selected={state.selected}
+    selectedItem={state.selectedItem}
     onChange={(event) => {
       setState({
-        selected: event.target.value
+        selectedItem: event.target.value
       });
     }}
   />
@@ -23,13 +29,13 @@ initialState = {
   <br /><br />
   <Radio
     options={state.fruits}
-    selected={state.selected}
+    selectedItem={state.selectedItem}
     onChange={(event) => {
       setState({
-        selected: event.target.value
+        selectedItem: event.target.value
       });
     }}
-    isError={!state.isChecked}
+    isError
     errorMessage="This field is a compulsory field."
   />
 </div>

@@ -14,13 +14,13 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  text-transform: capitalize;
   &__content {
     display: flex;
     justify-content: space-between;
   }
   &__label {
     margin-top: -2px;
+    text-transform: capitalize;
   }
   a {
     text-decoration: none;

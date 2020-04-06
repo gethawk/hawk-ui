@@ -10,22 +10,23 @@ class CheckboxContent extends Component {
   static propTypes = {
     index: PropTypes.number,
     value: PropTypes.string,
+    label: PropTypes.string,
     checked: PropTypes.bool,
     onChange: PropTypes.func,
     isError: PropTypes.bool,
-    checkboxes: PropTypes.array,
+    selectedItem: PropTypes.array,
   };
   state = {};
 
   render() {
-    const { index, value, checked, onChange, isError, checkboxes } = this.props;
+    const { index, value, label, checked, onChange, isError, selectedItem } = this.props;
 
     return (
       <label
         className="hawk-checkbox"
         key={index}
       >
-        <span className="hawk-checkbox__label">{value}</span>
+        <span className="hawk-checkbox__label">{label}</span>
         <input
           type="checkbox"
           value={value}
@@ -35,7 +36,7 @@ class CheckboxContent extends Component {
         <span
           className={getClassnames('hawk-checkbox__checkmark', {
             'hawk-checkbox__checkmark-error': !isError,
-            'hawk-checkbox__error': (isError && !_.find(checkboxes, 'isChecked')),
+            'hawk-checkbox__error': (isError && _.isEmpty(selectedItem)),
           })}
         />
       </label>
@@ -63,7 +64,8 @@ class CheckboxError extends Component {
  */
 export default class Checkbox extends Component {
   static propTypes = {
-    checkboxes: PropTypes.array,
+    options: PropTypes.array,
+    selectedItem: PropTypes.array,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     onChange: PropTypes.func,
@@ -71,23 +73,32 @@ export default class Checkbox extends Component {
   state = {};
 
   render() {
-    const { checkboxes, isError, errorMessage, onChange } = this.props;
+    const { options, selectedItem, isError, errorMessage, onChange } = this.props;
 
     return (
       <Fragment>
         <div className="hawk-checkbox__content">
-          {_.map(checkboxes, (item, index) => (
-            <CheckboxContent
-              checkboxes={checkboxes}
-              index={index}
-              value={item.value}
-              checked={item.isChecked}
-              onChange={onChange}
-              isError={isError}
-            />
-          ))}
+          {_.map(options, (item, index) => {
+            let checked = false;
+
+            if (selectedItem && selectedItem.length > 0) {
+              checked = selectedItem.indexOf(item.value) > -1;
+            }
+
+            return (
+              <CheckboxContent
+                index={index}
+                label={item.label}
+                value={item.value}
+                selectedItem={selectedItem}
+                checked={checked}
+                onChange={onChange}
+                isError={isError}
+              />
+            );
+          })}
         </div>
-        {isError && !_.find(checkboxes, 'isChecked') ? (
+        {isError && _.isEmpty(selectedItem) ? (
           <CheckboxError
             errorMessage={errorMessage}
           />
