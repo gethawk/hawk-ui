@@ -18,29 +18,28 @@
     border-collapse: collapse;
     margin: 10px 0;
     thead tr {
-      background-color: $blue-2;
+      border: 1px solid $gray-5;
+      background-color: $gray-6;
     }
     tbody tr {
+      border: 1px solid $gray-5;
       &:hover {
-        background-color: $blue-2;
+        background-color: $gray-6;
       }
     }
     th {
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 500;
+      color: $blue-4;
+      padding: 8px;
+      text-align: left;
     }
-  }
-
-  td, th {
-    border: 1px solid $blue-2;
-    text-align: left;
-    padding: 8px;
-    font-size: 15px;
-    cursor: pointer;
-  }
-
-  tr:nth-child(even) {
-    background-color: $blue-2;
+    td {
+      font-size: 14px;
+      color: $blue-4;
+      text-align: left;
+      padding: 12px 8px;
+    }
   }
 
   .hawk-pagination {
