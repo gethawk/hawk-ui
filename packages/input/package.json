@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/input",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "hawk-ui: Basic Input Component",
   "main": "dist/index.min.js",
   "scripts": {
