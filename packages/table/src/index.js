@@ -89,14 +89,16 @@ class TableContent extends Component {
         <thead>
           <tr>
             {_.map(tableHeader, (item, index) => (
-              <th key={index}>{item}</th>
+              <th key={index}>{item.title}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {_.map(this.context.tableContent, (content, index) => (
             <tr key={index}>
-              {_.map(this.context.tableRenderContent, (item) => <td>{content[item]}</td>)}
+              {_.map(tableHeader, (item) => (
+                !_.isEmpty(item.dataIndex) ? <td>{content[item.dataIndex]}</td> : <td>{item.render(content)}</td>
+              ))}
             </tr>
           ))}
         </tbody>
@@ -116,7 +118,6 @@ export default class Table extends Component {
       PropTypes.array,
       PropTypes.object,
     ]),
-    tableRenderContent: PropTypes.array,
     tableSearchContent: PropTypes.array,
     onSearch: PropTypes.func,
   };
@@ -132,7 +133,6 @@ export default class Table extends Component {
 
     this.state = {
       tableContent: this.props.tableContent,
-      tableRenderContent: this.props.tableRenderContent,
       onSearch: this.onSearch,
     };
   }

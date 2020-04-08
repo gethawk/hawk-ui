@@ -1,7 +1,12 @@
 #### Basic Table Usage:
 
 ```js
-const tableHeader = ['Company', 'Contact', 'Country'];
+const tableHeader = [
+  { key: 'company', title: 'Company', dataIndex: 'company' },
+  { key: 'contact', title: 'Contact', dataIndex: 'contact' },
+  { key: 'country', title: 'Country', dataIndex: 'country' },
+  { key: 'action', title: 'Action', dataIndex: '', render: (event) => <span onClick={() => { console.log(event); }} style={{ cursor: 'pointer' }}>Delete</span> },
+];
 
 const tableContent = [
   { 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders', 'country': 'Germany' },
@@ -21,7 +26,6 @@ initialState = {
 <div className="styleguidist__btns-wrap">
   <Table
     tableContent={state.searchContent}
-    tableRenderContent={['company', 'contact', 'country']}
     tableSearchContent={['company', 'contact', 'country']}
   >
     <Table.SEARCH />
