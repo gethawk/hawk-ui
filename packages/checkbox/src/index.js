@@ -64,20 +64,26 @@ class CheckboxError extends Component {
  */
 export default class Checkbox extends Component {
   static propTypes = {
+    className: PropTypes.string,
     options: PropTypes.array,
     selectedItem: PropTypes.array,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     onChange: PropTypes.func,
   };
+  static defaultProps = {
+    className: null,
+  }
   state = {};
 
   render() {
-    const { options, selectedItem, isError, errorMessage, onChange } = this.props;
+    const { className, options, selectedItem, isError, errorMessage, onChange } = this.props;
 
     return (
       <Fragment>
-        <div className="hawk-checkbox__content">
+        <div
+          className={`hawk-checkbox__content${!_.isNull(className) ? ` ${className}` : ''}`}
+        >
           {_.map(options, (item, index) => {
             let checked = false;
 
