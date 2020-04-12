@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/loader",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "hawk-ui: Basic Loader Component",
   "main": "dist/index.min.js",
   "scripts": {
