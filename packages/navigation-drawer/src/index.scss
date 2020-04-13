@@ -62,9 +62,10 @@
         color: $gray-1;
       }
       &__title {
-        font-size: 24px;
+        font-size: 16px;
         font-weight: 500;
         color: $gray-1;
+        text-transform: capitalize;
       }
     }
     &-body {
