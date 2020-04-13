@@ -68,7 +68,7 @@ export default class NavigationDrawer extends Component {
         >
           <div className="hawk-navigation-drawer__content-header">
             {title ? (
-              <div className="hawk-navigation-drawer__content-header__title">Hello</div>
+              <div className="hawk-navigation-drawer__content-header__title">{title}</div>
             ) : null}
             {isCloseOption ? (
               <span
