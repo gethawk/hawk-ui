@@ -65,6 +65,32 @@
     background-color: $gray-3;
     cursor: not-allowed;
   }
+  &__wrapper {
+    position: relative;
+    .hawk-tooltip {
+      display: block;
+      &__content-top {
+        left: unset;
+        right: -38px;
+        margin-left: 0;
+      }
+    }
+  }
+  &__copy {
+    &-icon {
+      cursor: pointer;
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      opacity: .8;
+      margin: -3px;
+      -webkit-transition: opacity .1s ease;
+      transition: opacity .1s ease;
+    }
+    &-text {
+      padding: 4px 35px 4px 10px;
+    }
+  }
 }
 
 .hawk-textarea {

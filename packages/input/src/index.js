@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassNames from 'classnames';
 import _ from 'lodash';
+import Tooltip from '@hawk-ui/tooltip';
 // utility modules
 import { keyCodes } from '../../../constants';
 // css modules
@@ -21,6 +22,7 @@ export default class Input extends Component {
     readOnly: PropTypes.bool,
     label: PropTypes.string,
     description: PropTypes.string,
+    isCopyable: PropTypes.bool,
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
@@ -40,6 +42,7 @@ export default class Input extends Component {
     htmlAttributes: {},
     type: 'text',
     readOnly: false,
+    isCopyable: false,
     onBlur: () => {},
     onFocus: () => {},
     onEnter: () => {},
@@ -47,6 +50,7 @@ export default class Input extends Component {
   };
   state = {
     value: this.props.value,
+    isCopied: false,
   };
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.state.value) {
@@ -63,6 +67,16 @@ export default class Input extends Component {
     } else {
       this.setState({ value: e.target.value });
     }
+  }
+  onCopy = () => {
+    const copyText = document.getElementById('hawk-input');
+
+    copyText.select();
+    copyText.setSelectionRange(0, 999999999999999);
+    document.execCommand('copy');
+    this.setState({
+      isCopied: true,
+    });
   }
   onKeyDown = (e) => {
     if (this.props.isDisabled) {
@@ -102,7 +116,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { type, readOnly, label, description, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { type, readOnly, label, description, isCopyable, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
 
     return (
       <Fragment>
@@ -127,23 +141,41 @@ export default class Input extends Component {
             {...(isDisabled ? { disabled: 'true' } : {})}
           />
         ) : (
-          <input
-            {...htmlAttributes}
-            ref={(node) => { this.fieldNode = node; }}
-            type={type}
-            readOnly={readOnly}
-            className={getClassNames('hawk-input', className, {
-              'hawk-input__disabled': isDisabled,
-              'hawk-input__error': isError,
-            })}
-            value={this.state.value}
-            placeholder={placeholder}
-            onChange={this.onChange}
-            onKeyDown={this.onKeyDown}
-            onBlur={this.onBlur}
-            onFocus={this.onFocus}
-            {...(isDisabled ? { disabled: 'true' } : {})}
-          />
+          <div className="hawk-input__wrapper">
+            {isCopyable && (
+              <Tooltip
+                content={this.state.isCopied ? 'Copied' : 'Copy'}
+                position="top"
+                onmouseout={() => { this.setState({ isCopied: false }); }}
+              >
+                <i
+                  className={getClassNames('fa fa-copy', {
+                    'hawk-input__copy-icon': isCopyable,
+                  })}
+                  onClick={() => { this.onCopy(); }}
+                />
+              </Tooltip>
+            )}
+            <input
+              {...htmlAttributes}
+              ref={(node) => { this.fieldNode = node; }}
+              type={type}
+              readOnly={readOnly}
+              id="hawk-input"
+              className={getClassNames('hawk-input', className, {
+                'hawk-input__copy-text': isCopyable,
+                'hawk-input__disabled': isDisabled,
+                'hawk-input__error': isError,
+              })}
+              value={this.state.value}
+              placeholder={placeholder}
+              onChange={this.onChange}
+              onKeyDown={this.onKeyDown}
+              onBlur={this.onBlur}
+              onFocus={this.onFocus}
+              {...(isDisabled ? { disabled: 'true' } : {})}
+            />
+          </div>
         )}
         {!_.isEmpty(description) && (
           <div className="hawk-input__description">{description}</div>

@@ -9,6 +9,7 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
+    "@hawk-ui/tooltip": "^1.4.5",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",

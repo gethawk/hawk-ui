@@ -10,6 +10,8 @@ initialState = {
   <br /><br />
   <Input
     type="text"
+    value={state.value}
+    isCopyable
     onChange={(value) => {
       setState({
         value,
