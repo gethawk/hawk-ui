@@ -23,6 +23,7 @@ export default class Input extends Component {
     label: PropTypes.string,
     description: PropTypes.string,
     isCopyable: PropTypes.bool,
+    isPasswordVisible: PropTypes.bool,
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
@@ -49,6 +50,7 @@ export default class Input extends Component {
     onEscape: () => {},
   };
   state = {
+    type: this.props.type,
     value: this.props.value,
     isCopied: false,
   };
@@ -77,6 +79,13 @@ export default class Input extends Component {
     this.setState({
       isCopied: true,
     });
+  }
+  onPasswordVisible = () => {
+    if (this.state.type === 'password') {
+      this.setState({ type: 'text' });
+    } else {
+      this.setState({ type: 'password' });
+    }
   }
   onKeyDown = (e) => {
     if (this.props.isDisabled) {
@@ -116,7 +125,8 @@ export default class Input extends Component {
   }
 
   render() {
-    const { type, readOnly, label, description, isCopyable, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { readOnly, label, description, isCopyable, isPasswordVisible, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { type } = this.state;
 
     return (
       <Fragment>
@@ -156,6 +166,16 @@ export default class Input extends Component {
                 />
               </Tooltip>
             )}
+            {isPasswordVisible && (
+              <i
+                className={getClassNames('fa', {
+                  'fa-eye': type === 'password',
+                  'fa-eye-slash': type === 'text',
+                  'hawk-input__copy-icon': isPasswordVisible,
+                })}
+                onClick={() => { this.onPasswordVisible(); }}
+              />
+            )}
             <input
               {...htmlAttributes}
               ref={(node) => { this.fieldNode = node; }}
@@ -163,7 +183,7 @@ export default class Input extends Component {
               readOnly={readOnly}
               id="hawk-input"
               className={getClassNames('hawk-input', className, {
-                'hawk-input__copy-text': isCopyable,
+                'hawk-input__copy-text': isCopyable || isPasswordVisible,
                 'hawk-input__disabled': isDisabled,
                 'hawk-input__error': isError,
               })}

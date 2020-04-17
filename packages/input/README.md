@@ -11,7 +11,6 @@ initialState = {
   <Input
     type="text"
     value={state.value}
-    isCopyable
     onChange={(value) => {
       setState({
         value,
@@ -22,6 +21,40 @@ initialState = {
     }}
     placeholder="Enter Username"
     description="This is user input"
+  />
+  <br /><br />
+  <p>With Copy</p>
+  <br /><br />
+  <Input
+    type="text"
+    value={state.value}
+    isCopyable
+    onChange={(value) => {
+      setState({
+        value,
+      });
+    }}
+    onEnter={(value) => {
+      alert(value);
+    }}
+    placeholder="Enter Username"
+  />
+  <br /><br />
+  <p>With Copy</p>
+  <br /><br />
+  <Input
+    type="password"
+    value={state.value}
+    isPasswordVisible
+    onChange={(value) => {
+      setState({
+        value,
+      });
+    }}
+    onEnter={(value) => {
+      alert(value);
+    }}
+    placeholder="Enter Username"
   />
   <br /><br />
   <p>With Label and With Required</p>
