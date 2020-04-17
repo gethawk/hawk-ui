@@ -24,36 +24,43 @@ export default class Dropdown extends Component {
   static defaultProps = {
     renderSuggestion: () => ('render suggestion'),
   }
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
   state = {
     shouldDropdownShow: false,
   };
 
   componentDidMount() {
-    document.addEventListener('click', this.onClick, false);
+    document.addEventListener('click', this.onClick);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.onClick, false);
+    document.removeEventListener('click', this.onClick);
   }
 
   onClick = (event) => {
-    const element = document.getElementById('hawk-dropdown__menu');
-
-    if (event.target.contains(element)) {
-      this.setState({
-        shouldDropdownShow: false,
-      });
+    if (this.myRef.current.contains(event.target)) {
+      return;
     }
+    this.setState({
+      shouldDropdownShow: false,
+    });
   }
 
   render() {
     const { title, isIcon, suggestions, renderSuggestion, selectValue } = this.props;
 
     return (
-      <div className="hawk-dropdown">
+      <div ref={this.myRef} className="hawk-dropdown">
         <Button
           className="hawk-dropdown__button"
-          onClick={() => { this.setState({ shouldDropdownShow: !this.state.shouldDropdownShow }); }}
+          onClick={() => {
+            this.setState({
+              shouldDropdownShow: !this.state.shouldDropdownShow,
+            });
+          }}
         >
           {title ? (
             <span

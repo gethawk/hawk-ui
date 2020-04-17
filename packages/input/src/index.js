@@ -22,6 +22,7 @@ export default class Input extends Component {
     label: PropTypes.string,
     description: PropTypes.string,
     isRequired: PropTypes.bool,
+    isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     isTextarea: PropTypes.bool,
     className: PropTypes.string,
@@ -101,7 +102,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { type, readOnly, label, description, isRequired, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { type, readOnly, label, description, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
 
     return (
       <Fragment>
@@ -114,7 +115,7 @@ export default class Input extends Component {
             ref={(node) => { this.fieldNode = node; }}
             className={getClassNames('hawk-textarea', className, {
               'hawk-textarea__disabled': isDisabled,
-              'hawk-textarea__error': isRequired,
+              'hawk-textarea__error': isError,
             })}
             value={this.state.value}
             readOnly={readOnly}
@@ -133,7 +134,7 @@ export default class Input extends Component {
             readOnly={readOnly}
             className={getClassNames('hawk-input', className, {
               'hawk-input__disabled': isDisabled,
-              'hawk-input__error': isRequired,
+              'hawk-input__error': isError,
             })}
             value={this.state.value}
             placeholder={placeholder}
@@ -147,7 +148,7 @@ export default class Input extends Component {
         {!_.isEmpty(description) && (
           <div className="hawk-input__description">{description}</div>
         )}
-        {isRequired && (
+        {isError && (
           <span className="hawk-input__error-message">{errorMessage}</span>
         )}
       </Fragment>

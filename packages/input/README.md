@@ -37,6 +37,7 @@ initialState = {
     placeholder="Enter Username"
     label="Username"
     isRequired
+    isError
     errorMessage="This field is a compulsory field."
   />
   <br /><br /><br />
