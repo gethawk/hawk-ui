@@ -33,14 +33,35 @@ export default class SelectDropdown extends Component {
       'Select Item'
     ),
   }
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
   state = {
     selectedIndex: -1,
     shouldDropdownShow: false,
   };
 
+  componentDidMount() {
+    document.addEventListener('click', this.onClick);
+  }
+
   componentWillReceiveProps() {
     this.setState({
       selectedIndex: -1,
+    });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClick);
+  }
+
+  onClick = (event) => {
+    if (this.myRef.current.contains(event.target)) {
+      return;
+    }
+    this.setState({
+      shouldDropdownShow: false,
     });
   }
 
@@ -86,7 +107,7 @@ export default class SelectDropdown extends Component {
     const { isInput, isIcon, suggestions, renderSuggestion, onSuggestionSelect, onSearch, searchValue, renderSelectedItem, placeholder } = this.props;
 
     return (
-      <div className="hawk-select-dropdown">
+      <div ref={this.myRef} className="hawk-select-dropdown">
         {isInput ? (
           <div
             onClick={() => { this.setState({ shouldDropdownShow: !this.state.shouldDropdownShow }); }}
