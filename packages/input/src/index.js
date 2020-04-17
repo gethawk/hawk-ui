@@ -166,7 +166,7 @@ export default class Input extends Component {
                 />
               </Tooltip>
             )}
-            {isPasswordVisible && (
+            {(isPasswordVisible && !_.isEmpty(this.state.value)) && (
               <i
                 className={getClassNames('fa', {
                   'fa-eye': type === 'password',
