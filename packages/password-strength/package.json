@@ -1,16 +1,15 @@
 {
-  "name": "@hawk-ui/select-dropdown",
+  "name": "@hawk-ui/password-strength",
   "version": "1.4.10",
-  "description": "hawk-ui: Basic Select Dropdown Component",
+  "description": "hawk-ui: Basic Password Strength Component",
   "main": "dist/index.min.js",
   "scripts": {
-    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=select-dropdown"
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=password-strength"
   },
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
     "@hawk-ui/input": "^1.4.10",
-    "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
