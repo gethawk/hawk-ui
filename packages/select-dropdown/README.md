@@ -1,4 +1,4 @@
-#### Basic Select Dropdown Usage:
+#### Basic Tags Input Usage:
 
 ```js
 const suggestions = [
@@ -27,34 +27,20 @@ initialState = {
 <div className="styleguidist__btns-wrap">
   <SelectDropdown
     suggestions={state.suggestionContent}
-    renderSuggestion={(suggestion) => suggestion.title}
-    renderSelectedItem={() => (
-      state.selectedItem ? state.selectedItem : 'Select anyone'
-    )}
-    onSuggestionSelect={(item, meta) => { setState({ selectedItem: item.title }); }}
-  />
-  <br />
-  <br />
-  <br />
-  <SelectDropdown
-    suggestions={state.suggestionContent}
-    isInput
     isIcon
     placeholder="Select anyone"
     searchValue={state.searchValue}
+    onChange={(value) => {
+      setState({
+        searchValue: value,
+      })
+    }}
+    searchContent={['title']}
     renderSuggestion={(suggestion) => suggestion.title}
     onSuggestionSelect={(item, meta) => {
       setState({ selectedItem: item.title, searchValue: item.title });
     }}
-    onSearch={(value) => {
-      const searchValue = value.toLowerCase();
-
-      const suggestionContent = suggestions.filter(content => (
-        content['title'].toLowerCase().indexOf(searchValue) !== -1 || !searchValue
-      ));
-
-      setState({ suggestionContent, searchValue: value });
-    }}
+    messageIfEmpty="No Item Found"
   />
 </div>
 ```

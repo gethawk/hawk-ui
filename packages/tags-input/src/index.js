@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // react modules
-import _ from 'lodash';
 import Suggestions from '@hawk-ui/suggestions';
 // css modules
 import './index.scss';
