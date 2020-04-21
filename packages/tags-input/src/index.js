@@ -109,7 +109,6 @@ export default class TagsInput extends Component {
               }}
               ref={(ref) => { this.inputInstance = ref; }}
               onKeyDown={(event) => {
-                console.log('query event', event);
                 if (event.keyCode === keyCodes.BACKSPACE) {
                   if (_.isEmpty(this.props.searchValue)) {
                     const index = this.props.tags.length - 1;

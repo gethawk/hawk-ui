@@ -51,7 +51,6 @@ initialState = {
       }
     }}
     onRemoveTag={(item, index, meta) => {
-      console.log('query onRemoveTag', item, index, meta);
       setState({
         selectedItem: state.selectedItem.filter((item, i) => i !== index),
       });
