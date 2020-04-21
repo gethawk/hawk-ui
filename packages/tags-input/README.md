@@ -20,14 +20,13 @@ const suggestions = [
 
 initialState = {
   suggestionContent: suggestions,
-  selectedItem: '',
+  selectedItem: [],
   searchValue: '',
 };
 
 <div className="styleguidist__btns-wrap">
   <TagsInput
     suggestions={state.suggestionContent}
-    isIcon
     placeholder="Select anyone"
     searchValue={state.searchValue}
     onChange={(value) => {
@@ -37,10 +36,28 @@ initialState = {
     }}
     searchContent={['title']}
     renderSuggestion={(suggestion) => suggestion.title}
-    onSuggestionSelect={(item, meta) => {
-      setState({ selectedItem: item.title, searchValue: item.title });
-    }}
     messageIfEmpty="No Item Found"
+    onAddTag={(item, meta) => {
+      if (meta.isSuggestion) {
+        setState(prevState => ({
+          selectedItem: [...prevState.selectedItem, item.value],
+          searchValue: '',
+        }));
+      } else {
+        setState(prevState => ({
+          selectedItem: [...prevState.selectedItem, item],
+          searchValue: '',
+        }));
+      }
+    }}
+    onRemoveTag={(item, index, meta) => {
+      console.log('query onRemoveTag', item, index, meta);
+      setState({
+        selectedItem: state.selectedItem.filter((item, i) => i !== index),
+      });
+    }}
+    tags={state.selectedItem}
+    renderTag={tag => tag}
   />
 </div>
 ```

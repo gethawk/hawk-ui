@@ -11,7 +11,7 @@ import { keyCodes } from '../../../constants';
 import './index.scss';
 
 const SuggestionContext = createContext({
-  onKeyDown: () => {},
+  onHandleKeyDown: () => {},
   onSearch: () => {},
 });
 
@@ -27,6 +27,9 @@ class SuggestionsInput extends Component {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
   };
+  static defaultProps = {
+    onKeyDown: () => {},
+  };
   state = {};
   blur() {
     if (this.inputInstance) {
@@ -40,11 +43,11 @@ class SuggestionsInput extends Component {
   }
 
   render() {
-    const { placeholder, value, onChange } = this.props;
+    const { placeholder, value, onChange, onKeyDown } = this.props;
 
     return (
       <SuggestionContext.Consumer>
-        {({ onKeyDown, onSearch }) => (
+        {({ onHandleKeyDown, onSearch }) => (
           <Input
             type="text"
             ref={(ref) => { this.inputInstance = ref; }}
@@ -56,6 +59,7 @@ class SuggestionsInput extends Component {
             }}
             onKeyDown={(event) => {
               onKeyDown(event);
+              onHandleKeyDown(event);
             }}
           />
         )}
@@ -125,7 +129,7 @@ export default class Suggestions extends Component {
     this.onSearch = (event) => {
       this.onSearchInput(event);
     };
-    this.onKeyDown = (event) => {
+    this.onHandleKeyDown = (event) => {
       this.onSuggestionsInputKeydown(event);
     };
 
@@ -133,7 +137,7 @@ export default class Suggestions extends Component {
       suggestions: this.props.suggestions,
       renderSuggestion: this.props.renderSuggestion,
       selectedIndex: -1,
-      onKeyDown: this.onKeyDown,
+      onHandleKeyDown: this.onHandleKeyDown,
       onSearch: this.onSearch,
     };
   }

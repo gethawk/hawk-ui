@@ -2,7 +2,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // react modules
+import _ from 'lodash';
 import Suggestions from '@hawk-ui/suggestions';
+// utility modules
+import { keyCodes } from '../../../constants';
 // css modules
 import './index.scss';
 
@@ -11,20 +14,25 @@ import './index.scss';
  */
 export default class TagsInput extends Component {
   static propTypes = {
-    isIcon: PropTypes.bool,
     suggestions: PropTypes.oneOfType([
       PropTypes.object,
       PropTypes.array,
     ]),
+    tags: PropTypes.array,
+    renderTag: PropTypes.func,
     searchValue: PropTypes.string,
     searchContent: PropTypes.array,
     placeholder: PropTypes.string,
     renderSuggestion: PropTypes.func,
-    onSuggestionSelect: PropTypes.func,
     messageIfEmpty: PropTypes.string,
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onAddTag: PropTypes.func,
+    onRemoveTag: PropTypes.func,
   };
+  static defaultProps = {
+    renderTag: () => ('render tag'),
+  }
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
@@ -56,7 +64,7 @@ export default class TagsInput extends Component {
   };
 
   render() {
-    const { isIcon, placeholder, onChange, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -67,18 +75,31 @@ export default class TagsInput extends Component {
           searchContent={this.props.searchContent}
           onSuggestionSelect={
             (suggestion, meta) => {
-              onSuggestionSelect(suggestion, meta);
+              onAddTag(suggestion, meta);
               this.setState({ isOpen: false });
             }
           }
         >
           <div
-            className="hawk-tags-input__input"
+            className="hawk-tags-input__wrapper"
             onClick={() => { this.triggerFocus(); }}
           >
-            {isIcon && (
-              <i className="fa fa-sort-down hawk-tags-input__icon" />
-            )}
+            {_.map(tags, (item, index) => (
+              <React.Fragment>
+                {!_.isEmpty(item) && (
+                  <span
+                    className="hawk-tags-input__tag"
+                    key={index}
+                  >
+                    {this.props.renderTag(item)}
+                    <i
+                      className="fa fa-times hawk-tags-input__tag-icon"
+                      onClick={() => { this.props.onRemoveTag(item, index, { isBackspace: false }); }}
+                    />
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
             <Suggestions.INPUT
               value={this.props.searchValue}
               placeholder={placeholder}
@@ -87,14 +108,25 @@ export default class TagsInput extends Component {
                 this.setState({ isOpen: true });
               }}
               ref={(ref) => { this.inputInstance = ref; }}
+              onKeyDown={(event) => {
+                console.log('query event', event);
+                if (event.keyCode === keyCodes.BACKSPACE) {
+                  if (_.isEmpty(this.props.searchValue)) {
+                    const index = this.props.tags.length - 1;
+
+                    this.props.onRemoveTag(this.props.tags[index], index, { isBackspace: true });
+                  }
+                }
+              }}
             />
           </div>
           {isOpen && (
             <Suggestions.CONTAINER
               messageIfEmpty={messageIfEmpty}
               onSuggestionClick={(suggestion, meta) => {
-                onSuggestionSelect(suggestion, meta);
                 this.setState({ isOpen: false });
+                onAddTag(suggestion, { ...meta, isSuggestion: true });
+                this.triggerFocus();
               }}
             />
           )}

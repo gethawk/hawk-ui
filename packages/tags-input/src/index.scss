@@ -2,11 +2,12 @@
 
 .hawk-tags-input {
   position: relative;
-  &__input {
+  &__wrapper {
     width: -webkit-fill-available;
-    display: block;
-    height: 25px;
-    padding: 4px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    height: unset;
+    padding: 0 10px;
     font-size: $standard-font-size;
     line-height: 1.42857143;
     color: $gray-1;
@@ -22,6 +23,18 @@
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     cursor: text;
   }
+  &__tag {
+    font-size: 14px;
+    background-color: $gray-6;
+    padding: 2px 13px;
+    border-radius: 14px;
+    margin: 4px;
+    &-icon {
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+  }
   .hawk-input {
     width: unset;
     padding: unset;
@@ -33,21 +46,12 @@
     -o-transition: unset;
     transition: unset;
     &__wrapper {
+      margin: 4px;
       position: unset;
     }
   }
   .hawk-suggestions__wrap {
     position: absolute;
-    transform: translate3d(0px, 36px, 0px);
-  }
-  &__icon {
-    cursor: pointer;
-    position: absolute;
-    right: 16px;
-    top: 9px;
-    opacity: .8;
-    margin: -3px;
-    -webkit-transition: opacity .1s ease;
-    transition: opacity .1s ease;
+    margin-top: 1px;
   }
 }
