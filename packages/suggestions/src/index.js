@@ -49,6 +49,7 @@ class SuggestionsWrap extends Component {
   static displayName = 'SuggestionsWrap';
   static contextType = SuggestionContext;
   static propTypes = {
+    messageIfEmpty: PropTypes.string,
     onSuggestionClick: PropTypes.func,
   };
   state = {};
@@ -56,21 +57,25 @@ class SuggestionsWrap extends Component {
   render() {
     return (
       <div className="hawk-suggestions__wrap">
-        {_.map(_.get(this.context, 'suggestions'), (item, index) => (
-          <div
-            key={index}
-            className={getClassnames('hawk-suggestions__wrap-item', {
-              'hawk-suggestions__wrap-item__selected': this.context.selectedIndex === index,
-            })}
-            onClick={() => {
-              this.props.onSuggestionClick(item, {
-                provider: 'suggestions',
-              });
-            }}
-          >
-            {this.context.renderSuggestion(item)}
-          </div>
-        ))}
+        {!_.isEmpty(_.get(this.context, 'suggestions')) ? (
+          <React.Fragment>
+            {_.map(_.get(this.context, 'suggestions'), (item, index) => (
+              <div
+                key={index}
+                className={getClassnames('hawk-suggestions__wrap-item', {
+                  'hawk-suggestions__wrap-item__selected': this.context.selectedIndex === index,
+                })}
+                onClick={() => {
+                  this.props.onSuggestionClick(item, {
+                    provider: 'suggestions',
+                  });
+                }}
+              >
+                {this.context.renderSuggestion(item)}
+              </div>
+            ))}
+          </React.Fragment>
+        ) : <div className="hawk-suggestions__wrap-message">{this.props.messageIfEmpty}</div>}
       </div>
     );
   }

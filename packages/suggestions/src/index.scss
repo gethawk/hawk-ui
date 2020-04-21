@@ -31,5 +31,16 @@
         background-color: $blue-2;
       }
     }
+    &-message {
+      cursor: default;
+      display: block;
+      padding: 10px;
+      clear: both;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+    }
   }
 }

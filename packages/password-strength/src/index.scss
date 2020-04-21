@@ -10,14 +10,6 @@ progress {
     background-color: #f3f3f3;
     border-radius: 9px;
   }
-  &::-webkit-progress-value {
-    background: #cdeb8e;
-    border-radius: 9px;
-  }
-  &::-moz-progress-bar {
-    background: #cdeb8e;
-    border-radius: 9px;
-  }
   &.danger {
     &::-webkit-progress-value {
       background: $red-1;

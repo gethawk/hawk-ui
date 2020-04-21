@@ -1,0 +1,25 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-tags-input {
+  position: relative;
+  .hawk-input {
+    padding: 4px 35px 4px 10px;
+    &__wrapper {
+      position: unset;
+    }
+  }
+  .hawk-suggestions__wrap {
+    position: absolute;
+    transform: translate3d(0px, 36px, 0px);
+  }
+  &__icon {
+    cursor: pointer;
+    position: absolute;
+    right: 16px;
+    top: 9px;
+    opacity: .8;
+    margin: -3px;
+    -webkit-transition: opacity .1s ease;
+    transition: opacity .1s ease;
+  }
+}

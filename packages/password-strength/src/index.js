@@ -74,12 +74,14 @@ export default class PasswordStrength extends Component {
     const { className } = this.props;
 
     return (
-      <progress
-        className={className}
-        max="100"
-        value="0"
-        id="strength"
-      />
+      <div className="hawk-password-strength">
+        <progress
+          className={className}
+          max="100"
+          value="0"
+          id="strength"
+        />
+      </div>
     );
   }
 }
