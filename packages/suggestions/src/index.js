@@ -12,6 +12,7 @@ import './index.scss';
 
 const SuggestionContext = createContext({
   onKeyDown: () => {},
+  onSearch: () => {},
 });
 
 class SuggestionsInput extends Component {
@@ -19,8 +20,8 @@ class SuggestionsInput extends Component {
   static propTypes = {
     placeholder: PropTypes.string,
     value: PropTypes.string,
-    onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onChange: PropTypes.func,
   };
   state = {};
 
@@ -29,12 +30,15 @@ class SuggestionsInput extends Component {
 
     return (
       <SuggestionContext.Consumer>
-        {({ onKeyDown }) => (
+        {({ onKeyDown, onSearch }) => (
           <Input
             type="text"
             placeholder={placeholder}
             value={value}
-            onChange={onChange}
+            onChange={(event) => {
+              onSearch(event);
+              onChange(event);
+            }}
             onKeyDown={(event) => {
               onKeyDown(event);
             }}
@@ -95,12 +99,17 @@ export default class Suggestions extends Component {
     ]),
     renderSuggestion: PropTypes.func,
     onSuggestionSelect: PropTypes.func,
+    searchContent: PropTypes.array,
+    onSearch: PropTypes.func,
   };
   static INPUT = SuggestionsInput;
   static CONTAINER = SuggestionsWrap;
   constructor(props) {
     super(props);
 
+    this.onSearch = (event) => {
+      this.onSearchInput(event);
+    };
     this.onKeyDown = (event) => {
       this.onSuggestionsInputKeydown(event);
     };
@@ -110,19 +119,27 @@ export default class Suggestions extends Component {
       renderSuggestion: this.props.renderSuggestion,
       selectedIndex: -1,
       onKeyDown: this.onKeyDown,
+      onSearch: this.onSearch,
     };
   }
 
-  componentWillReceiveProps(nextProps, prevProps) {
+  componentWillReceiveProps() {
     this.setState({
       selectedIndex: -1,
     });
-    if (!_.isEqual(nextProps.suggestions, prevProps.suggestions)) {
-      this.setState({
-        suggestions: nextProps.suggestions,
-      });
-    }
   }
+
+  onSearchInput = (event) => {
+    const searchValue = event.toLowerCase();
+
+    const suggestions = _.filter(this.props.suggestions, (content) => _.reduce(this.props.searchContent, (result, key) => {
+      if (content[key].toLowerCase().includes(searchValue)) { return true; }
+
+      return result || false;
+    }, false));
+
+    this.setState({ suggestions });
+  };
 
   onSuggestionsInputKeydown = (event) => {
     switch (event.keyCode) {

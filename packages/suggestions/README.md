@@ -20,20 +20,19 @@ const countries = [
 
 initialState = {
   value: '',
-  filteredSuggstions: countries,
 };
 
 <div className="styleguidist__btns-wrap">
   <Suggestions
-    suggestions={state.filteredSuggstions}
+    suggestions={countries}
     renderSuggestion={(suggestion) => suggestion.title}
+    searchContent={['title']}
     onSuggestionSelect={(value, meta) => {
       if (meta.isSuggestion) {
         window.alert(value.title);
       } else {
         window.alert(value);
       }
-      console.log('select', value, meta);
     }}
   >
     <p>Suggestions Input</p>
@@ -42,13 +41,7 @@ initialState = {
       placeholder="Search country name"
       value={state.value}
       onChange={(value) => {
-        const searchValue = value.toLowerCase();
-
-        const filteredSuggstions = countries.filter(suggestion => (
-          suggestion['title'].toLowerCase().indexOf(searchValue) !== -1 || !searchValue
-        ));
-
-        setState({ filteredSuggstions, value: searchValue });
+        setState({ value });
       }}
     />
     <br />
