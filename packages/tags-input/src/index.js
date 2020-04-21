@@ -51,6 +51,10 @@ export default class TagsInput extends Component {
     });
   }
 
+  triggerFocus = () => {
+    this.inputInstance.focus();
+  };
+
   render() {
     const { isIcon, placeholder, onChange, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
     const { isOpen } = this.state;
@@ -70,7 +74,7 @@ export default class TagsInput extends Component {
         >
           <div
             className="hawk-tags-input__input"
-            onClick={() => { this.setState({ isOpen: !isOpen }); }}
+            onClick={() => { this.triggerFocus(); }}
           >
             {isIcon && (
               <i className="fa fa-sort-down hawk-tags-input__icon" />
@@ -82,6 +86,7 @@ export default class TagsInput extends Component {
                 onChange(value);
                 this.setState({ isOpen: true });
               }}
+              ref={(ref) => { this.inputInstance = ref; }}
             />
           </div>
           {isOpen && (

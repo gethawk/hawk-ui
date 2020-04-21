@@ -22,8 +22,22 @@ class SuggestionsInput extends Component {
     value: PropTypes.string,
     onKeyDown: PropTypes.func,
     onChange: PropTypes.func,
+    onEnter: PropTypes.func,
+    onEscape: PropTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
   };
   state = {};
+  blur() {
+    if (this.inputInstance) {
+      this.inputInstance.blur();
+    }
+  }
+  focus() {
+    if (this.inputInstance) {
+      this.inputInstance.focus();
+    }
+  }
 
   render() {
     const { placeholder, value, onChange } = this.props;
@@ -33,6 +47,7 @@ class SuggestionsInput extends Component {
         {({ onKeyDown, onSearch }) => (
           <Input
             type="text"
+            ref={(ref) => { this.inputInstance = ref; }}
             placeholder={placeholder}
             value={value}
             onChange={(event) => {
