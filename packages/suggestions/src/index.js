@@ -145,7 +145,7 @@ export default class Suggestions extends Component {
     switch (event.keyCode) {
       case keyCodes.ENTER: {
         const isSuggestion = this.state.selectedIndex !== -1;
-        const suggestion = isSuggestion ? this.props.suggestions[this.state.selectedIndex] : event.target.value;
+        const suggestion = isSuggestion ? this.state.suggestions[this.state.selectedIndex] : event.target.value;
 
         this.props.onSuggestionSelect(suggestion, {
           provider: isSuggestion ? 'suggestions' : 'user',
@@ -155,23 +155,23 @@ export default class Suggestions extends Component {
         break;
       }
       case keyCodes.UP_ARROW: {
-        if (_.isEmpty(this.props.suggestions)) {
+        if (_.isEmpty(this.state.suggestions)) {
           return;
         }
         event.preventDefault();
 
-        const selectedIndex = this.state.selectedIndex < 1 ? this.props.suggestions.length - 1 : this.state.selectedIndex - 1;
+        const selectedIndex = this.state.selectedIndex < 1 ? this.state.suggestions.length - 1 : this.state.selectedIndex - 1;
 
         this.setState({ selectedIndex });
         break;
       }
       case keyCodes.DOWN_ARROW: {
-        if (_.isEmpty(this.props.suggestions)) {
+        if (_.isEmpty(this.state.suggestions)) {
           return;
         }
         event.preventDefault();
 
-        const selectedIndex = (this.state.selectedIndex === this.props.suggestions.length - 1) ? 0 : this.state.selectedIndex + 1;
+        const selectedIndex = (this.state.selectedIndex === this.state.suggestions.length - 1) ? 0 : this.state.selectedIndex + 1;
 
         this.setState({ selectedIndex });
         break;

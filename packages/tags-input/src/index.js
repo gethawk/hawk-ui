@@ -20,7 +20,6 @@ export default class TagsInput extends Component {
     searchValue: PropTypes.string,
     searchContent: PropTypes.array,
     placeholder: PropTypes.string,
-    onSearchChange: PropTypes.string,
     renderSuggestion: PropTypes.func,
     onSuggestionSelect: PropTypes.func,
     messageIfEmpty: PropTypes.string,
@@ -54,7 +53,7 @@ export default class TagsInput extends Component {
   }
 
   render() {
-    const { isIcon, placeholder, onSearchChange, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { isIcon, placeholder, onChange, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -62,6 +61,7 @@ export default class TagsInput extends Component {
         <Suggestions
           suggestions={this.state.suggestions}
           renderSuggestion={renderSuggestion}
+          searchContent={this.props.searchContent}
           onSuggestionSelect={
             (suggestion, meta) => {
               onSuggestionSelect(suggestion, meta);
@@ -80,23 +80,8 @@ export default class TagsInput extends Component {
               value={this.props.searchValue}
               placeholder={placeholder}
               onChange={(value) => {
-                const searchValue = value.toLowerCase();
-
-                const suggestions = _.filter(this.props.suggestions, (suggestion) => _.reduce(this.props.searchContent, (result, key) => {
-                  if (suggestion[key].toLowerCase().includes(searchValue)) { return true; }
-
-                  return result || false;
-                }, false));
-
-                this.setState({
-                  suggestions,
-                }, () => {
-                  onSearchChange(value);
-                });
-
-                if (!_.isEmpty(suggestions)) {
-                  this.setState({ isOpen: true });
-                }
+                onChange(value);
+                this.setState({ isOpen: true });
               }}
             />
           </div>

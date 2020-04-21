@@ -30,7 +30,7 @@ initialState = {
     isIcon
     placeholder="Select anyone"
     searchValue={state.searchValue}
-    onSearchChange={(value) => {
+    onChange={(value) => {
       setState({
         searchValue: value,
       })
