@@ -1,0 +1,11 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-label {
+  font-size: $standard-font-size;
+  font-weight: 500;
+  display: inline-block;
+  color: $blue-4;
+  span {
+    color: $red-1;
+  }
+}
