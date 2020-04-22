@@ -132,13 +132,13 @@ export default class Input extends Component {
 
     return (
       <Fragment>
-        {label ? (
+        {label && (
           <Label
             title={label}
             isRequired={isRequired}
             className="hawk-input__label"
           />
-        ) : null}
+        )}
         {isTextarea ? (
           <textarea
             {...htmlAttributes}

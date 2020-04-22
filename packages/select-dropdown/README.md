@@ -36,6 +36,8 @@ initialState = {
     onSuggestionSelect={(item, meta) => {
       setState({ selectedItem: item.title, searchValue: item.title });
     }}
+    label="Select Dropdown"
+    isRequired
   />
   <br /><br />
   <div>With editable</div>

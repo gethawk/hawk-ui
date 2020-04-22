@@ -1,9 +1,10 @@
 // vendor modules
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 // react modules
 import _ from 'lodash';
 import Suggestions from '@hawk-ui/suggestions';
+import Label from '@hawk-ui/label';
 // utility modules
 import { keyCodes } from '../../../constants';
 // css modules
@@ -18,6 +19,9 @@ export default class TagsInput extends Component {
       PropTypes.object,
       PropTypes.array,
     ]),
+    label: PropTypes.string,
+    description: PropTypes.string,
+    isRequired: PropTypes.bool,
     tags: PropTypes.array,
     renderTag: PropTypes.func,
     searchValue: PropTypes.string,
@@ -64,73 +68,85 @@ export default class TagsInput extends Component {
   };
 
   render() {
-    const { placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags } = this.props;
+    const { label, description, isRequired, placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags } = this.props;
     const { isOpen } = this.state;
 
     return (
-      <div ref={this.myRef} className="hawk-tags-input">
-        <Suggestions
-          suggestions={this.state.suggestions}
-          renderSuggestion={renderSuggestion}
-          searchContent={this.props.searchContent}
-          onSuggestionSelect={
-            (suggestion, meta) => {
-              onAddTag(suggestion, meta);
-              this.setState({ isOpen: false });
-            }
-          }
-        >
-          <div
-            className="hawk-tags-input__wrapper"
-            onClick={() => { this.triggerFocus(); }}
-          >
-            {_.map(tags, (item, index) => (
-              <React.Fragment>
-                {!_.isEmpty(item) && (
-                  <span
-                    className="hawk-tags-input__tag"
-                    key={index}
-                  >
-                    {this.props.renderTag(item)}
-                    <i
-                      className="fa fa-times hawk-tags-input__tag-icon"
-                      onClick={() => { this.props.onRemoveTag(item, index, { isBackspace: false }); }}
-                    />
-                  </span>
-                )}
-              </React.Fragment>
-            ))}
-            <Suggestions.INPUT
-              value={this.props.searchValue}
-              placeholder={placeholder}
-              onChange={(value) => {
-                onChange(value);
-                this.setState({ isOpen: true });
-              }}
-              ref={(ref) => { this.inputInstance = ref; }}
-              onKeyDown={(event) => {
-                if (event.keyCode === keyCodes.BACKSPACE) {
-                  if (_.isEmpty(this.props.searchValue)) {
-                    const index = this.props.tags.length - 1;
-
-                    this.props.onRemoveTag(this.props.tags[index], index, { isBackspace: true });
-                  }
-                }
-              }}
-            />
-          </div>
-          {isOpen && (
-            <Suggestions.CONTAINER
-              messageIfEmpty={messageIfEmpty}
-              onSuggestionClick={(suggestion, meta) => {
+      <Fragment>
+        {label && (
+          <Label
+            title={label}
+            isRequired={isRequired}
+            className="hawk-tags-input__label"
+          />
+        )}
+        <div ref={this.myRef} className="hawk-tags-input">
+          <Suggestions
+            suggestions={this.state.suggestions}
+            renderSuggestion={renderSuggestion}
+            searchContent={this.props.searchContent}
+            onSuggestionSelect={
+              (suggestion, meta) => {
+                onAddTag(suggestion, meta);
                 this.setState({ isOpen: false });
-                onAddTag(suggestion, { ...meta, isSuggestion: true });
-                this.triggerFocus();
-              }}
-            />
-          )}
-        </Suggestions>
-      </div>
+              }
+            }
+          >
+            <div
+              className="hawk-tags-input__wrapper"
+              onClick={() => { this.triggerFocus(); }}
+            >
+              {_.map(tags, (item, index) => (
+                <React.Fragment>
+                  {!_.isEmpty(item) && (
+                    <span
+                      className="hawk-tags-input__tag"
+                      key={index}
+                    >
+                      {this.props.renderTag(item)}
+                      <i
+                        className="fa fa-times hawk-tags-input__tag-icon"
+                        onClick={() => { this.props.onRemoveTag(item, index, { isBackspace: false }); }}
+                      />
+                    </span>
+                  )}
+                </React.Fragment>
+              ))}
+              <Suggestions.INPUT
+                value={this.props.searchValue}
+                placeholder={placeholder}
+                onChange={(value) => {
+                  onChange(value);
+                  this.setState({ isOpen: true });
+                }}
+                ref={(ref) => { this.inputInstance = ref; }}
+                onKeyDown={(event) => {
+                  if (event.keyCode === keyCodes.BACKSPACE) {
+                    if (_.isEmpty(this.props.searchValue)) {
+                      const index = this.props.tags.length - 1;
+
+                      this.props.onRemoveTag(this.props.tags[index], index, { isBackspace: true });
+                    }
+                  }
+                }}
+              />
+            </div>
+            {isOpen && (
+              <Suggestions.CONTAINER
+                messageIfEmpty={messageIfEmpty}
+                onSuggestionClick={(suggestion, meta) => {
+                  this.setState({ isOpen: false });
+                  onAddTag(suggestion, { ...meta, isSuggestion: true });
+                  this.triggerFocus();
+                }}
+              />
+            )}
+          </Suggestions>
+        </div>
+        {!_.isEmpty(description) && (
+          <div className="hawk-tags-input__description">{description}</div>
+        )}
+      </Fragment>
     );
   }
 }

@@ -54,4 +54,12 @@
     position: absolute;
     margin-top: 1px;
   }
+  &__label {
+    margin-bottom: 5px;
+  }
+  &__description {
+    font-size: 12px;
+    margin-top: 6px;
+    color: $blue-5;
+  }
 }

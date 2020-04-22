@@ -25,4 +25,12 @@
     -webkit-transition: opacity .1s ease;
     transition: opacity .1s ease;
   }
+  &__label {
+    margin-bottom: 5px;
+  }
+  &__description {
+    font-size: 12px;
+    margin-top: 6px;
+    color: $blue-5;
+  }
 }

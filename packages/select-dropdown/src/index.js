@@ -1,8 +1,10 @@
 // vendor modules
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 // react modules
+import _ from 'lodash';
 import Suggestions from '@hawk-ui/suggestions';
+import Label from '@hawk-ui/label';
 // css modules
 import './index.scss';
 
@@ -17,6 +19,9 @@ export default class SelectDropdown extends Component {
       PropTypes.object,
       PropTypes.array,
     ]),
+    label: PropTypes.string,
+    description: PropTypes.string,
+    isRequired: PropTypes.bool,
     searchValue: PropTypes.string,
     searchContent: PropTypes.array,
     placeholder: PropTypes.string,
@@ -28,6 +33,7 @@ export default class SelectDropdown extends Component {
   };
   static defaultProps = {
     isEditable: false,
+    isRequired: false,
   }
   constructor(props) {
     super(props);
@@ -63,49 +69,61 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { isIcon, isEditable, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { isIcon, label, description, isRequired, isEditable, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
     const { isOpen } = this.state;
 
     return (
-      <div ref={this.myRef} className="hawk-select-dropdown">
-        <Suggestions
-          suggestions={this.state.suggestions}
-          renderSuggestion={renderSuggestion}
-          searchContent={this.props.searchContent}
-          onSuggestionSelect={
-            (suggestion, meta) => {
-              onSuggestionSelect(suggestion, meta);
-              this.setState({ isOpen: false });
-            }
-          }
-        >
-          <div
-            className="hawk-select-dropdown__input"
-            onClick={() => { this.setState({ isOpen: !isOpen }); }}
-          >
-            {isIcon && (
-              <i className="fa fa-sort-down hawk-select-dropdown__icon" />
-            )}
-            <Suggestions.INPUT
-              value={this.props.searchValue}
-              placeholder={placeholder}
-              onChange={(value) => {
-                this.onChange(value);
-              }}
-              readOnly={!isEditable}
-            />
-          </div>
-          {isOpen && (
-            <Suggestions.CONTAINER
-              messageIfEmpty={messageIfEmpty}
-              onSuggestionClick={(suggestion, meta) => {
+      <Fragment>
+        {label && (
+          <Label
+            title={label}
+            isRequired={isRequired}
+            className="hawk-select-dropdown__label"
+          />
+        )}
+        <div ref={this.myRef} className="hawk-select-dropdown">
+          <Suggestions
+            suggestions={this.state.suggestions}
+            renderSuggestion={renderSuggestion}
+            searchContent={this.props.searchContent}
+            onSuggestionSelect={
+              (suggestion, meta) => {
                 onSuggestionSelect(suggestion, meta);
                 this.setState({ isOpen: false });
-              }}
-            />
-          )}
-        </Suggestions>
-      </div>
+              }
+            }
+          >
+            <div
+              className="hawk-select-dropdown__input"
+              onClick={() => { this.setState({ isOpen: !isOpen }); }}
+            >
+              {isIcon && (
+                <i className="fa fa-sort-down hawk-select-dropdown__icon" />
+              )}
+              <Suggestions.INPUT
+                value={this.props.searchValue}
+                placeholder={placeholder}
+                onChange={(value) => {
+                  this.onChange(value);
+                }}
+                readOnly={!isEditable}
+              />
+            </div>
+            {isOpen && (
+              <Suggestions.CONTAINER
+                messageIfEmpty={messageIfEmpty}
+                onSuggestionClick={(suggestion, meta) => {
+                  onSuggestionSelect(suggestion, meta);
+                  this.setState({ isOpen: false });
+                }}
+              />
+            )}
+          </Suggestions>
+        </div>
+        {!_.isEmpty(description) && (
+          <div className="hawk-select-dropdown__description">{description}</div>
+        )}
+      </Fragment>
     );
   }
 }
