@@ -92,7 +92,7 @@ export default class SelectDropdown extends Component {
               onChange={(value) => {
                 this.onChange(value);
               }}
-              readOnly={!!isEditable}
+              readOnly={!isEditable}
             />
           </div>
           {isOpen && (

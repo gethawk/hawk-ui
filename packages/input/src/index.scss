@@ -92,6 +92,9 @@
       padding: 4px 35px 4px 10px;
     }
   }
+  &__read-only {
+    cursor: default;
+  }
 }
 
 .hawk-textarea {
@@ -152,5 +155,8 @@
   &__disabled {
     background-color: $gray-3;
     cursor: not-allowed;
+  }
+  &__read-only {
+    cursor: default;
   }
 }

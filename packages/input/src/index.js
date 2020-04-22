@@ -140,6 +140,7 @@ export default class Input extends Component {
             className={getClassNames('hawk-textarea', className, {
               'hawk-textarea__disabled': isDisabled,
               'hawk-textarea__error': isError,
+              'hawk-textarea__read-only': readOnly,
             })}
             value={this.state.value}
             readOnly={readOnly}
@@ -186,6 +187,7 @@ export default class Input extends Component {
                 'hawk-input__copy-text': isCopyable || isPasswordVisible,
                 'hawk-input__disabled': isDisabled,
                 'hawk-input__error': isError,
+                'hawk-input__read-only': readOnly,
               })}
               value={this.state.value}
               placeholder={placeholder}
