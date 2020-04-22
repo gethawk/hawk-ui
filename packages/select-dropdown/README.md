@@ -32,12 +32,10 @@ initialState = {
     isIcon
     placeholder="Select anyone"
     searchValue={state.searchValue}
-    searchContent={['title']}
     renderSuggestion={(suggestion) => suggestion.title}
     onSuggestionSelect={(item, meta) => {
       setState({ selectedItem: item.title, searchValue: item.title });
     }}
-    messageIfEmpty="No Item Found"
   />
   <br /><br />
   <div>With editable</div>

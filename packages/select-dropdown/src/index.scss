@@ -7,6 +7,9 @@
     &__wrapper {
       position: unset;
     }
+    &__read-only {
+      cursor: pointer;
+    }
   }
   .hawk-suggestions__wrap {
     position: absolute;
