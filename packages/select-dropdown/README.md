@@ -25,9 +25,27 @@ initialState = {
 };
 
 <div className="styleguidist__btns-wrap">
+  <div>Without editable</div>
+  <br />
   <SelectDropdown
     suggestions={state.suggestionContent}
     isIcon
+    placeholder="Select anyone"
+    searchValue={state.searchValue}
+    searchContent={['title']}
+    renderSuggestion={(suggestion) => suggestion.title}
+    onSuggestionSelect={(item, meta) => {
+      setState({ selectedItem: item.title, searchValue: item.title });
+    }}
+    messageIfEmpty="No Item Found"
+  />
+  <br /><br />
+  <div>With editable</div>
+  <br />
+  <SelectDropdown
+    suggestions={state.suggestionContent}
+    isIcon
+    isEditable
     placeholder="Select anyone"
     searchValue={state.searchValue}
     onChange={(value) => {

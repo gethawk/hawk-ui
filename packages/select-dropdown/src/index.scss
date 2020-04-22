@@ -10,7 +10,7 @@
   }
   .hawk-suggestions__wrap {
     position: absolute;
-    transform: translate3d(0px, 36px, 0px);
+    z-index: 1;
   }
   &__icon {
     cursor: pointer;

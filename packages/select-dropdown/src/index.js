@@ -12,6 +12,7 @@ import './index.scss';
 export default class SelectDropdown extends Component {
   static propTypes = {
     isIcon: PropTypes.bool,
+    isEditable: PropTypes.bool,
     suggestions: PropTypes.oneOfType([
       PropTypes.object,
       PropTypes.array,
@@ -25,6 +26,9 @@ export default class SelectDropdown extends Component {
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
   };
+  static defaultProps = {
+    isEditable: false,
+  }
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
@@ -42,6 +46,13 @@ export default class SelectDropdown extends Component {
     document.removeEventListener('click', this.onClick);
   }
 
+  onChange = (event) => {
+    if (this.props.isEditable) {
+      this.props.onChange(event);
+      this.setState({ isOpen: true });
+    }
+  }
+
   onClick = (event) => {
     if (this.myRef.current.contains(event.target)) {
       return;
@@ -52,7 +63,7 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { isIcon, placeholder, onChange, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { isIcon, isEditable, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -79,9 +90,9 @@ export default class SelectDropdown extends Component {
               value={this.props.searchValue}
               placeholder={placeholder}
               onChange={(value) => {
-                onChange(value);
-                this.setState({ isOpen: true });
+                this.onChange(value);
               }}
+              readOnly={!!isEditable}
             />
           </div>
           {isOpen && (

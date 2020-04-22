@@ -20,6 +20,7 @@ class SuggestionsInput extends Component {
   static propTypes = {
     placeholder: PropTypes.string,
     value: PropTypes.string,
+    readOnly: PropTypes.string,
     onKeyDown: PropTypes.func,
     onChange: PropTypes.func,
     onEnter: PropTypes.func,
@@ -29,6 +30,7 @@ class SuggestionsInput extends Component {
   };
   static defaultProps = {
     onKeyDown: () => {},
+    readOnly: false,
   };
   state = {};
   blur() {
@@ -43,7 +45,7 @@ class SuggestionsInput extends Component {
   }
 
   render() {
-    const { placeholder, value, onChange, onKeyDown } = this.props;
+    const { placeholder, value, readOnly, onChange, onKeyDown } = this.props;
 
     return (
       <SuggestionContext.Consumer>
@@ -53,6 +55,7 @@ class SuggestionsInput extends Component {
             ref={(ref) => { this.inputInstance = ref; }}
             placeholder={placeholder}
             value={value}
+            readOnly={readOnly}
             onChange={(event) => {
               onSearch(event);
               onChange(event);
