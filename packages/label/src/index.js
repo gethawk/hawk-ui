@@ -26,7 +26,7 @@ export default class Label extends Component {
     return (
       <label
         className={getClassNames('hawk-label', {
-          className: _.isString(className),
+          [className]: _.isString(className),
         })}
       >
         {title} {isRequired && <span>*</span>}
