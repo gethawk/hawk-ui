@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import getClassNames from 'classnames';
 import _ from 'lodash';
 import Tooltip from '@hawk-ui/tooltip';
+import Label from '@hawk-ui/label';
 // utility modules
 import { keyCodes } from '../../../constants';
 // css modules
@@ -44,6 +45,7 @@ export default class Input extends Component {
     type: 'text',
     readOnly: false,
     isCopyable: false,
+    isRequired: false,
     onBlur: () => {},
     onFocus: () => {},
     onEnter: () => {},
@@ -131,7 +133,11 @@ export default class Input extends Component {
     return (
       <Fragment>
         {label ? (
-          <span className="hawk-input__label">{label} {isRequired ? <span>*</span> : null}</span>
+          <Label
+            title={label}
+            isRequired={isRequired}
+            className="hawk-input__label"
+          />
         ) : null}
         {isTextarea ? (
           <textarea
