@@ -36,16 +36,6 @@
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
   }
-  &__label {
-    font-size: $standard-font-size;
-    font-weight: 500;
-    margin-bottom: 5px;
-    display: inline-block;
-    color: $blue-4;
-    span {
-      color: $red-1;
-    }
-  }
   &__description {
     font-size: 12px;
     margin-top: 6px;
