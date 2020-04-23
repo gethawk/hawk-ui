@@ -96,8 +96,8 @@ class TableContent extends Component {
         <tbody>
           {_.map(this.context.tableContent, (content, index) => (
             <tr key={index}>
-              {_.map(tableHeader, (item) => (
-                !_.isEmpty(item.dataIndex) ? <td>{content[item.dataIndex]}</td> : <td>{item.render(content)}</td>
+              {_.map(tableHeader, (item, subIndex) => (
+                !_.isEmpty(item.dataIndex) ? <td key={subIndex}>{content[item.dataIndex]}</td> : <td key={subIndex}>{item.render(content)}</td>
               ))}
             </tr>
           ))}
@@ -113,7 +113,11 @@ class TableContent extends Component {
 export default class Table extends Component {
   static displayName = 'Table';
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.array,
+      PropTypes.object,
+    ]),
     tableContent: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,

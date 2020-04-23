@@ -16,7 +16,7 @@ import './index.scss';
 export default class DatePicker extends Component {
   static propTypes = {
     value: PropTypes.shape({
-      startMoment: PropTypes.object,
+      startMoment: PropTypes.string,
       endMoment: PropTypes.object,
     }),
     isDisabled: PropTypes.shape({

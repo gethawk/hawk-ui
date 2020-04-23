@@ -118,7 +118,11 @@ export default class Suggestions extends Component {
   static displayName = 'Suggestions';
   static propTypes = {
     placeholder: PropTypes.string,
-    children: PropTypes.element,
+    children: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.array,
+      PropTypes.object,
+    ]),
     suggestions: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
