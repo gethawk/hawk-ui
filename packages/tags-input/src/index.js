@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 // react modules
 import _ from 'lodash';
+import getClassNames from 'classnames';
 import Suggestions from '@hawk-ui/suggestions';
 import Label from '@hawk-ui/label';
 // utility modules
@@ -95,7 +96,9 @@ export default class TagsInput extends Component {
             }
           >
             <div
-              className="hawk-tags-input__wrapper"
+              className={getClassNames('hawk-tags-input__wrapper', {
+                'hawk-tags-input__wrapper-error': isRequired && isError,
+              })}
               onClick={() => { this.triggerFocus(); }}
             >
               {_.map(tags, (item, index) => (
