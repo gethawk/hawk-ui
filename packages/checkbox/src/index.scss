@@ -14,6 +14,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  &__title {
+    margin-bottom: 10px;
+  }
   &__content {
     display: flex;
     justify-content: space-between;
@@ -74,6 +77,11 @@
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
+  }
+  &__description {
+    font-size: 12px;
+    margin-top: 6px;
+    color: $blue-5;
   }
   &__error {
     border-color: $red-1;

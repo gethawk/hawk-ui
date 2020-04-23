@@ -37,6 +37,7 @@ initialState = {
   <p>With Required</p>
   <br /><br />
   <Checkbox
+    label="Select Fruit"
     options={state.fruits}
     selectedItem={state.selectedItem}
     onChange={(event) => {
@@ -53,6 +54,7 @@ initialState = {
         });
       }
     }}
+    isRequired
     isError
     errorMessage="This field is a compulsory field."
   />

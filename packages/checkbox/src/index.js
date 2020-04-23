@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import _ from 'lodash';
+import Label from '@hawk-ui/label';
 // css modules
 import './index.scss';
 
@@ -14,12 +15,13 @@ class CheckboxContent extends Component {
     checked: PropTypes.bool,
     onChange: PropTypes.func,
     isError: PropTypes.bool,
+    isRequired: PropTypes.bool,
     selectedItem: PropTypes.array,
   };
   state = {};
 
   render() {
-    const { index, value, label, checked, onChange, isError, selectedItem } = this.props;
+    const { index, value, label, checked, onChange, isError, isRequired, selectedItem } = this.props;
 
     return (
       <label
@@ -36,7 +38,7 @@ class CheckboxContent extends Component {
         <span
           className={getClassnames('hawk-checkbox__checkmark', {
             'hawk-checkbox__checkmark-error': !isError,
-            'hawk-checkbox__error': (isError && _.isEmpty(selectedItem)),
+            'hawk-checkbox__error': (isError && isRequired && _.isEmpty(selectedItem)),
           })}
         />
       </label>
@@ -65,8 +67,11 @@ class CheckboxError extends Component {
 export default class Checkbox extends Component {
   static propTypes = {
     className: PropTypes.string,
+    label: PropTypes.string,
+    description: PropTypes.string,
     options: PropTypes.array,
     selectedItem: PropTypes.array,
+    isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     onChange: PropTypes.func,
@@ -77,12 +82,21 @@ export default class Checkbox extends Component {
   state = {};
 
   render() {
-    const { className, options, selectedItem, isError, errorMessage, onChange } = this.props;
+    const { className, label, description, options, selectedItem, isRequired, isError, errorMessage, onChange } = this.props;
 
     return (
       <Fragment>
+        {label && (
+          <Label
+            title={label}
+            isRequired={isRequired}
+            className="hawk-checkbox__title"
+          />
+        )}
         <div
-          className={`hawk-checkbox__content${!_.isNull(className) ? ` ${className}` : ''}`}
+          className={getClassnames('hawk-checkbox__content', {
+            [className]: _.isString(className),
+          })}
         >
           {_.map(options, (item, index) => {
             let checked = false;
@@ -100,11 +114,15 @@ export default class Checkbox extends Component {
                 checked={checked}
                 onChange={onChange}
                 isError={isError}
+                isRequired={isRequired}
               />
             );
           })}
         </div>
-        {isError && _.isEmpty(selectedItem) ? (
+        {!_.isEmpty(description) && (
+          <div className="hawk-checkbox__description">{description}</div>
+        )}
+        {isError && isRequired && _.isEmpty(selectedItem) ? (
           <CheckboxError
             errorMessage={errorMessage}
           />

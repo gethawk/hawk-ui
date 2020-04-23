@@ -26,6 +26,7 @@ initialState = {
 
 <div className="styleguidist__btns-wrap">
   <TagsInput
+    label="Tags Input"
     suggestions={state.suggestionContent}
     placeholder="Select anyone"
     searchValue={state.searchValue}
@@ -57,6 +58,9 @@ initialState = {
     }}
     tags={state.selectedItem}
     renderTag={tag => tag}
+    isRequired
+    isError
+    errorMessage="This field is a compulsory field."
   />
 </div>
 ```

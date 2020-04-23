@@ -38,6 +38,8 @@ initialState = {
     }}
     label="Select Dropdown"
     isRequired
+    isError
+    errorMessage="This field is a compulsory field."
   />
   <br /><br />
   <div>With editable</div>
@@ -45,7 +47,7 @@ initialState = {
   <SelectDropdown
     suggestions={state.suggestionContent}
     isIcon
-    isEditable
+    isReadOnly
     placeholder="Select anyone"
     searchValue={state.searchValue}
     onChange={(value) => {

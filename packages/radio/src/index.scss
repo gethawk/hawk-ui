@@ -13,8 +13,16 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  &__title {
+    margin-bottom: 10px;
+  }
   &__label {
     text-transform: capitalize;
+  }
+  &__description {
+    font-size: 12px;
+    margin-top: 6px;
+    color: $blue-5;
   }
   &__content {
     display: flex;

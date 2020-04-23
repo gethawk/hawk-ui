@@ -22,6 +22,8 @@ export default class TagsInput extends Component {
     label: PropTypes.string,
     description: PropTypes.string,
     isRequired: PropTypes.bool,
+    isError: PropTypes.bool,
+    errorMessage: PropTypes.string,
     tags: PropTypes.array,
     renderTag: PropTypes.func,
     searchValue: PropTypes.string,
@@ -68,7 +70,7 @@ export default class TagsInput extends Component {
   };
 
   render() {
-    const { label, description, isRequired, placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags } = this.props;
+    const { label, description, isRequired, isError, errorMessage, placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -129,6 +131,7 @@ export default class TagsInput extends Component {
                     }
                   }
                 }}
+                isError={isError && isRequired}
               />
             </div>
             {isOpen && (
@@ -145,6 +148,9 @@ export default class TagsInput extends Component {
         </div>
         {!_.isEmpty(description) && (
           <div className="hawk-tags-input__description">{description}</div>
+        )}
+        {isRequired && isError && (
+          <span className="hawk-tags-input__error-message">{errorMessage}</span>
         )}
       </Fragment>
     );

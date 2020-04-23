@@ -24,6 +24,7 @@ initialState = {
   <p>With Required</p>
   <br /><br />
   <Toggle
+    label="Toggle"
     name={state.name}
     value={state.value}
     isChecked={state.isChecked}
@@ -32,6 +33,7 @@ initialState = {
         isChecked: !state.isChecked,
       });
     }}
+    isRequired
     isError={!state.isChecked}
     errorMessage="This field is a compulsory field."
   />

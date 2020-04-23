@@ -14,7 +14,7 @@ import './index.scss';
 export default class SelectDropdown extends Component {
   static propTypes = {
     isIcon: PropTypes.bool,
-    isEditable: PropTypes.bool,
+    isReadOnly: PropTypes.bool,
     suggestions: PropTypes.oneOfType([
       PropTypes.object,
       PropTypes.array,
@@ -22,6 +22,8 @@ export default class SelectDropdown extends Component {
     label: PropTypes.string,
     description: PropTypes.string,
     isRequired: PropTypes.bool,
+    isError: PropTypes.bool,
+    errorMessage: PropTypes.string,
     searchValue: PropTypes.string,
     searchContent: PropTypes.array,
     placeholder: PropTypes.string,
@@ -32,7 +34,7 @@ export default class SelectDropdown extends Component {
     onKeyDown: PropTypes.func,
   };
   static defaultProps = {
-    isEditable: false,
+    isReadOnly: false,
     isRequired: false,
   }
   constructor(props) {
@@ -53,7 +55,7 @@ export default class SelectDropdown extends Component {
   }
 
   onChange = (event) => {
-    if (this.props.isEditable) {
+    if (this.props.isReadOnly) {
       this.props.onChange(event);
       this.setState({ isOpen: true });
     }
@@ -69,7 +71,7 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { isIcon, label, description, isRequired, isEditable, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { isIcon, label, description, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -106,7 +108,8 @@ export default class SelectDropdown extends Component {
                 onChange={(value) => {
                   this.onChange(value);
                 }}
-                readOnly={!isEditable}
+                readOnly={!isReadOnly}
+                isError={isError && isRequired}
               />
             </div>
             {isOpen && (
@@ -122,6 +125,9 @@ export default class SelectDropdown extends Component {
         </div>
         {!_.isEmpty(description) && (
           <div className="hawk-select-dropdown__description">{description}</div>
+        )}
+        {isRequired && isError && (
+          <span className="hawk-select-dropdown__error-message">{errorMessage}</span>
         )}
       </Fragment>
     );

@@ -28,6 +28,7 @@ initialState = {
   <p>With Required</p>
   <br /><br />
   <Radio
+    label="Select Fruit"
     options={state.fruits}
     selectedItem={state.selectedItem}
     onChange={(event) => {
@@ -35,6 +36,7 @@ initialState = {
         selectedItem: event.target.value
       });
     }}
+    isRequired
     isError
     errorMessage="This field is a compulsory field."
   />

@@ -145,7 +145,7 @@ export default class Input extends Component {
             ref={(node) => { this.fieldNode = node; }}
             className={getClassNames('hawk-textarea', className, {
               'hawk-textarea__disabled': isDisabled,
-              'hawk-textarea__error': isError,
+              'hawk-textarea__error': isError && isRequired,
               'hawk-textarea__read-only': readOnly,
             })}
             value={this.state.value}
@@ -192,7 +192,7 @@ export default class Input extends Component {
               className={getClassNames('hawk-input', className, {
                 'hawk-input__copy-text': isCopyable || isPasswordVisible,
                 'hawk-input__disabled': isDisabled,
-                'hawk-input__error': isError,
+                'hawk-input__error': isError && isRequired,
                 'hawk-input__read-only': readOnly,
               })}
               value={this.state.value}
@@ -208,7 +208,7 @@ export default class Input extends Component {
         {!_.isEmpty(description) && (
           <div className="hawk-input__description">{description}</div>
         )}
-        {isError && (
+        {isRequired && isError && (
           <span className="hawk-input__error-message">{errorMessage}</span>
         )}
       </Fragment>
