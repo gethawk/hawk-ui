@@ -20,7 +20,7 @@ class SuggestionsInput extends Component {
   static propTypes = {
     placeholder: PropTypes.string,
     value: PropTypes.string,
-    readOnly: PropTypes.string,
+    readOnly: PropTypes.bool,
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     onKeyDown: PropTypes.func,

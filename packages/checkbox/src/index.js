@@ -107,6 +107,7 @@ export default class Checkbox extends Component {
 
             return (
               <CheckboxContent
+                key={index}
                 index={index}
                 label={item.label}
                 value={item.value}

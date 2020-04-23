@@ -92,6 +92,7 @@ export default class Radio extends Component {
         <div className="hawk-radio__content">
           {_.map(options, (item, index) => (
             <RadioContent
+              key={index}
               index={index}
               value={item.value}
               label={item.label}
