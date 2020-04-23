@@ -38,7 +38,7 @@ initialState = {
     }}
     label="Select Dropdown"
     isRequired
-    isError
+    isError={!state.selectedItem}
     errorMessage="This field is a compulsory field."
   />
   <br /><br />

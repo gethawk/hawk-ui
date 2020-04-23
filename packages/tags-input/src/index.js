@@ -131,6 +131,7 @@ export default class TagsInput extends Component {
                     }
                   }
                 }}
+                isRequired={isRequired}
                 isError={isError && isRequired}
               />
             </div>
