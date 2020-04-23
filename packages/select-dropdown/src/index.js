@@ -109,6 +109,7 @@ export default class SelectDropdown extends Component {
                   this.onChange(value);
                 }}
                 readOnly={!isReadOnly}
+                isRequired={isRequired}
                 isError={isError && isRequired}
               />
             </div>
