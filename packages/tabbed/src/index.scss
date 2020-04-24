@@ -1,0 +1,71 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-tabbed {
+  display: flex;
+  &__horizontalTop {
+    flex-direction: column;
+  }
+  &__horizontalBottom {
+    flex-direction: column-reverse;
+  }
+  &__verticalLeft {
+    flex-direction: row;
+  }
+  &__verticalRight {
+    flex-direction: row-reverse;
+  }
+  &__header {
+    display: flex;
+    justify-content: center;
+    &-horizontalTop {
+      border-bottom: 1px solid $gray-8;
+      .active {
+        border-bottom: 1px solid $blue-1;
+      }
+    }
+    &-horizontalBottom {
+      border-top: 1px solid $gray-8;
+      .active {
+        border-top: 1px solid $blue-1;
+      }
+    }
+    &-verticalLeft {
+      display: flex;
+      flex-direction: column;
+      .active {
+        border-bottom: 1px solid $blue-1;
+      }
+    }
+    &-verticalRight {
+      display: flex;
+      flex-direction: column;
+      .active {
+        border-bottom: 1px solid $blue-1;
+      }
+    }
+    .active {
+      color: $blue-1;
+    }
+    &-item {
+      font-size: 14px;
+      cursor: pointer;
+      color: $gray-1;
+      &__horizontalTop {
+        margin: 0 25px;
+        padding-bottom: 15px;
+      }
+      &__horizontalBottom {
+        margin: 0 25px;
+        padding-top: 15px;
+      }
+      &__verticalLeft {
+        margin: 10px 0;
+        padding-bottom: 7px;
+      }
+      &__verticalRight {
+        margin: 10px 0;
+        padding-bottom: 7px;
+      }
+    }
+  }
+}

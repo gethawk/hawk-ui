@@ -17,6 +17,7 @@ module.exports = {
         '../packages/loader/src/index.js',
         '../packages/modal/src/index.js',
         '../packages/navigation-drawer/src/index.js',
+        '../packages/tabbed/src/index.js',
         '../packages/pagination/src/index.js',
         '../packages/table/src/index.js',
         '../packages/toast/src/index.js',
