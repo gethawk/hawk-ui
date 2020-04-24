@@ -20,31 +20,32 @@
     &-horizontalTop {
       border-bottom: 1px solid $gray-8;
       .active {
-        border-bottom: 1px solid $blue-1;
+        border-bottom: 1px solid;
       }
     }
     &-horizontalBottom {
       border-top: 1px solid $gray-8;
       .active {
-        border-top: 1px solid $blue-1;
+        border-top: 1px solid;
       }
     }
     &-verticalLeft {
       display: flex;
       flex-direction: column;
       .active {
-        border-bottom: 1px solid $blue-1;
+        border-bottom: 1px solid;
       }
     }
     &-verticalRight {
       display: flex;
       flex-direction: column;
       .active {
-        border-bottom: 1px solid $blue-1;
+        border-bottom: 1px solid;
       }
     }
     .active {
       color: $blue-1;
+      border-color: $blue-1;
     }
     &-item {
       font-size: 14px;
