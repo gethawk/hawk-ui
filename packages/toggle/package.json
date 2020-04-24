@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/toggle",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "hawk-ui: Basic Toggle Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/label": "^1.7.0",
+    "@hawk-ui/label": "^1.7.1",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
