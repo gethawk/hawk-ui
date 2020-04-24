@@ -14,15 +14,15 @@ initialState = {
   <div style={{ display: 'flex', justifyContent: 'space-around' }}>
     <div>
       <NavigationDrawer
-        isDrawerOpen={state.isLeftDrawerWithCloseButton}
-        isCloseOption
+        isOpen={state.isLeftDrawerWithCloseButton}
+        hideCloseIcon
         type="dark"
         title="Modal Title"
         position="left"
         onKeyDown={(event) => {
           setState({ isLeftDrawerWithCloseButton: false });
         }}
-        onModalClose={() => {
+        onClose={() => {
           setState({ isLeftDrawerWithCloseButton: false });
         }}
       >
@@ -40,15 +40,15 @@ initialState = {
     </div>
     <div>
       <NavigationDrawer
-        isDrawerOpen={state.isRightDrawerWithCloseButton}
-        isCloseOption
+        isOpen={state.isRightDrawerWithCloseButton}
+        hideCloseIcon
         type="dark"
         title="Modal Title"
         position="right"
         onKeyDown={(event) => {
           setState({ isRightDrawerWithCloseButton: false });
         }}
-        onModalClose={() => {
+        onClose={() => {
           setState({ isRightDrawerWithCloseButton: false });
         }}
       >
@@ -71,14 +71,14 @@ initialState = {
   <div style={{ display: 'flex', justifyContent: 'space-around' }}>
     <div>
       <NavigationDrawer
-        isDrawerOpen={state.isLeftDrawerWithoutCloseButton}
+        isOpen={state.isLeftDrawerWithoutCloseButton}
         type="light"
         title="Modal Title"
         position="left"
         onKeyDown={(event) => {
           setState({ isLeftDrawerWithoutCloseButton: false });
         }}
-        onModalClose={() => {
+        onClose={() => {
           setState({ isLeftDrawerWithoutCloseButton: false });
         }}
       >
@@ -96,14 +96,14 @@ initialState = {
     </div>
     <div>
       <NavigationDrawer
-        isDrawerOpen={state.isRightDrawerWithoutCloseButton}
+        isOpen={state.isRightDrawerWithoutCloseButton}
         type="light"
         title="Modal Title"
         position="right"
         onKeyDown={(event) => {
           setState({ isRightDrawerWithoutCloseButton: false });
         }}
-        onModalClose={() => {
+        onClose={() => {
           setState({ isRightDrawerWithoutCloseButton: false });
         }}
       >

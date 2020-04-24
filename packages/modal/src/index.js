@@ -14,16 +14,16 @@ import './index.scss';
 export default class Modal extends Component {
   static propTypes = {
     title: PropTypes.string,
-    isCloseOption: PropTypes.bool,
+    hideCloseIcon: PropTypes.bool,
     onKeyDown: PropTypes.func,
-    onModalClose: PropTypes.func,
+    onClose: PropTypes.func,
     children: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element,
       PropTypes.array,
     ]),
     type: PropTypes.oneOf(['light', 'dark']),
-    isModalOpen: PropTypes.bool,
+    isOpen: PropTypes.bool,
   };
   static defaultProps = {
     type: 'dark',
@@ -34,6 +34,12 @@ export default class Modal extends Component {
     document.addEventListener('click', this.onClick, false);
   }
 
+  componentWillReceiveProps(nextProps, preProps) {
+    if (!_.isEqual(nextProps.isOpen, preProps.isOpen) && nextProps.isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   componentWillUnmount() {
     document.removeEventListener('keydown', this.onKeyDown, false);
     document.removeEventListener('click', this.onClick, false);
@@ -41,6 +47,7 @@ export default class Modal extends Component {
 
   onKeyDown = (event) => {
     if (event.keyCode === keyCodes.ESCAPE) {
+      document.body.style.overflow = 'auto';
       this.props.onKeyDown(event);
     }
   }
@@ -49,17 +56,25 @@ export default class Modal extends Component {
     const element = document.getElementById('hawk-modal__overflow');
 
     if (element === event.target) {
+      document.body.style.overflow = 'auto';
       this.props.onKeyDown(event);
     }
   }
 
+  onClose = () => {
+    if (_.isFunction(this.props.onClose)) {
+      document.body.style.overflow = 'auto';
+      this.props.onClose();
+    }
+  }
+
   render() {
-    const { title, onModalClose, children, type, isCloseOption, isModalOpen } = this.props;
+    const { title, children, type, hideCloseIcon, isOpen } = this.props;
 
     return (
       <div
         className={getClassnames('hawk-modal', {
-          'hawk-modal__closed': !isModalOpen,
+          'hawk-modal__closed': !isOpen,
         })}
       >
         <div
@@ -68,10 +83,10 @@ export default class Modal extends Component {
         >
           <div className="hawk-modal__content-header">
             <div className="hawk-modal__content-header__title">{_.isString(title) ? title : null}</div>
-            {isCloseOption ? (
+            {hideCloseIcon ? (
               <span
                 className="hawk-modal__content-header__close"
-                onClick={() => { onModalClose(); }}
+                onClick={() => { this.onClose(); }}
               >
                 &times;
               </span>
@@ -81,7 +96,7 @@ export default class Modal extends Component {
             {children}
           </div>
         </div>
-        {isModalOpen ? (
+        {isOpen ? (
           <div
             className={getClassnames('hawk-modal__overflow', {
               [`hawk-modal__overflow-type-${type}`]: type,

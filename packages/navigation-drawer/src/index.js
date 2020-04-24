@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+import _ from 'lodash';
 // utility modules
 import { keyCodes } from '../../../constants';
 // css modules
@@ -13,9 +14,9 @@ import './index.scss';
 export default class NavigationDrawer extends Component {
   static propTypes = {
     title: PropTypes.string,
-    isCloseOption: PropTypes.bool,
+    hideCloseIcon: PropTypes.bool,
     onKeyDown: PropTypes.func,
-    onModalClose: PropTypes.func,
+    onClose: PropTypes.func,
     children: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element,
@@ -23,7 +24,7 @@ export default class NavigationDrawer extends Component {
     ]),
     type: PropTypes.oneOf(['light', 'dark']),
     position: PropTypes.oneOf(['left', 'right']),
-    isDrawerOpen: PropTypes.bool,
+    isOpen: PropTypes.bool,
   };
   static defaultProps = {
     type: 'dark',
@@ -35,6 +36,12 @@ export default class NavigationDrawer extends Component {
     document.addEventListener('click', this.onClick, false);
   }
 
+  componentWillReceiveProps(nextProps, preProps) {
+    if (!_.isEqual(nextProps.isOpen, preProps.isOpen) && nextProps.isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   componentWillUnmount() {
     document.removeEventListener('keydown', this.onKeyDown, false);
     document.removeEventListener('click', this.onClick, false);
@@ -42,6 +49,7 @@ export default class NavigationDrawer extends Component {
 
   onKeyDown = (event) => {
     if (event.keyCode === keyCodes.ESCAPE) {
+      document.body.style.overflow = 'auto';
       this.props.onKeyDown(event);
     }
   }
@@ -50,19 +58,27 @@ export default class NavigationDrawer extends Component {
     const element = document.getElementById('hawk-navigation-drawer__overflow');
 
     if (element === event.target) {
+      document.body.style.overflow = 'auto';
       this.props.onKeyDown(event);
     }
   }
 
+  onClose = () => {
+    if (_.isFunction(this.props.onClose)) {
+      document.body.style.overflow = 'auto';
+      this.props.onClose();
+    }
+  }
+
   render() {
-    const { title, onModalClose, children, type, isCloseOption, position, isDrawerOpen } = this.props;
+    const { title, children, type, hideCloseIcon, position, isOpen } = this.props;
 
     return (
       <div className="hawk-navigation-drawer">
         <div
           className={getClassnames('hawk-navigation-drawer__content', `hawk-navigation-drawer__content-${position}`, {
-            [`hawk-navigation-drawer__content-${position}-closed`]: !isDrawerOpen,
-            [`hawk-navigation-drawer__content-${position}-opened`]: isDrawerOpen,
+            [`hawk-navigation-drawer__content-${position}-closed`]: !isOpen,
+            [`hawk-navigation-drawer__content-${position}-opened`]: isOpen,
           })}
           id="hawk-navigation-drawer__content"
         >
@@ -70,10 +86,10 @@ export default class NavigationDrawer extends Component {
             {title ? (
               <div className="hawk-navigation-drawer__content-header__title">{title}</div>
             ) : null}
-            {isCloseOption ? (
+            {hideCloseIcon ? (
               <span
                 className="hawk-navigation-drawer__content-header__close"
-                onClick={() => { onModalClose(); }}
+                onClick={() => { this.onClose(); }}
               >
                 &times;
               </span>
@@ -83,7 +99,7 @@ export default class NavigationDrawer extends Component {
             {children}
           </div>
         </div>
-        {isDrawerOpen ? (
+        {isOpen ? (
           <div
             className={getClassnames('hawk-navigation-drawer__overflow', {
               [`hawk-navigation-drawer__overflow-type-${type}`]: type,
