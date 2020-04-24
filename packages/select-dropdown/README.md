@@ -47,7 +47,7 @@ initialState = {
   <SelectDropdown
     suggestions={state.suggestionContent}
     isIcon
-    isReadOnly
+    isReadOnly={false}
     placeholder="Select anyone"
     searchValue={state.searchValue}
     onChange={(value) => {

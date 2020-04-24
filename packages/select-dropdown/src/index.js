@@ -34,7 +34,7 @@ export default class SelectDropdown extends Component {
     onKeyDown: PropTypes.func,
   };
   static defaultProps = {
-    isReadOnly: false,
+    isReadOnly: true,
     isRequired: false,
   }
   constructor(props) {
@@ -55,7 +55,7 @@ export default class SelectDropdown extends Component {
   }
 
   onChange = (event) => {
-    if (this.props.isReadOnly) {
+    if (!this.props.isReadOnly) {
       this.props.onChange(event);
       this.setState({ isOpen: true });
     }
@@ -108,7 +108,7 @@ export default class SelectDropdown extends Component {
                 onChange={(value) => {
                   this.onChange(value);
                 }}
-                readOnly={!isReadOnly}
+                readOnly={isReadOnly}
                 isRequired={isRequired}
                 isError={isError && isRequired}
               />
