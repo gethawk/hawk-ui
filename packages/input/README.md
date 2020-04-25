@@ -11,9 +11,9 @@ initialState = {
   <Input
     type="text"
     value={state.value}
-    onChange={(value) => {
+    onChange={(event) => {
       setState({
-        value,
+        value: event.target.value,
       });
     }}
     onEnter={(value) => {
@@ -29,9 +29,9 @@ initialState = {
     type="text"
     value={state.value}
     isCopyable
-    onChange={(value) => {
+    onChange={(event) => {
       setState({
-        value,
+        value: event.target.value,
       });
     }}
     onEnter={(value) => {
@@ -46,9 +46,9 @@ initialState = {
     type="password"
     value={state.value}
     isPasswordVisible
-    onChange={(value) => {
+    onChange={(event) => {
       setState({
-        value,
+        value: event.target.value,
       });
     }}
     onEnter={(value) => {
@@ -61,9 +61,9 @@ initialState = {
   <br /><br />
   <Input
     type="text"
-    onChange={(value) => {
+    onChange={(event) => {
       setState({
-        value,
+        value: event.target.value,
       });
     }}
     onEnter={(value) => {
@@ -85,9 +85,9 @@ initialState = {
       rows: '3',
       cols: '30',
     }}
-    onChange={(value) => {
+    onChange={(event) => {
       setState({
-        value,
+        value: event.target.value,
       });
     }}
     onEnter={(value) => {

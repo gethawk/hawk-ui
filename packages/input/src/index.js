@@ -68,7 +68,7 @@ export default class Input extends Component {
     }
 
     if (this.props.onChange) {
-      this.props.onChange(e.target.value);
+      this.props.onChange(e);
     } else {
       this.setState({ value: e.target.value });
     }
