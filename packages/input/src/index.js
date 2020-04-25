@@ -16,6 +16,7 @@ import './index.scss';
 export default class Input extends Component {
   static propTypes = {
     type: PropTypes.string,
+    name: PropTypes.string,
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
@@ -127,7 +128,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { readOnly, label, description, isCopyable, isPasswordVisible, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { name, readOnly, label, description, isCopyable, isPasswordVisible, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
     const { type } = this.state;
 
     return (
@@ -148,6 +149,7 @@ export default class Input extends Component {
               'hawk-textarea__error': isError && isRequired,
               'hawk-textarea__read-only': readOnly,
             })}
+            name={name}
             value={this.state.value}
             readOnly={readOnly}
             placeholder={placeholder}
@@ -195,6 +197,7 @@ export default class Input extends Component {
                 'hawk-input__error': isError && isRequired,
                 'hawk-input__read-only': readOnly,
               })}
+              name={name}
               value={this.state.value}
               placeholder={placeholder}
               onChange={this.onChange}
