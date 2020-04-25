@@ -20,12 +20,14 @@ export default class Card extends Component {
     className: PropTypes.string,
     isHoverable: PropTypes.bool,
     isClickable: PropTypes.bool,
+    isSelected: PropTypes.bool,
     onClick: PropTypes.func,
   };
   static defaultProps = {
     layout: 'box',
     isHoverable: false,
     isClickable: false,
+    isSelected: false,
   }
 
   state = {};
@@ -37,13 +39,14 @@ export default class Card extends Component {
   }
 
   render() {
-    const { className, layout, children, isHoverable, isClickable } = this.props;
+    const { className, layout, children, isHoverable, isClickable, isSelected } = this.props;
 
     return (
       <div
         className={getClassnames('hawk-card', {
           [className]: _.isString(className),
           [`hawk-card__layout-${layout}`]: _.isString(layout),
+          'hawk-card__active': isSelected,
           'hawk-card__hover': isHoverable,
           'hawk-card__clickable': isClickable,
         })}
