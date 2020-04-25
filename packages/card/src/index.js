@@ -17,6 +17,7 @@ export default class Card extends Component {
       PropTypes.element,
       PropTypes.array,
     ]),
+    className: PropTypes.string,
     isHoverable: PropTypes.bool,
     isClickable: PropTypes.bool,
     onClick: PropTypes.func,
@@ -36,11 +37,12 @@ export default class Card extends Component {
   }
 
   render() {
-    const { layout, children, isHoverable, isClickable } = this.props;
+    const { className, layout, children, isHoverable, isClickable } = this.props;
 
     return (
       <div
         className={getClassnames('hawk-card', {
+          [className]: _.isString(className),
           [`hawk-card__layout-${layout}`]: _.isString(layout),
           'hawk-card__hover': isHoverable,
           'hawk-card__clickable': isClickable,
