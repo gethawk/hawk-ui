@@ -1,4 +1,4 @@
-#### Basic Tags Input Usage:
+#### Basic Select Dropdown Usage:
 
 ```js
 const suggestions = [

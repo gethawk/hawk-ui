@@ -1,4 +1,4 @@
-#### Pagination Usage:
+#### Basic Pagination Usage:
 
 ```js
 const [PAGE_RANGE_DISPLAYED, PAGE_SIZE, totalResults] = [5, 15, 1000];

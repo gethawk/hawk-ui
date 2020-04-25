@@ -1,4 +1,4 @@
-#### Basic Modal Usage:
+#### Basic Navigation Drawer Usage:
 
 ```js
 initialState = {

@@ -1,0 +1,30 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-card {
+  box-shadow: $box-shadow-1;
+  background-color: $white;
+  &__layout {
+    &-box {
+      width: 296px;
+      height: 120px;
+      border-radius: 4px;
+    }
+    &-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+  }
+  &__hover {
+    &:hover {
+      cursor: pointer;
+      box-shadow: $box-shadow-2;
+    }
+  }
+  &__clickable {
+    &:hover {
+      cursor: pointer;
+      box-shadow: $box-shadow-2;
+    }
+  }
+}
