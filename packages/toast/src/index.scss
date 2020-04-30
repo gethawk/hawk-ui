@@ -59,10 +59,11 @@
   &__container {
     display: flex;
     &-icon {
+      margin-top: 4px;
       font-size: 18px;
+      margin-right: 10px;
     }
     &-content {
-      margin-left: 10px;
       &-title {
         text-transform: capitalize;
         font-weight: 500;

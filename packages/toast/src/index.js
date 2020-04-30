@@ -16,10 +16,13 @@ class ToastContent extends Component {
       PropTypes.string,
     ]),
     hideCloseOption: PropTypes.bool,
+    isIcon: PropTypes.bool,
+    icon: PropTypes.string,
     onClick: PropTypes.func,
   };
   static defaultProps = {
     hideCloseOption: false,
+    isIcon: false,
     type: 'success',
   }
   state = {};
@@ -31,7 +34,7 @@ class ToastContent extends Component {
   }
 
   render() {
-    const { type, title, message, hideCloseOption } = this.props;
+    const { type, isIcon, icon, title, message, hideCloseOption } = this.props;
 
     return (
       <div
@@ -40,14 +43,17 @@ class ToastContent extends Component {
         })}
       >
         <div className="hawk-toast__container">
-          <i
-            className={getClassnames('fa hawk-toast__container-icon', {
-              'fa-check-circle': _.isEqual(type, 'success'),
-              'fa-times-circle': _.isEqual(type, 'danger'),
-              'fa-info-circle': _.isEqual(type, 'info'),
-              'fa-exclamation-triangle': _.isEqual(type, 'warning'),
-            })}
-          />
+          {isIcon && (
+            <i
+              className={getClassnames('fa hawk-toast__container-icon', {
+                'fa-check-circle': _.isEqual(type, 'success'),
+                'fa-times-circle': _.isEqual(type, 'danger'),
+                'fa-info-circle': _.isEqual(type, 'info'),
+                'fa-exclamation-triangle': _.isEqual(type, 'warning'),
+                [icon]: _.isString(icon),
+              })}
+            />
+          )}
           <div className="hawk-toast__container-content">
             {title && (
               <div className="hawk-toast__container-content-title">{title}</div>
