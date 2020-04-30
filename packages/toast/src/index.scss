@@ -1,73 +1,130 @@
 @import '../../../assets/scss/utils/variables';
 
 .hawk-toast {
-  position: fixed;
+	box-sizing: border-box;
+	position: fixed;
   z-index: 1;
-  margin: 20px;
+  &__hidden {
+    display: none;
+  }
+  &__overflow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.8);
+  }
   &__content {
     display: flex;
-    align-items: center;
-    max-width: 300px;
-    padding: 15px;
-    overflow: hidden;
+    justify-content: space-between;
     font-size: 14px;
-    background-color: rgba(255,255,255,.85);
-    border: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    // opacity: 0;
-    border-radius: 6px;
-    .fa {
-      font-size: 20px;
-      &-check-circle {
-        color: $green-1;
-      }
-      &-times-circle {
-        color: $red-1;
+    background-color: $white;
+    transition: .3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 15px;
+    width: 280px;
+    max-height: 100px;
+    border-radius: 4px;
+    box-shadow: $box-shadow-modal;
+    &-success {
+      background-color: $green-3;
+      .fa-check-circle {
+        color: $green-4;
       }
     }
-    &-message {
+    &-danger {
+      background-color: $red-2;
+      .fa-times-circle {
+        color: $red-3;
+      }
+    }
+    &-info {
+      background-color: $blue-6;
+      .fa-info-circle {
+        color: $green-5;
+      }
+    }
+    &-warning {
+      background-color: $orange-1;
+      .fa-exclamation-triangle {
+        color: $orange-2;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    &-icon {
+      font-size: 18px;
+    }
+    &-content {
       margin-left: 10px;
-      font-size: 14px;
+      &-title {
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      &-message {
+        text-transform: capitalize;
+      }
     }
-    &-fadeIn {
-      opacity: 1;
-      -webkit-animation: fadeInOut 8s linear forwards;
-      animation: fadeInOut 8s linear forwards;
-    }
-    &-fadeOut {
-      opacity: 0;
-    }
-  }
-  &__top {
-    &-left {
-      top: 0;
-      left: 0;
-    }
-    &-right {
-      top: 0;
-      right: 0;
+    &-close {
+      cursor: pointer;
     }
   }
-  &__bottom {
-    &-left {
-      bottom: 0;
-      left: 0;
+  &__top-right {
+    top: 20px;
+    right: 20px;
+    &-animation {
+      transition: transform .6s ease-in-out;
+      animation: toast-in-right .7s;
     }
-    &-right {
-      bottom: 0;
-      right: 0;
+  }
+  &__bottom-right {
+    bottom: 20px;
+    right: 20px;
+    &-animation {
+      transition: transform .6s ease-in-out;
+      animation: toast-in-right .7s;
+    }
+  }
+  &__top-left {
+    top: 20px;
+    left: 20px;
+    &-animation {
+      transition: transform .6s ease-in;
+      animation: toast-in-left .7s;
+    }
+  }
+  &__bottom-left {
+    bottom: 12px;
+    left: 12px;
+    &-animation {
+      transition: transform .6s ease-in;
+      animation: toast-in-left .7s;
     }
   }
 }
 
-@-webkit-keyframes fadeInOut {
-  0%,100% { opacity: 0; }
-  10% { opacity: 1; }
+@keyframes toast-in-right {
+	from {
+	  transform: translateX(100%);
+	}
+	to {
+	  transform: translateX(0);
+	}
 }
 
-@keyframes fadeInOut {
-  0%,100% { opacity: 0; }
-  10% { opacity: 1; }
+@keyframes toast-in-left {
+	from {
+		transform: translateX(-100%);
+
+	}
+	to {
+		transform: translateX(0);
+	}
 }
