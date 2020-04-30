@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/table",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "description": "hawk-ui: Basic Table Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,8 +9,8 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/input": "^1.8.3",
-    "@hawk-ui/pagination": "^1.8.3",
+    "@hawk-ui/input": "^1.8.4",
+    "@hawk-ui/pagination": "^1.8.4",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
