@@ -60,6 +60,7 @@
       opacity: $opacity-disabled;
       &:hover {
         background-color: $blue-1;
+        box-shadow: unset;
       }
     }
   }

@@ -39,7 +39,7 @@ export default class Button extends Component {
 
     return (
       <button
-        type={type}
+        type={isDisabled ? _.isEqual(type, 'submit') && 'button' : type}
         className={getClassnames('hawk-button', className, {
           [`hawk-button__${variant}`]: _.isString(variant),
           [`hawk-button__${variant}-disabled`]: isDisabled,
