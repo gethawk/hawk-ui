@@ -150,7 +150,7 @@ export default class Table extends Component {
   }
 
   onSearchInput = (event) => {
-    const searchValue = event.toLowerCase();
+    const searchValue = event.target.value.toLowerCase();
 
     const tableContent = _.filter(this.props.tableContent, (content) => _.reduce(this.props.tableSearchContent, (result, key) => {
       if (content[key].toLowerCase().includes(searchValue)) { return true; }
