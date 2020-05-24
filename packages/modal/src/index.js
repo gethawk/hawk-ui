@@ -22,6 +22,7 @@ export default class Modal extends Component {
       PropTypes.element,
       PropTypes.array,
     ]),
+    className: PropTypes.string,
     type: PropTypes.oneOf(['light', 'dark']),
     isOpen: PropTypes.bool,
   };
@@ -71,12 +72,13 @@ export default class Modal extends Component {
   }
 
   render() {
-    const { title, children, type, hideCloseIcon, isOpen } = this.props;
+    const { title, children, type, hideCloseIcon, isOpen, className } = this.props;
 
     return (
       <div
         className={getClassnames('hawk-modal', {
           'hawk-modal__closed': !isOpen,
+          [className]: !_.isEmpty(className),
         })}
       >
         <div
