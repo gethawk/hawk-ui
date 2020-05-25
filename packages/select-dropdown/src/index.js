@@ -105,8 +105,8 @@ export default class SelectDropdown extends Component {
               <Suggestions.INPUT
                 value={this.props.searchValue}
                 placeholder={placeholder}
-                onChange={(value) => {
-                  this.onChange(value);
+                onChange={(event) => {
+                  this.onChange(event);
                 }}
                 readOnly={isReadOnly}
                 isRequired={isRequired}

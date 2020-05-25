@@ -40,8 +40,10 @@ initialState = {
     <Suggestions.INPUT
       placeholder="Search country name"
       value={state.value}
-      onChange={(value) => {
-        setState({ value });
+      onChange={(event) => {
+        setState({
+          value: event.target.value,
+        });
       }}
     />
     <br />
