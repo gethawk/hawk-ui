@@ -62,7 +62,7 @@ class SuggestionsInput extends Component {
             isError={isError}
             onChange={(event) => {
               onSearch(event.target.value);
-              onChange(event.target.value);
+              onChange(event);
             }}
             onKeyDown={(event) => {
               onKeyDown(event);

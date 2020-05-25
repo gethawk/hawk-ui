@@ -120,8 +120,8 @@ export default class TagsInput extends Component {
               <Suggestions.INPUT
                 value={this.props.searchValue}
                 placeholder={placeholder}
-                onChange={(value) => {
-                  onChange(value);
+                onChange={(event) => {
+                  onChange(event);
                   this.setState({ isOpen: true });
                 }}
                 ref={(ref) => { this.inputInstance = ref; }}

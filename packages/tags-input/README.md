@@ -30,9 +30,9 @@ initialState = {
     suggestions={state.suggestionContent}
     placeholder="Select anyone"
     searchValue={state.searchValue}
-    onChange={(value) => {
+    onChange={(event) => {
       setState({
-        searchValue: value,
+        searchValue: event.target.value,
       })
     }}
     searchContent={['title']}
