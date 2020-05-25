@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/tooltip",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "hawk-ui: Basic Tooltip Component",
   "main": "dist/index.min.js",
   "scripts": {
