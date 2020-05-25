@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/toast",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "hawk-ui: Basic Toast Component",
   "main": "dist/index.min.js",
   "scripts": {
