@@ -138,7 +138,7 @@ export default class TagsInput extends Component {
                 isError={isError && isRequired}
               />
             </div>
-            {isOpen && (
+            {!_.isEmpty(messageIfEmpty) && isOpen && (
               <Suggestions.CONTAINER
                 messageIfEmpty={messageIfEmpty}
                 onSuggestionClick={(suggestion, meta) => {
