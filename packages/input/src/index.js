@@ -15,6 +15,7 @@ import './index.scss';
  */
 export default class Input extends Component {
   static propTypes = {
+    id: PropTypes.string,
     type: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.oneOfType([
@@ -73,8 +74,8 @@ export default class Input extends Component {
       this.setState({ value: e.target.value });
     }
   }
-  onCopy = () => {
-    const copyText = document.getElementById('hawk-input');
+  onCopy = (event) => {
+    const copyText = document.getElementById(event);
 
     copyText.select();
     copyText.setSelectionRange(0, 999999999999999);
@@ -128,7 +129,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const { name, readOnly, label, description, isCopyable, isPasswordVisible, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
+    const { id, name, readOnly, label, description, isCopyable, isPasswordVisible, isRequired, isError, errorMessage, isTextarea, htmlAttributes, className, isDisabled, placeholder } = this.props;
     const { type } = this.state;
 
     return (
@@ -171,7 +172,7 @@ export default class Input extends Component {
                   className={getClassNames('fa fa-copy', {
                     'hawk-input__copy-icon': isCopyable,
                   })}
-                  onClick={() => { this.onCopy(); }}
+                  onClick={() => { this.onCopy(id); }}
                 />
               </Tooltip>
             )}
@@ -190,7 +191,7 @@ export default class Input extends Component {
               ref={(node) => { this.fieldNode = node; }}
               type={type}
               readOnly={readOnly}
-              id="hawk-input"
+              id={id}
               className={getClassNames('hawk-input', className, {
                 'hawk-input__copy-text': isCopyable || isPasswordVisible,
                 'hawk-input__disabled': isDisabled,

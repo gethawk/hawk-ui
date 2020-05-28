@@ -28,6 +28,7 @@ initialState = {
   <Input
     type="text"
     value={state.value}
+    id="copy"
     isCopyable
     onChange={(event) => {
       setState({
