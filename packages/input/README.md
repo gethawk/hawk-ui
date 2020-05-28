@@ -40,8 +40,24 @@ initialState = {
     }}
     placeholder="Enter Username"
   />
+  <br />
+  <Input
+    type="text"
+    value={state.value}
+    id="copy2"
+    isCopyable
+    onChange={(event) => {
+      setState({
+        value: event.target.value,
+      });
+    }}
+    onEnter={(value) => {
+      alert(value);
+    }}
+    placeholder="Enter Username"
+  />
   <br /><br />
-  <p>With Copy</p>
+  <p>With Password Visible</p>
   <br /><br />
   <Input
     type="password"
