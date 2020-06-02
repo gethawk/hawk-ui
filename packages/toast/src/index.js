@@ -64,10 +64,12 @@ class ToastContent extends Component {
           </div>
         </div>
         {hideCloseOption && (
-          <i
-            className="fa fa-times hawk-toast__container-close"
+          <span
+            className="hawk-toast__container-close"
             onClick={this.onClick}
-          />
+          >
+            &times;
+          </span>
         )}
       </div>
     );

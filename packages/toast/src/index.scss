@@ -31,26 +31,23 @@
     max-height: 100px;
     border-radius: 4px;
     box-shadow: $box-shadow-modal;
+    border-left: 5px solid $blue-1;
     &-success {
-      background-color: $green-3;
       .fa-check-circle {
         color: $green-4;
       }
     }
     &-danger {
-      background-color: $red-2;
       .fa-times-circle {
         color: $red-3;
       }
     }
     &-info {
-      background-color: $blue-6;
       .fa-info-circle {
         color: $green-5;
       }
     }
     &-warning {
-      background-color: $orange-1;
       .fa-exclamation-triangle {
         color: $orange-2;
       }
@@ -74,7 +71,10 @@
       }
     }
     &-close {
+      font-size: 20px;
+      font-weight: 500;
       cursor: pointer;
+      color: $gray-1;
     }
   }
   &__top-right {
