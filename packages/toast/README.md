@@ -76,8 +76,8 @@ initialState = {
       hideCloseOption
     >
       <div>
-        <div className="hawk-toast__content-title">Toast Title</div>
-        <div className="hawk-toast__content-message">Toast Message</div>
+        <div className="title">Toast Title</div>
+        <div className="message">Toast Message</div>
       </div>
     </Toast>
   </div>
