@@ -41,7 +41,6 @@
     width: 300px;
     font-size: 13px;
     &-icon {
-      margin-top: 4px;
       font-size: 18px;
       margin-right: 10px;
     }
@@ -65,6 +64,7 @@
     color: $orange-2;
   }
   &__content {
+    display: flex;
     &-title {
       font-weight: 500;
       text-transform: capitalize;

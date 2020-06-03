@@ -72,8 +72,10 @@ initialState = {
       isShow={state.isShow}
       position={state.position}
       type="success"
+      isIcon
+      hideCloseOption
     >
-      <div className="hawk-toast__content">
+      <div>
         <div className="hawk-toast__content-title">Toast Title</div>
         <div className="hawk-toast__content-message">Toast Message</div>
       </div>

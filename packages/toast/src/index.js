@@ -46,18 +46,18 @@ export default class Toast extends Component {
           onClick={onClick}
         >
           <div className="hawk-toast__container">
-            {isIcon && (
-              <i
-                className={getClassnames('fa hawk-toast__container-icon', {
-                  'fa-check-circle': _.isEqual(type, 'success'),
-                  'fa-times-circle': _.isEqual(type, 'danger'),
-                  'fa-info-circle': _.isEqual(type, 'info'),
-                  'fa-exclamation-triangle': _.isEqual(type, 'warning'),
-                  [icon]: _.isString(icon),
-                })}
-              />
-            )}
             <div className="hawk-toast__content">
+              {isIcon && (
+                <i
+                  className={getClassnames('fa hawk-toast__container-icon', {
+                    'fa-check-circle': _.isEqual(type, 'success'),
+                    'fa-times-circle': _.isEqual(type, 'danger'),
+                    'fa-info-circle': _.isEqual(type, 'info'),
+                    'fa-exclamation-triangle': _.isEqual(type, 'warning'),
+                    [icon]: _.isString(icon),
+                  })}
+                />
+              )}
               {children}
             </div>
             {hideCloseOption && (
