@@ -12,7 +12,7 @@ import './index.scss';
 export default class Toast extends Component {
   static propTypes = {
     position: PropTypes.oneOf(['top-left', 'top-right', 'bottom-left', 'bottom-right']),
-    type: PropTypes.oneOf(['success', 'danger', 'info', 'warning']),
+    type: PropTypes.oneOf(['success', 'failed', 'info', 'warning']),
     children: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.array,
@@ -51,7 +51,7 @@ export default class Toast extends Component {
                 <i
                   className={getClassnames('fa hawk-toast__container-icon', {
                     'fa-check-circle': _.isEqual(type, 'success'),
-                    'fa-times-circle': _.isEqual(type, 'danger'),
+                    'fa-times-circle': _.isEqual(type, 'failed'),
                     'fa-info-circle': _.isEqual(type, 'info'),
                     'fa-exclamation-triangle': _.isEqual(type, 'warning'),
                     [icon]: _.isString(icon),
