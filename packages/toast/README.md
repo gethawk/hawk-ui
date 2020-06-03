@@ -2,47 +2,82 @@
 
 ```js
 initialState = {
-  isShowWithout: false,
-  isShowWith: false,
+  isShow: false,
+  position: '',
 };
 
 <div className="styleguidist__btns-wrap">
-  <div>Without Overflow</div>
-  <br />
-  <Toast
-    isShow={state.isShowWithout}
-    position="top-left"
+  <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <button
+      type="button"
+      className="hawk-button"
+      onClick={() => {
+        setState({
+          position: 'top-left',
+          isShow: true,
+        });
+      }}
+    >
+      Top Left
+    </button>
+    <button
+      type="button"
+      className="hawk-button"
+      onClick={() => {
+        setState({
+          position: 'top-right',
+          isShow: true,
+        });
+      }}
+    >
+      Top Right
+    </button>
+    <button
+      type="button"
+      className="hawk-button"
+      onClick={() => {
+        setState({
+          position: 'bottom-right',
+          isShow: true,
+        });
+      }}
+    >
+      Bottom Right
+    </button>
+    <button
+      type="button"
+      className="hawk-button"
+      onClick={() => {
+        setState({
+          position: 'bottom-left',
+          isShow: true,
+        });
+      }}
+    >
+      Bottom Left
+    </button>
+  </div>
+  <div
+    style={state.position === 'top-left' ? {
+      position: 'fixed', top: 0, left: 0, zIndex: 10
+    } : state.position === 'top-right' ? {
+      position: 'fixed', top: 0, right: 0, zIndex: 10
+    } : state.position === 'bottom-right' ? {
+      position: 'fixed', bottom: 0, right: 0, zIndex: 10
+    } : state.position === 'bottom-left' ? {
+      position: 'fixed', bottom: 0, left: 0, zIndex: 10
+    } : null}
   >
-    <Toast.CONTENT
+    <Toast
+      isShow={state.isShow}
+      position={state.position}
       type="success"
-      title="title"
-      message="Success Message"
-      hideCloseOption
-      onClick={() => { setState({ isShowWithout: !state.isShowWithout }); }}
-    />
-  </Toast>
-  <Button
-    onClick={() => { setState({ isShowWithout: !state.isShowWithout }); }}
-  >Show Toast</Button>
-  <br /><br />
-  <div>With Overflow</div>
-  <br />
-  <Toast
-    isOverflow
-    isShow={state.isShowWith}
-    position="top-left"
-  >
-    <Toast.CONTENT
-      type="success"
-      title="title"
-      message="Success Message"
-      hideCloseOption
-      onClick={() => { setState({ isShowWith: !state.isShowWith }); }}
-    />
-    <Toast.OVERVIEW />
-  </Toast>
-  <Button
-    onClick={() => { setState({ isShowWith: !state.isShowWith }); }}
-  >Show Toast</Button>
+    >
+      <div className="hawk-toast__content">
+        <div className="hawk-toast__content-title">Toast Title</div>
+        <div className="hawk-toast__content-message">Toast Message</div>
+      </div>
+    </Toast>
+  </div>
 </div>
 ```
