@@ -37,5 +37,13 @@ initialState = {
     isError={!state.isChecked}
     errorMessage="This field is a compulsory field."
   />
+  <br /><br />
+  <p>With Disabled</p>
+  <br /><br />
+  <Toggle
+    name={state.name}
+    isChecked={state.isChecked}
+    isDisabled
+  />
 </div>
 ```

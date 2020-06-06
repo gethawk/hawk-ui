@@ -77,4 +77,10 @@
       font-size: 13px;
     }
   }
+  &__disabled {
+    opacity: 0.3;
+    .hawk-toggle__slider {
+      cursor: not-allowed;
+    }
+  }
 }

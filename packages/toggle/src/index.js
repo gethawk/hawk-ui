@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+import _ from 'lodash';
 import Label from '@hawk-ui/label';
 // css modules
 import './index.scss';
@@ -20,11 +21,18 @@ export default class Toggle extends Component {
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
+    isDisabled: PropTypes.bool,
   };
   state = {};
 
+  onChange = (e) => {
+    if (!this.props.isDisabled && _.isFunction(this.props.onChange)) {
+      this.props.onChange(e);
+    }
+  };
+
   render() {
-    const { className, label, name, value, isChecked, onChange, isRequired, isError, errorMessage } = this.props;
+    const { className, label, name, value, isChecked, isRequired, isError, errorMessage, isDisabled } = this.props;
 
     return (
       <Fragment>
@@ -36,15 +44,17 @@ export default class Toggle extends Component {
           />
         )}
         <label
-          className={getClassnames('hawk-toggle', className)}
+          className={getClassnames('hawk-toggle', {
+            'hawk-toggle__disabled': isDisabled,
+            [className]: !_.isEmpty(className),
+          })}
         >
           <input
             type="checkbox"
-            onChange={(event) => { onChange(event); }}
+            onChange={(event) => { this.onChange(event); }}
             name={name}
             value={value}
             checked={isChecked}
-            isDisabled
           />
           <span
             className="hawk-toggle__slider hawk-toggle__slider-round"
