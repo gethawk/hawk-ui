@@ -24,14 +24,6 @@ export default class Image extends Component {
     src: this.props.src || this.props.fallbackSrc,
   };
 
-  componentWillReceiveProps(nextProps, prevProps) {
-    if (!_.isEqual(nextProps.src, prevProps.src)) {
-      this.setState({
-        src: nextProps.src,
-      });
-    }
-  }
-
   handleLoadError = () => {
     this.setState({
       src: this.props.fallbackSrc,
