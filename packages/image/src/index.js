@@ -17,6 +17,7 @@ export default class Image extends Component {
     role: PropTypes.string,
     title: PropTypes.string,
     className: PropTypes.string,
+    children: PropTypes.node,
   };
 
   state = {
@@ -39,9 +40,9 @@ export default class Image extends Component {
 
   render() {
     const { src } = this.state;
-    const { alt, role, title, className } = this.props;
+    const { alt, role, title, className, children } = this.props;
 
-    return (
+    return src ? (
       <img
         src={src}
         onError={this.handleLoadError}
@@ -52,6 +53,14 @@ export default class Image extends Component {
           [className]: !_.isEmpty(className),
         })}
       />
+    ) : (
+      <span
+        className={getClassnames('hawk-image__fail-content', {
+          [className]: !_.isEmpty(className),
+        })}
+      >
+        {children}
+      </span>
     );
   }
 }
