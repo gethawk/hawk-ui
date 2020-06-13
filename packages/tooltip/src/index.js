@@ -28,7 +28,7 @@ export default class Tooltip extends Component {
     return (
       <div
         className="hawk-tooltip"
-        onMouseOut={(event) => { onmouseout(event); }}
+        onmouseout={(event) => { onmouseout(event); }}
       >
         {children}
         <div
