@@ -24,6 +24,7 @@ module.exports = {
         '../packages/table/src/index.js',
         '../packages/toast/src/index.js',
         '../packages/tag/src/index.js',
+        '../packages/pill/src/index.js',
         '../packages/suggestions/src/index.js',
         '../packages/dropdown/src/index.js',
         '../packages/select-dropdown/src/index.js',

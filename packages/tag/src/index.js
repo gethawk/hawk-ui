@@ -39,22 +39,22 @@ export default class Tag extends Component {
 
     return (
       <div
-        className={getClassnames('blng-tag', {
-          'blng-tag__hoverable': isHover,
-          'blng-tag__clickable': _.isFunction(onClick),
-          [`blng-tag__icon-placement_${iconPlacement}`]: _.isString(iconPlacement),
+        className={getClassnames('hawk-tag', {
+          'hawk-tag__hoverable': isHover,
+          'hawk-tag__clickable': _.isFunction(onClick),
+          [`hawk-tag__icon-placement_${iconPlacement}`]: _.isString(iconPlacement),
           [className]: !_.isEmpty(className),
         })}
         onClick={(e) => { this.onClick(e); }}
       >
         {icon && (
           <i
-            className={getClassnames('blng-tag__icon', {
+            className={getClassnames('hawk-tag__icon', {
               [icon]: _.isString(icon),
             })}
           />
         )}
-        <div className="blng-tag__content">{children}</div>
+        <div className="hawk-tag__content">{children}</div>
       </div>
     );
   }

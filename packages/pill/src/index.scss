@@ -1,0 +1,77 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-pill {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 25px;
+  padding: 4px 10px;
+  cursor: default;
+  align-items: center;
+  &__variant {
+    &-default {
+      background-color: $gray-9;
+      color: $gray-10;
+    }
+    &-tab {
+      background-color: $white;
+      border: 1px solid $blue-1;
+      color: $blue-1;
+      &-active {
+        background-color: $blue-1;
+        color: $white;
+      }
+    }
+    &-counter {
+      background-color: $gray-9;
+      color: $gray-10;
+    }
+    &-step {
+      background-color: $gray-9;
+      color: $gray-10;
+      &-active {
+        background-color: $blue-2;
+        color: $blue-1;
+      }
+    }
+  }
+  &__icon {
+    font-size: 10px;
+    margin: 0 3px;
+    &-placement {
+      &_right {
+        flex-direction: row-reverse;
+      }
+      &_left {
+        flex-direction: row;
+      }
+    }
+  }
+  &__content {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 3px;
+  }
+  &__step-index {
+    height: 14px;
+    width: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: $white;
+    background-color: $gray-10;
+    border-radius: 25px;
+    text-align: center;
+    margin: 0 2px;
+    &__active {
+      background-color: $blue-1;
+    }
+  }
+  &__clickable {
+    cursor: pointer;
+  }
+  &__hoverable {
+    &:hover {
+      cursor: pointer;
+      box-shadow: $box-shadow-2;
+    }
+  }
+}
