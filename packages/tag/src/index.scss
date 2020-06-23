@@ -1,0 +1,38 @@
+@import '../../../assets/scss/utils/variables';
+
+.blng-tag {
+  display: flex;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 4px 10px;
+  cursor: default;
+  background-color: $blue-2;
+  color: $blue-1;
+  align-items: center;
+  white-space: nowrap;
+  &__clickable {
+    cursor: pointer;
+  }
+  &__hoverable {
+    &:hover {
+      box-shadow: $box-shadow-2;
+    }
+  }
+  &__icon {
+    font-size: 10px;
+    margin: 0 2px;
+    &-placement {
+      &_left {
+        flex-direction: row;
+      }
+      &_right {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+  &__content {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0 2px;
+  }
+}
