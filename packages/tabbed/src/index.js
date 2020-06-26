@@ -37,29 +37,31 @@ export default class Tabbed extends Component {
           [className]: _.isString(className),
         })}
       >
-        <div
-          className={getClassnames('hawk-tabbed__header', {
-            [`hawk-tabbed__header-${layout}`]: _.isString(layout),
-          })}
-        >
-          {_.map(headers, (header, index) => (
-            <div
-              key={index}
-              className={getClassnames('hawk-tabbed__header-item', {
-                [`hawk-tabbed__header-item__${layout}`]: _.isString(layout),
-                active: _.isEqual(activeTabIndex, index),
-              })}
-              onClick={() => {
-                this.setState({
-                  activeTabIndex: index,
-                });
-                onActiveTabChange(index);
-              }}
-            >
-              {header}
-            </div>
-          ))}
-        </div>
+        {!_.isEmpty(headers) && (
+          <div
+            className={getClassnames('hawk-tabbed__header', {
+              [`hawk-tabbed__header-${layout}`]: _.isString(layout),
+            })}
+          >
+            {_.map(headers, (header, index) => (
+              <div
+                key={index}
+                className={getClassnames('hawk-tabbed__header-item', {
+                  [`hawk-tabbed__header-item__${layout}`]: _.isString(layout),
+                  active: _.isEqual(activeTabIndex, index),
+                })}
+                onClick={() => {
+                  this.setState({
+                    activeTabIndex: index,
+                  });
+                  onActiveTabChange(index);
+                }}
+              >
+                {header}
+              </div>
+            ))}
+          </div>
+        )}
         <div className="hawk-tabbed__content">
           {panes[activeTabIndex]}
         </div>
