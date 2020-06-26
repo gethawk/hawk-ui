@@ -10,6 +10,7 @@ module.exports = {
         '../packages/button/src/index.js',
         '../packages/label/src/index.js',
         '../packages/input/src/index.js',
+        '../packages/progressBar/src/index.js',
         '../packages/password-strength/src/index.js',
         '../packages/checkbox/src/index.js',
         '../packages/radio/src/index.js',

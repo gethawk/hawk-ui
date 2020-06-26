@@ -1,6 +1,6 @@
 @import '../../../assets/scss/utils/variables';
 
-.hawk-password-strength {
+.hawk-progress-bar {
   progress {
     width: 100%;
     background-color: #f3f3f3;
@@ -28,16 +28,6 @@
       }
       &::-moz-progress-bar {
         background: $yellow-1;
-        border-radius: 9px;
-      }
-    }
-    &.primary {
-      &::-webkit-progress-value {
-        background: $blue-1;
-        border-radius: 9px;
-      }
-      &::-moz-progress-bar {
-        background: $blue-1;
         border-radius: 9px;
       }
     }
