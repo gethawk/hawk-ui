@@ -11,25 +11,38 @@ import './index.scss';
  */
 export default class Label extends Component {
   static propTypes = {
+    icon: PropTypes.string,
+    iconPlacement: PropTypes.oneOf(['left', 'right']),
     title: PropTypes.string,
     className: PropTypes.string,
     isRequired: PropTypes.bool,
   };
   static defaultProps = {
     isRequired: false,
+    iconPlacement: 'left',
   };
   state = {};
 
   render() {
-    const { title, className, isRequired } = this.props;
+    const { icon, iconPlacement, title, className, isRequired } = this.props;
 
     return (
       <label
         className={getClassNames('hawk-label', {
+          [`hawk-label__icon-${iconPlacement}`]: iconPlacement,
           [className]: _.isString(className),
         })}
       >
-        {title} {isRequired && <span>*</span>}
+        {icon && (
+          <i
+            className={getClassNames('hawk-label__icon', {
+              [icon]: _.isString(icon),
+            })}
+          />
+        )}
+        <span>
+          {title} {isRequired && <span className="hawk-label__required">*</span>}
+        </span>
       </label>
     );
   }

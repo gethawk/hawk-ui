@@ -5,7 +5,25 @@
   font-weight: 500;
   display: inline-block;
   color: $blue-4;
-  span {
+  &__required {
     color: $red-1;
+  }
+  &__icon {
+    &-left {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      .hawk-label__icon {
+        margin-right: 5px;
+      }
+    }
+    &-right {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      .hawk-label__icon {
+        margin-left: 5px;
+      }
+    }
   }
 }
