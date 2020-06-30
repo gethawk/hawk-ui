@@ -9,8 +9,8 @@ const tableHeader1 = [
 ];
 
 const tableHeader2 = [
-  { key: 'company', title: 'Company', dataIndex: ['company', 'contact'] },
-  { key: 'country', title: 'Country', dataIndex: 'country' },
+  { key: 'company', title: 'Company', dataIndex: ['company', 'contact'], dataRender: true, renderItem: (event) => ['', <span style={{ fontWeight: 'bold' }}>{event.contact}</span>] },
+  { key: 'country', title: 'Country', dataIndex: 'country', },
   { key: 'action', title: 'Action', dataIndex: '', render: (event) => <span onClick={() => { console.log(event); }} style={{ cursor: 'pointer' }}>Delete</span> },
 ];
 

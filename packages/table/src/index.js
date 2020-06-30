@@ -108,7 +108,17 @@ class TableContent extends Component {
                         className="hawk-table__content"
                       >
                         {_.map(item.dataIndex, (value, tdIndex) => (
-                          <div key={tdIndex}>{content[value]}</div>
+                          (!item.dataRender) ? (
+                            <div key={tdIndex}>{content[value]}</div>
+                          ) : (
+                            <Fragment>
+                              {_.isEmpty(item.renderItem(content)[tdIndex]) ? (
+                                <div key={tdIndex}>{content[value]}</div>
+                              ) : (
+                                <div key={tdIndex}>{item.renderItem(content)[tdIndex]}</div>
+                              )}
+                            </Fragment>
+                          )
                         ))}
                       </div>
                     )}
