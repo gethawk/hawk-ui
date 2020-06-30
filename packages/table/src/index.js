@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Component, createContext } from 'react';
+import React, { Fragment, Component, createContext } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 // React modules
@@ -97,7 +97,23 @@ class TableContent extends Component {
           {_.map(this.context.tableContent, (content, index) => (
             <tr key={index}>
               {_.map(tableHeader, (item, subIndex) => (
-                !_.isEmpty(item.dataIndex) ? <td key={subIndex}>{content[item.dataIndex]}</td> : <td key={subIndex}>{item.render(content)}</td>
+                !_.isEmpty(item.dataIndex) ? (
+                  <td key={subIndex}>
+                    {_.isString(item.dataIndex) ? (
+                      <span>
+                        {content[item.dataIndex]}
+                      </span>
+                    ) : (
+                      <div
+                        className="hawk-table__content"
+                      >
+                        {_.map(item.dataIndex, (value, tdIndex) => (
+                          <div key={tdIndex}>{content[value]}</div>
+                        ))}
+                      </div>
+                    )}
+                  </td>
+                ) : <td key={subIndex}>{item.render(content)}</td>
               ))}
             </tr>
           ))}
