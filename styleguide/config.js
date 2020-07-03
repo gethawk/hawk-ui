@@ -22,6 +22,7 @@ module.exports = {
         '../packages/tabbed/src/index.js',
         '../packages/card/src/index.js',
         '../packages/image/src/index.js',
+        '../packages/color-picker/src/index.js',
         '../packages/pagination/src/index.js',
         '../packages/table/src/index.js',
         '../packages/toast/src/index.js',

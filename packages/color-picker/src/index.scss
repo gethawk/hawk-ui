@@ -1,0 +1,46 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-color-picker {
+  position: relative;
+  &__label {
+    width: 50px;
+    height: 50px;
+  }
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    width: 185px;
+    position: absolute;
+    will-change: transform;
+    // top: 0px;
+    left: 0px;
+    // transform: translate3d(0px, 37px, 0px);
+    padding: 5px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    &-color {
+      width: 150px;
+      height: 150px;
+      border-radius: 4px;
+    }
+    &-strip {
+      width: 10px;
+      height: 150px;
+      border-radius: 10px;
+    }
+  }
+  #color-input {
+    display: none;
+  }
+  #color-input:checked ~ #color-picker {
+    opacity: 1;
+  }
+  & canvas {
+    &:hover {
+      cursor: crosshair;
+    }
+  }
+}

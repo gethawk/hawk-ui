@@ -1,0 +1,19 @@
+{
+  "name": "@hawk-ui/color-picker",
+  "version": "2.1.4",
+  "description": "hawk-ui: Basic Color Picker Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=color-picker"
+  },
+  "author": "saurabh gaur",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
