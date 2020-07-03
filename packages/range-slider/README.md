@@ -1,10 +1,18 @@
 #### Basic Range Slider Usage:
 
 ```js
+initialState = {
+  range: 50,
+};
+
 <div className="styleguidist__btns-wrap">
   <RangeSlider
-    value={40}
-    onChange={(value) => { console.log('range', value); }}
+    value={state.range}
+    onChange={(value) => {
+      setState({
+        range: value,
+      });
+    }}
   />
 </div>
 ```

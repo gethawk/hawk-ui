@@ -21,9 +21,7 @@ export default class RangeSlider extends Component {
     step: 1,
   }
 
-  state = {
-    value: this.props.value,
-  };
+  state = {};
 
   componentDidMount() {
     document.addEventListener('DOMContentLoaded', this.setRange);
@@ -47,16 +45,11 @@ export default class RangeSlider extends Component {
 
     rangeValue.innerHTML = `<span>${event.target.value}</span>`;
     rangeValue.style.left = `calc(${newValue}% + (${newPosition}px))`;
-    this.setState({
-      value: event.target.value,
-    }, () => {
-      this.props.onChange(this.state.value);
-    });
+    this.props.onChange(event.target.value);
   };
 
   render() {
-    const { value } = this.state;
-    const { min, max, step } = this.props;
+    const { value, min, max, step } = this.props;
 
     return (
       <div className="hawk-range-slider">
