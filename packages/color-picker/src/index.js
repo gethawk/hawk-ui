@@ -76,22 +76,30 @@ export default class ColorPicker extends Component {
       fillGradient();
     }
 
-    // function drawCoordinates(x1, y1) {
+    function drawCoordinates(x1, y1) {
+      const pointSize = 3;
+      const ctx = document.getElementById('color-block').getContext('2d');
 
-    // }
+      ctx.fillStyle = '#ff2626';
+      // ctx.beginPath();
+      // ctx.clearRect(this.state.x1, this.state.y1, pointSize, 0, Math.PI * 2, true);
+      // ctx.closePath();
+      ctx.beginPath();
+      ctx.arc(x1, y1, pointSize, 0, Math.PI * 2, true);
+      ctx.closePath();
+      ctx.fill();
+      // this.setState({
+      //   prevX: x1,
+      //   prevY: y1,
+      // });
+    }
 
     function changeColor(e) {
-      const pointSize = 3;
-      // x = e.offsetX;
-      // y = e.offsetY;
-
       x = e.offsetX;
       y = e.offsetY;
-      console.log('query x', x);
-      console.log('query y', y);
       const imageData = ctx1.getImageData(x, y, 1, 1).data;
 
-      this.drawCoordinates(x, y);
+      drawCoordinates(x, y);
       rgbaColor = `rgba(${imageData[0]},${imageData[1]},${imageData[2]},1)`;
       colorLabel.style.backgroundColor = rgbaColor;
     }
@@ -117,24 +125,6 @@ export default class ColorPicker extends Component {
     colorBlock.addEventListener('mouseup', mouseup, false);
     colorBlock.addEventListener('mousemove', mousemove, false);
   }
-
-  drawCoordinates = (x1, y1) => {
-    const pointSize = 3;
-    const ctx = document.getElementById('color-block').getContext('2d');
-
-    ctx.fillStyle = '#ff2626';
-    // ctx.beginPath();
-    // ctx.clearRect(this.state.x1, this.state.y1, pointSize, 0, Math.PI * 2, true);
-    // ctx.closePath();
-    ctx.beginPath();
-    ctx.arc(x1, y1, pointSize, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.fill();
-    this.setState({
-      prevX: x1,
-      prevY: y1,
-    });
-  };
 
   render() {
     return (
