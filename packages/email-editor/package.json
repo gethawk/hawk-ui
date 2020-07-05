@@ -1,0 +1,23 @@
+{
+  "name": "@hawk-ui/email-editor",
+  "version": "2.1.5",
+  "description": "hawk-ui: Email Editor Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=email-editor"
+  },
+  "author": "saurabh gaur",
+  "license": "MIT",
+  "dependencies": {
+    "@craftjs/core": "0.1.0-beta.8",
+    "@hawk-ui/button": "^2.1.5",
+    "@hawk-ui/card": "^2.1.5",
+    "@hawk-ui/tabbed": "^2.1.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

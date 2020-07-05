@@ -1,0 +1,65 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-email-editor {
+  &__container {
+    display: flex;
+  }
+  &__frame {
+    width: calc(100% - 430px);
+  }
+  &__panel {
+    width: 430px;
+    border-left: 1px solid #d9d9d9;
+    padding: 10px;
+  }
+}
+
+.hawk-email-editor-header {
+  .hawk-tabbed {
+    &__content {
+      padding: 10px;
+    }
+    &__header {
+      &-item {
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.hawk-email-editor-footer {
+  border-top: 1px solid #d9d9d9;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hawk-email-editor-layouts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .hawk-card {
+    &__layout {
+      &-box {
+        width: 100px;
+        height: 110px;
+        margin: 10px;
+      }
+    }
+  }
+}
+
+.hawk-email-editor-blocks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .hawk-card {
+    &__layout {
+      &-box {
+        width: 100px;
+        height: 110px;
+        margin: 10px;
+      }
+    }
+  }
+}

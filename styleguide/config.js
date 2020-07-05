@@ -24,6 +24,7 @@ module.exports = {
         '../packages/image/src/index.js',
         '../packages/pagination/src/index.js',
         '../packages/table/src/index.js',
+        '../packages/email-editor/src/index.js',
         '../packages/toast/src/index.js',
         '../packages/tag/src/index.js',
         '../packages/pill/src/index.js',
