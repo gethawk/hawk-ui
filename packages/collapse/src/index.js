@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // css modules
 import './index.scss';
@@ -41,12 +42,17 @@ export default class Collapse extends Component {
                 {item.title}
               </div>
               <div className="hawk-collapse__header-icon">
-                <i className="fa fa-angle-up" />
+                <i
+                  className={getClassnames('fa', {
+                    'fa-angle-up': activeItem === index + 1,
+                    'fa-angle-down': activeItem !== index + 1,
+                  })}
+                />
               </div>
             </div>
             <div
               className="hawk-collapse__content"
-              style={activeItem !== index + 1 ? { maxHeight: '0px', padding: '0px' } : { maxHeight: '110px' }}
+              style={activeItem !== index + 1 ? { maxHeight: '0px', padding: '0px' } : { maxHeight: '500px' }}
             >
               <div className="hawk-collapse__content-text">
                 {item.content}

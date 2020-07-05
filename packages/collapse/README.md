@@ -16,7 +16,7 @@ initialState = {
       content: 'You can follow the status of your application through the emails that you receive from Belong. At each stage, they will update you via email on whether you have been shortlisted. And if you have any questions about your application, you can email them at surgesupport@belong.co.',
     }
   ],
-  activeItem: 1,
+  activeItem: 2,
 };
 
 <div className="styleguidist__input-wrap">
