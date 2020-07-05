@@ -18,7 +18,7 @@ export default class Pill extends Component {
       PropTypes.element,
       PropTypes.array,
     ]),
-    icon: PropTypes.element,
+    icon: PropTypes.string,
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     stepIndex: PropTypes.oneOfType([
       PropTypes.string,

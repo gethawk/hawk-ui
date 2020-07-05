@@ -15,7 +15,10 @@ function percentage(percent, total) {
 export default class ProgressBar extends Component {
   static propTypes = {
     className: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
     maxRange: PropTypes.number,
   };
   state = {};

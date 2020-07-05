@@ -29,6 +29,7 @@ export default class Toast extends Component {
     hideCloseOption: false,
     isIcon: false,
     type: 'success',
+    position: 'bottom-left',
   }
   state = {};
 

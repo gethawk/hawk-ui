@@ -17,7 +17,7 @@ export default class Tag extends Component {
       PropTypes.array,
     ]),
     className: PropTypes.string,
-    icon: PropTypes.element,
+    icon: PropTypes.string,
     iconPlacement: PropTypes.oneOf(['left', 'right']),
     isHover: PropTypes.bool,
     onClick: PropTypes.func,

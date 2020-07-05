@@ -3,7 +3,7 @@
 ```js
 initialState = {
   isShow: false,
-  position: '',
+  position: null,
 };
 
 <div className="styleguidist__btns-wrap">
