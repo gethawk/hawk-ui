@@ -1,0 +1,37 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-collapse {
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    background-color: $white;
+    color: $blue-4;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    outline: none;
+    transition: background-color 0.6s ease;
+    border-top: 2px solid #B0AFAF;
+    padding: 15px 10px;
+    &-title {
+      text-align: left;
+      font-size: 18px;
+      width: 90%;
+      color: #000;
+    }
+  }
+  &__content {
+    background-color: white;
+    overflow: auto;
+    transition: max-height 0.6s ease;
+    font-size: 14px;
+    max-height: fit-content;
+    &-text {
+      padding: 15px 10px;
+    }
+  }
+}
