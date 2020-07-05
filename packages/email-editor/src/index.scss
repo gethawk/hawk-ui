@@ -54,6 +54,10 @@
   justify-content: center;
   flex-wrap: wrap;
   .hawk-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     &__layout {
       &-box {
         width: 100px;
@@ -61,5 +65,16 @@
         margin: 10px;
       }
     }
+  }
+  &__icon {
+    i {
+      font-size: 30px;
+      color: $gray-4;
+    }
+  }
+  &__title {
+    color: $gray-4;
+    margin-top: 5px;
+    font-size: 14px;
   }
 }
