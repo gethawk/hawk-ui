@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 // react modules
 import { Editor } from '@craftjs/core';
 import Toolbar from './toolbar/Toolbar';
-
 // css modules
 import './index.scss';
 
