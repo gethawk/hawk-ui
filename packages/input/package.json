@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/input",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "hawk-ui: Basic Input Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,8 +9,8 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/label": "^2.1.5",
-    "@hawk-ui/tooltip": "^2.1.5",
+    "@hawk-ui/label": "^2.1.6",
+    "@hawk-ui/tooltip": "^2.1.6",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
