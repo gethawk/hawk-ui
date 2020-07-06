@@ -1,6 +1,11 @@
 export const blockOptions = [
   {
     id: 1,
+    title: 'Columns',
+    icon: 'fa fa-square',
+  },
+  {
+    id: 1,
     title: 'Text',
     icon: 'fa fa-font',
   },

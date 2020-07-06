@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // react modules
 import { Editor } from '@craftjs/core';
 import Toolbar from './toolbar/Toolbar';
+// block modules
+import Button from './blocks/components/Button/Button';
 // css modules
 import './index.scss';
 
@@ -10,12 +12,19 @@ import './index.scss';
  * @example ../README.md
  */
 export default class EmailEditor extends Component {
-  state = {};
+  state = {
+    enabled: true,
+  };
 
   render() {
+    const { enabled } = this.state;
+
     return (
       <div className="hawk-email-editor">
-        <Editor>
+        <Editor
+          resolver={{ Button }}
+          enabled={enabled}
+        >
           <div className="hawk-email-editor__container">
             <div className="hawk-email-editor__frame">
               Frame
