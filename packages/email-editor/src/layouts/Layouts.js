@@ -2,7 +2,6 @@
 import React from 'react';
 // react modules
 import _ from 'lodash';
-import Card from '@hawk-ui/card';
 // utils modules
 import { layoutOptions } from '../utils/layouts';
 // css modules
@@ -12,14 +11,14 @@ export default function Layouts() {
   return (
     <div className="hawk-email-editor-layouts">
       {_.map(layoutOptions, (item, index) => (
-        <Card
+        <button
           key={index}
-          isClickable
+          className="card-block"
         >
           <div
             dangerouslySetInnerHTML={{ __html: item.layouts }}
           />
-        </Card>
+        </button>
       ))}
     </div>
   );

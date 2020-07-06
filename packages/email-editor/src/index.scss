@@ -38,15 +38,24 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  .hawk-card {
+  .card-block {
+    width: 100px;
+    height: 110px;
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 1px 2px 1px rgba(90, 90, 90, 0.16);
+    background-color: $white;
+    border-radius: 4px;
+    outline: 0;
     opacity: 0.5;
-    &__layout {
-      &-box {
-        width: 80px;
-        height: 90px;
-        margin: 10px;
-        padding: 10px;
-      }
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.18);
+    }
+    &:focus {
+      outline: 0;
+      border: 0;
     }
   }
 }
@@ -55,17 +64,24 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  .hawk-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    &__layout {
-      &-box {
-        width: 100px;
-        height: 110px;
-        margin: 10px;
-      }
+  .card-block {
+    width: 100px;
+    height: 110px;
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 1px 2px 1px rgba(90, 90, 90, 0.16);
+    background-color: $white;
+    border-radius: 4px;
+    outline: 0;
+    opacity: 0.5;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.18);
+    }
+    &:focus {
+      outline: 0;
+      border: 0;
     }
   }
   &__icon {
