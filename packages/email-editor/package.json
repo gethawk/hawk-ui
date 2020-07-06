@@ -12,7 +12,7 @@
     "@craftjs/core": "0.1.0-beta.8",
     "@hawk-ui/button": "^2.1.5",
     "@hawk-ui/card": "^2.1.5",
-    "@hawk-ui/collapse": "^2.1.6",
+    "@hawk-ui/collapse": "^2.1.7",
     "@hawk-ui/tabbed": "^2.1.5",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

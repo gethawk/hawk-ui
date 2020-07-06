@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 // react modules
 import Collapse from '@hawk-ui/collapse';
-// utils modules
-import { styleOptions } from '../utils/styles';
 // css modules
 import '../styles.scss';
 
@@ -13,7 +11,14 @@ export default function Styles() {
   return (
     <div className="hawk-email-editor-styles">
       <Collapse
-        items={styleOptions}
+        headers={['Background Color', 'Header', 'Body', 'Footer', 'Email Border']}
+        panes={[
+          <div>Background Color</div>,
+          <div>Background Color</div>,
+          <div>Background Color</div>,
+          <div>Background Color</div>,
+          <div>Background Color</div>,
+        ]}
         activeItem={activeIndex}
         setActiveItem={(event) => {
           setActiveIndex(event);
