@@ -3,13 +3,13 @@ import React from 'react';
 // react modules
 import _ from 'lodash';
 import { useEditor } from '@craftjs/core';
-import Column from './components/Column/Column';
-import Button from './components/Button/Button';
-import Text from './components/Text/Text';
-import Divider from './components/Divider/Divider';
-import Image from './components/Image/Image';
+import HawkColumn from './hawkColumn/HawkColumn';
+import HawkText from './hawkText/HawkText';
+import HawkButton from './hawkButton/HawkButton';
+import HawkDivider from './hawkDivider/HawkDivider';
+import HawkImage from './hawkImage/HawkImage';
 // utils modules
-import { blockOptions } from '../utils/blocks';
+import { blockOptions } from '../../utils/blocks';
 
 export default function Blocks() {
   const { connectors } = useEditor();
@@ -22,15 +22,15 @@ export default function Blocks() {
           className="card-block"
           ref={(ref) => {
             connectors.create(ref, _.isEqual(item.name, 'column') ? (
-              <Column />
+              <HawkColumn />
             ) : _.isEqual(item.name, 'text') ? (
-              <Text />
+              <HawkText />
             ) : _.isEqual(item.name, 'button') ? (
-              <Button>Click me</Button>
+              <HawkButton>Click me</HawkButton>
             ) : _.isEqual(item.name, 'divider') ? (
-              <Divider />
+              <HawkDivider />
             ) : _.isEqual(item.name, 'image') ? (
-              <Image />
+              <HawkImage />
             ) : null);
           }}
         >

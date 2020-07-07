@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import getClassnames from 'classnames';
 // utils modules
-import { layoutOptions } from '../utils/layouts';
+import { layoutOptions } from '../../utils/layouts';
 // css modules
-import '../layouts.scss';
+import '../../layouts.scss';
 
 export default function Layouts(props) {
   const { selected, onSelectLayout } = props;

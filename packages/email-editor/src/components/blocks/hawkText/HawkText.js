@@ -1,8 +1,8 @@
 // vendor modules
 import React from 'react';
 
-export default function Divider() {
+export default function HawkText() {
   return (
-    <div>Divider</div>
+    <div>Hawk Text</div>
   );
 }

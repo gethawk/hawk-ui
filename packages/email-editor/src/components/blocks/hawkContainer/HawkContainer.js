@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useNode } from '@craftjs/core';
 
-export default function Container(props) {
+export default function HawkContainer(props) {
   const { children, background, padding = 0 } = props;
   const { connectors: { connect, drag } } = useNode();
 
@@ -18,7 +18,7 @@ export default function Container(props) {
   );
 }
 
-export const ContainerSettings = () => {
+export const HawkContainerSettings = () => {
   const { background, padding, actions: {setProp} } = useNode(node => ({
     background: node.data.props.background,
     padding: node.data.props.padding,
@@ -40,17 +40,17 @@ export const ContainerSettings = () => {
   );
 };
 
-Container.craft = {
+HawkContainer.craft = {
   props: {
     background: '#ffffff',
     padding: 3,
   },
   related: {
-    settings: ContainerSettings,
+    settings: HawkContainerSettings,
   },
 };
 
-Container.propTypes = {
+HawkContainer.propTypes = {
   background: PropTypes.number,
   padding: PropTypes.string,
   children: PropTypes.oneOfType([

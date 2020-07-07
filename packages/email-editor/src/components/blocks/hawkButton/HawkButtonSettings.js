@@ -4,7 +4,7 @@ import React from 'react';
 import Checkbox from '@hawk-ui/checkbox';
 import { useNode } from '@craftjs/core';
 
-export default function ButtonSettings() {
+export default function HawkButtonSettings() {
   const { actions: { setProp } } = useNode((node) => ({
     props: node.data.props,
   }));

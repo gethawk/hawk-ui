@@ -1,8 +1,8 @@
 // vendor modules
 import React from 'react';
 
-export default function Image() {
+export default function HawkImage() {
   return (
-    <div>Image</div>
+    <div>Hawk Image</div>
   );
 }

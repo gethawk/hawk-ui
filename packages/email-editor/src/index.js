@@ -1,26 +1,15 @@
 // vendor modules
 import React, { Component } from 'react';
 // react modules
-import _ from 'lodash';
 import { Editor, Frame, Element } from '@craftjs/core';
-import Toolbar from './toolbar/Toolbar';
-import Blocks from './blocks/Blocks';
+import Toolbar from './components/toolbar/Toolbar';
 // block modules
-import Column from './blocks/components/Column/Column';
-import Button from './blocks/components/Button/Button';
-import Text from './blocks/components/Text/Text';
-import Divider from './blocks/components/Divider/Divider';
-import Image from './blocks/components/Image/Image';
-// layouts modules
-import Container from './layouts/components/Container/Container';
-import Layout1 from './layouts/components/Layout1/Layout1';
-import Layout2 from './layouts/components/Layout2/Layout2';
-import Layout3 from './layouts/components/Layout3/Layout3';
-import Layout4 from './layouts/components/Layout4/Layout4';
-import Layout5 from './layouts/components/Layout5/Layout5';
-import Layout6 from './layouts/components/Layout6/Layout6';
-import Layout7 from './layouts/components/Layout7/Layout7';
-import Layout8 from './layouts/components/Layout8/Layout8';
+import HawkColumn from './components/blocks/hawkColumn/HawkColumn';
+import HawkButton from './components/blocks/hawkButton/HawkButton';
+import HawkText from './components/blocks/hawkText/HawkText';
+import HawkDivider from './components/blocks/hawkDivider/HawkDivider';
+import HawkImage from './components/blocks/hawkImage/HawkImage';
+import HawkContainer from './components/blocks/hawkContainer/HawkContainer';
 // css modules
 import './index.scss';
 
@@ -29,45 +18,28 @@ import './index.scss';
  */
 export default class EmailEditor extends Component {
   state = {
-    enabled: true,
     selectedLayout: 1,
   };
 
   render() {
-    const { enabled, selectedLayout } = this.state;
+    const { selectedLayout } = this.state;
 
     return (
       <div className="hawk-email-editor">
         <Editor
           resolver={{
-            Column, Button, Text, Divider, Image,
+            HawkColumn, HawkButton, HawkText, HawkDivider, HawkImage,
           }}
-          enabled={true}
         >
           <div container className="hawk-email-editor__container">
             <div className="hawk-email-editor__frame">
               <Frame>
-                <Element
-                  is={Container}
-                >
-                  <Element
-                    is={Container}
-                    padding={5}
-                    background="#eeeeee"
-                  />
-                  <Element
-                    is={Container}
-                    padding={5}
-                    background="#eeeeee"
-                  >
-                    {/* <Text /> */}
-                  </Element>
-                  {/* <Layout1 /> */}
+                <Element canvas is={HawkContainer} padding={5} background="#eee">
+                  <HawkText>This is title</HawkText>
                 </Element>
               </Frame>
             </div>
             <div className="hawk-email-editor__panel">
-              {/* <Blocks /> */}
               <Toolbar
                 selectedLayout={selectedLayout}
                 onSelectLayout={(event) => {
