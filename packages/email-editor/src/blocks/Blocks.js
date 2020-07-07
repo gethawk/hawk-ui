@@ -26,7 +26,7 @@ export default function Blocks() {
             ) : _.isEqual(item.name, 'text') ? (
               <Text />
             ) : _.isEqual(item.name, 'button') ? (
-              <Button />
+              <Button>Click me</Button>
             ) : _.isEqual(item.name, 'divider') ? (
               <Divider />
             ) : _.isEqual(item.name, 'image') ? (

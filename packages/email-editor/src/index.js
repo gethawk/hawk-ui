@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 // react modules
 import _ from 'lodash';
-import { Editor } from '@craftjs/core';
+import { Editor, Frame, Element } from '@craftjs/core';
 import Toolbar from './toolbar/Toolbar';
+import Blocks from './blocks/Blocks';
 // block modules
 import Column from './blocks/components/Column/Column';
 import Button from './blocks/components/Button/Button';
@@ -11,6 +12,7 @@ import Text from './blocks/components/Text/Text';
 import Divider from './blocks/components/Divider/Divider';
 import Image from './blocks/components/Image/Image';
 // layouts modules
+import Container from './layouts/components/Container/Container';
 import Layout1 from './layouts/components/Layout1/Layout1';
 import Layout2 from './layouts/components/Layout2/Layout2';
 import Layout3 from './layouts/components/Layout3/Layout3';
@@ -40,29 +42,32 @@ export default class EmailEditor extends Component {
           resolver={{
             Column, Button, Text, Divider, Image,
           }}
-          enabled={enabled}
+          enabled={true}
         >
-          <div className="hawk-email-editor__container">
+          <div container className="hawk-email-editor__container">
             <div className="hawk-email-editor__frame">
-              {_.isEqual(selectedLayout, 1) ? (
-                <Layout1 />
-              ) : _.isEqual(selectedLayout, 2) ? (
-                <Layout2 />
-              ) : _.isEqual(selectedLayout, 3) ? (
-                <Layout3 />
-              ) : _.isEqual(selectedLayout, 4) ? (
-                <Layout4 />
-              ) : _.isEqual(selectedLayout, 5) ? (
-                <Layout5 />
-              ) : _.isEqual(selectedLayout, 6) ? (
-                <Layout6 />
-              ) : _.isEqual(selectedLayout, 7) ? (
-                <Layout7 />
-              ) : _.isEqual(selectedLayout, 8) ? (
-                <Layout8 />
-              ) : null}
+              <Frame>
+                <Element
+                  is={Container}
+                >
+                  <Element
+                    is={Container}
+                    padding={5}
+                    background="#eeeeee"
+                  />
+                  <Element
+                    is={Container}
+                    padding={5}
+                    background="#eeeeee"
+                  >
+                    {/* <Text /> */}
+                  </Element>
+                  {/* <Layout1 /> */}
+                </Element>
+              </Frame>
             </div>
             <div className="hawk-email-editor__panel">
+              {/* <Blocks /> */}
               <Toolbar
                 selectedLayout={selectedLayout}
                 onSelectLayout={(event) => {
