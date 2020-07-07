@@ -52,11 +52,16 @@
     &:hover {
       cursor: pointer;
       box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.18);
+      border: 1px solid $blue-1;
+      background-color: $blue-2;
     }
     &:focus {
       outline: 0;
-      border: 0;
     }
+  }
+  .active {
+    border: 1px solid $blue-1;
+    background-color: $blue-2;
   }
 }
 
@@ -78,10 +83,11 @@
     &:hover {
       cursor: pointer;
       box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.18);
+      border: 1px solid $blue-1;
+      background-color: $blue-2;
     }
     &:focus {
       outline: 0;
-      border: 0;
     }
   }
   &__icon {
@@ -94,6 +100,10 @@
     color: $gray-4;
     margin-top: 5px;
     font-size: 14px;
+  }
+  .active {
+    border: 1px solid $blue-1;
+    background-color: $blue-2;
   }
 }
 

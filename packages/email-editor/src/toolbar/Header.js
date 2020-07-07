@@ -1,12 +1,14 @@
 // vendor modules
 import React, { useState } from 'react';
 // react modules
+import PropTypes from 'prop-types';
 import Tabbed from '@hawk-ui/tabbed';
 import Layouts from '../layouts/Layouts';
 import Blocks from '../blocks/Blocks';
 import Styles from '../styles/Styles';
 
-export default function Header() {
+export default function Header(props) {
+  const { selectedLayout, onSelectLayout } = props;
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -14,7 +16,10 @@ export default function Header() {
       <Tabbed
         headers={['layouts', 'blocks', 'styles']}
         panes={[
-          <Layouts />,
+          <Layouts
+            selected={selectedLayout}
+            onSelectLayout={onSelectLayout}
+          />,
           <Blocks />,
           <Styles />,
         ]}
@@ -26,3 +31,8 @@ export default function Header() {
     </div>
   );
 }
+
+Header.propTypes = {
+  selectedLayout: PropTypes.number,
+  onSelectLayout: PropTypes.func,
+};

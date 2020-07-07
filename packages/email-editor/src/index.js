@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 // react modules
+import _ from 'lodash';
 import { Editor } from '@craftjs/core';
 import Toolbar from './toolbar/Toolbar';
 // block modules
@@ -27,25 +28,49 @@ import './index.scss';
 export default class EmailEditor extends Component {
   state = {
     enabled: true,
+    selectedLayout: 1,
   };
 
   render() {
-    const { enabled } = this.state;
+    const { enabled, selectedLayout } = this.state;
 
     return (
       <div className="hawk-email-editor">
         <Editor
           resolver={{
-            Column, Button, Text, Divider, Image, Layout1, Layout2, Layout3, Layout4, Layout5, Layout6, Layout7, Layout8,
+            Column, Button, Text, Divider, Image,
           }}
           enabled={enabled}
         >
           <div className="hawk-email-editor__container">
             <div className="hawk-email-editor__frame">
-              Frame
+              {_.isEqual(selectedLayout, 1) ? (
+                <Layout1 />
+              ) : _.isEqual(selectedLayout, 2) ? (
+                <Layout2 />
+              ) : _.isEqual(selectedLayout, 3) ? (
+                <Layout3 />
+              ) : _.isEqual(selectedLayout, 4) ? (
+                <Layout4 />
+              ) : _.isEqual(selectedLayout, 5) ? (
+                <Layout5 />
+              ) : _.isEqual(selectedLayout, 6) ? (
+                <Layout6 />
+              ) : _.isEqual(selectedLayout, 7) ? (
+                <Layout7 />
+              ) : _.isEqual(selectedLayout, 8) ? (
+                <Layout8 />
+              ) : null}
             </div>
             <div className="hawk-email-editor__panel">
-              <Toolbar />
+              <Toolbar
+                selectedLayout={selectedLayout}
+                onSelectLayout={(event) => {
+                  this.setState({
+                    selectedLayout: event,
+                  });
+                }}
+              />
             </div>
           </div>
         </Editor>
