@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Fragment } from 'react';
+import React from 'react';
 // react modules
 import _ from 'lodash';
 import PropTypes from 'prop-types';

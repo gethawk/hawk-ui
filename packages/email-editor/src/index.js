@@ -34,7 +34,7 @@ export default class EmailEditor extends Component {
           <div container className="hawk-email-editor__container">
             <div className="hawk-email-editor__frame">
               <Frame>
-                <Element canvas is={HawkContainer} padding={5} background="#eee">
+                <Element canvas is={HawkContainer} padding={5} background="#eeeeee">
                   <HawkText>This is title</HawkText>
                 </Element>
               </Frame>

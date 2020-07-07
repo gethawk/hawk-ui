@@ -9,6 +9,9 @@
     width: calc(100% - 430px);
     padding: 10px;
     background-color: #f5f6f7;
+    div {
+      border-radius: 4px;
+    }
   }
   &__panel {
     width: 430px;
