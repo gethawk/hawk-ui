@@ -2,7 +2,7 @@
 import React from 'react';
 // react modules
 import _ from 'lodash';
-import { useEditor } from '@craftjs/core';
+import { useEditor, Element } from '@craftjs/core';
 import HawkColumn from './hawkColumn/HawkColumn';
 import HawkText from './hawkText/HawkText';
 import HawkButton from './hawkButton/HawkButton';
@@ -22,7 +22,10 @@ export default function Blocks() {
           className="card-block"
           ref={(ref) => {
             connectors.create(ref, _.isEqual(item.name, 'column') ? (
-              <HawkColumn />
+              <Element
+                canvas
+                is={HawkColumn}
+              />
             ) : _.isEqual(item.name, 'text') ? (
               <HawkText />
             ) : _.isEqual(item.name, 'button') ? (
