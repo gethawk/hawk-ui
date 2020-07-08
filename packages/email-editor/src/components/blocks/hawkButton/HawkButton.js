@@ -27,6 +27,7 @@ export default function HawkButton(props) {
 }
 
 HawkButton.craft = {
+  displayName: 'Button',
   props: {
     size: 'small',
     variant: 'contained',

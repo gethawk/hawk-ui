@@ -24,6 +24,7 @@ export default function HawkColumn(props) {
 }
 
 HawkColumn.craft = {
+  displayName: 'Column',
   props: {
     background: '#ffffff',
     padding: 10,

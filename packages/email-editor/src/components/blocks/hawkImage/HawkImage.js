@@ -33,6 +33,7 @@ export default function HawkImage(props) {
 }
 
 HawkImage.craft = {
+  displayName: 'Image',
   related: {
     settings: HawkImageSettings,
   },

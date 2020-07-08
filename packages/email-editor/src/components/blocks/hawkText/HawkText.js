@@ -22,6 +22,7 @@ export default function HawkText(props) {
 }
 
 HawkText.craft = {
+  displayName: 'Text',
   props: {
     text: 'This is text',
     fontSize: 17,

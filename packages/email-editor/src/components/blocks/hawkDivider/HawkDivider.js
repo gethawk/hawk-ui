@@ -23,6 +23,7 @@ export default function HawkDivider(props) {
 }
 
 HawkDivider.craft = {
+  displayName: 'Divider',
   props: {
     height: 1,
     width: 100,

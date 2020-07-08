@@ -41,6 +41,7 @@ export const HawkContainerSettings = () => {
 };
 
 HawkContainer.craft = {
+  displayName: 'Container',
   props: {
     background: '#ffffff',
     padding: 3,
