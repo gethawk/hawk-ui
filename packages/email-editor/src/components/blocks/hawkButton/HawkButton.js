@@ -11,7 +11,7 @@ export default function HawkButton(props) {
   const { connectors: { connect, drag } } = useNode();
 
   return (
-    <React.Fragment
+    <div
       ref={(ref) => { connect(drag(ref)); }}
     >
       <Button
@@ -22,7 +22,7 @@ export default function HawkButton(props) {
       >
         {text}
       </Button>
-    </React.Fragment>
+    </div>
   );
 }
 

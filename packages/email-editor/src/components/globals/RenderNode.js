@@ -4,7 +4,6 @@ import React, { Fragment, useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { useNode, useEditor } from '@craftjs/core';
-import { ROOT_NODE } from '@craftjs/utils';
 
 export default function RenderNode({ render }) {
   const { actions, query } = useEditor();
@@ -65,25 +64,18 @@ export default function RenderNode({ render }) {
           {moveable ? (
             <div
               ref={drag}
+              className="component-selected__options-icon"
             >
               <i className="fa fa-arrows-alt" />
             </div>
           ) : null}
-          {id !== ROOT_NODE && (
-            <div
-              onClick={() => {
-                actions.selectNode(parent);
-              }}
-            >
-              <i className="fa fa-arrow-up" />
-            </div>
-          )}
           {deletable ? (
             <div
               onClick={(event) => {
                 event.stopPropagation();
                 actions.delete(id);
               }}
+              className="component-selected__options-icon"
             >
               <i className="fa fa-trash" />
             </div>

@@ -38,7 +38,7 @@
   position: relative;
   &::after {
     content: ' ';
-    border-color: #2680eb;
+    border-color: #6997DB;
     border-width: 1px;
     border-style: dashed;
     width: 100%;
@@ -50,18 +50,21 @@
     display: block;
   }
   &__options {
-    background-color: #2680eb;
+    background-color: #6997DB;
     display: flex;
     align-items: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
     position: fixed;
     color: #fff;
-    height: 30px;
     margin-top: -29px;
     font-size: 12px;
-    line-height: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    &-icon {
+      margin-left: 5px;
+      cursor: pointer;
+      .fa-arrows-alt {
+        font-size: 11px;
+      }
+    }
   }
 }
