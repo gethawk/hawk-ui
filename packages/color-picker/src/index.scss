@@ -1,0 +1,248 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-color-picker {
+  input[type=range] {
+    -webkit-appearance: none;
+    border: 0;
+    display: block;
+    height: 12px;
+    margin: 0;
+    width: 100%;
+    padding: 0 2px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  input {
+    &:checked {
+      .toggle {
+        background: #4264fb;
+        color: #fff;
+        &--gray {
+          background: #607d9c;
+        }
+      }
+    }
+  }
+  &__container {
+    font-size: 10px;
+    line-height: 15px;
+    border-radius: 4px;
+    display: inline-block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 240px;
+    background-color: #f4f7fb;
+    &-gradient {
+      z-index: 1;
+      display: block;
+      max-width: 100%;
+      flex-shrink: 0;
+      padding-bottom: 12px;
+      width: 120px;
+      height: 120px;
+    }
+    &-controls {
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      min-width: 0;
+      margin-left: 12px;
+      display: block;
+      max-width: 100%;
+    }
+    &-input-mode {
+      display: -ms-flexbox;
+      display: flex;
+    }
+    &-mode-input {
+      display: block;
+      max-width: 100%;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      display: -ms-flexbox;
+      display: flex;
+      input[type=radio] {
+        cursor: pointer;
+      }
+    }
+    &-number-input {
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      min-width: 0;
+      display: block;
+      max-width: 100%;
+      position: relative;
+    }
+  }
+  &__number {
+    &-input-label {
+      bottom: 0;
+      left: 0;
+      top: 0;
+      position: absolute;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+  &__toggle {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #607d9c;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: #93a7bf;
+    font-weight: bold;
+    padding: 0 12px;
+    border-radius: 13px;
+    background-color: transparent;
+    -webkit-transition: color 0.125s, background-color 0.125s;
+    -o-transition: color 0.125s, background-color 0.125s;
+    transition: color 0.125s, background-color 0.125s;
+    &-group {
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      text-align: center;
+      border-radius: 18px;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+    &-container {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      & > input {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        white-space: nowrap;
+      }
+    }
+  }
+  &__wrapper {
+    &-top {
+      display: flex;
+      position: relative;
+    }
+    &-bottom {
+      margin-top: 6px;
+      display: flex;
+    }
+  }
+  &__tile {
+    background-image: linear-gradient(-45deg, transparent 75%, #f4f7fb 75%),
+      linear-gradient(45deg, transparent 75%, #f4f7fb 75%),
+      linear-gradient(45deg, #f4f7fb 25%, transparent 0),
+      linear-gradient(-45deg, #f4f7fb 25%, transparent 25%);
+    background-size: 12px 12px;
+    background-position: 0 0, 0 -6px, 6px 0, -6px -6px;
+  }
+  &__control {
+    &-xy {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: move;
+      z-index: 1;
+      position: absolute;
+      &::after {
+        content: '';
+        background-color: rgba(255,255,255,0.10);
+        border: 1px solid #000;
+        display: block;
+        border-radius: 50%;
+        position: relative;
+        width: 10px;
+        height: 10px;
+        top: -5px;
+        left: -5px;
+      }
+      &-container {
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        position: relative;
+      }
+    }
+  }
+  &__colormode {
+    &-slider {
+      &__h {
+        input[type=range] {
+          background: -webkit-gradient( linear, right top, left top,
+            from(#ff0000),
+            color-stop(10%, #ff0099),
+            color-stop(20%, #cd00ff),
+            color-stop(30%, #3200ff),
+            color-stop(40%, #0066ff),
+            color-stop(50%, #00fffd),
+            color-stop(60%, #00ff66),
+            color-stop(70%, #35ff00),
+            color-stop(80%, #cdff00),
+            color-stop(90%, #ff9900),
+            to(#ff0000));
+          background: -webkit-linear-gradient( right,
+            #ff0000 0%,
+            #ff0099 10%,
+            #cd00ff 20%,
+            #3200ff 30%,
+            #0066ff 40%,
+            #00fffd 50%,
+            #00ff66 60%,
+            #35ff00 70%,
+            #cdff00 80%,
+            #ff9900 90%,
+            #ff0000 100%);
+          background:linear-gradient(
+            to left,
+            #ff0000 0%,
+            #ff0099 10%,
+            #cd00ff 20%,
+            #3200ff 30%,
+            #0066ff 40%,
+            #00fffd 50%,
+            #00ff66 60%,
+            #35ff00 70%,
+            #cdff00 80%,
+            #ff9900 90%,
+            #ff0000 100%
+          );
+        }
+      }
+    }
+  }
+  &__gradient {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    &-hue {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+      background:linear-gradient(
+      to bottom,
+        rgb(255,255,255) 0%,
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0) 50%,
+        rgb(0,0,0) 100%
+      ), linear-gradient(
+      to right,
+        rgb(128,128,128) 0%,
+        rgba(128,128,128,0) 100%
+      );
+    }
+  }
+}

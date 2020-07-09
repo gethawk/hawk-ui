@@ -13,6 +13,7 @@ module.exports = {
         '../packages/range-slider/src/index.js',
         '../packages/progress-bar/src/index.js',
         '../packages/password-strength/src/index.js',
+        '../packages/color-picker/src/index.js',
         '../packages/checkbox/src/index.js',
         '../packages/radio/src/index.js',
         '../packages/toggle/src/index.js',
