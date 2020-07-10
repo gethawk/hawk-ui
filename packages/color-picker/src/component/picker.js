@@ -36,6 +36,7 @@ const isHSLMode = c => c === 'h' || c === 's' || c === 'l';
 export default class Picker extends Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
+    onSave: PropTypes.func.isRequired,
     channel: PropTypes.string,
     theme: PropTypes.object,
     mode: PropTypes.string,
@@ -100,6 +101,20 @@ export default class Picker extends Component {
     const { color, mode, channel } = this.state;
 
     this.props.onChange({ hexInput: !!hexInput, mode, channel, ...color });
+  };
+
+  onSave = () => {
+    const { color } = this.state;
+    const colorCode = {
+      rgb: {
+        r: color.r,
+        g: color.g,
+        b: color.b,
+      },
+      hex: color.hex,
+    };
+
+    console.log('query onSave', colorCode);
   };
 
   changeHSL = (p, inputValue) => {
@@ -502,7 +517,7 @@ export default class Picker extends Component {
               </Button>
             )}
             <Button
-              onClick={this.reset}
+              onClick={this.onSave}
             >
               <span>Save</span>
             </Button>

@@ -62,6 +62,10 @@ export default class ColorPicker extends Component {
     });
   }
 
+  onSave = (event) => {
+    console.log('query onSave', event);
+  };
+
   render() {
     return (
       <div ref={this.myRef} className="hawk-color-picker">
@@ -88,6 +92,7 @@ export default class ColorPicker extends Component {
               mounted={this.setInstance}
               initialValue={INITIAL_VALUE}
               onChange={this.onChange}
+              onSave={this.onSave}
             />
           </div>
         ) : null}
