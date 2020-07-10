@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import colorString from 'color-string';
 import themeable from 'react-themeable';
+import _ from 'lodash';
+import Button from '@hawk-ui/button';
+import Input from '@hawk-ui/input';
 import XYControl from './xy';
 import ModeInput from './inputs/mode-input';
 import RGBInput from './inputs/rgb-input';
@@ -45,7 +48,7 @@ export default class Picker extends Component {
   static defaultProps = {
     initialValue: '#000',
     reset: true,
-    mode: 'hsl',
+    mode: 'rgb',
     channel: 'h',
     theme: {},
     readOnly: false,
@@ -162,6 +165,18 @@ export default class Picker extends Component {
     this.setState({ color: nextColor }, this.emitOnChange.bind(this, true));
   };
 
+  selectColor = e => {
+    const value = e;
+    const hex = `#${value}`;
+    const isValid = colorString.get(hex);
+    const color = getColor(hex) || this.state.color;
+    const nextColor = Object.assign({}, color, { hex: value });
+
+    this.setState({ color: nextColor }, () => {
+      if (isValid) this.emitOnChange(true);
+    });
+  };
+
   reset = () => {
     const { initialValue } = this.state;
 
@@ -213,7 +228,7 @@ export default class Picker extends Component {
     const themeObject = Object.assign({}, defaultTheme, this.props.theme);
 
     if (!readOnly) {
-      themeObject.numberInput = `${themeObject.numberInput} bg-white`;
+      themeObject.numberInput = `${themeObject.numberInput}`;
     } else {
       themeObject.xyControlContainer = `${themeObject.xyControlContainer} events-none`;
     }
@@ -278,143 +293,71 @@ export default class Picker extends Component {
       opacityLow = Math.round(100 - color[channel] / 100 * 100) / 100;
     }
 
-    let modeInputs = (
-      <div>
+    const modeInputs = (
+      <div className="hawk-color-picker__input-mode">
         <div
-          {...theme(
-            'inputModeContainer',
-            `${channel === 'h' ? 'active' : ''}`,
-          )}
+          {...theme('inputModeContainer', `${channel === 'r' ? 'active' : ''}`)}
         >
-          <ModeInput
-            id="h"
-            name={this.modeInputName}
+          {/* <ModeInput
+            id="r"
             theme={themeModeInput}
-            checked={channel === 'h'}
+            name={this.modeInputName}
+            checked={channel === 'r'}
             onChange={this.setChannel}
             {...(readOnly ? { readOnly: true } : {})}
-          />
-          <HInput
-            id="h"
-            value={h}
+          /> */}
+          <RGBInput
+            id="r"
             theme={themeNumberInput}
-            onChange={this.changeHSL}
+            value={r}
+            onChange={this.changeRGB}
+            {...(readOnly ? { readOnly: true } : {})}
+          />
+        </div>
+        <div
+          {...theme('inputModeContainer', `${channel === 'g' ? 'active' : ''}`)}
+        >
+          {/* <ModeInput
+            id="g"
+            theme={themeModeInput}
+            name={this.modeInputName}
+            checked={channel === 'g'}
+            onChange={this.setChannel}
+            {...(readOnly ? { readOnly: true } : {})}
+          /> */}
+          <RGBInput
+            id="g"
+            value={g}
+            theme={themeNumberInput}
+            onChange={this.changeRGB}
             {...(readOnly ? { readOnly: true } : {})}
           />
         </div>
         <div
           {...theme(
             'inputModeContainer',
-            `${channel === 's' ? 'active' : ''}`,
+            `${channel === 'b' ? 'active' : ''}`,
           )}
         >
-          <ModeInput
-            id="s"
-            name={this.modeInputName}
+          {/* <ModeInput
+            id="b"
             theme={themeModeInput}
-            checked={channel === 's'}
+            name={this.modeInputName}
+            checked={channel === 'b'}
             onChange={this.setChannel}
             {...(readOnly ? { readOnly: true } : {})}
-          />
-          <SLAlphaInput
-            id="s"
-            value={s}
+          /> */}
+          <RGBInput
+            id="b"
             theme={themeNumberInput}
-            onChange={this.changeHSL}
-            {...(readOnly ? { readOnly: true } : {})}
-          />
-        </div>
-        <div
-          {...theme(
-            'inputModeContainer',
-            `${channel === 'l' ? 'active' : ''}`,
-          )}
-        >
-          <ModeInput
-            id="l"
-            name={this.modeInputName}
-            theme={themeModeInput}
-            checked={channel === 'l'}
-            onChange={this.setChannel}
-            {...(readOnly ? { readOnly: true } : {})}
-          />
-          <SLAlphaInput
-            id="l"
-            value={l}
-            theme={themeNumberInput}
-            onChange={this.changeHSL}
+            value={b}
+            onChange={this.changeRGB}
             {...(readOnly ? { readOnly: true } : {})}
           />
         </div>
       </div>
     );
-
-    if (mode === 'rgb') {
-      modeInputs = (
-        <div>
-          <div
-            {...theme('inputModeContainer', `${channel === 'r' ? 'active' : ''}`)}
-          >
-            <ModeInput
-              id="r"
-              theme={themeModeInput}
-              name={this.modeInputName}
-              checked={channel === 'r'}
-              onChange={this.setChannel}
-              {...(readOnly ? { readOnly: true } : {})}
-            />
-            <RGBInput
-              id="r"
-              theme={themeNumberInput}
-              value={r}
-              onChange={this.changeRGB}
-              {...(readOnly ? { readOnly: true } : {})}
-            />
-          </div>
-          <div
-            {...theme('inputModeContainer', `${channel === 'g' ? 'active' : ''}`)}
-          >
-            <ModeInput
-              id="g"
-              theme={themeModeInput}
-              name={this.modeInputName}
-              checked={channel === 'g'}
-              onChange={this.setChannel}
-              {...(readOnly ? { readOnly: true } : {})}
-            />
-            <RGBInput
-              id="g"
-              value={g}
-              theme={themeNumberInput}
-              onChange={this.changeRGB}
-              {...(readOnly ? { readOnly: true } : {})}
-            />
-          </div>
-          <div
-            {...theme(
-              'inputModeContainer',
-              `${channel === 'b' ? 'active' : ''}`,
-            )}
-          >
-            <ModeInput
-              id="b"
-              theme={themeModeInput}
-              name={this.modeInputName}
-              checked={channel === 'b'}
-              onChange={this.setChannel}
-              {...(readOnly ? { readOnly: true } : {})}
-            />
-            <RGBInput
-              id="b"
-              theme={themeNumberInput}
-              value={b}
-              onChange={this.changeRGB}
-              {...(readOnly ? { readOnly: true } : {})}
-            />
-          </div>
-        </div>
-      );
-    }
+    const selectedColor = ['ef6737', 'f7b944', '7bdcb5', '5fd185', '8dd1fa', '3293e3', 'abb8c3', 'ec3a4d', 'f18ca6', '9c4bef'];
 
     return (
       <div {...theme('container')}>
@@ -487,9 +430,10 @@ export default class Picker extends Component {
                 onChange={this.onColorSliderChange}
                 min={0}
                 max={channelMax}
+                orient="vertical"
               />
             </div>
-            <div {...theme('slider', 'tileBackground')}>
+            {/* <div {...theme('slider', 'tileBackground')}>
               <input
                 {...(readOnly ? { disabled: true } : {})}
                 type="range"
@@ -499,21 +443,10 @@ export default class Picker extends Component {
                 min={0}
                 max={100}
               />
-            </div>
+            </div> */}
           </div>
           <div {...theme('controlsContainer')}>
-            <div {...theme('toggleGroup')}>
-              <label {...theme('toggleContainer')}>
-                <input
-                  data-test="mode-hsl"
-                  checked={this.state.mode === 'hsl'}
-                  onChange={this.setMode}
-                  value="hsl"
-                  name="toggle"
-                  type="radio"
-                />
-                <div {...theme('toggle')}>HSL</div>
-              </label>
+            {/* <div {...theme('toggleGroup')}>
               <label {...theme('toggleContainer')}>
                 <input
                   data-test="mode-rgb"
@@ -525,9 +458,9 @@ export default class Picker extends Component {
                 />
                 <div {...theme('toggle')}>RGB</div>
               </label>
-            </div>
+            </div> */}
             {modeInputs}
-            <div {...theme('alphaContainer')}>
+            {/* <div {...theme('alphaContainer')}>
               <SLAlphaInput
                 {...(readOnly ? { readOnly: true } : {})}
                 id={String.fromCharCode(945)}
@@ -535,40 +468,44 @@ export default class Picker extends Component {
                 theme={themeNumberInput}
                 onChange={this.changeAlpha}
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div {...theme('bottomWrapper')}>
-          <div {...theme('swatchCompareContainer')}>
-            {this.props.reset && (
-              <div {...theme('tileBackground', 'currentSwatchContainer')}>
-                <button
-                  {...theme('swatch', 'currentSwatch')}
-                  {...(readOnly ? { disabled: true } : {})}
-                  title="Reset color"
-                  data-test="color-reset"
-                  style={{ backgroundColor: initialValue }}
-                  onClick={this.reset}
-                >
-                  {`${readOnly ? '' : 'Reset'}`}
-                </button>
-              </div>
-            )}
-            <div {...theme('tileBackground', 'newSwatchContainer')}>
-              <div {...theme('swatch')} style={{ backgroundColor: rgbaBackground }} />
-            </div>
-          </div>
+          {_.map(selectedColor, (bgColor, index) => (
+            <div
+              key={index}
+              className="hawk-color-picker__wrapper-box"
+              style={{ backgroundColor: `#${bgColor}` }}
+              onClick={() => {
+                this.selectColor(bgColor);
+              }}
+            />
+          ))}
           <div {...theme('hexContainer')}>
-            <label {...theme('numberInputLabel')}>#</label>
-            <input
-              {...(readOnly ? { readOnly: true } : {})}
-              {...theme('numberInput')}
-              data-test="hex-input"
+            <Input
+              type="text"
               value={hex}
               onChange={this.changeHEX}
               onBlur={this.onBlurHEX}
-              type="text"
             />
+          </div>
+        </div>
+        <div>
+          <div {...theme('swatchCompareContainer')}>
+            {this.props.reset && (
+              <Button
+                variant="outlined"
+                onClick={this.reset}
+              >
+                <span>Reset</span>
+              </Button>
+            )}
+            <Button
+              onClick={this.reset}
+            >
+              <span>Save</span>
+            </Button>
           </div>
         </div>
       </div>

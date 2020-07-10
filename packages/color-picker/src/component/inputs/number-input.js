@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
 import themeable from 'react-themeable';
+import Input from '@hawk-ui/input';
 import { autokey } from '../autokey';
 
 export default class NumberInput extends Component {
@@ -31,8 +32,7 @@ export default class NumberInput extends Component {
 
     return (
       <div {...theme('numberInputContainer')}>
-        <label {...theme('numberInputLabel')}>{id}</label>
-        <input
+        <Input
           readOnly={readOnly}
           {...theme('numberInput')}
           value={value}
@@ -41,6 +41,7 @@ export default class NumberInput extends Component {
           min={min}
           max={max}
           step={1}
+          label={id}
         />
       </div>
     );

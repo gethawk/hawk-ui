@@ -1,5 +1,8 @@
 // vendor modules
 import React, { Component } from 'react';
+// react modules
+import getClassnames from 'classnames';
+import Input from '@hawk-ui/input';
 import Picker from './component/picker';
 // css modules
 import './index.scss';
@@ -10,11 +13,25 @@ const INITIAL_VALUE = 'hsl(229, 96%, 62%)';
  * @example ../README.md
  */
 export default class ColorPicker extends Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+
   state = {
     overrideValue: false,
+    shouldColorPickerShow: false,
   };
   // eslint-disable-next-line react/sort-comp
   instance = null;
+
+  componentDidMount() {
+    document.addEventListener('click', this.onClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClick);
+  }
 
   isDark = (color) => {
     const { r, g, b, a } = color;
@@ -27,6 +44,7 @@ export default class ColorPicker extends Component {
     this.instance = picker;
   };
 
+  // eslint-disable-next-line react/sort-comp
   onChange = (color) => {
     console.log('query color', color);
   };
@@ -35,14 +53,44 @@ export default class ColorPicker extends Component {
     this.instance.overrideValue('red');
   };
 
+  onClick = (event) => {
+    if (this.myRef.current.contains(event.target)) {
+      return;
+    }
+    this.setState({
+      shouldColorPickerShow: false,
+    });
+  }
+
   render() {
     return (
-      <div className="hawk-color-picker">
-        <Picker
-          mounted={this.setInstance}
-          initialValue={INITIAL_VALUE}
-          onChange={this.onChange}
-        />
+      <div ref={this.myRef} className="hawk-color-picker">
+        <div className="hawk-color-picker__input-picker">
+          <div
+            className="hawk-color-picker__input-picker__color"
+            onClick={() => {
+              this.setState({
+                shouldColorPickerShow: !this.state.shouldColorPickerShow,
+              });
+            }}
+          />
+          <Input
+            type="text"
+            value="#000"
+          />
+        </div>
+        {this.state.shouldColorPickerShow ? (
+          <div
+            className="hawk-color-picker__dropdown"
+            x-placement="bottom-start"
+          >
+            <Picker
+              mounted={this.setInstance}
+              initialValue={INITIAL_VALUE}
+              onChange={this.onChange}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }
