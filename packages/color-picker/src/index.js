@@ -1,26 +1,27 @@
 // vendor modules
 import React, { Component } from 'react';
 // react modules
-import getClassnames from 'classnames';
+import PropTypes from 'prop-types';
 import Input from '@hawk-ui/input';
 import Picker from './component/picker';
 // css modules
 import './index.scss';
 
-const INITIAL_VALUE = 'hsl(229, 96%, 62%)';
-
 /**
  * @example ../README.md
  */
 export default class ColorPicker extends Component {
+  static propTypes = {
+    onSave: PropTypes.func,
+  };
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
   }
-
   state = {
     overrideValue: false,
     shouldColorPickerShow: false,
+    defaultColor: '4163fb',
   };
   // eslint-disable-next-line react/sort-comp
   instance = null;
@@ -40,19 +41,6 @@ export default class ColorPicker extends Component {
             a < 0.50));
   };
 
-  setInstance = (picker) => {
-    this.instance = picker;
-  };
-
-  // eslint-disable-next-line react/sort-comp
-  onChange = (color) => {
-    console.log('query color', color);
-  };
-
-  override = () => {
-    this.instance.overrideValue('red');
-  };
-
   onClick = (event) => {
     if (this.myRef.current.contains(event.target)) {
       return;
@@ -62,8 +50,21 @@ export default class ColorPicker extends Component {
     });
   }
 
+  setInstance = (picker) => {
+    this.instance = picker;
+  };
+
+  override = () => {
+    this.instance.overrideValue('red');
+  };
+
   onSave = (event) => {
-    console.log('query onSave', event);
+    this.setState({
+      defaultColor: event.hex,
+      shouldColorPickerShow: false,
+    }, () => {
+      this.props.onSave(event);
+    });
   };
 
   render() {
@@ -72,6 +73,9 @@ export default class ColorPicker extends Component {
         <div className="hawk-color-picker__input-picker">
           <div
             className="hawk-color-picker__input-picker__color"
+            style={{
+              backgroundColor: `#${this.state.defaultColor}`,
+            }}
             onClick={() => {
               this.setState({
                 shouldColorPickerShow: !this.state.shouldColorPickerShow,
@@ -80,7 +84,7 @@ export default class ColorPicker extends Component {
           />
           <Input
             type="text"
-            value="#000"
+            value={`#${this.state.defaultColor}`}
           />
         </div>
         {this.state.shouldColorPickerShow ? (
@@ -90,8 +94,7 @@ export default class ColorPicker extends Component {
           >
             <Picker
               mounted={this.setInstance}
-              initialValue={INITIAL_VALUE}
-              onChange={this.onChange}
+              initialValue={`#${this.state.defaultColor}`}
               onSave={this.onSave}
             />
           </div>

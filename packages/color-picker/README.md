@@ -2,6 +2,8 @@
 
 ```js
 <div className="styleguidist__btns-wrap">
-  <ColorPicker />
+  <ColorPicker
+    onSave={(event) => { console.log('query onSave', event); }}
+  />
 </div>
 ```

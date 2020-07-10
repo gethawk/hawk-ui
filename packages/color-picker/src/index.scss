@@ -110,7 +110,7 @@
     }
     &-swatch-compare {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       margin-top: 10px;
       .hawk-button {
         padding: 5px 10px;
