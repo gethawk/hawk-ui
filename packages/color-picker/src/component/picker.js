@@ -409,7 +409,7 @@ export default class Picker extends Component {
               }}
             />
           ))}
-          <div {...theme('hexContainer')}>
+          <div>
             <Input
               type="text"
               value={hex}
