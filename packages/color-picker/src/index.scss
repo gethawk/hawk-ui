@@ -43,17 +43,6 @@
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
   }
-  input[type=range] {
-    -webkit-appearance: none;
-    border: 0;
-    display: block;
-    height: 12px;
-    margin: 0;
-    width: 100%;
-    padding: 0 2px;
-    overflow: hidden;
-    cursor: pointer;
-  }
   input {
     &:checked {
       .toggle {
@@ -182,12 +171,6 @@
       margin-top: 6px;
       display: flex;
       flex-wrap: wrap;
-      // .hawk-button {
-      //   padding: 4px 10px;
-      //   margin: 3px;
-      //   font-size: 13px;
-      //   font-weight: 400;
-      // }
       .hawk-input {
         width: 101px;
         margin: 3px;
@@ -243,47 +226,60 @@
     &-slider {
       &__h {
         input[type=range] {
-          // background: -webkit-gradient( linear, right top, left top,
-          //   from(#ff0000),
-          //   color-stop(10%, #ff0099),
-          //   color-stop(20%, #cd00ff),
-          //   color-stop(30%, #3200ff),
-          //   color-stop(40%, #0066ff),
-          //   color-stop(50%, #00fffd),
-          //   color-stop(60%, #00ff66),
-          //   color-stop(70%, #35ff00),
-          //   color-stop(80%, #cdff00),
-          //   color-stop(90%, #ff9900),
-          //   to(#ff0000));
-          // background: -webkit-linear-gradient( right,
-          //   #ff0000 0%,
-          //   #ff0099 10%,
-          //   #cd00ff 20%,
-          //   #3200ff 30%,
-          //   #0066ff 40%,
-          //   #00fffd 50%,
-          //   #00ff66 60%,
-          //   #35ff00 70%,
-          //   #cdff00 80%,
-          //   #ff9900 90%,
-          //   #ff0000 100%);
-          background:linear-gradient(
-            to left,
-            #ff0000 0%,
-            #ff0099 10%,
-            #cd00ff 20%,
-            #3200ff 30%,
-            #0066ff 40%,
-            #00fffd 50%,
-            #00ff66 60%,
-            #35ff00 70%,
-            #cdff00 80%,
-            #ff9900 90%,
-            #ff0000 100%
-          );
-          width: 120px;
-          height: 10px;
+          -webkit-appearance: none;
+          width: 100%;
+          cursor: pointer;
           margin-top: 10px;
+          &:focus {
+            outline: none;
+            &::-webkit-slider-runnable-track {
+              background:linear-gradient(
+                to left,
+                #ff0000 0%,
+                #ff0099 10%,
+                #cd00ff 20%,
+                #3200ff 30%,
+                #0066ff 40%,
+                #00fffd 50%,
+                #00ff66 60%,
+                #35ff00 70%,
+                #cdff00 80%,
+                #ff9900 90%,
+                #ff0000 100%
+              );
+            }
+          }
+          &::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            animate: 0.2s;
+            border-radius: 25px;
+            background:linear-gradient(
+              to left,
+              #ff0000 0%,
+              #ff0099 10%,
+              #cd00ff 20%,
+              #3200ff 30%,
+              #0066ff 40%,
+              #00fffd 50%,
+              #00ff66 60%,
+              #35ff00 70%,
+              #cdff00 80%,
+              #ff9900 90%,
+              #ff0000 100%
+            );
+          }
+          &::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: $white;
+            box-shadow: $box-shadow-1;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -8px;
+          }
         }
       }
     }
