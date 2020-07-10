@@ -13,6 +13,10 @@ import './index.scss';
 export default class ColorPicker extends Component {
   static propTypes = {
     onSave: PropTypes.func,
+    defaultColor: PropTypes.string,
+  };
+  static defaultProps = {
+    defaultColor: '000000',
   };
   constructor(props) {
     super(props);
@@ -21,7 +25,7 @@ export default class ColorPicker extends Component {
   state = {
     overrideValue: false,
     shouldColorPickerShow: false,
-    defaultColor: '4163fb',
+    defaultColor: this.props.defaultColor,
   };
   // eslint-disable-next-line react/sort-comp
   instance = null;
@@ -70,21 +74,24 @@ export default class ColorPicker extends Component {
   render() {
     return (
       <div ref={this.myRef} className="hawk-color-picker">
-        <div className="hawk-color-picker__input-picker">
+        <div
+          className="hawk-color-picker__input-picker"
+          onClick={() => {
+            this.setState({
+              shouldColorPickerShow: !this.state.shouldColorPickerShow,
+            });
+          }}
+        >
           <div
             className="hawk-color-picker__input-picker__color"
             style={{
               backgroundColor: `#${this.state.defaultColor}`,
             }}
-            onClick={() => {
-              this.setState({
-                shouldColorPickerShow: !this.state.shouldColorPickerShow,
-              });
-            }}
           />
           <Input
             type="text"
             value={`#${this.state.defaultColor}`}
+            readOnly
           />
         </div>
         {this.state.shouldColorPickerShow ? (

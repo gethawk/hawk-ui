@@ -10,18 +10,19 @@
     padding: 4px 6px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    cursor: pointer;
     &__color {
       height: 30px;
       width: 30px;
       background-color: #000000;
       border-radius: 50%;
-      cursor: pointer;
     }
     .hawk-input {
       height: 20px;
       width: 90px;
       border: 0;
       box-shadow: unset;
+      cursor: pointer;
     }
   }
   &__dropdown {
