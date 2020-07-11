@@ -51,6 +51,7 @@ module.exports = {
       "react/no-array-index-key": "off", // TODO:: should use unique key not array indices in jsx loops
       "import/no-extraneous-dependencies": ["off", { "devDependencies": ["**/*.test.js", "**/*.spec.js"], }], // TODO:: fix eslint config - false positives
       "react/no-unused-prop-types": "off", // too many false positives
+      "no-nested-ternary": "off",
     },
     "ecmaFeatures": {
       "jsx": true,
