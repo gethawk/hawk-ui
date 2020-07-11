@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/image",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "hawk-ui: Basic Image Component",
   "main": "dist/index.min.js",
   "scripts": {
