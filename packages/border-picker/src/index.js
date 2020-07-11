@@ -80,7 +80,11 @@ export default class BorderPicker extends Component {
                   borderStyle: style.type,
                 }}
                 onClick={() => {
-                  onSelect(style.type);
+                  this.setState({
+                    shouldBorderPickerShow: false,
+                  }, () => {
+                    onSelect(style.type);
+                  });
                 }}
               />
             ))}
