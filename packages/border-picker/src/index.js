@@ -17,15 +17,36 @@ export default class BorderPicker extends Component {
     type: PropTypes.oneOf(['dotted', 'dashed', 'solid', 'double', 'dotted dashed solid double']),
     onSelect: PropTypes.func,
   };
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
   state = {
     shouldBorderPickerShow: false,
   };
+
+  componentDidMount() {
+    document.addEventListener('click', this.onClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClick);
+  }
+
+  onClick = (event) => {
+    if (this.myRef.current.contains(event.target)) {
+      return;
+    }
+    this.setState({
+      shouldBorderPickerShow: false,
+    });
+  }
 
   render() {
     const { type, onSelect } = this.props;
 
     return (
-      <div className="hawk-border-picker">
+      <div ref={this.myRef} className="hawk-border-picker">
         <div
           className="hawk-border-picker__input-picker"
           onClick={() => {
