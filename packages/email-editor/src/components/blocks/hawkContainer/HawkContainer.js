@@ -18,36 +18,11 @@ export default function HawkContainer(props) {
   );
 }
 
-export const HawkContainerSettings = () => {
-  const { background, padding, actions: {setProp} } = useNode(node => ({
-    background: node.data.props.background,
-    padding: node.data.props.padding,
-  }));
-
-  return (
-    <div>
-      {/* <FormControl fullWidth={true} margin="normal" component="fieldset">
-        <FormLabel component="legend">Background</FormLabel>
-        <ColorPicker defaultValue={background || '#000'} onChange={color => {
-          setProp(props => props.background = color)
-        }} />
-      </FormControl>
-      <FormControl fullWidth={true} margin="normal" component="fieldset">
-        <FormLabel component="legend">Padding</FormLabel>
-        <Slider defaultValue={padding} onChange={(_, value) => setProp(props => props.padding = value)} />
-      </FormControl> */}
-    </div>
-  );
-};
-
 HawkContainer.craft = {
   displayName: 'Container',
   props: {
     background: '#ffffff',
     padding: 3,
-  },
-  related: {
-    settings: HawkContainerSettings,
   },
 };
 
