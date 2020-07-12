@@ -1,26 +1,28 @@
 // vendor modules
-import React from 'react';
+import React, { useState } from 'react';
 // react modules
-import Checkbox from '@hawk-ui/checkbox';
+import Tabbed from '@hawk-ui/tabbed';
 import { useNode } from '@craftjs/core';
+import HawkButtonContainer from './HawkButtonContainer';
+import HawkButtonContent from './HawkButtonContent';
 
 export default function HawkButtonSettings() {
   const { actions: { setProp } } = useNode((node) => ({
     props: node.data.props,
   }));
-  const sizeOptions = [
-    { key: 1, label: 'Small', value: 'small' },
-    { key: 1, label: 'Medium', value: 'medium' },
-    { key: 1, label: 'Large', value: 'large' },
-  ];
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
-    <div>
-      <Checkbox
-        options={sizeOptions}
-        selectedItem="small"
-        onChange={(event) => {
-          setProp(prop => prop.size === event.target.value);
+    <div className="button-editor-setting">
+      <Tabbed
+        headers={['Container', 'Content']}
+        panes={[
+          <HawkButtonContainer />,
+          <HawkButtonContent />,
+        ]}
+        activeTabIndex={activeTabIndex}
+        onActiveTabChange={(event) => {
+          setActiveTabIndex(event);
         }}
       />
     </div>

@@ -12,13 +12,16 @@ export default function HawkDivider(props) {
   return (
     <div
       ref={(ref) => { connect(drag(ref)); }}
-      style={{
-        border: `${height}px ${variant} ${color}`,
-        width: `${width}%`,
-        alignItems: `${align}`,
-      }}
-      className="divider-editor"
-    />
+    >
+      <div
+        style={{
+          border: `${height}px ${variant} ${color}`,
+          width: `${width}%`,
+          alignItems: `${align}`,
+        }}
+        className="divider-editor"
+      />
+    </div>
   );
 }
 
