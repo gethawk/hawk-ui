@@ -2,6 +2,8 @@
 
 ```js
 <div className="styleguidist__btns-wrap">
-  <EmailEditor />
+  <div style={{ height: '500px' }}>
+    <EmailEditor />
+  </div>
 </div>
 ```
