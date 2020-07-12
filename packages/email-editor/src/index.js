@@ -12,7 +12,7 @@ import HawkContainer from './components/blocks/hawkContainer/HawkContainer';
 import RenderNode from './components/globals/RenderNode';
 import ViewPort from './components/viewPort/ViewPort';
 // css modules
-import './index.scss';
+import './scss/index.scss';
 
 /**
  * @example ../README.md

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // react modules
 import Collapse from '@hawk-ui/collapse';
 // css modules
-import '../../styles.scss';
+import '../../scss/styles.scss';
 
 export default function Styles() {
   const [activeIndex, setActiveIndex] = useState(0);

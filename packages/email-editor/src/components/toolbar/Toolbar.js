@@ -6,7 +6,8 @@ import _ from 'lodash';
 import { useEditor } from '@craftjs/core';
 import Header from './Header';
 import Footer from './Footer';
-import '../../toolbar.scss';
+// css modules
+import '../../scss/toolbar.scss';
 
 export default function Toolbar(props) {
   const { actions, selected } = useEditor((state, query) => {

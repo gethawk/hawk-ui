@@ -7,7 +7,7 @@ import getClassnames from 'classnames';
 // utils modules
 import { layoutOptions } from '../../utils/layouts';
 // css modules
-import '../../layouts.scss';
+import '../../scss/layouts.scss';
 
 export default function Layouts(props) {
   const { selected, onSelectLayout } = props;
