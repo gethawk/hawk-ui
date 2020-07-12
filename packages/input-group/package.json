@@ -1,0 +1,22 @@
+{
+  "name": "@hawk-ui/input-group",
+  "version": "2.2.2",
+  "description": "hawk-ui: Input Group Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=input-group"
+  },
+  "author": "saurabh gaur",
+  "license": "MIT",
+  "dependencies": {
+    "@hawk-ui/button": "^2.2.2",
+    "@hawk-ui/input": "^2.2.2",
+    "lodash": "^4.17.19",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

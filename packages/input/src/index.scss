@@ -13,6 +13,7 @@
   border: 1px solid $gray-2;
   border-radius: 4px;
   outline: none;
+  -moz-appearance: textfield;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
@@ -29,6 +30,14 @@
   }
   &:-moz-placeholder { /* Firefox 18- */
     color: $gray-2;
+  }
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
   &:focus {
     border-color: $blue-1;
