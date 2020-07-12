@@ -14,6 +14,7 @@
     "@hawk-ui/card": "^2.1.5",
     "@hawk-ui/checkbox": "^2.1.7",
     "@hawk-ui/collapse": "^2.1.7",
+    "@hawk-ui/color-picker": "^2.2.2",
     "@hawk-ui/tabbed": "^2.1.5",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
