@@ -1,6 +1,7 @@
 @import '../../../assets/scss/utils/variables';
 
 .hawk-color-picker {
+  width: fit-content;
   position: relative;
   &__input-picker {
     width: fit-content;
