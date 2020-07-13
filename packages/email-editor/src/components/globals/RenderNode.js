@@ -48,6 +48,28 @@ export default function RenderNode({ render }) {
     };
   }, []);
 
+  const scroll = useCallback(() => {
+    const { current: currentDOM } = currentRef;
+
+    if (!currentDOM) return;
+    const { top, left } = getPos(dom);
+
+    currentDOM.style.top = top;
+    currentDOM.style.left = left;
+  }, [dom]);
+
+  useEffect(() => {
+    document
+      .querySelector('.emailRender')
+      .addEventListener('scroll', scroll);
+
+    return () => {
+      document
+        .querySelector('.emailRender')
+        .removeEventListener('scroll', scroll);
+    };
+  }, [scroll]);
+
   return (
     <Fragment>
       {isHover || isActive ? ReactDOM.createPortal(
@@ -57,7 +79,7 @@ export default function RenderNode({ render }) {
           style={{
             left: getPos(dom).left,
             top: getPos(dom).top,
-            zIndex: 9999,
+            zIndex: 1,
           }}
         >
           <h2>{name}</h2>

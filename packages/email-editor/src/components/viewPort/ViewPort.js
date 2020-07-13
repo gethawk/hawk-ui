@@ -16,7 +16,7 @@ export default function ViewPort({ children }) {
       className="hawk-email-editor__container"
     >
       <div
-        className="hawk-email-editor__frame"
+        className="hawk-email-editor__frame emailRender"
         ref={(ref) => {
           connectors.select(connectors.hover(ref, null), null);
         }}

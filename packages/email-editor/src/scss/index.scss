@@ -1,6 +1,7 @@
 @import '../../../../assets/scss/utils/variables';
 @import './components.scss';
 @import './editor.scss';
+@import './column.scss';
 
 .hawk-email-editor {
   height: 100%;
@@ -11,6 +12,7 @@
   &__frame {
     width: calc(100% - 430px);
     padding: 10px;
+    overflow: auto;
     background-color: #f5f6f7;
     div {
       border-radius: 4px;
