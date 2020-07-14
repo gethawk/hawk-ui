@@ -1,0 +1,22 @@
+{
+  "name": "@hawk-ui/form",
+  "version": "2.2.4",
+  "description": "hawk-ui: Basic Form Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=form"
+  },
+  "author": "saurabh gaur",
+  "license": "MIT",
+  "dependencies": {
+    "@hawk-ui/input": "^2.2.4",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
