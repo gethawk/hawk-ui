@@ -30,7 +30,6 @@ export default class DatePicker extends Component {
     isDayHighlighted: PropTypes.func,
     renderCalendarInfo: PropTypes.func,
   };
-
   static defaultProps = {
     format: 'DD MMM YYYY',
     value: {
@@ -73,7 +72,6 @@ export default class DatePicker extends Component {
           <div className="hawk-date-picker__menu">
             <SingleDatePicker
               onDateChange={this.onDateChange}
-              onFocusChange={(focused) => { console.log('query focused', focused); }}
               focused={this.state.isOpen}
               hideKeyboardShortcutsPanel
               date={startMoment}
