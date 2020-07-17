@@ -76,23 +76,29 @@ class TableContent extends Component {
   static contextType = TableContext;
   static propTypes = {
     tableHeader: PropTypes.array,
+    isHeaderShow: PropTypes.bool,
   };
+  static defaultProps = {
+    isHeaderShow: true,
+  }
   state = {
     tableContent: this.context.tableContent,
   };
 
   render() {
-    const { tableHeader } = this.props;
+    const { tableHeader, isHeaderShow } = this.props;
 
     return (
       <table>
-        <thead>
-          <tr>
-            {_.map(tableHeader, (item, index) => (
-              <th key={index}>{item.title}</th>
-            ))}
-          </tr>
-        </thead>
+        {isHeaderShow && (
+          <thead>
+            <tr>
+              {_.map(tableHeader, (item, index) => (
+                <th key={index}>{item.title}</th>
+              ))}
+            </tr>
+          </thead>
+        )}
         <tbody>
           {_.map(this.context.tableContent, (content, index) => (
             <tr key={index}>
