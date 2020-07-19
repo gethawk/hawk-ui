@@ -75,14 +75,18 @@ export default class Checkbox extends Component {
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     onChange: PropTypes.func,
+    isChecked: PropTypes.bool,
+    title: PropTypes.string,
+    value: PropTypes.string,
   };
   static defaultProps = {
     className: null,
+    isChecked: false,
   }
   state = {};
 
   render() {
-    const { className, label, description, options, selectedItem, isRequired, isError, errorMessage, onChange } = this.props;
+    const { className, label, description, options, selectedItem, isRequired, isError, errorMessage, onChange, isChecked, title, value } = this.props;
 
     return (
       <Fragment>
@@ -98,27 +102,41 @@ export default class Checkbox extends Component {
             [className]: _.isString(className),
           })}
         >
-          {_.map(options, (item, index) => {
-            let checked = false;
+          {_.isEmpty(options) ? (
+            <CheckboxContent
+              label={title}
+              value={value}
+              selectedItem={selectedItem}
+              checked={isChecked}
+              onChange={onChange}
+              isError={isError}
+              isRequired={isRequired}
+            />
+          ) : (
+            <Fragment>
+              {_.map(options, (item, index) => {
+                let checked = false;
 
-            if (selectedItem && selectedItem.length > 0) {
-              checked = selectedItem.indexOf(item.value) > -1;
-            }
+                if (selectedItem && selectedItem.length > 0) {
+                  checked = selectedItem.indexOf(item.value) > -1;
+                }
 
-            return (
-              <CheckboxContent
-                key={index}
-                index={index}
-                label={item.label}
-                value={item.value}
-                selectedItem={selectedItem}
-                checked={checked}
-                onChange={onChange}
-                isError={isError}
-                isRequired={isRequired}
-              />
-            );
-          })}
+                return (
+                  <CheckboxContent
+                    key={index}
+                    index={index}
+                    label={item.label}
+                    value={item.value}
+                    selectedItem={selectedItem}
+                    checked={checked}
+                    onChange={onChange}
+                    isError={isError}
+                    isRequired={isRequired}
+                  />
+                );
+              })}
+            </Fragment>
+          )}
         </div>
         {!_.isEmpty(description) && (
           <div className="hawk-checkbox__description">{description}</div>

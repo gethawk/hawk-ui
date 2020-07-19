@@ -10,6 +10,7 @@ initialState = {
     { key: 1, label: 'pineapple', value: 'pineapple' },
   ],
   selectedItem: [],
+  isChecked: false,
 };
 
 <div className="styleguidist__btns-wrap">
@@ -57,6 +58,20 @@ initialState = {
     isRequired
     isError
     errorMessage="This field is a compulsory field."
+  />
+  <br /><br />
+  <p>Without object</p>
+  <br />
+  <Checkbox
+    label="Select Checkbox"
+    title="Title"
+    value="title"
+    isChecked={state.isChecked}
+    onChange={(event) => {
+      setState({
+        isChecked: !state.isChecked,
+      });
+    }}
   />
 </div>
 ```
