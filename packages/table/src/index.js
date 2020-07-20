@@ -87,6 +87,7 @@ class TableContent extends Component {
     isSorting: PropTypes.bool,
     selected: PropTypes.array,
     onSelect: PropTypes.func,
+    sortBy: PropTypes.array,
   };
   static defaultProps = {
     isHeaderShow: true,
@@ -169,7 +170,7 @@ class TableContent extends Component {
   };
 
   render() {
-    const { tableHeader, isHeaderShow, isSelectable, isSorting } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, sortBy } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
 
@@ -190,7 +191,7 @@ class TableContent extends Component {
               {_.map(tableHeader, (item, index) => (
                 <th key={index}>
                   <span>{item.title}</span>
-                  {!_.isEmpty(item.dataIndex) && isSorting && (
+                  {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
                     this.renderHeaderCell(item)
                   )}
                 </th>

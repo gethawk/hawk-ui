@@ -124,6 +124,7 @@ initialState = {
     <Table.CONTENT
       tableHeader={tableHeader1}
       isSorting
+      sortBy={['company', 'country']}
     />
     <Table.PAGINATION
       pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
