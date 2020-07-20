@@ -3,9 +3,14 @@ import React, { Fragment, Component, createContext } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 // React modules
+import getClassnames from 'classnames';
 import Input from '@hawk-ui/input';
 import Pagination from '@hawk-ui/pagination';
 import Checkbox from '@hawk-ui/checkbox';
+// constant modules
+import { sortOrders } from './constant';
+// utils modules
+import { sortByColumn } from './utils';
 // css modules
 import './index.scss';
 
@@ -79,16 +84,22 @@ class TableContent extends Component {
     tableHeader: PropTypes.array,
     isHeaderShow: PropTypes.bool,
     isSelectable: PropTypes.bool,
+    isSorting: PropTypes.bool,
     selected: PropTypes.array,
     onSelect: PropTypes.func,
   };
   static defaultProps = {
     isHeaderShow: true,
     isSelectable: false,
+    isSorting: false,
   }
   state = {
     tableContent: this.context.tableContent,
     selectedItems: this.props.selected || [],
+    sortingMeta: {
+      columnKey: '',
+      order: 'ASCENDING',
+    },
   };
 
   onMultiSelect = () => {
@@ -128,8 +139,37 @@ class TableContent extends Component {
     }
   };
 
+  renderHeaderCell = (column) => {
+    const isOrderingSetForColumn = this.state.sortingMeta.columnKey === column.key;
+
+    return (
+      <i
+        className={getClassnames('icon fas', {
+          'fa-sort-amount-up': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
+          'fa-sort-amount-down': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
+        })}
+        onClick={() => {
+          const order = !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING) ? sortOrders.ASCENDING : sortOrders.DESCENDING;
+
+          this.setState({
+            sortingMeta: {
+              columnKey: column.dataIndex,
+              order,
+            },
+          }, () => {
+            const sortedColumn = sortByColumn(column.dataIndex, this.context.tableContent, this.state.sortingMeta.order);
+
+            this.setState({
+              tableContent: sortedColumn,
+            });
+          });
+        }}
+      />
+    );
+  };
+
   render() {
-    const { tableHeader, isHeaderShow, isSelectable } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
 
@@ -148,13 +188,18 @@ class TableContent extends Component {
                 </th>
               )}
               {_.map(tableHeader, (item, index) => (
-                <th key={index}>{item.title}</th>
+                <th key={index}>
+                  <span>{item.title}</span>
+                  {!_.isEmpty(item.dataIndex) && isSorting && (
+                    this.renderHeaderCell(item)
+                  )}
+                </th>
               ))}
             </tr>
           </thead>
         )}
         <tbody>
-          {_.map(this.context.tableContent, (content, index) => (
+          {_.map(this.state.tableContent, (content, index) => (
             <tr
               key={index}
               className={_.includes(selectedItems, content.id) ? 'active' : 'inactive'}

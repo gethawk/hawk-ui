@@ -46,6 +46,12 @@
       color: $blue-4;
       padding: 8px;
       text-align: left;
+      span {
+        margin-right: 10px;
+      }
+      .icon {
+        cursor: pointer;
+      }
     }
     td {
       font-size: 14px;

@@ -114,6 +114,26 @@ initialState = {
       }}
     />
   </Table>
+  <br /><br />
+  <p>Table Sorting</p>
+  <Table
+    tableContent={state.searchContent}
+    tableSearchContent={['company', 'contact', 'country']}
+  >
+    <Table.SEARCH />
+    <Table.CONTENT
+      tableHeader={tableHeader1}
+      isSorting
+    />
+    <Table.PAGINATION
+      pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
+      itemsCountPerPage={PAGE_SIZE}
+      totalItemsCount={TOTAL_RESULTS}
+      onPaginationChange={(pageNumber) => {
+        setState({ activePage: pageNumber });
+      }}
+    />
+  </Table>
   <br />
 </div>
 ```
