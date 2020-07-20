@@ -29,9 +29,14 @@
       border: 1px solid $gray-5;
       background-color: $gray-6;
     }
-    tbody tr {
-      border: 1px solid $gray-5;
-      &:hover {
+    tbody {
+      tr {
+        border: 1px solid $gray-5;
+        &:hover {
+          background-color: $gray-6;
+        }
+      }
+      .active {
         background-color: $gray-6;
       }
     }
@@ -69,6 +74,19 @@
       user-select: none;
       text-decoration: none;
       margin-right: 1px;
+    }
+  }
+  .minus {
+    .hawk-checkbox__checkmark {
+      &::after {
+        left: 6px;
+        top: 2px;
+        width: 0px;
+        height: 8px;
+        -webkit-transform: rotatxe(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
     }
   }
 }
