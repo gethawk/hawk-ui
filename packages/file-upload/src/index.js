@@ -13,6 +13,10 @@ import './index.scss';
  */
 export default class FileUpload extends Component {
   static propTypes = {
+    label: PropTypes.string,
+    description: PropTypes.string,
+    placeholder: PropTypes.string,
+    title: PropTypes.string,
     isDescribable: PropTypes.bool,
     onUpload: PropTypes.func,
   };
@@ -39,7 +43,7 @@ export default class FileUpload extends Component {
   };
 
   render() {
-    const { isDescribable } = this.props;
+    const { label, description, placeholder, title, isDescribable } = this.props;
     const { fileName } = this.state;
 
     return (
@@ -49,12 +53,11 @@ export default class FileUpload extends Component {
             <div className="hawk-file-upload__option">
               <Input
                 type="text"
-                label="Upload File"
-                placeholder=""
+                label={label}
+                placeholder={placeholder}
                 value={fileName}
                 isDisabled
-                isRequired
-                description="Supported file types: Microsoft Excel format (*.xls), Comma separated values format (*.csv), Text format (*.txt). View format instructions."
+                description={description}
               />
             </div>
           )}
@@ -63,7 +66,7 @@ export default class FileUpload extends Component {
               this.onFileUpload();
             }}
           >
-            <span>Browse</span>
+            <span>{title}</span>
           </Button>
         </div>
         <input
