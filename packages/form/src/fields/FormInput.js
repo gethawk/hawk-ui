@@ -15,6 +15,7 @@ export default class FormInput extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
+    configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
@@ -43,20 +44,30 @@ export default class FormInput extends Component {
   debouncedOnChange = _.debounce(this.props.onChange, 500);
 
   render() {
-    const { property, placeholder, noTitle } = this.props;
+    const { configuration, property, placeholder, noTitle } = this.props;
     const { value } = this.state;
+    const title = _.get(configuration, 'title', '');
+    const description = _.get(configuration, 'description', '');
+    const visual = _.get(configuration, 'visual', {});
+
+    const showTitle = _.get(visual, 'show_title', false);
+    const showDescription = _.get(visual, 'show_description', false);
 
     return (
       <div
         data-field={property}
-        className={getClassnames('dynamic-form-field', {
-          'dynamic-form-field_no-padding': noTitle,
+        className={getClassnames('hawk-form-field', {
+          'hawk-form-field_no-padding': noTitle,
         })}
       >
         <Input
           placeholder={placeholder}
           value={value}
-          onChange={this.onChange}
+          onChange={(event) => {
+            this.onChange(event.target.value);
+          }}
+          label={showTitle && !_.isEmpty(title) && title}
+          description={showDescription && !_.isEmpty(description) && description}
         />
       </div>
     );

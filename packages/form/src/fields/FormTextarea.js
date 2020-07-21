@@ -33,8 +33,8 @@ export default class FormTextarea extends Component {
     return (
       <div
         data-field={property}
-        className={getClassnames('dynamic-form-field', {
-          'dynamic-form-field_no-padding': noTitle,
+        className={getClassnames('hawk-form-field', {
+          'hawk-form-field_no-padding': noTitle,
         })}
       >
         <Input

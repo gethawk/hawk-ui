@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+import _ from 'lodash';
 
 import Radio from '@hawk-ui/radio';
 
@@ -14,6 +15,7 @@ export default class FormRadio extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
+    configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     visual: PropTypes.object,
     noTitle: PropTypes.bool,
@@ -27,16 +29,19 @@ export default class FormRadio extends Component {
   }
 
   render() {
-    const { property, noTitle } = this.props;
+    const { property, noTitle, configuration } = this.props;
+    const options = _.get(configuration, 'visual.options', []);
 
     return (
       <div
         data-field={property}
-        className={getClassnames('dynamic-form-field', {
-          'dynamic-form-field_no-padding': noTitle,
+        className={getClassnames('hawk-form-field', {
+          'hawk-form-field_no-padding': noTitle,
         })}
       >
-        <Radio />
+        <Radio
+          options={options}
+        />
       </div>
     );
   }

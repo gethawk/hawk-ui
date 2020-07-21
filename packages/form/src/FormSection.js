@@ -46,14 +46,14 @@ const FormSection = ({
   const [isExpanded, setExpanded] = useState(isDefaultExpanded);
 
   return (
-    <div className={classnames('dynamic-form-section', { 'dynamic-form-section_is-collapsible': isCollapsible, 'dynamic-form-section_no-padding': noPadding, [sectionClass]: !_.isEmpty(section) })} style={{ backgroundColor: sectionBgColor }}>
+    <div className={classnames('hawk-form-section', { 'hawk-form-section_is-collapsible': isCollapsible, 'hawk-form-section_no-padding': noPadding, [sectionClass]: !_.isEmpty(section) })} style={{ backgroundColor: sectionBgColor }}>
       {
         !isUnnamedSection && isCollapsible
         ? (
-          <div className="dynamic-form-section__header" onClick={() => { setExpanded(!isExpanded); }}>
+          <div className="hawk-form-section__header" onClick={() => { setExpanded(!isExpanded); }}>
             {
               !_.isEmpty(section) && (
-                <div className="dynamic-form-section__title">
+                <div className="hawk-form-section__title">
                   {section}
                 </div>
               )
@@ -61,13 +61,13 @@ const FormSection = ({
 
             {
               !_.isEmpty(description) && (
-                <div className="dynamic-form-section__description">
+                <div className="hawk-form-section__description">
                   {description}
                 </div>
               )
             }
 
-            <div className="dynamic-form-section__toggle">
+            <div className="hawk-form-section__toggle">
               {
                 isExpanded
                 ? (
@@ -86,7 +86,7 @@ const FormSection = ({
       {
         isExpanded || isUnnamedSection || !isCollapsible
         ? (
-          <div className={classnames('dynamic-form-section__content', { 'dynamic-form-section__content_inline': showInline })}>
+          <div className={classnames('hawk-form-section__content', { 'hawk-form-section__content_inline': showInline })}>
             {
               _.map(sectionKeys, key => (
                 <FormRow key={key} property={key} configuration={_.get(properties, key, {})} data={_.get(data, key)} errors={_.get(errors, key)} onChange={onChange} noPadding={noPadding} />

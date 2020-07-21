@@ -7,7 +7,7 @@ const FormErrors = ({ errors }) => {
   const topMessage = _.head(messages);
 
   return (
-    <div className="dynamic-form-errors">
+    <div className="hawk-form-errors">
       {topMessage}
     </div>
   );

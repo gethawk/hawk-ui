@@ -36,8 +36,8 @@ export default class FormControl extends Component {
     }
 
     return (
-      <div data-property={property} className="dynamic-form-control">
-        <FieldComponent property={property} dataType={dataType} value={data} visual={visual} validation={validation} noTitle={noTitle} onChange={this.onChange} />
+      <div data-property={property} className="hawk-form-control">
+        <FieldComponent configuration={configuration} property={property} dataType={dataType} value={data} visual={visual} validation={validation} noTitle={noTitle} onChange={this.onChange} />
       </div>
     );
   }

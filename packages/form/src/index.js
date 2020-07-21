@@ -188,12 +188,13 @@ export default class Form extends Component {
         _.get(properties, `${key}.visual.section_title`, 'unnamed-section')
       ));
 
+      console.log('query properties', properties);
       return (
-        <div className={classnames('dynamic-form', { [className]: !_.isEmpty(className) })}>
+        <div className={classnames('hawk-form', { [className]: !_.isEmpty(className) })}>
 
           {
             showTitle && !_.isEmpty(title) && (
-              <div className="dynamic-form__title">
+              <div className="hawk-form__title">
                 {title}
               </div>
             )
@@ -201,7 +202,7 @@ export default class Form extends Component {
 
           {
             showDescription && !_.isEmpty(description) && (
-              <div className="dynamic-form__description">
+              <div className="hawk-form__description">
                 {description}
               </div>
             )
@@ -231,7 +232,7 @@ export default class Form extends Component {
             )
           }
 
-          <div className="dynamic-form__error" />
+          <div className="hawk-form__error" />
         </div>
       );
     }

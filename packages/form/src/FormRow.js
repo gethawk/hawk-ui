@@ -100,7 +100,7 @@ export default class FormRow extends Component {
 
           if (arraySupportedField) {
             formControl = (
-              <div className={classnames('dynamic-form-row__form-control', { 'dynamic-form-row__form-control_inline': showInline })}>
+              <div className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
                 <FormRow property={property} configuration={items} data={data} errors={errors} onChange={onChange} />
               </div>
             );
@@ -114,10 +114,10 @@ export default class FormRow extends Component {
                     }
 
                     return (
-                      <div key={i} className={classnames('dynamic-form-row__form-control', { 'dynamic-form-row__form-control_inline': showInline })}>
+                      <div key={i} className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
                         <FormRow key={i} property={i} configuration={items} data={value} errors={_.nth(errors, i)} onChange={this.onChange} noPadding />
                         <i
-                          className="fas fa-trash-alt dynamic-form-row__form-control-delete"
+                          className="fas fa-trash-alt hawk-form-row__form-control-delete"
                           onClick={() => {
                             this.removeRow(i);
                           }}
@@ -130,7 +130,7 @@ export default class FormRow extends Component {
             );
           } else {
             formControl = (
-              <div key={0} className={classnames('dynamic-form-row__form-control', { 'dynamic-form-row__form-control_inline': showInline })}>
+              <div key={0} className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
                 <FormRow key={0} property={0} configuration={items} onChange={this.onChange} noPadding />
               </div>
             );
@@ -141,7 +141,7 @@ export default class FormRow extends Component {
       case 'link-array':
         {
           formControl = (
-            <div className={classnames('dynamic-form-row__form-control', { 'dynamic-form-row__form-control_inline': showInline })}>
+            <div className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
               <FormControl property={property} configuration={configuration} data={data} errors={errors} onChange={this.onChange} noTitle={!showTitle || _.isEmpty(title)} />
             </div>
           );
@@ -158,7 +158,7 @@ export default class FormRow extends Component {
       case 'date':
         {
           formControl = (
-            <div className={classnames('dynamic-form-row__form-control', { 'dynamic-form-row__form-control_inline': showInline })}>
+            <div className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
               <FormControl property={property} configuration={configuration} data={data} errors={errors} onChange={this.onChange} noTitle={!showTitle || _.isEmpty(title)} />
             </div>
           );
@@ -170,11 +170,11 @@ export default class FormRow extends Component {
     }
 
     return (
-      <div data-property={property} className={classnames('dynamic-form-row', property, { 'dynamic-form-row_with-separator': showSeparator, 'dynamic-form-row_no-padding': noPadding })} style={_.isEmpty(width) ? {} : { width }}>
+      <div data-property={property} className={classnames('hawk-form-row', property, { 'hawk-form-row_with-separator': showSeparator, 'hawk-form-row_no-padding': noPadding })} style={_.isEmpty(width) ? {} : { width }}>
 
-        {
+        {/* {
           showTitle && !_.isEmpty(title) && (
-            <div className="dynamic-form-row__title">
+            <div className="hawk-form-row__title">
               {title}
             </div>
           )
@@ -182,15 +182,15 @@ export default class FormRow extends Component {
 
         {
           showDescription && !_.isEmpty(description) && (
-            <div className="dynamic-form-row__description">
+            <div className="hawk-form-row__description">
               {description}
             </div>
           )
-        }
+        } */}
 
         {
           dataType === 'array' && !arraySupportedField && !_.isUndefined(_.last(data)) && (
-            <div className="dynamic-form-row__add-row" onClick={this.addMoreRow}>
+            <div className="hawk-form-row__add-row" onClick={this.addMoreRow}>
               {customAddRowLabel}
             </div>
           )
@@ -203,7 +203,7 @@ export default class FormRow extends Component {
         {
           !_.includes(['object', 'array'], dataType)
           ? (
-            <div className="dynamic-form-row__error">
+            <div className="hawk-form-row__error">
               <FormErrors property={property} errors={errors} />
             </div>
           )

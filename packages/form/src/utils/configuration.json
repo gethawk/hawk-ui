@@ -2,61 +2,6 @@
   "configuration": {
     "data_type": "object",
     "properties": {
-      "profile_pictures": {
-        "data_type": "object",
-        "title": "",
-        "visual": {
-          "width": "80px"
-        },
-        "validation": {},
-        "properties": {
-          "profile_picture": {
-            "data_type": "url",
-            "title": "Profile picture",
-            "visual": {
-              "field_type": "image",
-              "appearance": "circle"
-            },
-            "validation": {}
-          }
-        }
-      },
-      "employment_type_preferences": {
-        "data_type": "object",
-        "title": "",
-        "visual": {
-          "width": "calc(100% - 80px - 20px)"
-        },
-        "validation": {},
-        "properties": {
-          "value": {
-            "data_type": "array",
-            "title": "Looking for",
-            "visual": {
-              "array_supported_field": true,
-              "show_title": true
-            },
-            "validation": {},
-            "items": {
-              "visual": {
-                "field_type": "checkbox",
-                "options": [
-                  {
-                    "value": "Permanent Job",
-                    "label": "Permanent Job"
-                  },
-                  {
-                    "value": "Contract Job",
-                    "label": "Contract Job"
-                  }
-                ],
-                "show_inline": true
-              },
-              "data_type": "string"
-            }
-          }
-        }
-      },
       "name": {
         "data_type": "object",
         "title": "",
@@ -68,9 +13,11 @@
           "first_name": {
             "data_type": "string",
             "title": "First name",
+            "description": "This is my First name",
             "visual": {
               "field_type": "input",
-              "show_title": true
+              "show_title": true,
+              "show_description": true
             },
             "validation": {
               "only_alphabets_spaces": true,
@@ -101,578 +48,15 @@
           }
         }
       },
-      "addresses": {
-        "data_type": "object",
-        "title": "",
-        "visual": {},
-        "validation": {},
-        "properties": {
-          "raw_address": {
-            "data_type": "string",
-            "title": "Address",
-            "visual": {
-              "width": "calc(((100% - 10px) / 3) * 2)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "zip_code": {
-            "data_type": "int",
-            "title": "Zip code",
-            "visual": {
-              "width": "calc((100% - 10px) / 3)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {
-              "only_digits": true
-            }
-          },
-          "city": {
-            "data_type": "string",
-            "title": "City",
-            "visual": {
-              "width": "calc((100% - 20px) / 3)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "state": {
-            "data_type": "string",
-            "title": "State",
-            "visual": {
-              "width": "calc((100% - 20px) / 3)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "country": {
-            "data_type": "string",
-            "title": "Country",
-            "visual": {
-              "width": "calc((100% - 20px) / 3)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "address_type": {
-            "data_type": "slug",
-            "title": "Address type",
-            "visual": {
-              "field_type": "input",
-              "show_title": true
-            },
-            "validation": {}
-          }
-        }
-      },
-      "phones": {
-        "data_type": "array",
-        "title": "",
-        "visual": {
-          "custom_add_row_label": "Add New Number"
-        },
-        "validation": {},
-        "items": {
-          "data_type": "object",
-          "properties": {
-            "is_default": {
-              "data_type": "boolean",
-              "title": "Type",
-              "visual": {
-                "width": "130px",
-                "dependentOptions": true,
-                "options": [
-                  {
-                    "default": false,
-                    "value": true,
-                    "label": "Primary"
-                  }
-                ],
-                "show_title": true,
-                "field_type": "radio"
-              },
-              "validation": {}
-            },
-            "phone": {
-              "data_type": "string",
-              "title": "Phone",
-              "visual": {
-                "width": "calc(100% - 130px - 10px)",
-                "show_title": false,
-                "field_type": "phone"
-              },
-              "validation": {
-                "phone": "Please enter valid phone number",
-                "required": "Please enter valid phone number"
-              }
-            }
-          }
-        }
-      },
-      "emails": {
-        "data_type": "array",
-        "title": "",
-        "visual": {
-          "show_separator": true,
-          "custom_add_row_label": "Add New Email"
-        },
-        "validation": {},
-        "items": {
-          "data_type": "object",
-          "properties": {
-            "is_default": {
-              "data_type": "boolean",
-              "title": "Type",
-              "visual": {
-                "width": "130px",
-                "dependentOptions": true,
-                "options": [
-                  {
-                    "default": false,
-                    "value": true,
-                    "label": "Primary"
-                  }
-                ],
-                "show_title": true,
-                "field_type": "radio"
-              },
-              "validation": {}
-            },
-            "email": {
-              "data_type": "string",
-              "title": "Email",
-              "visual": {
-                "width": "calc(100% - 130px - 10px)",
-                "show_title": true,
-                "field_type": "input"
-              },
-              "validation": {
-                "required": "Please enter valid email address",
-                "email": "Please enter valid email address"
-              }
-            }
-          }
-        }
-      },
-      "current_ctc": {
+      "fruits": {
         "data_type": "object",
         "title": "",
         "visual": {},
         "validation": {},
         "properties": {
           "value": {
-            "data_type": "int",
-            "title": "Current CTC",
-            "visual": {
-              "width": "calc(((100% - 10px) / 2) - 100px - 10px)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {
-              "only_digits": "Enter valid current salary",
-              "if_valid_check": [
-                "current_ctc.currency",
-                "current_ctc.ctc_date"
-              ]
-            }
-          },
-          "currency": {
-            "data_type": "string",
-            "title": "Currency",
-            "visual": {
-              "width": "100px",
-              "field_type": "select",
-              "show_title": true,
-              "suggest": {
-                "name": "label",
-                "value": "value",
-                "options": [
-                  {
-                    "value": "INR",
-                    "label": "INR"
-                  },
-                  {
-                    "value": "USD",
-                    "label": "USD"
-                  },
-                  {
-                    "value": "GBP",
-                    "label": "GBP"
-                  },
-                  {
-                    "value": "SGD",
-                    "label": "SGD"
-                  }
-                ]
-              }
-            },
-            "validation": {
-              "required_if": {
-                "check": "current_ctc.value"
-              }
-            }
-          },
-          "ctc_date": {
-            "data_type": "string",
-            "title": "CTC Date",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "datepicker"
-            },
-            "validation": {
-              "required_if": {
-                "check": "current_ctc.value"
-              },
-              "dateISO": true
-            }
-          }
-        }
-      },
-      "expected_ctc": {
-        "data_type": "object",
-        "title": "",
-        "visual": {
-          "width": "calc((100% - 10px) / 2)"
-        },
-        "validation": {},
-        "properties": {
-          "value": {
-            "data_type": "int",
-            "title": "Expected CTC",
-            "visual": {
-              "width": "calc(100% - 100px - 10px)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {
-              "only_digits": "Enter valid expected salary",
-              "if_valid_check": [
-                "expected_ctc.currency",
-                "expected_ctc.ctc_date"
-              ]
-            }
-          },
-          "currency": {
-            "data_type": "string",
-            "title": "Currency",
-            "visual": {
-              "width": "100px",
-              "field_type": "select",
-              "show_title": true,
-              "suggest": {
-                "name": "label",
-                "value": "value",
-                "options": [
-                  {
-                    "value": "INR",
-                    "label": "INR"
-                  },
-                  {
-                    "value": "USD",
-                    "label": "USD"
-                  },
-                  {
-                    "value": "GBP",
-                    "label": "GBP"
-                  },
-                  {
-                    "value": "SGD",
-                    "label": "SGD"
-                  }
-                ]
-              }
-            },
-            "validation": {
-              "required_if": {
-                "check": "expected_ctc.value"
-              }
-            }
-          }
-        }
-      },
-      "notice_period": {
-        "data_type": "object",
-        "title": "",
-        "visual": {},
-        "validation": {},
-        "properties": {
-          "notice_period": {
-            "data_type": "int",
-            "title": "Notice Period",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {
-              "only_digits": "Enter valid notice period (in days)"
-            }
-          },
-          "is_serving": {
-            "data_type": "boolean",
-            "title": "Notice period status",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "options": [
-                {
-                  "default": false,
-                  "value": true,
-                  "label": "Serving Notice Period"
-                }
-              ],
-              "show_title": true,
-              "field_type": "checkbox"
-            },
-            "validation": {}
-          }
-        }
-      },
-      "profile_summary": {
-        "data_type": "object",
-        "title": "",
-        "visual": {},
-        "validation": {},
-        "properties": {
-          "profile_summary": {
-            "data_type": "string",
-            "title": "Overview",
-            "visual": {
-              "field_type": "rich-textarea",
-              "show_title": true
-            },
-            "validation": {}
-          }
-        }
-      },
-      "employers": {
-        "data_type": "object",
-        "title": "",
-        "visual": {},
-        "validation": {},
-        "properties": {
-          "company_name": {
-            "data_type": "string",
-            "title": "Company",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "field_type": "suggestive-input",
-              "show_title": true,
-              "suggest": {
-                "query": "name",
-                "api": "/api/v1/suggest/company/",
-                "data": "data"
-              }
-            },
-            "validation": {
-              "required": true
-            }
-          },
-          "is_current": {
-            "data_type": "boolean",
-            "title": "Currently working here",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "section_title": "EMPLOYMENT DURATION",
-              "options": [
-                {
-                  "default": false,
-                  "value": true,
-                  "label": "Currently working here"
-                }
-              ],
-              "field_type": "checkbox"
-            },
-            "validation": {}
-          },
-          "role": {
-            "data_type": "string",
-            "title": "Job title",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {
-              "required": true
-            }
-          },
-          "from_date": {
-            "data_type": "string",
-            "title": "Start date",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "section_title": "EMPLOYMENT DURATION",
-              "show_title": true,
-              "field_type": "datepicker"
-            },
-            "validation": {
-              "required": true,
-              "dateISO": true
-            }
-          },
-          "to_date": {
-            "data_type": "string",
-            "title": "End date",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "section_title": "EMPLOYMENT DURATION",
-              "show_title": true,
-              "field_type": "datepicker"
-            },
-            "validation": {
-              "dateISO": true
-            }
-          },
-          "description": {
-            "data_type": "string",
-            "title": "Description",
-            "visual": {
-              "field_type": "rich-textarea",
-              "show_title": true,
-              "section_title": "EMPLOYMENT EXTRAS"
-            },
-            "validation": {}
-          },
-          "skills": {
             "data_type": "array",
-            "title": "Skills",
-            "visual": {
-              "array_supported_field": true,
-              "show_title": true,
-              "section_title": "EMPLOYMENT EXTRAS"
-            },
-            "validation": {},
-            "items": {
-              "visual": {
-                "suggest": {
-                  "query": "name",
-                  "api": "/api/v1/suggest/skill/",
-                  "data": "data"
-                },
-                "is_expanded": true,
-                "field_type": "tags-input"
-              },
-              "data_type": "string"
-            }
-          }
-        }
-      },
-      "education": {
-        "data_type": "object",
-        "title": "",
-        "visual": {},
-        "validation": {},
-        "properties": {
-          "institute": {
-            "data_type": "string",
-            "title": "Institute",
-            "visual": {
-              "field_type": "input",
-              "show_title": true
-            },
-            "validation": {
-              "required": true
-            }
-          },
-          "degree": {
-            "data_type": "string",
-            "title": "Degree",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "to_date": {
-            "data_type": "string",
-            "title": "End date",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "datepicker"
-            },
-            "validation": {
-              "dateISO": true
-            }
-          },
-          "description": {
-            "data_type": "string",
-            "title": "Description",
-            "visual": {
-              "field_type": "rich-textarea",
-              "show_title": true
-            },
-            "validation": {}
-          }
-        }
-      },
-      "publications": {
-        "data_type": "object",
-        "title": "",
-        "visual": {},
-        "validation": {},
-        "properties": {
-          "title": {
-            "data_type": "string",
-            "title": "Title",
-            "visual": {
-              "field_type": "input",
-              "show_title": true
-            },
-            "validation": {
-              "required": true
-            }
-          },
-          "description": {
-            "data_type": "string",
-            "title": "Description",
-            "visual": {
-              "field_type": "rich-textarea",
-              "show_title": true
-            },
-            "validation": {}
-          },
-          "publisher": {
-            "data_type": "string",
-            "title": "Publisher",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "publication_date": {
-            "data_type": "string",
-            "title": "Publication date",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "datepicker"
-            },
-            "validation": {
-              "dateISO": true
-            }
-          },
-          "url": {
-            "data_type": "string",
-            "title": "Link",
-            "visual": {
-              "field_type": "input",
-              "show_title": true
-            },
-            "validation": {}
-          },
-          "co_authors": {
-            "data_type": "array",
-            "title": "Co authors",
+            "title": "Select Fruits",
             "visual": {
               "array_supported_field": true,
               "show_title": true
@@ -680,124 +64,91 @@
             "validation": {},
             "items": {
               "visual": {
-                "field_type": "tags-input"
+                "field_type": "checkbox",
+                "options": [
+                  { "key": 1, "label": "apple", "value": "apple" },
+                  { "key": 2, "label": "mango", "value": "mango" },
+                  { "key": 3, "label": "banana", "value": "banana" },
+                  { "key": 4, "label": "orange", "value": "orange" },
+                  { "key": 5, "label": "pineapple", "value": "pineapple" }
+                ],
+                "show_inline": true
               },
-              "show_title": true,
               "data_type": "string"
             }
           }
         }
       },
-      "certifications": {
+      "country": {
         "data_type": "object",
         "title": "",
         "visual": {},
         "validation": {},
         "properties": {
-          "certification_name": {
-            "data_type": "string",
-            "title": "Certification",
+          "value": {
+            "data_type": "array",
+            "title": "Select Country",
             "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "input"
+              "array_supported_field": true,
+              "show_title": true
             },
-            "validation": {
-              "required": true
-            }
-          },
-          "certification_authority": {
-            "data_type": "string",
-            "title": "Certification authority",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "certificate_id": {
-            "data_type": "string",
-            "title": "Certification ID",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "input"
-            },
-            "validation": {}
-          },
-          "issue_date": {
-            "data_type": "string",
-            "title": "Issue date",
-            "visual": {
-              "width": "calc((100% - 10px) / 2)",
-              "show_title": true,
-              "field_type": "datepicker"
-            },
-            "validation": {
-              "dateISO": true
+            "validation": {},
+            "items": {
+              "visual": {
+                "field_type": "radio",
+                "options": [
+                  { "key": 1, "label": "germany", "value": "germany" },
+                  { "key": 2, "label": "mexico", "value": "mexico" },
+                  { "key": 3, "label": "austria", "value": "austria" },
+                  { "key": 4, "label": "argentina", "value": "argentina" },
+                  { "key": 5, "label": "georgia", "value": "georgia" }
+                ],
+                "show_inline": true
+              },
+              "data_type": "string"
             }
           }
         }
       },
-      "social_links": {
-        "data_type": "link-array",
-        "title": "",
+      "date": {
+        "data_type": "string",
+        "title": "Select Date",
         "visual": {
-          "field_type": "link-input",
           "show_title": true,
-          "custom_add_row_label": "Add New Link"
+          "field_type": "datepicker"
         },
-        "validation": {},
-        "items": {
-          "data_type": "object",
-          "properties": {
-            "title": {
-              "data_type": "string",
-              "title": "Title",
-              "visual": {},
-              "validation": {}
-            },
-            "url": {
-              "data_type": "url",
-              "title": "URL",
-              "visual": {},
-              "validation": {}
-            },
-            "domain": {
-              "data_type": "string",
-              "title": "Domain",
-              "visual": {},
-              "validation": {}
-            }
-          }
+        "validation": {
+          "dateISO": true
         }
       },
-      "skills": {
+      "date_range": {
         "data_type": "object",
         "title": "",
-        "visual": {},
+        "visual": {
+          "show_inline": true
+        },
         "validation": {},
         "properties": {
-          "value": {
-            "data_type": "array",
-            "title": "Skills",
+          "start": {
+            "data_type": "string",
+            "title": "Start Date",
             "visual": {
-              "array_supported_field": true,
-              "show_title": true
+              "show_title": true,
+              "field_type": "datepicker"
             },
-            "validation": {},
-            "items": {
-              "visual": {
-                "suggest": {
-                  "query": "name",
-                  "api": "/api/v1/suggest/skill/",
-                  "data": "data"
-                },
-                "is_expanded": true,
-                "field_type": "tags-input"
-              },
-              "data_type": "string"
+            "validation": {
+              "dateISO": true
+            }
+          },
+          "end": {
+            "data_type": "string",
+            "title": "End Date",
+            "visual": {
+              "show_title": true,
+              "field_type": "datepicker"
+            },
+            "validation": {
+              "dateISO": true
             }
           }
         }
