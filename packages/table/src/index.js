@@ -3,8 +3,14 @@ import React, { Fragment, Component, createContext } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 // React modules
+import getClassnames from 'classnames';
 import Input from '@hawk-ui/input';
 import Pagination from '@hawk-ui/pagination';
+import Checkbox from '@hawk-ui/checkbox';
+// constant modules
+import { sortOrders } from './constant';
+// utils modules
+import { sortByColumn } from './utils';
 // css modules
 import './index.scss';
 
@@ -76,26 +82,137 @@ class TableContent extends Component {
   static contextType = TableContext;
   static propTypes = {
     tableHeader: PropTypes.array,
+    isHeaderShow: PropTypes.bool,
+    isSelectable: PropTypes.bool,
+    isSorting: PropTypes.bool,
+    selected: PropTypes.array,
+    onSelect: PropTypes.func,
+    sortBy: PropTypes.array,
   };
+  static defaultProps = {
+    isHeaderShow: true,
+    isSelectable: false,
+    isSorting: false,
+  }
   state = {
     tableContent: this.context.tableContent,
+    selectedItems: this.props.selected || [],
+    sortingMeta: {
+      columnKey: '',
+      order: 'ASCENDING',
+    },
+  };
+
+  onMultiSelect = () => {
+    const { selectedItems } = this.state;
+    const { tableContent } = this.context;
+    const isItemSelected = selectedItems.length <= tableContent.length && selectedItems.length > 0;
+    let selectedItemKeys = [];
+
+    if (!isItemSelected) {
+      selectedItemKeys = _.map(tableContent, (o) => o.id);
+    }
+
+    this.setState({
+      selectedItems: selectedItemKeys,
+    }, () => {
+      this.props.onSelect(this.state.selectedItems);
+    });
+  };
+
+  onSelect = (listKey) => {
+    const { selectedItems } = this.state;
+
+    if (selectedItems.indexOf(listKey) !== -1) {
+      const items = _.filter(selectedItems, (item) => item !== listKey);
+
+      this.setState({
+        selectedItems: items,
+      }, () => {
+        this.props.onSelect(this.state.selectedItems);
+      });
+    } else {
+      this.setState({
+        selectedItems: [...selectedItems, listKey],
+      }, () => {
+        this.props.onSelect(this.state.selectedItems);
+      });
+    }
+  };
+
+  renderHeaderCell = (column) => {
+    const isOrderingSetForColumn = this.state.sortingMeta.columnKey === column.key;
+
+    return (
+      <i
+        className={getClassnames('icon fas', {
+          'fa-sort-amount-up': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
+          'fa-sort-amount-down': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
+        })}
+        onClick={() => {
+          const order = !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING) ? sortOrders.ASCENDING : sortOrders.DESCENDING;
+
+          this.setState({
+            sortingMeta: {
+              columnKey: column.dataIndex,
+              order,
+            },
+          }, () => {
+            const sortedColumn = sortByColumn(column.dataIndex, this.context.tableContent, this.state.sortingMeta.order);
+
+            this.setState({
+              tableContent: sortedColumn,
+            });
+          });
+        }}
+      />
+    );
   };
 
   render() {
-    const { tableHeader } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, sortBy } = this.props;
+    const { selectedItems } = this.state;
+    const { tableContent } = this.context;
 
     return (
       <table>
-        <thead>
-          <tr>
-            {_.map(tableHeader, (item, index) => (
-              <th key={index}>{item.title}</th>
-            ))}
-          </tr>
-        </thead>
+        {isHeaderShow && (
+          <thead>
+            <tr>
+              {isSelectable && (
+                <th>
+                  <Checkbox
+                    isChecked={selectedItems.length <= tableContent.length && selectedItems.length > 0}
+                    onChange={() => { this.onMultiSelect(); }}
+                    className={_.isEqual(selectedItems.length, tableContent.length) && selectedItems.length > 0 ? 'checkmark' : selectedItems.length < tableContent.length && selectedItems.length > 0 ? 'minus' : null}
+                  />
+                </th>
+              )}
+              {_.map(tableHeader, (item, index) => (
+                <th key={index}>
+                  <span>{item.title}</span>
+                  {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
+                    this.renderHeaderCell(item)
+                  )}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        )}
         <tbody>
-          {_.map(this.context.tableContent, (content, index) => (
-            <tr key={index}>
+          {_.map(this.state.tableContent, (content, index) => (
+            <tr
+              key={index}
+              className={_.includes(selectedItems, content.id) ? 'active' : 'inactive'}
+            >
+              {isSelectable && (
+                <td>
+                  <Checkbox
+                    isChecked={_.includes(selectedItems, content.id)}
+                    onChange={() => { this.onSelect(content.id); }}
+                  />
+                </td>
+              )}
               {_.map(tableHeader, (item, subIndex) => (
                 !_.isEmpty(item.dataIndex) ? (
                   <td key={subIndex}>

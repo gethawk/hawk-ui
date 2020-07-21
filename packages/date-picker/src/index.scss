@@ -67,6 +67,10 @@
     background: #fff;
     color: #cacccd;
   }
+  &__blocked_calendar, &__blocked_calendar:active, &__blocked_calendar:hover {
+    background: #fff;
+    color: #cacccd;
+  }
   &__selected {
     background-color: #e9f8fa;
   }

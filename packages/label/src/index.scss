@@ -13,6 +13,7 @@
       display: flex;
       justify-content: flex-start;
       flex-direction: row;
+      align-items: center;
       .hawk-label__icon {
         margin-right: 5px;
       }
@@ -21,6 +22,7 @@
       display: flex;
       justify-content: flex-end;
       flex-direction: row-reverse;
+      align-items: center;
       .hawk-label__icon {
         margin-left: 5px;
       }
