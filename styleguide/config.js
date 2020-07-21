@@ -12,6 +12,7 @@ module.exports = {
         '../packages/label/src/index.js',
         '../packages/input/src/index.js',
         '../packages/input-group/src/index.js',
+        '../packages/file-upload/src/index.js',
         '../packages/range-slider/src/index.js',
         '../packages/progress-bar/src/index.js',
         '../packages/password-strength/src/index.js',

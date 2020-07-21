@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/input-group",
-  "version": "2.3.0",
+  "version": "2.3.2",
   "description": "hawk-ui: Input Group Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,8 +9,8 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^2.3.0",
-    "@hawk-ui/input": "^2.3.0",
+    "@hawk-ui/button": "^2.3.2",
+    "@hawk-ui/input": "^2.3.2",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
