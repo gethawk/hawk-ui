@@ -11,6 +11,7 @@
   "dependencies": {
     "@hawk-ui/checkbox": "^2.2.4",
     "@hawk-ui/date-picker": "^2.3.0",
+    "@hawk-ui/file-upload": "^2.3.2",
     "@hawk-ui/input": "^2.2.4",
     "@hawk-ui/label": "^2.3.0",
     "@hawk-ui/radio": "^2.2.4",

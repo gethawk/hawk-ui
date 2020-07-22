@@ -152,6 +152,16 @@
             }
           }
         }
+      },
+      "upload_image": {
+        "data_type": "string",
+        "title": "Upload Image",
+        "visual": {
+          "show_title": true,
+          "describable": true,
+          "field_type": "file-upload"
+        },
+        "validation": {}
       }
     }
   }
