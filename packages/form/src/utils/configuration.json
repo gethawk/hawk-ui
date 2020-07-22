@@ -162,6 +162,16 @@
           "field_type": "file-upload"
         },
         "validation": {}
+      },
+      "description": {
+        "data_type": "string",
+        "title": "Description",
+        "visual": {
+          "field_type": "textarea",
+          "show_title": true,
+          "section_title": "Description"
+        },
+        "validation": {}
       }
     }
   }
