@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import _ from 'lodash';
 
-import TagsInput from '@hawk-ui/tags-input';
+import RangeSlider from '@hawk-ui/range-slider';
 
-export default class FormTagsInput extends Component {
+export default class FormRangeSlider extends Component {
   static propTypes = {
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
@@ -24,7 +24,7 @@ export default class FormTagsInput extends Component {
           'hawk-form-field_no-padding': noTitle,
         })}
       >
-        <TagsInput />
+        <RangeSlider />
       </div>
     );
   }

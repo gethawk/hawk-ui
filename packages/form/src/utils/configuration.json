@@ -172,6 +172,16 @@
           "section_title": "Description"
         },
         "validation": {}
+      },
+      "price": {
+        "data_type": "string",
+        "title": "Description",
+        "visual": {
+          "field_type": "input-group",
+          "show_title": true,
+          "section_title": "Description"
+        },
+        "validation": {}
       }
     }
   }
