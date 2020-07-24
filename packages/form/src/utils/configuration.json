@@ -231,26 +231,63 @@
         "title": "Currency",
         "visual": {
           "field_type": "select",
+          "show_icon": true,
           "show_title": true,
           "suggest": {
-            "name": "label",
+            "name": "title",
             "value": "value",
             "options": [
               {
-                "value": "INR",
-                "label": "INR"
+                "title": "INR",
+                "value": "INR"
               },
               {
-                "value": "USD",
-                "label": "USD"
+                "title": "USD",
+                "value": "USD"
               },
               {
-                "value": "GBP",
-                "label": "GBP"
+                "title": "GBP",
+                "value": "GBP"
               },
               {
-                "value": "SGD",
-                "label": "SGD"
+                "title": "SGD",
+                "value": "SGD"
+              }
+            ]
+          }
+        },
+        "validation": {
+          "required_if": {
+            "check": "current_ctc.value"
+          }
+        }
+      },
+      "company": {
+        "data_type": "string",
+        "title": "Company",
+        "visual": {
+          "field_type": "tags-input",
+          "show_icon": true,
+          "show_title": true,
+          "suggest": {
+            "name": "title",
+            "value": "value",
+            "options": [
+              {
+                "title": "Alfreds Futterkiste",
+                "value": "alfreds futterkiste"
+              },
+              {
+                "title": "Centro comercial Moctezuma",
+                "value": "centro comercial moctezuma"
+              },
+              {
+                "title": "Ernst Handel",
+                "value": "ernst handel"
+              },
+              {
+                "title": "Island Trading",
+                "value": "island trading"
               }
             ]
           }

@@ -9,30 +9,19 @@ import SelectDropdown from '@hawk-ui/select-dropdown';
 
 export default class FormSelectDropdown extends Component {
   static propTypes = {
+    configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
   };
   state = {};
 
   render() {
-    const { property, noTitle } = this.props;
+    const { configuration, property, noTitle } = this.props;
+    const visual = _.get(configuration, 'visual', {});
 
-    const suggestions = [
-      { title: 'Argentina', value: 'argentina' },
-      { title: 'Australia', value: 'australia' },
-      { title: 'Belgium', value: 'belgium' },
-      { title: 'Bhutan', value: 'bhutan' },
-      { title: 'Brazil', value: 'brazil' },
-      { title: 'Canada', value: 'canada' },
-      { title: 'China', value: 'china' },
-      { title: 'Colombia', value: 'colombia' },
-      { title: 'Egypt', value: 'egypt' },
-      { title: 'Finland', value: 'finland' },
-      { title: 'Georgia', value: 'georgia' },
-      { title: 'Germany', value: 'germany' },
-      { title: 'India', value: 'india' },
-      { title: 'Indonesia', value: 'indonesia' },
-    ];
+    const options = _.get(visual, 'suggest.options', []);
+    const renderOption = _.get(visual, 'suggest.name', 'title');
+    const isIcon = _.get(visual, 'show_icon', false);
 
     return (
       <div
@@ -42,10 +31,10 @@ export default class FormSelectDropdown extends Component {
         })}
       >
         <SelectDropdown
-          suggestions={suggestions}
-          isIcon
+          suggestions={options}
+          isIcon={isIcon}
           placeholder="Select anyone"
-          renderSuggestion={(suggestion) => suggestion.title}
+          renderSuggestion={(suggestion) => suggestion[renderOption]}
         />
       </div>
     );
