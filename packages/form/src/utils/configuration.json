@@ -168,8 +168,7 @@
         "title": "Description",
         "visual": {
           "field_type": "textarea",
-          "show_title": true,
-          "section_title": "Description"
+          "show_title": true
         },
         "validation": {}
       },
@@ -178,10 +177,72 @@
         "title": "Description",
         "visual": {
           "field_type": "input-group",
-          "show_title": true,
-          "section_title": "Description"
+          "show_title": true
         },
         "validation": {}
+      },
+      "color": {
+        "data_type": "string",
+        "title": "Color Picker",
+        "visual": {
+          "field_type": "color-picker",
+          "show_title": true
+        },
+        "validation": {}
+      },
+      "border": {
+        "data_type": "string",
+        "title": "Border Picker",
+        "visual": {
+          "field_type": "border-picker",
+          "show_title": true
+        },
+        "validation": {}
+      },
+      "range": {
+        "data_type": "number",
+        "title": "Range",
+        "visual": {
+          "field_type": "range-slider",
+          "show_title": true
+        },
+        "validation": {}
+      },
+      "currency": {
+        "data_type": "string",
+        "title": "Currency",
+        "visual": {
+          "width": "100px",
+          "field_type": "select",
+          "show_title": true,
+          "suggest": {
+            "name": "label",
+            "value": "value",
+            "options": [
+              {
+                "value": "INR",
+                "label": "INR"
+              },
+              {
+                "value": "USD",
+                "label": "USD"
+              },
+              {
+                "value": "GBP",
+                "label": "GBP"
+              },
+              {
+                "value": "SGD",
+                "label": "SGD"
+              }
+            ]
+          }
+        },
+        "validation": {
+          "required_if": {
+            "check": "current_ctc.value"
+          }
+        }
       }
     }
   }

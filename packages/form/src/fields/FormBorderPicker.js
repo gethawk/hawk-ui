@@ -24,7 +24,9 @@ export default class FormBorderPicker extends Component {
           'hawk-form-field_no-padding': noTitle,
         })}
       >
-        <BorderPicker />
+        <BorderPicker
+          type="solid"
+        />
       </div>
     );
   }

@@ -19,9 +19,9 @@ export default {
   datepicker: FormDatePicker,
   'file-upload': FormFileUpload,
   textarea: FormTextarea,
-  select: FormSelectDropdown,
   'tags-input': FormTagsInput,
   'color-picker': FormColorPicker,
   'border-picker': FormBorderPicker,
   'range-slider': FormRangeSlider,
+  select: FormSelectDropdown,
 };
