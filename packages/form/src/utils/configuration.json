@@ -195,6 +195,7 @@
         "title": "Border Picker",
         "visual": {
           "field_type": "border-picker",
+          "border_type": "dotted",
           "show_title": true
         },
         "validation": {}

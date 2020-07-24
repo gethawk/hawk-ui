@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classnames from 'classnames';
+import Label from '@hawk-ui/label';
 
 import FormSection from './FormSection';
 import FormControl from './FormControl';
@@ -172,21 +173,14 @@ export default class FormRow extends Component {
     return (
       <div data-property={property} className={classnames('hawk-form-row', property, { 'hawk-form-row_with-separator': showSeparator, 'hawk-form-row_no-padding': noPadding })} style={_.isEmpty(width) ? {} : { width }}>
 
-        {/* {
+        {
           showTitle && !_.isEmpty(title) && (
-            <div className="hawk-form-row__title">
-              {title}
-            </div>
+            <Label
+              className="hawk-form-row__title"
+              title={title}
+            />
           )
         }
-
-        {
-          showDescription && !_.isEmpty(description) && (
-            <div className="hawk-form-row__description">
-              {description}
-            </div>
-          )
-        } */}
 
         {
           dataType === 'array' && !arraySupportedField && !_.isUndefined(_.last(data)) && (
@@ -198,6 +192,14 @@ export default class FormRow extends Component {
 
         {
           !_.isEmpty(formControl) && (formControl)
+        }
+
+        {
+          showDescription && !_.isEmpty(description) && (
+            <div className="hawk-form-row__description">
+              {description}
+            </div>
+          )
         }
 
         {
