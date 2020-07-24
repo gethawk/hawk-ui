@@ -21,16 +21,21 @@ export default class InputGroup extends Component {
     isAddonIcon: PropTypes.bool,
     addonSize: PropTypes.oneOf(['small', 'medium', 'large']),
     addonPlacement: PropTypes.oneOf(['left', 'right']),
+    type: PropTypes.string,
+    value: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
   };
   static defaultProps = {
     isAddonIcon: false,
     addonSize: 'small',
     addonPlacement: 'left',
+    type: 'text',
   }
   state = {};
 
   render() {
-    const { addon, isAddonIcon, addonSize, addonPlacement } = this.props;
+    const { addon, isAddonIcon, addonSize, addonPlacement, type, value, placeholder, onChange } = this.props;
 
     return (
       <div
@@ -46,7 +51,14 @@ export default class InputGroup extends Component {
             <span>{addon}</span>
           ) : addon}
         </Button>
-        <Input />
+        <Input
+          type={type}
+          value={value}
+          placeholder={placeholder}
+          onChange={(event) => {
+            onChange(event);
+          }}
+        />
       </div>
     );
   }

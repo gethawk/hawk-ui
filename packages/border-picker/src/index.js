@@ -26,6 +26,7 @@ export default class BorderPicker extends Component {
   }
   state = {
     shouldBorderPickerShow: false,
+    type: this.props.type,
   };
 
   componentDidMount() {
@@ -46,7 +47,8 @@ export default class BorderPicker extends Component {
   }
 
   render() {
-    const { type, onSelect } = this.props;
+    const { onSelect } = this.props;
+    const { type } = this.state;
 
     return (
       <div ref={this.myRef} className="hawk-border-picker">
@@ -85,6 +87,7 @@ export default class BorderPicker extends Component {
                 onClick={() => {
                   this.setState({
                     shouldBorderPickerShow: false,
+                    type: style.type,
                   }, () => {
                     onSelect(style.type);
                   });

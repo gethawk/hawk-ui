@@ -9,6 +9,8 @@ import './index.scss';
  */
 export default class RangeSlider extends Component {
   static propTypes = {
+    valueId: PropTypes.string,
+    rangeId: PropTypes.string,
     value: PropTypes.number,
     min: PropTypes.number,
     max: PropTypes.number,
@@ -24,9 +26,8 @@ export default class RangeSlider extends Component {
   state = {};
 
   componentDidMount() {
-    document.addEventListener('DOMContentLoaded', this.setRange);
-    const range = document.getElementById('range');
-    const rangeValue = document.getElementById('rangeValue');
+    const range = document.getElementById(this.props.rangeId);
+    const rangeValue = document.getElementById(this.props.valueId);
     const newValue = Number((range.value - range.min) * 100 / (range.max - range.min));
     const newPosition = 10 - (newValue * 0.2);
 
@@ -34,12 +35,8 @@ export default class RangeSlider extends Component {
     rangeValue.style.left = `calc(${newValue}% + (${newPosition}px))`;
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('DOMContentLoaded', this.setRange);
-  }
-
   setRange = (event) => {
-    const rangeValue = document.getElementById('rangeValue');
+    const rangeValue = document.getElementById(this.props.valueId);
     const newValue = Number((event.target.value - event.target.min) * 100 / (event.target.max - event.target.min));
     const newPosition = 10 - (newValue * 0.2);
 
@@ -55,7 +52,7 @@ export default class RangeSlider extends Component {
       <div className="hawk-range-slider">
         <div
           className="hawk-range-slider__value"
-          id="rangeValue"
+          id={this.props.valueId}
         />
         <input
           type="range"
@@ -63,7 +60,7 @@ export default class RangeSlider extends Component {
           max={max}
           value={value}
           step={step}
-          id="range"
+          id={this.props.rangeId}
           onChange={(event) => { this.setRange(event); }}
         />
       </div>
