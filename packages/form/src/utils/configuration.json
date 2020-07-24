@@ -181,12 +181,13 @@
       "price": {
         "data_type": "string",
         "title": "Description",
-        "addon": "0.00",
+        "placeholder": "Write price",
         "visual": {
           "field_type": "input-group",
           "show_title": true,
+          "addon": "0.00",
           "addon_size": "small",
-          "addon_placement": "left",
+          "addon_placement": "right",
           "addon_icon": false
         },
         "validation": {}
@@ -196,6 +197,7 @@
         "title": "Color Picker",
         "visual": {
           "field_type": "color-picker",
+          "default_color": "f18ca6",
           "show_title": true
         },
         "validation": {}

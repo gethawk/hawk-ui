@@ -48,11 +48,11 @@ export default class FormInputGroup extends Component {
     const { value } = this.state;
     const visual = _.get(configuration, 'visual', {});
 
-    console.log('query formInput visual', visual);
+    const addon = _.get(visual, 'addon', '');
+    const addonSize = _.get(visual, 'addon_size', 'small');
+    const addonPlacement = _.get(visual, 'addon_placement', 'left');
+    const isAddonIcon = _.get(visual, 'addon_icon', false);
 
-//     addon_icon: false
-// addon_placement: "left"
-// addon_size: "small"
     return (
       <div
         data-field={property}
@@ -61,6 +61,10 @@ export default class FormInputGroup extends Component {
         })}
       >
         <InputGroup
+          addon={addon}
+          addonSize={addonSize}
+          addonPlacement={addonPlacement}
+          isAddonIcon={isAddonIcon}
           placeholder={placeholder}
           value={value}
           onChange={(event) => {

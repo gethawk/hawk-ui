@@ -15,7 +15,7 @@
     "@hawk-ui/date-picker": "^2.3.3",
     "@hawk-ui/file-upload": "^2.3.3",
     "@hawk-ui/input": "^2.3.3",
-    "@hawk-ui/input-group": "^2.3.3",
+    "@hawk-ui/input-group": "^2.3.5",
     "@hawk-ui/label": "^2.3.3",
     "@hawk-ui/radio": "^2.3.3",
     "@hawk-ui/range-slider": "^2.3.3",

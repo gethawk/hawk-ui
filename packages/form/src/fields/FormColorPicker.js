@@ -9,13 +9,17 @@ import ColorPicker from '@hawk-ui/color-picker';
 
 export default class FormColorPicker extends Component {
   static propTypes = {
+    configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
   };
   state = {};
 
   render() {
-    const { property, noTitle } = this.props;
+    const { configuration, property, noTitle } = this.props;
+    const visual = _.get(configuration, 'visual', {});
+
+    const defaultColor = _.get(visual, 'default_color', '000000');
 
     return (
       <div
@@ -24,7 +28,12 @@ export default class FormColorPicker extends Component {
           'hawk-form-field_no-padding': noTitle,
         })}
       >
-        <ColorPicker />
+        <ColorPicker
+          defaultColor={defaultColor}
+          onSave={(event) => {
+            console.log('query color event', event);
+          }}
+        />
       </div>
     );
   }
