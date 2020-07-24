@@ -46,7 +46,8 @@ initialState = {
   <p>Addon Element Placement</p>
   <br />
   <InputGroup
-    addonIcon="fa fa-at"
+    addon="fa fa-at"
+    isAddonIcon
   />
   <br /><br />
   <p>Addon Element Placement</p>
