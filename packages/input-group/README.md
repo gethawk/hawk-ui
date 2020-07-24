@@ -5,6 +5,7 @@ initialState = {
   fruits: [
     { key: 1, label: '', value: '1' },
   ],
+  value: 'Hello World',
 };
 
 <div className="styleguidist__btns-wrap">
@@ -13,6 +14,14 @@ initialState = {
   <InputGroup
     addon="text"
     addonPlacement="left"
+    type="text"
+    value={state.value}
+    placeholder="Please enter value"
+    onChange={(event) => {
+      setState({
+        value: event.target.value,
+      });
+    }}
   />
   <br /><br />
   <p>Addon Right Placement</p>
