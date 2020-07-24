@@ -9,13 +9,21 @@ import RangeSlider from '@hawk-ui/range-slider';
 
 export default class FormRangeSlider extends Component {
   static propTypes = {
+    configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
   };
   state = {};
 
   render() {
-    const { property, noTitle } = this.props;
+    const { configuration, property, noTitle } = this.props;
+    const visual = _.get(configuration, 'visual', {});
+
+    const valueId = _.get(visual, 'value_id', '');
+    const rangeId = _.get(visual, 'range_id', '');
+    const min = _.get(visual, 'range_min', 0);
+    const max = _.get(visual, 'range_max', 100);
+    const rangeStep = _.get(visual, 'range_step', 1);
 
     return (
       <div
@@ -24,7 +32,16 @@ export default class FormRangeSlider extends Component {
           'hawk-form-field_no-padding': noTitle,
         })}
       >
-        <RangeSlider />
+        <RangeSlider
+          valueId={valueId}
+          rangeId={rangeId}
+          min={min}
+          max={max}
+          step={rangeStep}
+          onChange={(event) => {
+            console.log('query range', event);
+          }}
+        />
       </div>
     );
   }

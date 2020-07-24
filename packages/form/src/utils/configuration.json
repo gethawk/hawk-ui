@@ -217,6 +217,11 @@
         "title": "Range",
         "visual": {
           "field_type": "range-slider",
+          "value_id": "valueSliderId",
+          "range_id": "rangeSliderId",
+          "range_min": 0,
+          "range_max": 100,
+          "range_step": 1,
           "show_title": true
         },
         "validation": {}
@@ -225,7 +230,6 @@
         "data_type": "string",
         "title": "Currency",
         "visual": {
-          "width": "100px",
           "field_type": "select",
           "show_title": true,
           "suggest": {
