@@ -26,6 +26,9 @@ export default class FormBorderPicker extends Component {
       >
         <BorderPicker
           type="solid"
+          onSelect={(event) => {
+            console.log('query event', event);
+          }}
         />
       </div>
     );
