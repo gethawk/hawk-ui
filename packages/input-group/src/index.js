@@ -18,18 +18,19 @@ export default class InputGroup extends Component {
       PropTypes.string,
       PropTypes.element,
     ]),
-    addonIcon: PropTypes.string,
+    isAddonIcon: PropTypes.bool,
     addonSize: PropTypes.oneOf(['small', 'medium', 'large']),
     addonPlacement: PropTypes.oneOf(['left', 'right']),
   };
   static defaultProps = {
+    isAddonIcon: false,
     addonSize: 'small',
     addonPlacement: 'left',
   }
   state = {};
 
   render() {
-    const { addon, addonSize, addonPlacement, addonIcon } = this.props;
+    const { addon, isAddonIcon, addonSize, addonPlacement } = this.props;
 
     return (
       <div
@@ -39,12 +40,10 @@ export default class InputGroup extends Component {
         })}
       >
         <Button>
-          {_.isString(addon) ? (
+          {isAddonIcon ? (
+            <i className={addon} />
+          ) : _.isString(addon) ? (
             <span>{addon}</span>
-          ) : _.isString(addonIcon) ? (
-            <i
-              className={addonIcon}
-            />
           ) : addon}
         </Button>
         <Input />
