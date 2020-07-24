@@ -46,13 +46,13 @@ export default class FormInputGroup extends Component {
   render() {
     const { configuration, property, placeholder, noTitle } = this.props;
     const { value } = this.state;
-    const title = _.get(configuration, 'title', '');
-    const description = _.get(configuration, 'description', '');
     const visual = _.get(configuration, 'visual', {});
 
-    const showTitle = _.get(visual, 'show_title', false);
-    const showDescription = _.get(visual, 'show_description', false);
+    console.log('query formInput visual', visual);
 
+//     addon_icon: false
+// addon_placement: "left"
+// addon_size: "small"
     return (
       <div
         data-field={property}
@@ -66,8 +66,6 @@ export default class FormInputGroup extends Component {
           onChange={(event) => {
             this.onChange(event.target.value);
           }}
-          label={showTitle && !_.isEmpty(title) && title}
-          description={showDescription && !_.isEmpty(description) && description}
         />
       </div>
     );

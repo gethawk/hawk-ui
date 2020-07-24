@@ -20,11 +20,15 @@ export default class FormCheckbox extends Component {
     visual: PropTypes.object,
     noTitle: PropTypes.bool,
   };
-  state = {};
+  state = {
+    selectedItem: [],
+  };
 
   render() {
     const { property, noTitle, configuration } = this.props;
     const options = _.get(configuration, 'visual.options', []);
+
+    const { selectedItem } = this.state;
 
     return (
       <div
@@ -35,6 +39,20 @@ export default class FormCheckbox extends Component {
       >
         <Checkbox
           options={options}
+          selectedItem={selectedItem}
+          onChange={(event) => {
+            if (selectedItem.indexOf(event.target.value) !== -1) {
+              const selected = selectedItem.filter((item) => item !== event.target.value);
+
+              this.setState({
+                selectedItem: selected,
+              });
+            } else {
+              this.setState({
+                selectedItem: [...selectedItem, event.target.value],
+              });
+            }
+          }}
         />
       </div>
     );

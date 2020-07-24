@@ -134,7 +134,9 @@
             "title": "Start Date",
             "visual": {
               "show_title": true,
-              "field_type": "datepicker"
+              "field_type": "datepicker",
+              "is_range": true,
+              "range_type": "start"
             },
             "validation": {
               "dateISO": true
@@ -145,7 +147,9 @@
             "title": "End Date",
             "visual": {
               "show_title": true,
-              "field_type": "datepicker"
+              "field_type": "datepicker",
+              "is_range": true,
+              "range_type": "end"
             },
             "validation": {
               "dateISO": true
@@ -177,9 +181,13 @@
       "price": {
         "data_type": "string",
         "title": "Description",
+        "addon": "0.00",
         "visual": {
           "field_type": "input-group",
-          "show_title": true
+          "show_title": true,
+          "addon_size": "small",
+          "addon_placement": "left",
+          "addon_icon": false
         },
         "validation": {}
       },
