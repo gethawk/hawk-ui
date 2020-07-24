@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+import _ from 'lodash';
 
 import Input from '@hawk-ui/input';
 
@@ -14,6 +15,7 @@ export default class FormTextarea extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
+    configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
@@ -28,7 +30,10 @@ export default class FormTextarea extends Component {
   }
 
   render() {
-    const { property, value, placeholder, onChange, noTitle } = this.props;
+    const { configuration, property, value, placeholder, onChange, noTitle } = this.props;
+    const visual = _.get(configuration, 'visual', {});
+
+    const rows = _.get(visual, 'rows', 4);
 
     return (
       <div
@@ -42,6 +47,9 @@ export default class FormTextarea extends Component {
           value={value}
           onChange={(val) => { onChange({ value: val }); }}
           isTextarea
+          htmlAttributes={{
+            rows,
+          }}
         />
       </div>
     );

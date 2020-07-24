@@ -28,6 +28,7 @@ export default class FormControl extends Component {
     const dataType = _.get(configuration, 'data_type', 'string');
     const visual = _.get(configuration, 'visual', {});
     const validation = _.get(configuration, 'validation', {});
+    const placeholder = _.get(configuration, 'placeholder', '');
     const fieldType = _.get(visual, 'field_type', 'input');
     const FieldComponent = _.get(Fields, fieldType);
 
@@ -37,7 +38,7 @@ export default class FormControl extends Component {
 
     return (
       <div data-property={property} className="hawk-form-control">
-        <FieldComponent configuration={configuration} property={property} dataType={dataType} value={data} visual={visual} validation={validation} noTitle={noTitle} onChange={this.onChange} />
+        <FieldComponent configuration={configuration} property={property} dataType={dataType} value={data} visual={visual} validation={validation} placeholder={placeholder} noTitle={noTitle} onChange={this.onChange} />
       </div>
     );
   }
