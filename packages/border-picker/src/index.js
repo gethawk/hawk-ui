@@ -17,6 +17,9 @@ export default class BorderPicker extends Component {
     type: PropTypes.oneOf(['dotted', 'dashed', 'solid', 'double', 'dotted dashed solid double']),
     onSelect: PropTypes.func,
   };
+  static defaultProps = {
+    type: 'solid',
+  }
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
