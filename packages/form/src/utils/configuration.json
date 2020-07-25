@@ -261,6 +261,21 @@
             "check": "current_ctc.value"
           }
         }
+      },
+      "city": {
+        "data_type": "string",
+        "title": "City",
+        "visual": {
+          "field_type": "tags-input",
+          "array_supported_field": true,
+          "show_title": true,
+          "suggest": {
+            "query": "name",
+            "api": "/api/v1/suggest/skill/",
+            "data": "data"
+          }
+        },
+        "validation": {}
       }
     }
   }

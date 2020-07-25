@@ -21,6 +21,7 @@
     "@hawk-ui/range-slider": "^2.3.7",
     "@hawk-ui/select-dropdown": "^2.3.7",
     "@hawk-ui/tags-input": "^2.3.7",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",

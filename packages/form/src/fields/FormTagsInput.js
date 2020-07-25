@@ -7,6 +7,8 @@ import _ from 'lodash';
 
 import TagsInput from '@hawk-ui/tags-input';
 
+import suggestAPI from '../utils/suggestAPI';
+
 export default class FormTagsInput extends Component {
   static propTypes = {
     value: PropTypes.array,
@@ -26,6 +28,11 @@ export default class FormTagsInput extends Component {
 
     onChange({ value });
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.query !== this.state.query) {
+      this.debouncedSearch(this.state.query);
+    }
+  }
   onAddTag = (tag, meta) => {
     const { visual, value, onChange } = this.props;
 
@@ -43,16 +50,44 @@ export default class FormTagsInput extends Component {
       onChange({ value: _.uniq(_.concat(value || [], tag)) });
     }
   };
+  onSearchChange = (query) => {
+    if (_.size(query || '') > 0) {
+      const { visual } = this.props;
+
+      const suggest = _.get(visual, 'suggest', null);
+
+      if (!_.isEmpty(suggest) && !_.isEmpty(_.get(suggest, 'api'))) {
+        const data = _.get(suggest, 'data', 'data');
+        const queryParam = _.get(suggest, 'query', 'query');
+        const params = { [queryParam]: query };
+
+        this.setState({ isLoading: true });
+
+        suggestAPI(suggest.api, { params }).then((response) => {
+          this.setState({ isLoading: false, suggestions: response[data] });
+        }).catch(() => {
+          this.setState({ isLoading: false, suggestions: [] });
+        });
+      } else if (!_.isEmpty(suggest) && !_.isEmpty(_.get(suggest, 'options'))) {
+        const suggestOptions = _.get(suggest, 'options', null);
+        const suggestValue = _.get(suggest, 'value', null);
+        const suggestName = _.get(suggest, 'name', suggestValue);
+        const filteredSuggestion = _.filter(suggestOptions, option => (_.includes(_.toLower(option[suggestValue]), _.toLower(query)) || _.includes(_.toLower(option[suggestName]), _.toLower(query))));
+
+        this.setState({ isLoading: false, suggestions: _.size(filteredSuggestion) > 0 ? filteredSuggestion : suggestOptions });
+      }
+    }
+  };
   onRemoveTag = (item) => {
     const { value, onChange } = this.props;
 
     onChange({ value: _.without(value, item) });
   }
+  debouncedSearch = _.debounce(this.onSearchChange, 500);
 
   render() {
     const { visual, property, noTitle, value } = this.props;
-    const { query } = this.state;
-    const options = _.get(visual, 'suggest.options', []);
+    const { query, isLoading, suggestions } = this.state;
     const renderOption = _.get(visual, 'suggest.name', 'title');
 
     return (
@@ -63,9 +98,10 @@ export default class FormTagsInput extends Component {
         })}
       >
         <TagsInput
-          suggestions={options}
+          suggestions={suggestions}
           placeholder="Select anyone"
           searchValue={query}
+          isSearchLoading={isLoading}
           onChange={(event) => {
             this.setState({
               query: event.target.value,
