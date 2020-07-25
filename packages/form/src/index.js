@@ -22,6 +22,7 @@ export default class Form extends Component {
     showInlineErrors: PropTypes.bool,
     className: PropTypes.string,
     isDisabled: PropTypes.bool,
+    isSubmitted: PropTypes.bool,
   };
   static defaultProps = {
     data: {},
@@ -172,7 +173,7 @@ export default class Form extends Component {
     return pathConfiguration;
   }
   render() {
-    const { data, errors, configuration, className, isDisabled } = this.props;
+    const { data, errors, configuration, className, isDisabled, isSubmitted } = this.props;
     const dataType = _.get(configuration, 'data_type');
     const title = _.get(configuration, 'title', '');
     const description = _.get(configuration, 'description', '');
@@ -225,6 +226,7 @@ export default class Form extends Component {
 
                       showInline={showInline}
                       isDisabled={isDisabled}
+                      isSubmitted={isSubmitted}
                       isCollapsible
                     />
                   ))

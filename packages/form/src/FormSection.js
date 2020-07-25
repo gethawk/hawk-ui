@@ -15,6 +15,7 @@ const FormSection = ({
   onChange,
   noPadding = false,
   isDisabled,
+  isSubmitted,
 }) => {
   const isUnnamedSection = section === 'unnamed-section';
   const sectionClass = (section || '').replace(/\s/, '-').toLowerCase();
@@ -99,6 +100,7 @@ const FormSection = ({
                   onChange={onChange}
                   noPadding={noPadding}
                   isDisabled={isDisabled}
+                  isSubmitted={isSubmitted}
                   isArraySupportedField={_.get(properties, `${key}.visual.array_supported_field`, false)}
                 />
               ))
@@ -127,6 +129,7 @@ FormSection.propTypes = {
   onChange: PropTypes.func,
   noPadding: PropTypes.bool,
   isDisabled: PropTypes.bool,
+  isSubmitted: PropTypes.bool,
 };
 
 export default FormSection;

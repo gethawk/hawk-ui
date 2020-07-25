@@ -32,7 +32,7 @@
               "show_title": true
             },
             "validation": {
-              "only_alphabets_spaces": true
+              "required": true
             }
           },
           "last_name": {
@@ -43,7 +43,7 @@
               "show_title": true
             },
             "validation": {
-              "only_alphabets_spaces": true
+              "required": true
             }
           }
         }

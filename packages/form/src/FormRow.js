@@ -23,6 +23,7 @@ export default class FormRow extends Component {
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noPadding: PropTypes.bool,
     isDisabled: PropTypes.bool,
+    isSubmitted: PropTypes.bool,
     isArraySupportedField: PropTypes.bool,
   };
   onChange = ({ value, property, configuration, addRow, removeRow }) => {
@@ -48,7 +49,7 @@ export default class FormRow extends Component {
     onChange({ property, configuration, removeRow: index });
   }
   render() {
-    const { data, errors, property, configuration, noPadding, onChange, isDisabled, isArraySupportedField } = this.props;
+    const { data, errors, property, configuration, noPadding, onChange, isDisabled, isSubmitted, isArraySupportedField } = this.props;
     const dataType = _.get(configuration, 'data_type');
     const title = _.get(configuration, 'title', '');
     const description = _.get(configuration, 'description', '');
@@ -90,6 +91,7 @@ export default class FormRow extends Component {
                     showInline={showInline}
                     noPadding={showInline}
                     isDisabled={isDisabled}
+                    isSubmitted={isSubmitted}
                   />
                 ))
               }
@@ -106,7 +108,7 @@ export default class FormRow extends Component {
           if (isArraySupportedField) {
             formControl = (
               <div className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-                <FormRow property={property} configuration={items} data={data} errors={errors} onChange={onChange} isDisabled={isDisabled} isArraySupportedField={isArraySupportedField} />
+                <FormRow property={property} configuration={items} data={data} errors={errors} onChange={onChange} isDisabled={isDisabled} isSubmitted={isSubmitted} isArraySupportedField={isArraySupportedField} />
               </div>
             );
           } else if (!allDeleted && !_.isEmpty(data) && dataCount > 0) {
@@ -120,7 +122,7 @@ export default class FormRow extends Component {
 
                     return (
                       <div key={i} className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-                        <FormRow key={i} property={i} configuration={items} data={value} errors={_.nth(errors, i)} onChange={this.onChange} isDisabled={isDisabled} isArraySupportedField={isArraySupportedField} noPadding />
+                        <FormRow key={i} property={i} configuration={items} data={value} errors={_.nth(errors, i)} onChange={this.onChange} isDisabled={isDisabled} isSubmitted={isSubmitted} isArraySupportedField={isArraySupportedField} noPadding />
                         <i
                           className="fas fa-trash-alt hawk-form-row__form-control-delete"
                           onClick={() => {
@@ -136,7 +138,7 @@ export default class FormRow extends Component {
           } else {
             formControl = (
               <div key={dataCount} className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-                <FormRow key={dataCount} property={dataCount} configuration={items} errors={_.nth(errors, dataCount)} onChange={this.onChange} isArraySupportedField={isArraySupportedField} noPadding />
+                <FormRow key={dataCount} property={dataCount} configuration={items} errors={_.nth(errors, dataCount)} onChange={this.onChange} isSubmitted={isSubmitted} isArraySupportedField={isArraySupportedField} noPadding />
               </div>
             );
           }
@@ -173,6 +175,7 @@ export default class FormRow extends Component {
             <Label
               className="hawk-form-row__title"
               title={title}
+              isRequired={_.isEqual(_.get(errors, 'required'), 'Required')}
             />
           )
         }
@@ -198,13 +201,12 @@ export default class FormRow extends Component {
         }
 
         {
-          !_.includes(['object', 'array'], dataType)
-          ? (
+          !_.includes(['object', 'array'], dataType) && isSubmitted
+          && (
             <div className="hawk-form-row__error">
               <FormErrors property={property} errors={errors} />
             </div>
           )
-          : null
         }
       </div>
     );

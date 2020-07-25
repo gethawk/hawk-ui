@@ -5,6 +5,7 @@ const { configuration } = require('./src/utils/configuration.json');
 initialState = {
   data: {},
   errors: {},
+  submitted: false,
 };
 
 <div className="styleguidist__btns-wrap">
@@ -37,9 +38,19 @@ initialState = {
 
         return ({ data, errors: _.omitBy(updatedErrors, _.isEmpty) });
       }, () => {
-        console.log('query state', state);
+        // console.log('query state', state);
       });
     }}
+    isSubmitted={state.submitted}
   />
+  <button
+    type="button"
+    className="hawk-button"
+    onClick={() => {
+      setState({ submitted: true });
+    }}
+  >
+    Submit
+  </button>
 </div>
 ```
