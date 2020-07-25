@@ -14,6 +14,7 @@ const FormSection = ({
   errors,
   onChange,
   noPadding = false,
+  isDisabled,
 }) => {
   const isUnnamedSection = section === 'unnamed-section';
   const sectionClass = (section || '').replace(/\s/, '-').toLowerCase();
@@ -89,7 +90,17 @@ const FormSection = ({
           <div className={classnames('hawk-form-section__content', { 'hawk-form-section__content_inline': showInline })}>
             {
               _.map(sectionKeys, key => (
-                <FormRow key={key} property={key} configuration={_.get(properties, key, {})} data={_.get(data, key)} errors={_.get(errors, key)} onChange={onChange} noPadding={noPadding} />
+                <FormRow
+                  key={key}
+                  property={key}
+                  configuration={_.get(properties, key, {})}
+                  data={_.get(data, key)}
+                  errors={_.get(errors, key)}
+                  onChange={onChange}
+                  noPadding={noPadding}
+                  isDisabled={isDisabled}
+                  isArraySupportedField={_.get(properties, `${key}.visual.array_supported_field`, false)}
+                />
               ))
             }
           </div>
@@ -115,6 +126,7 @@ FormSection.propTypes = {
   errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   onChange: PropTypes.func,
   noPadding: PropTypes.bool,
+  isDisabled: PropTypes.bool,
 };
 
 export default FormSection;

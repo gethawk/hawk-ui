@@ -22,8 +22,10 @@ export default class FormRow extends Component {
     errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noPadding: PropTypes.bool,
+    isDisabled: PropTypes.bool,
+    isArraySupportedField: PropTypes.bool,
   };
-  onChange = ({ value, property, configuration }) => {
+  onChange = ({ value, property, configuration, addRow, removeRow }) => {
     const { onChange } = this.props;
     let key = null;
 
@@ -33,7 +35,7 @@ export default class FormRow extends Component {
       key = `${this.props.property}.${property}`;
     }
 
-    onChange({ property: key, value, configuration });
+    onChange({ property: key, value, configuration, addRow, removeRow });
   }
   addMoreRow = () => {
     const { data, property, configuration, onChange } = this.props;
@@ -46,7 +48,7 @@ export default class FormRow extends Component {
     onChange({ property, configuration, removeRow: index });
   }
   render() {
-    const { data, errors, property, configuration, noPadding, onChange } = this.props;
+    const { data, errors, property, configuration, noPadding, onChange, isDisabled, isArraySupportedField } = this.props;
     const dataType = _.get(configuration, 'data_type');
     const title = _.get(configuration, 'title', '');
     const description = _.get(configuration, 'description', '');
@@ -55,7 +57,6 @@ export default class FormRow extends Component {
     const showTitle = _.get(visual, 'show_title', false);
     const showDescription = _.get(visual, 'show_description', false);
     const showInline = _.get(visual, 'show_inline', false);
-    const arraySupportedField = _.get(visual, 'array_supported_field', false);
 
     const showSeparator = _.get(visual, 'show_separator', null);
     const width = _.get(visual, 'width', null);
@@ -88,6 +89,7 @@ export default class FormRow extends Component {
 
                     showInline={showInline}
                     noPadding={showInline}
+                    isDisabled={isDisabled}
                   />
                 ))
               }
@@ -98,14 +100,16 @@ export default class FormRow extends Component {
       case 'array':
         {
           const items = _.get(configuration, 'items', {});
+          const allDeleted = _.every(data, value => (value.is_deleted));
+          const dataCount = _.size(data);
 
-          if (arraySupportedField) {
+          if (isArraySupportedField) {
             formControl = (
               <div className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-                <FormRow property={property} configuration={items} data={data} errors={errors} onChange={onChange} />
+                <FormRow property={property} configuration={items} data={data} errors={errors} onChange={onChange} isDisabled={isDisabled} isArraySupportedField={isArraySupportedField} />
               </div>
             );
-          } else if (!_.isEmpty(data) && _.size(data) > 0) {
+          } else if (!allDeleted && !_.isEmpty(data) && dataCount > 0) {
             formControl = (
               <Fragment>
                 {
@@ -116,7 +120,7 @@ export default class FormRow extends Component {
 
                     return (
                       <div key={i} className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-                        <FormRow key={i} property={i} configuration={items} data={value} errors={_.nth(errors, i)} onChange={this.onChange} noPadding />
+                        <FormRow key={i} property={i} configuration={items} data={value} errors={_.nth(errors, i)} onChange={this.onChange} isDisabled={isDisabled} isArraySupportedField={isArraySupportedField} noPadding />
                         <i
                           className="fas fa-trash-alt hawk-form-row__form-control-delete"
                           onClick={() => {
@@ -131,21 +135,11 @@ export default class FormRow extends Component {
             );
           } else {
             formControl = (
-              <div key={0} className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-                <FormRow key={0} property={0} configuration={items} onChange={this.onChange} noPadding />
+              <div key={dataCount} className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
+                <FormRow key={dataCount} property={dataCount} configuration={items} errors={_.nth(errors, dataCount)} onChange={this.onChange} isArraySupportedField={isArraySupportedField} noPadding />
               </div>
             );
           }
-
-          break;
-        }
-      case 'link-array':
-        {
-          formControl = (
-            <div className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-              <FormControl property={property} configuration={configuration} data={data} errors={errors} onChange={this.onChange} noTitle={!showTitle || _.isEmpty(title)} />
-            </div>
-          );
 
           break;
         }
@@ -157,10 +151,11 @@ export default class FormRow extends Component {
       case 'url':
       case 'datetime':
       case 'date':
+      case 'link-array':
         {
           formControl = (
             <div className={classnames('hawk-form-row__form-control', { 'hawk-form-row__form-control_inline': showInline })}>
-              <FormControl property={property} configuration={configuration} data={data} errors={errors} onChange={this.onChange} noTitle={!showTitle || _.isEmpty(title)} />
+              <FormControl property={property} configuration={configuration} data={data} errors={errors} onChange={this.onChange} noTitle={!showTitle || _.isEmpty(title)} isDisabled={isDisabled} isArraySupportedField={isArraySupportedField} />
             </div>
           );
           break;
@@ -183,7 +178,15 @@ export default class FormRow extends Component {
         }
 
         {
-          dataType === 'array' && !arraySupportedField && !_.isUndefined(_.last(data)) && (
+          showDescription && !_.isEmpty(description) && (
+            <div className="hawk-form-row__description">
+              {description}
+            </div>
+          )
+        }
+
+        {
+          dataType === 'array' && !isArraySupportedField && !_.isUndefined(_.last(data)) && (
             <div className="hawk-form-row__add-row" onClick={this.addMoreRow}>
               {customAddRowLabel}
             </div>
@@ -192,14 +195,6 @@ export default class FormRow extends Component {
 
         {
           !_.isEmpty(formControl) && (formControl)
-        }
-
-        {
-          showDescription && !_.isEmpty(description) && (
-            <div className="hawk-form-row__description">
-              {description}
-            </div>
-          )
         }
 
         {

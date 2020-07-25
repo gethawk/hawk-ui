@@ -16,6 +16,8 @@ export default class FormControl extends Component {
     ]),
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
+    isDisabled: PropTypes.bool,
+    isArraySupportedField: PropTypes.bool,
   };
   onChange = ({ value }) => {
     const { onChange, configuration } = this.props;
@@ -23,7 +25,7 @@ export default class FormControl extends Component {
     onChange({ value, configuration });
   }
   render() {
-    const { data, property, configuration, noTitle } = this.props;
+    const { data, property, configuration, noTitle, isDisabled, isArraySupportedField } = this.props;
 
     const dataType = _.get(configuration, 'data_type', 'string');
     const visual = _.get(configuration, 'visual', {});
@@ -38,7 +40,19 @@ export default class FormControl extends Component {
 
     return (
       <div data-property={property} className="hawk-form-control">
-        <FieldComponent configuration={configuration} property={property} dataType={dataType} value={data} visual={visual} validation={validation} placeholder={placeholder} noTitle={noTitle} onChange={this.onChange} />
+        <FieldComponent
+          isArraySupportedField={isArraySupportedField}
+          configuration={configuration}
+          property={property}
+          dataType={dataType}
+          value={data}
+          visual={visual}
+          validation={validation}
+          placeholder={placeholder}
+          noTitle={noTitle}
+          onChange={this.onChange}
+          isDisabled={isDisabled}
+        />
       </div>
     );
   }

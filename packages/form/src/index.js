@@ -21,6 +21,7 @@ export default class Form extends Component {
     onChange: PropTypes.func,
     showInlineErrors: PropTypes.bool,
     className: PropTypes.string,
+    isDisabled: PropTypes.bool,
   };
   static defaultProps = {
     data: {},
@@ -171,7 +172,7 @@ export default class Form extends Component {
     return pathConfiguration;
   }
   render() {
-    const { data, errors, configuration, className } = this.props;
+    const { data, errors, configuration, className, isDisabled } = this.props;
     const dataType = _.get(configuration, 'data_type');
     const title = _.get(configuration, 'title', '');
     const description = _.get(configuration, 'description', '');
@@ -188,7 +189,6 @@ export default class Form extends Component {
         _.get(properties, `${key}.visual.section_title`, 'unnamed-section')
       ));
 
-      console.log('query properties', properties);
       return (
         <div className={classnames('hawk-form', { [className]: !_.isEmpty(className) })}>
 
@@ -224,6 +224,7 @@ export default class Form extends Component {
                       onChange={this.onChange}
 
                       showInline={showInline}
+                      isDisabled={isDisabled}
                       isCollapsible
                     />
                   ))
