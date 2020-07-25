@@ -21,7 +21,7 @@ export default class FormSelectDropdown extends Component {
     onChange: PropTypes.func,
   };
   state = {
-    search: '',
+    query: '',
   };
   componentDidMount() {
     const { value, onChange } = this.props;
@@ -50,7 +50,7 @@ export default class FormSelectDropdown extends Component {
           searchValue={value}
           onChange={(event) => {
             this.setState({
-              search: event.target.value,
+              query: event.target.value,
             });
           }}
           onSuggestionSelect={(item) => {

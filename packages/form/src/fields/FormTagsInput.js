@@ -9,16 +9,49 @@ import TagsInput from '@hawk-ui/tags-input';
 
 export default class FormTagsInput extends Component {
   static propTypes = {
-    configuration: PropTypes.object,
+    value: PropTypes.array,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
+    visual: PropTypes.object,
+    onChange: PropTypes.func,
   };
-  state = {};
+  state = {
+    query: '',
+    isLoading: false,
+    suggestions: [],
+  };
+  componentDidMount() {
+    const { value, onChange } = this.props;
+
+    onChange({ value });
+  }
+  onAddTag = (tag, meta) => {
+    const { visual, value, onChange } = this.props;
+
+    this.setState({ query: '' });
+    if (meta.isSuggestion) {
+      const suggest = _.get(visual, 'suggest', null);
+      const suggestValue = _.get(suggest, 'value', null);
+
+      if (suggestValue) {
+        onChange({ value: _.uniq(_.concat(value || [], tag[suggestValue])) });
+      } else {
+        onChange({ value: _.uniq(_.concat(value || [], tag)) });
+      }
+    } else {
+      onChange({ value: _.uniq(_.concat(value || [], tag)) });
+    }
+  };
+  onRemoveTag = (item) => {
+    const { value, onChange } = this.props;
+
+    onChange({ value: _.without(value, item) });
+  }
 
   render() {
-    const { configuration, property, noTitle } = this.props;
-    const visual = _.get(configuration, 'visual', {});
-
+    const { visual, property, noTitle, value } = this.props;
+    const { query } = this.state;
     const options = _.get(visual, 'suggest.options', []);
     const renderOption = _.get(visual, 'suggest.name', 'title');
 
@@ -32,9 +65,19 @@ export default class FormTagsInput extends Component {
         <TagsInput
           suggestions={options}
           placeholder="Select anyone"
+          searchValue={query}
+          onChange={(event) => {
+            this.setState({
+              query: event.target.value,
+            });
+          }}
           searchContent={[renderOption]}
           renderSuggestion={(suggestion) => suggestion[renderOption]}
           messageIfEmpty="No Item Found"
+          onAddTag={this.onAddTag}
+          onRemoveTag={this.onRemoveTag}
+          tags={value}
+          renderTag={tag => tag}
         />
       </div>
     );
