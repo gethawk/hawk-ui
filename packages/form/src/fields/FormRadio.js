@@ -15,9 +15,8 @@ export default class FormRadio extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
-    configuration: PropTypes.object,
-    property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     visual: PropTypes.object,
+    property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
   };
   state = {};
@@ -29,8 +28,8 @@ export default class FormRadio extends Component {
   }
 
   render() {
-    const { property, value, noTitle, configuration, onChange } = this.props;
-    const options = _.get(configuration, 'visual.options', []);
+    const { property, value, noTitle, visual, onChange } = this.props;
+    const options = _.get(visual, 'options', []);
 
     return (
       <div

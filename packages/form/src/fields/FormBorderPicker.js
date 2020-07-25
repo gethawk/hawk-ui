@@ -9,18 +9,16 @@ import BorderPicker from '@hawk-ui/border-picker';
 
 export default class FormBorderPicker extends Component {
   static propTypes = {
-    configuration: PropTypes.object,
+    onChange: PropTypes.func,
+    visual: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
     dataType: PropTypes.string,
-    onChange: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { configuration, property, noTitle, onChange } = this.props;
-    const visual = _.get(configuration, 'visual', {});
-
+    const { visual, property, noTitle, onChange } = this.props;
     const borderType = _.get(visual, 'border_type', '');
 
     return (

@@ -10,10 +10,10 @@ import TagsInput from '@hawk-ui/tags-input';
 export default class FormTagsInput extends Component {
   static propTypes = {
     value: PropTypes.array,
+    visual: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
-    visual: PropTypes.object,
     onChange: PropTypes.func,
   };
   state = {

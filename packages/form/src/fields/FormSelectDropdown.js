@@ -14,10 +14,10 @@ export default class FormSelectDropdown extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
+    visual: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
-    visual: PropTypes.object,
     onChange: PropTypes.func,
   };
   state = {

@@ -15,7 +15,7 @@ export default class FormInputGroup extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
-    configuration: PropTypes.object,
+    visual: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
@@ -44,9 +44,8 @@ export default class FormInputGroup extends Component {
   debouncedOnChange = _.debounce(this.props.onChange, 500);
 
   render() {
-    const { configuration, property, placeholder, noTitle } = this.props;
+    const { visual, property, placeholder, noTitle } = this.props;
     const { value } = this.state;
-    const visual = _.get(configuration, 'visual', {});
 
     const addon = _.get(visual, 'addon', '');
     const addonSize = _.get(visual, 'addon_size', 'small');

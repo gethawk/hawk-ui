@@ -15,7 +15,7 @@ export default class FormTextarea extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
-    configuration: PropTypes.object,
+    visual: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
@@ -30,8 +30,7 @@ export default class FormTextarea extends Component {
   }
 
   render() {
-    const { configuration, property, value, placeholder, onChange, noTitle } = this.props;
-    const visual = _.get(configuration, 'visual', {});
+    const { visual, property, value, placeholder, onChange, noTitle } = this.props;
 
     const rows = _.get(visual, 'rows', 4);
 

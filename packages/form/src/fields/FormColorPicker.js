@@ -9,17 +9,15 @@ import ColorPicker from '@hawk-ui/color-picker';
 
 export default class FormColorPicker extends Component {
   static propTypes = {
-    configuration: PropTypes.object,
+    onChange: PropTypes.func,
+    visual: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
-    onChange: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { configuration, property, noTitle, onChange } = this.props;
-    const visual = _.get(configuration, 'visual', {});
-
+    const { visual, property, noTitle, onChange } = this.props;
     const defaultColor = _.get(visual, 'default_color', '000000');
 
     return (

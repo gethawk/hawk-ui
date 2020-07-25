@@ -15,9 +15,8 @@ export default class FormCheckbox extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
-    configuration: PropTypes.object,
-    property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     visual: PropTypes.object,
+    property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
     isArraySupportedField: PropTypes.bool,
   };
@@ -46,8 +45,8 @@ export default class FormCheckbox extends Component {
   };
 
   render() {
-    const { property, value, noTitle, configuration } = this.props;
-    const options = _.get(configuration, 'visual.options', []);
+    const { property, value, noTitle, visual } = this.props;
+    const options = _.get(visual, 'options', []);
 
     return (
       <div

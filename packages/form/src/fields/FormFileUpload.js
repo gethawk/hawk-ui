@@ -10,7 +10,7 @@ import FileUpload from '@hawk-ui/file-upload';
 export default class FormFileUpload extends Component {
   static propTypes = {
     onChange: PropTypes.func,
-    configuration: PropTypes.object,
+    visual: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
@@ -19,9 +19,7 @@ export default class FormFileUpload extends Component {
   state = {};
 
   render() {
-    const { configuration, property, placeholder, noTitle, onChange } = this.props;
-    const visual = _.get(configuration, 'visual', {});
-
+    const { visual, property, placeholder, noTitle, onChange } = this.props;
     const describable = _.get(visual, 'describable', false);
 
     return (
