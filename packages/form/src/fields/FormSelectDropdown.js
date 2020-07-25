@@ -9,16 +9,28 @@ import SelectDropdown from '@hawk-ui/select-dropdown';
 
 export default class FormSelectDropdown extends Component {
   static propTypes = {
-    configuration: PropTypes.object,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+    ]),
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
+    visual: PropTypes.object,
+    onChange: PropTypes.func,
   };
-  state = {};
+  state = {
+    search: '',
+  };
+  componentDidMount() {
+    const { value, onChange } = this.props;
+
+    onChange({ value });
+  }
 
   render() {
-    const { configuration, property, noTitle } = this.props;
-    const visual = _.get(configuration, 'visual', {});
-
+    const { property, noTitle, visual, onChange, value } = this.props;
     const options = _.get(visual, 'suggest.options', []);
     const renderOption = _.get(visual, 'suggest.name', 'title');
     const isIcon = _.get(visual, 'show_icon', false);
@@ -35,6 +47,15 @@ export default class FormSelectDropdown extends Component {
           isIcon={isIcon}
           placeholder="Select anyone"
           renderSuggestion={(suggestion) => suggestion[renderOption]}
+          searchValue={value}
+          onChange={(event) => {
+            this.setState({
+              search: event.target.value,
+            });
+          }}
+          onSuggestionSelect={(item) => {
+            onChange({ value: item.value });
+          }}
         />
       </div>
     );
