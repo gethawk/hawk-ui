@@ -19,16 +19,35 @@ export default class FormCheckbox extends Component {
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     visual: PropTypes.object,
     noTitle: PropTypes.bool,
+    isArraySupportedField: PropTypes.bool,
   };
-  state = {
-    selectedItem: [],
+  state = {};
+
+  onChange = (selected) => {
+    const { isArraySupportedField, value, onChange } = this.props;
+
+    if (isArraySupportedField) {
+      const isAlreadyPartOfArray = _.includes(value || [], selected);
+
+      if (isAlreadyPartOfArray) {
+        onChange({
+          value: _.without(value || [], selected),
+        });
+      } else {
+        onChange({
+          value: _.concat(value || [], selected),
+        });
+      }
+    } else {
+      onChange({
+        value: selected,
+      });
+    }
   };
 
   render() {
-    const { property, noTitle, configuration } = this.props;
+    const { property, value, noTitle, configuration } = this.props;
     const options = _.get(configuration, 'visual.options', []);
-
-    const { selectedItem } = this.state;
 
     return (
       <div
@@ -39,19 +58,9 @@ export default class FormCheckbox extends Component {
       >
         <Checkbox
           options={options}
-          selectedItem={selectedItem}
+          selectedItem={value}
           onChange={(event) => {
-            if (selectedItem.indexOf(event.target.value) !== -1) {
-              const selected = selectedItem.filter((item) => item !== event.target.value);
-
-              this.setState({
-                selectedItem: selected,
-              });
-            } else {
-              this.setState({
-                selectedItem: [...selectedItem, event.target.value],
-              });
-            }
+            this.onChange(event.target.value);
           }}
         />
       </div>

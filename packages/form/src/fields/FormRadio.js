@@ -20,9 +20,7 @@ export default class FormRadio extends Component {
     visual: PropTypes.object,
     noTitle: PropTypes.bool,
   };
-  state = {
-    selectedItem: '',
-  };
+  state = {};
 
   componentDidMount() {
     const { value, onChange } = this.props;
@@ -31,10 +29,8 @@ export default class FormRadio extends Component {
   }
 
   render() {
-    const { property, noTitle, configuration } = this.props;
+    const { property, value, noTitle, configuration, onChange } = this.props;
     const options = _.get(configuration, 'visual.options', []);
-
-    const { selectedItem } = this.state;
 
     return (
       <div
@@ -45,11 +41,9 @@ export default class FormRadio extends Component {
       >
         <Radio
           options={options}
-          selectedItem={selectedItem}
+          selectedItem={value}
           onChange={(event) => {
-            this.setState({
-              selectedItem: event.target.value,
-            });
+            onChange({ value: event.target.value });
           }}
         />
       </div>
