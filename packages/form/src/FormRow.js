@@ -178,14 +178,6 @@ export default class FormRow extends Component {
         }
 
         {
-          showDescription && !_.isEmpty(description) && (
-            <div className="hawk-form-row__description">
-              {description}
-            </div>
-          )
-        }
-
-        {
           dataType === 'array' && !isArraySupportedField && !_.isUndefined(_.last(data)) && (
             <div className="hawk-form-row__add-row" onClick={this.addMoreRow}>
               {customAddRowLabel}
@@ -195,6 +187,14 @@ export default class FormRow extends Component {
 
         {
           !_.isEmpty(formControl) && (formControl)
+        }
+
+        {
+          showDescription && !_.isEmpty(description) && (
+            <div className="hawk-form-row__description">
+              {description}
+            </div>
+          )
         }
 
         {
