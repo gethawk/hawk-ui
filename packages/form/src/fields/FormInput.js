@@ -55,7 +55,7 @@ export default class FormInput extends Component {
       >
         <Input
           placeholder={placeholder}
-          value={value}
+          value={value || ''}
           onChange={(event) => {
             this.onChange(event.target.value);
           }}

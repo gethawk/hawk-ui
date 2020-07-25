@@ -12,11 +12,12 @@ export default class FormRangeSlider extends Component {
     configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
+    onChange: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { configuration, property, noTitle } = this.props;
+    const { configuration, property, noTitle, onChange } = this.props;
     const visual = _.get(configuration, 'visual', {});
 
     const valueId = _.get(visual, 'value_id', '');
@@ -39,7 +40,7 @@ export default class FormRangeSlider extends Component {
           max={max}
           step={rangeStep}
           onChange={(event) => {
-            console.log('query range', event);
+            onChange({ value: event });
           }}
         />
       </div>

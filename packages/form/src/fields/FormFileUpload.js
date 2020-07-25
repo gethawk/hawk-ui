@@ -19,7 +19,7 @@ export default class FormFileUpload extends Component {
   state = {};
 
   render() {
-    const { configuration, property, placeholder, noTitle } = this.props;
+    const { configuration, property, placeholder, noTitle, onChange } = this.props;
     const visual = _.get(configuration, 'visual', {});
 
     const describable = _.get(visual, 'describable', false);
@@ -34,6 +34,10 @@ export default class FormFileUpload extends Component {
         <FileUpload
           title="Upload"
           isDescribable={describable}
+          placeholder={placeholder}
+          onUpload={(file) => {
+            onChange({ value: file });
+          }}
         />
       </div>
     );

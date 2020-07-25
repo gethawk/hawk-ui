@@ -66,7 +66,7 @@ export default class FormInputGroup extends Component {
           addonPlacement={addonPlacement}
           isAddonIcon={isAddonIcon}
           placeholder={placeholder}
-          value={value}
+          value={value || ''}
           onChange={(event) => {
             this.onChange(event.target.value);
           }}

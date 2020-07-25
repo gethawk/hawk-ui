@@ -45,7 +45,9 @@ export default class FormTextarea extends Component {
         <Input
           placeholder={placeholder}
           value={value}
-          onChange={(val) => { onChange({ value: val }); }}
+          onChange={(event) => {
+            onChange({ value: event.target.value });
+          }}
           isTextarea
           htmlAttributes={{
             rows,

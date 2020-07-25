@@ -12,11 +12,12 @@ export default class FormColorPicker extends Component {
     configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
+    onChange: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { configuration, property, noTitle } = this.props;
+    const { configuration, property, noTitle, onChange } = this.props;
     const visual = _.get(configuration, 'visual', {});
 
     const defaultColor = _.get(visual, 'default_color', '000000');
@@ -31,7 +32,7 @@ export default class FormColorPicker extends Component {
         <ColorPicker
           defaultColor={defaultColor}
           onSave={(event) => {
-            console.log('query color event', event);
+            onChange({ value: event });
           }}
         />
       </div>

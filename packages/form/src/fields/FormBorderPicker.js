@@ -13,11 +13,12 @@ export default class FormBorderPicker extends Component {
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
     dataType: PropTypes.string,
+    onChange: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { configuration, property, noTitle } = this.props;
+    const { configuration, property, noTitle, onChange } = this.props;
     const visual = _.get(configuration, 'visual', {});
 
     const borderType = _.get(visual, 'border_type', '');
@@ -32,7 +33,7 @@ export default class FormBorderPicker extends Component {
         <BorderPicker
           type={borderType}
           onSelect={(event) => {
-            console.log('query event', event);
+            onChange({ value: event });
           }}
         />
       </div>
