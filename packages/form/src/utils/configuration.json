@@ -121,42 +121,6 @@
           "dateISO": true
         }
       },
-      "date_range": {
-        "data_type": "object",
-        "title": "",
-        "visual": {
-          "show_inline": true
-        },
-        "validation": {},
-        "properties": {
-          "start": {
-            "data_type": "string",
-            "title": "Start Date",
-            "visual": {
-              "show_title": true,
-              "field_type": "datepicker",
-              "is_range": true,
-              "range_type": "start"
-            },
-            "validation": {
-              "dateISO": true
-            }
-          },
-          "end": {
-            "data_type": "string",
-            "title": "End Date",
-            "visual": {
-              "show_title": true,
-              "field_type": "datepicker",
-              "is_range": true,
-              "range_type": "end"
-            },
-            "validation": {
-              "dateISO": true
-            }
-          }
-        }
-      },
       "upload_image": {
         "data_type": "string",
         "title": "Upload Image",

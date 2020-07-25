@@ -16,26 +16,21 @@ export default class FormDatePicker extends Component {
       PropTypes.number,
       PropTypes.bool,
     ]),
-    configuration: PropTypes.object,
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     placeholder: PropTypes.string,
     noTitle: PropTypes.bool,
     validation: PropTypes.object,
   };
-  state = {
-    value: '2020-07-24T06:30:00.000Z',
-    startDate: null,
-    endDate: null,
-  };
+  state = {};
+  componentDidMount() {
+    const { value, onChange } = this.props;
+
+    onChange({ value });
+  }
 
   render() {
-    const { configuration, property, placeholder, noTitle, validation, onChange } = this.props;
+    const { value, property, placeholder, noTitle, validation, onChange } = this.props;
     const isDateISO = _.get(validation, 'dateISO', false);
-    const visual = _.get(configuration, 'visual', {});
-
-    console.log('query datepicker visual', visual);
-
-    const { value, startDate, endDate } = this.state;
 
     return (
       <div
@@ -46,33 +41,20 @@ export default class FormDatePicker extends Component {
       >
         <DatePicker
           value={{ startMoment: value ? moment(value) : moment() }}
+          onChange={(dateMoment) => {
+            const datetime = dateMoment.toISOString();
+
+            if (isDateISO) {
+              onChange({ value: _.head(datetime.split('T')) });
+            } else {
+              onChange({ value: datetime });
+            }
+          }}
+          isOutsideRange={() => (false)}
+          isDayBlocked={() => (false)}
           renderInput={() => (
             !value ? <span>{placeholder || 'Select date'}</span> : moment(value).format('DD MMM, YYYY')
           )}
-          isDayBlocked={(day) => {
-            if (_.get(visual, 'is_range') && _.isEqual(_.get(visual, 'range_type'), 'start')) {
-              day.isBefore(moment(), 'days');
-            }
-            if (_.get(visual, 'is_range') && _.isEqual(_.get(visual, 'range_type'), 'end')) {
-              day.isBefore(startDate ? moment(startDate) : moment(), 'days');
-            }
-          }}
-          onChange={(event) => {
-            if (_.get(visual, 'is_range') && _.isEqual(_.get(visual, 'range_type'), 'start')) {
-              const updateEndDate = !endDate || moment(endDate).isBefore(moment(event), 'days') ? value : null;
-
-              this.setState({
-                startDate: event,
-                ...(updateEndDate ? {
-                  endDate: updateEndDate,
-                } : {}),
-              });
-            }
-
-            this.setState({
-              value: event,
-            });
-          }}
         />
       </div>
     );
