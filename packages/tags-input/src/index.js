@@ -74,8 +74,6 @@ export default class TagsInput extends Component {
     const { label, description, isRequired, isError, errorMessage, placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags } = this.props;
     const { isOpen } = this.state;
 
-    console.log('query props suggestions', this.props.suggestions);
-    console.log('query state suggestions', this.state.suggestions);
     return (
       <Fragment>
         {label && (
