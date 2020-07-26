@@ -2,21 +2,21 @@
 # yarn lockfile v1
 
 
-"@hawk-ui/border-picker@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/border-picker/-/border-picker-2.3.9.tgz#14171435be0d63648d2e3cba5bb4b2ac6a96aac7"
-  integrity sha512-SOexhyxgi8u4O6yqRe5S4YksZlD3qxpZmqCMI+OWoT0pgGqLzU+w0knnpXE5jHt4uxUPgVcqztGJQ/a3oq/xSQ==
+"@hawk-ui/border-picker@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/border-picker/-/border-picker-2.4.0.tgz#0ee22989a0858258c6574c386cef71c4f9a9d1b0"
+  integrity sha512-1pjgNCeI4z16sm2i0cOXTUoBloKWEYT1Y4jhHeCaGfKjqw45Xl7iuNG6gM/ExcCmhC2aKVB2yEFR6u3ypvWwUQ==
   dependencies:
-    "@hawk-ui/input" "^2.3.9"
+    "@hawk-ui/input" "^2.4.0"
     lodash "^4.17.19"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/button@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-2.3.9.tgz#484bc3ab3323c2494f4d5daaf2a80de49a860090"
-  integrity sha512-XYIW5DwXdiXsETiRp1LeVJnEK4yBvVCI0qjZ1xKPbJ/SQWxl7YuzXRbCNcmAPnxnUVEG6VFmPiRRl1guXMLE9Q==
+"@hawk-ui/button@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-2.4.0.tgz#7ce8138e7cc1bc3e64fbc6a90bf90fed84f1372c"
+  integrity sha512-oUIHDV5Ybb7xMSDw0fHcCEj6GZV+pIxZlaQqhXvI26f5Reh0/I+kKWcdKdPFQKhIXx0AD6g9umNaSKZORwkA/w==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
@@ -24,27 +24,27 @@
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/checkbox@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/checkbox/-/checkbox-2.3.9.tgz#6c499ba6cea178f587b1e418361b89ed3da235c6"
-  integrity sha512-OZ1IvJ+rMSPAEbVo1cDxHkTkTIwiPussQuBhooYh4u/p4I8RMwbsP+5xzC41HwQk/IkUpNqnU09bR0D03l8oIg==
+"@hawk-ui/checkbox@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/checkbox/-/checkbox-2.4.0.tgz#faa234ec418ca27f8a6a65707933bb70bda6cfeb"
+  integrity sha512-zorNh18Cd7bYKEQ+T85Oh5Eq66YtHXkpOQeoP9Uh9uG6N7p/C9dYBr73w1pvxY97pNLBYiQZEA5BsxN6uZsfig==
   dependencies:
-    "@hawk-ui/input" "^2.3.9"
-    "@hawk-ui/label" "^2.3.9"
+    "@hawk-ui/input" "^2.4.0"
+    "@hawk-ui/label" "^2.4.0"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/color-picker@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/color-picker/-/color-picker-2.3.9.tgz#d7a435e379594f35ab61d07d0dd7b795db6bc77c"
-  integrity sha512-/TaHv7stMKOWZe/R3thtWzUPgGKStVDRrQ7cijh+2gHqCh3vt7DjWL3q/FKs50fg5TIKyOwvtPKTsqWXZbTYOA==
+"@hawk-ui/color-picker@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/color-picker/-/color-picker-2.4.0.tgz#7b3e5f44b343c2ebecce0dd7fb23bbf9edf4db4b"
+  integrity sha512-d/KvVKHnsrKqB0hBlXjGLg2cM119lUtzZwxa39GzkKeGQYQW84OHsDmsjaxezQjZuMJZ1hfEFyReYXfoeYH+jg==
   dependencies:
-    "@hawk-ui/button" "^2.3.9"
-    "@hawk-ui/input" "^2.3.9"
-    "@hawk-ui/input-group" "^2.3.9"
+    "@hawk-ui/button" "^2.4.0"
+    "@hawk-ui/input" "^2.4.0"
+    "@hawk-ui/input-group" "^2.4.0"
     clamp "^1.0.1"
     color "^3.1.2"
     color-string "^1.5.3"
@@ -54,12 +54,12 @@
     react-dom "^16.12.0"
     react-themeable "^1.1.0"
 
-"@hawk-ui/date-picker@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/date-picker/-/date-picker-2.3.9.tgz#947ea183cab7502b716b85915f247ec8b84ad2fb"
-  integrity sha512-oIXtEufLx3TD/pqUns/XB+qIJFM68ZZW/H9IFimuYr1QZPhplggyxgZxp8PZnHVAClnWy8gTo2ewEJ/pvyWVHw==
+"@hawk-ui/date-picker@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/date-picker/-/date-picker-2.4.0.tgz#e8bcef0917cb4c5df8a62c6f5f7639f9bee6c0d9"
+  integrity sha512-Ot7cNGcbUVrdc639PyP2mRe9Vd8Ahbr+0maA6fNOCY4nJbfs/GfF6QgcXbGuITeLEWOJhzB6xiax0B/kIO4L+g==
   dependencies:
-    "@hawk-ui/input" "^2.3.9"
+    "@hawk-ui/input" "^2.4.0"
     classnames "^2.2.6"
     lodash "^4.17.15"
     moment "^2.24.0"
@@ -68,47 +68,47 @@
     react-dates "^21.7.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/file-upload@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/file-upload/-/file-upload-2.3.9.tgz#cb68997b78c1acc6148ffab33cf5b9825bf4d9e5"
-  integrity sha512-kMxmPng/gTPnPjQ/MMEjtTABTEpYvV2X5dEYuBcmgDFxGLbkZzbV5uuIvDwkqYANFXAYXN1uIQwlp+hssv0HEw==
+"@hawk-ui/file-upload@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/file-upload/-/file-upload-2.4.0.tgz#e52fe8782921e5b40c4a44cb9736ebd2d0c43a74"
+  integrity sha512-aVWPyw8/TO7fAmKkQu5KqRg1Fr4WsXgThqbDsMT42exogetV0X/hGrnS5uqN4+Xsf1HlxC3OjC6GIMe8sptZKQ==
   dependencies:
-    "@hawk-ui/button" "^2.3.9"
-    "@hawk-ui/input" "^2.3.9"
+    "@hawk-ui/button" "^2.4.0"
+    "@hawk-ui/input" "^2.4.0"
     lodash "^4.17.19"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/input-group@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/input-group/-/input-group-2.3.9.tgz#44ea7854f8dcc99e729247f3eaaa31e7ba5ad32d"
-  integrity sha512-H3Dr3R86AJsLOHGVhpMKvytdt9eC+cXPO1G/nxzBl5uuHbfJFkfVdXVa2zHvcxGP6JSNoDugn8MdW4v7vkJtGA==
+"@hawk-ui/input-group@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input-group/-/input-group-2.4.0.tgz#4218dde87fcce2726e87d910589815585a121dd5"
+  integrity sha512-DHQtWsYzlwgll8wGCjQLHYGr4VVV3HVqm6dETuhR3hSHmGnfZXI5c1hsmdI4Oy1vRGWhBaUOUo1RSK2COwWeIA==
   dependencies:
-    "@hawk-ui/button" "^2.3.9"
-    "@hawk-ui/input" "^2.3.9"
+    "@hawk-ui/button" "^2.4.0"
+    "@hawk-ui/input" "^2.4.0"
     lodash "^4.17.19"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/input@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-2.3.9.tgz#a1705ff3fe985a588c19a45480d73016135b3b01"
-  integrity sha512-VWrfso4JkW59LvmqbK2B4VANKEYycajIgg/FBXwBeCnAwB27GdFzWWJ78tmLty8CkX2fXr1XTFo1BHfPiHL19Q==
+"@hawk-ui/input@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-2.4.0.tgz#dd9c8d1aea85aa8e80e289f9b743effd09c91405"
+  integrity sha512-nUpGbn0W88fmCvi+xBUnqYtZJQq0L/vdCFdD6kfuCe4wG2CeL9221tApDzcFVQGe4P7ojjA03IuEgYmtLz5zDw==
   dependencies:
-    "@hawk-ui/label" "^2.3.9"
-    "@hawk-ui/tooltip" "^2.3.9"
+    "@hawk-ui/label" "^2.4.0"
+    "@hawk-ui/tooltip" "^2.4.0"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/label@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-2.3.9.tgz#2d55015c70a5ab179f7b48605cf8df99749ba7ac"
-  integrity sha512-dhDK6noaNzt5PmJKo8IMpYJneTdt3Cu7UsJP7oVCsnh5TH6cM9Nnsz5y1Eth5jzo2ezZgPsm0+Um5HzjgwscCQ==
+"@hawk-ui/label@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-2.4.0.tgz#136b21987495e339b8397189883e07302c3ae356"
+  integrity sha512-m3JQwfPfC7n8URwtc0zNV8REA/+KRsl1wZ8/sG6xg9hjMrq+xEiLQ9IIAmNkUXIEJca27oEC9W8t4RTmegD+aw==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
@@ -116,68 +116,68 @@
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/radio@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/radio/-/radio-2.3.9.tgz#d338c47df0fd357f6f162712c494faba98422d5a"
-  integrity sha512-kqFkOWE8oLiJHHsaYoUOGMwrEkZ1enTtCc3pbPmvEsa/eGdleLOh7Jud+Fdz5oRWIBXBpjqRJsEG4lAexK1cfQ==
+"@hawk-ui/radio@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/radio/-/radio-2.4.0.tgz#7e944ad8e046a17ec0028a1c3702bc36d23731be"
+  integrity sha512-znpjJreNytI/M2i2DjIp0KGdWI+O2nYz4q2SCDt9xH41pW8pJ6gcvtbh/sc+uEbUCvntkslEr/unlyth75ielA==
   dependencies:
-    "@hawk-ui/label" "^2.3.9"
+    "@hawk-ui/label" "^2.4.0"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/range-slider@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/range-slider/-/range-slider-2.3.9.tgz#5404afd27478a381d9065611088e4549f0c87b1f"
-  integrity sha512-5w8RG8xH22wtQzTxsSHzTYB8s9R7Ja3JDDShWPwQbIGegS5/IF0DbHbuvVwL8n8OVykaFK/ij3rglNW4y+chSA==
+"@hawk-ui/range-slider@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/range-slider/-/range-slider-2.4.0.tgz#3a78b945bd9a39a14ed41db521d2f9e9344747cc"
+  integrity sha512-2olWYArasx5sGpjbwW8rolCTiwjFotFiTWsUqON+4njx3UVw4lE0A982Ov0tCQh/g0Z+30aj1hAJGiywV6rkag==
   dependencies:
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/select-dropdown@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/select-dropdown/-/select-dropdown-2.3.9.tgz#6b52d788c63e8541909e564bb4c7715d53246c41"
-  integrity sha512-n5pvsH2wKDYe9uSvGekmzgxIRy850DqvYKAswYoaatYtYU7hsDeLwRXaETgAtpvQXDlNtRM1rpyc57ZcLfG1cQ==
+"@hawk-ui/select-dropdown@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/select-dropdown/-/select-dropdown-2.4.0.tgz#6a591618e904d1d68601749781d6657b0bc691b6"
+  integrity sha512-jOqi45znqa4LhD9VSmh5oZsy7h6gqNhMFxbdqYndXHAYaYwUmTQuTD/P7XFt2g2qfcBTsoHtNn3avMvoLQEnjw==
   dependencies:
-    "@hawk-ui/label" "^2.3.9"
-    "@hawk-ui/suggestions" "^2.3.9"
+    "@hawk-ui/label" "^2.4.0"
+    "@hawk-ui/suggestions" "^2.4.0"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/suggestions@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/suggestions/-/suggestions-2.3.9.tgz#d6d0d61e7264273e3bcd97f65b74d66f0ad31a2b"
-  integrity sha512-hQe8PFWaZONmXo1MUqqpxb1a0bUbG2dihgs0Dv34IVn1rIZC9LsjEeRdoNR09mQPhOe9r5vdVUTWTLrP1tuvuw==
+"@hawk-ui/suggestions@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/suggestions/-/suggestions-2.4.0.tgz#8f15d163b0e870d5de84baa7b6182c6229abf597"
+  integrity sha512-ZtTVi9s2Ou4nKOHrSZs7wYDP0YxVCy3BI3R0SaCxMMjMdjv7Du63JwQGfhZDL3cFmJkSnWCV0omlPCcbLpHjvw==
   dependencies:
-    "@hawk-ui/input" "^2.3.9"
+    "@hawk-ui/input" "^2.4.0"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/tags-input@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/tags-input/-/tags-input-2.3.9.tgz#13dae3d6067ce91964af2406852bb4f593f96701"
-  integrity sha512-72jX58JsKzivwVRJmLXagxX6n+UzjA+YjJ+S884UjA/4CvCiFEGke5Kh33b3iGvRhwXlydhZkXVHUFbYtuRWSg==
+"@hawk-ui/tags-input@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tags-input/-/tags-input-2.4.0.tgz#93b49bc0f67b700b1630acd8df93f1a895b66a8b"
+  integrity sha512-lBqUVvdiWzxZ0eauMlkisVg4DyBuK1lGZjn2mSxHw50nkZJK1v9FkPfqEZNYN5idFIYK324PjtQaFLqcBggtfA==
   dependencies:
-    "@hawk-ui/label" "^2.3.9"
-    "@hawk-ui/suggestions" "^2.3.9"
+    "@hawk-ui/label" "^2.4.0"
+    "@hawk-ui/suggestions" "^2.4.0"
     classnames "^2.2.6"
     prop-types "^15.7.2"
     react "^16.12.0"
     react-dom "^16.12.0"
 
-"@hawk-ui/tooltip@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-2.3.9.tgz#26235450715f49a9ca50d73e73aa07a1660700c9"
-  integrity sha512-ciJidVJ0PVfcLcB8X2qrwTfiRkF7rnrFhGPM1nF5CQd41fq17QWrqBsiH8vKAmi0kblvPv7PupICg1SuT4DFLg==
+"@hawk-ui/tooltip@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-2.4.0.tgz#5a41db784b25078e8f0eb75e21675dfbf3b0226b"
+  integrity sha512-bAofvo3dCHgkrBye9e/AqSMig5K52KbL6SqGpVPIrg8N6RnvTGFinvI6tajFC2FFvHLeeIaQVJPKIxZHv09oPQ==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
