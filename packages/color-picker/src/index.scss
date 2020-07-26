@@ -17,6 +17,13 @@
       width: 30px;
       background-color: #000000;
       border-radius: 50%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      span {
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
     .hawk-input {
       height: 20px;
