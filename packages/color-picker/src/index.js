@@ -12,10 +12,14 @@ import './index.scss';
  */
 export default class ColorPicker extends Component {
   static propTypes = {
+    showHexCode: PropTypes.string,
+    forText: PropTypes.bool,
     onSave: PropTypes.func,
     defaultColor: PropTypes.string,
   };
   static defaultProps = {
+    showHexCode: true,
+    forText: false,
     defaultColor: '000000',
   };
   constructor(props) {
@@ -72,6 +76,8 @@ export default class ColorPicker extends Component {
   };
 
   render() {
+    const { showHexCode, forText } = this.props;
+
     return (
       <div ref={this.myRef} className="hawk-color-picker">
         <div
@@ -85,14 +91,24 @@ export default class ColorPicker extends Component {
           <div
             className="hawk-color-picker__input-picker__color"
             style={{
-              backgroundColor: `#${this.state.defaultColor}`,
+              backgroundColor: !forText ? `#${this.state.defaultColor}` : '#ffffff',
             }}
-          />
-          <Input
-            type="text"
-            value={`#${this.state.defaultColor}`}
-            readOnly
-          />
+          >
+            {forText && (
+              <span
+                style={{
+                  color: `#${this.state.defaultColor}`,
+                }}
+              >A</span>
+            )}
+          </div>
+          {showHexCode && (
+            <Input
+              type="text"
+              value={`#${this.state.defaultColor}`}
+              readOnly
+            />
+          )}
         </div>
         {this.state.shouldColorPickerShow ? (
           <div
