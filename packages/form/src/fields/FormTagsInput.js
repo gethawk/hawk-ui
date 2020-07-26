@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import _ from 'lodash';
 
-import TagsInput from '@hawk-ui/tags-input';
+import TagsInput from '../../../tags-input/src/index';
+// import TagsInput from '@hawk-ui/tags-input';
 
 import suggestAPI from '../utils/suggestAPI';
 
@@ -69,12 +70,12 @@ export default class FormTagsInput extends Component {
           this.setState({ isLoading: false, suggestions: [] });
         });
       } else if (!_.isEmpty(suggest) && !_.isEmpty(_.get(suggest, 'options'))) {
-        const suggestOptions = _.get(suggest, 'options', null);
-        const suggestValue = _.get(suggest, 'value', null);
-        const suggestName = _.get(suggest, 'name', suggestValue);
-        const filteredSuggestion = _.filter(suggestOptions, option => (_.includes(_.toLower(option[suggestValue]), _.toLower(query)) || _.includes(_.toLower(option[suggestName]), _.toLower(query))));
+        const suggestOptions = _.get(suggest, 'options', []);
+        // const suggestValue = _.get(suggest, 'value', null);
+        // const suggestName = _.get(suggest, 'name', suggestValue);
+        // const filteredSuggestion = _.filter(suggestOptions, option => (_.includes(_.toLower(option[suggestValue]), _.toLower(query)) || _.includes(_.toLower(option[suggestName]), _.toLower(query))));
 
-        this.setState({ isLoading: false, suggestions: _.size(filteredSuggestion) > 0 ? filteredSuggestion : suggestOptions });
+        this.setState({ isLoading: false, suggestions: suggestOptions });
       }
     }
   };
@@ -89,7 +90,10 @@ export default class FormTagsInput extends Component {
     const { visual, property, noTitle, value } = this.props;
     const { query, isLoading, suggestions } = this.state;
     const renderOption = _.get(visual, 'suggest.name', 'title');
+    const options = _.get(visual, 'suggest.options', null);
 
+    console.log('query suggestions', suggestions);
+    console.log('query options', options);
     return (
       <div
         data-field={property}
@@ -101,7 +105,7 @@ export default class FormTagsInput extends Component {
           suggestions={suggestions}
           placeholder="Select anyone"
           searchValue={query}
-          isSearchLoading={isLoading}
+          // isSearchLoading={isLoading}
           onChange={(event) => {
             this.setState({
               query: event.target.value,
