@@ -53,6 +53,14 @@ export default class TagsInput extends Component {
     document.addEventListener('click', this.onClick);
   }
 
+  componentWillReceiveProps(nextProps, prevProps) {
+    if (!_.isEqual(nextProps.suggestions, prevProps.Suggestions)) {
+      this.setState({
+        suggestions: nextProps.suggestions,
+      });
+    }
+  }
+
   componentWillUnmount() {
     document.removeEventListener('click', this.onClick);
   }
