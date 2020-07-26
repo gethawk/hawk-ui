@@ -17,6 +17,8 @@
     }
   }
   &__menu {
+    max-height: 200px;
+    overflow: auto;
     position: absolute;
     will-change: transform;
     top: 0px;

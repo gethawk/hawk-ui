@@ -1,0 +1,22 @@
+{
+  "name": "@hawk-ui/file-upload",
+  "version": "2.4.5",
+  "description": "hawk-ui: File Upload Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=file-upload"
+  },
+  "author": "saurabh gaur",
+  "license": "MIT",
+  "dependencies": {
+    "@hawk-ui/button": "^2.4.5",
+    "@hawk-ui/input": "^2.4.5",
+    "lodash": "^4.17.19",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

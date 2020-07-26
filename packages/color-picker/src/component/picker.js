@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import themeable from 'react-themeable';
 import _ from 'lodash';
 import Button from '@hawk-ui/button';
-import Input from '@hawk-ui/input';
+import InputGroup from '@hawk-ui/input-group';
 import XYControl from './xy';
 import RGBInput from './inputs/rgb-input';
 import RGBGradient from './gradients/rgb-gradient';
@@ -410,11 +410,18 @@ export default class Picker extends Component {
             />
           ))}
           <div>
-            <Input
+            {/* <Input
               type="text"
               value={hex}
               onChange={this.changeHEX}
               onBlur={this.onBlurHEX}
+            /> */}
+            <InputGroup
+              type="text"
+              value={hex}
+              onChange={this.changeHEX}
+              onBlur={this.onBlurHEX}
+              addon="#"
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/button-group",
-  "version": "2.2.4",
+  "version": "2.4.5",
   "description": "hawk-ui: Button Group Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,11 +9,11 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^2.2.4",
+    "@hawk-ui/button": "^2.4.5",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "publishConfig": {
     "access": "public"

@@ -28,9 +28,9 @@ export default class DatePicker extends Component {
     renderInput: PropTypes.func,
     isDayBlocked: PropTypes.func,
     isDayHighlighted: PropTypes.func,
+    isOutsideRange: PropTypes.func,
     renderCalendarInfo: PropTypes.func,
   };
-
   static defaultProps = {
     format: 'DD MMM YYYY',
     value: {
@@ -38,26 +38,45 @@ export default class DatePicker extends Component {
       endMoment: moment(),
     },
   };
-
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
   state = {
     isOpen: false,
     focusedInput: 'startDate',
   };
 
+  componentDidMount() {
+    document.addEventListener('click', this.onClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClick);
+  }
+
   onDateChange = (date) => {
     this.setState({
       isOpen: false,
     });
-
     this.props.onChange(date);
   };
+
+  onClick = (event) => {
+    if (this.myRef.current.contains(event.target)) {
+      return;
+    }
+    this.setState({
+      isOpen: false,
+    });
+  }
 
   render() {
     const { format, value, renderInput } = this.props;
     const { startMoment } = value;
 
     return (
-      <div className="hawk-date-picker">
+      <div ref={this.myRef} className="hawk-date-picker">
         <div
           className="hawk-date-picker__container"
           onClick={() => { this.setState({ isOpen: !this.state.isOpen }); }}
@@ -73,7 +92,7 @@ export default class DatePicker extends Component {
           <div className="hawk-date-picker__menu">
             <SingleDatePicker
               onDateChange={this.onDateChange}
-              onFocusChange={(focused) => { console.log('query focused', focused); }}
+              onFocusChange={() => { this.setState({ focused: true }); }}
               focused={this.state.isOpen}
               hideKeyboardShortcutsPanel
               date={startMoment}
