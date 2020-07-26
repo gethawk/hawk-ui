@@ -2,6 +2,64 @@
 # yarn lockfile v1
 
 
+"@hawk-ui/checkbox@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/checkbox/-/checkbox-2.4.2.tgz#3a82e58befb55de369de4afacbf054480585db99"
+  integrity sha512-FD5KZ1LzXr6T0axAVX3r5fAkPDFTO7zEuKIGzo8oWiVuzKziDf6LZl7l6MZJKAeWJbImJVTFx3Ui7X6ET8d5WQ==
+  dependencies:
+    "@hawk-ui/input" "^2.4.2"
+    "@hawk-ui/label" "^2.4.2"
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react "^16.12.0"
+    react-dom "^16.12.0"
+
+"@hawk-ui/input@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-2.4.2.tgz#7c188dde83cef1c82e69aa18299ad6e59b418058"
+  integrity sha512-Yd1soYmLSHWWW8ppv9SA70l/S9KQGGSqWpnmgtGQoDGHhACYhGb+lSZ4QqbZCHZCrngXA0nGa/kJYe34uAgeSA==
+  dependencies:
+    "@hawk-ui/label" "^2.4.2"
+    "@hawk-ui/tooltip" "^2.4.2"
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react "^16.12.0"
+    react-dom "^16.12.0"
+
+"@hawk-ui/label@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-2.4.2.tgz#ea0cc3d8d8d75650bcc93ae560c2b93deb77c70f"
+  integrity sha512-NxNuM1v0EBCmRqEITmwjU2n6owJfao9QYsEenwMOBYytsk0TMDe76XEUmJv950SteyhMI45WIZ4hmWjwSpL1bw==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+
+"@hawk-ui/pagination@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/pagination/-/pagination-2.4.2.tgz#b01135108fc9972bee9b3230e38277b713a8cbfa"
+  integrity sha512-uP9/5yFgU/rEnm4Lh/43PTuGszsjl79iYJsDa2PPOVM0T8lOa6dUSet8+jt7WIljXh2ih/efpdYzsPOOYuW4Qg==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+
+"@hawk-ui/tooltip@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-2.4.2.tgz#f74674f6180baa0416db6f7165d8a8b08ba64f6f"
+  integrity sha512-uAcEfQwZuHDODpY7UIvsET7Xr5iozsGAORciP+SHiRYn030ruV7hTVU7eUCfGCU2vBf5R9n+60cL9MZ9QOchgA==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+
 classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
@@ -13,9 +71,9 @@ classnames@^2.2.6:
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
 lodash@^4.17.15:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
@@ -48,6 +106,16 @@ react-dom@^16.12.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
+react-dom@^16.13.1:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
+  integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.19.1"
+
 react-is@^16.8.1:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
@@ -62,10 +130,27 @@ react@^16.12.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
 
+react@^16.13.1:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+
 scheduler@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.18.0.tgz#5901ad6659bc1d8f3fdaf36eb7a67b0d6746b1c4"
   integrity sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
