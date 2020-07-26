@@ -84,17 +84,13 @@ export const getTools = [
     title: 'Styles',
     is_icon: false,
     appearance: 'button',
+    style: 'heading',
     suggest: {
       name: 'title',
       value: 'value',
-      options: [
-        { title: 'Heading 6', value: 'h6' },
-        { title: 'Heading 5', value: 'h5' },
-        { title: 'Heading 4', value: 'h4' },
-        { title: 'Heading 3', value: 'h3' },
-        { title: 'Heading 2', value: 'h2' },
-        { title: 'Heading 1', value: 'h1' },
-      ],
+      options: _.map(_.range(1, 7), (item) => (
+        { title: `Heading ${item}`, value: `${item}` }
+      )),
     },
   },
   {
@@ -103,6 +99,33 @@ export const getTools = [
     title: 'Font',
     is_icon: false,
     appearance: 'button',
+    style: 'fontFamily',
+    suggest: {
+      name: 'title',
+      value: 'value',
+      options: [
+        { title: 'Arial', value: 'Arial' },
+        { title: 'Comic Sans MS', value: 'Comic Sans MS' },
+        { title: 'Courier New', value: 'Courier New' },
+        { title: 'Georgia', value: 'Georgia' },
+        { title: 'Helvetica', value: 'Helvetica' },
+        { title: 'Lucida', value: 'Lucida' },
+        { title: 'Tahoma', value: 'Tahoma' },
+        { title: 'Times New Roman', value: 'Times New Roman' },
+        { title: 'Trebuchet MS', value: 'Trebuchet MS' },
+        { title: 'Verdana', value: 'Verdana' },
+        { title: 'Arvo', value: 'Arvo' },
+        { title: 'Lato', value: 'Lato' },
+        { title: 'Lora', value: 'Lora' },
+        { title: 'Merriweather', value: 'Merriweather' },
+        { title: 'Merriweather Sans', value: 'Merriweather Sans' },
+        { title: 'Noticia Text', value: 'Noticia Text' },
+        { title: 'Open Sans', value: 'Open Sans' },
+        { title: 'Playfair Display', value: 'Playfair Display' },
+        { title: 'Roboto', value: 'Roboto' },
+        { title: 'Source Sans Pro', value: 'Source Sans Pro' },
+      ],
+    },
   },
   {
     id: 14,
@@ -110,10 +133,11 @@ export const getTools = [
     title: 'Size',
     is_icon: false,
     appearance: 'button',
+    style: 'fontSize',
     suggest: {
       name: 'title',
       value: 'value',
-      options: _.map(_.range(10, 64), (item) => (
+      options: _.map(_.range(10, 65), (item) => (
         { title: item, value: item }
       )),
     },

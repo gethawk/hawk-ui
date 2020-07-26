@@ -17,8 +17,6 @@ export default class RichTextEditor extends Component {
   state = {};
 
   render() {
-
-    console.log('query getTools', getTools);
     return (
       <div className="hawk-rich-text-editor">
         <div className="hawk-rich-text-editor__toolbar">
@@ -40,7 +38,23 @@ export default class RichTextEditor extends Component {
                   title={tool.title}
                   isIcon
                   suggestions={_.get(tool, 'suggest.options')}
-                  renderSuggestion={(suggestion) => suggestion[_.get(tool, 'suggest.name')]}
+                  renderSuggestion={(suggestion) =>
+                    <Fragment>
+                      {_.isEqual(_.get(tool, 'style'), 'heading') ? (
+                        <div dangerouslySetInnerHTML={{ __html: `<h${suggestion[_.get(tool, 'suggest.value')]}>${suggestion[_.get(tool, 'suggest.name')]}</h${suggestion[_.get(tool, 'suggest.value')]}>` }} />
+                      ) : (
+                        <span
+                          style={_.isEqual(_.get(tool, 'style'), 'fontSize') ?
+                            { fontSize: `${suggestion[_.get(tool, 'suggest.name')]}px` } :
+                              _.isEqual(_.get(tool, 'style'), 'fontFamily') ?
+                            { fontFamily: suggestion[_.get(tool, 'suggest.name')] } : null
+                          }
+                        >
+                          {suggestion[_.get(tool, 'suggest.name')]}
+                        </span>
+                      )}
+                    </Fragment>
+                  }
                   selectValue={(meta, item) => {
                     console.log('query select', meta, item);
                   }}
