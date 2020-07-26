@@ -190,6 +190,22 @@
         },
         "validation": {}
       },
+      "state": {
+        "data_type": "string",
+        "title": "State",
+        "visual": {
+          "field_type": "select",
+          "array_supported_field": true,
+          "show_title": true,
+          "is_readable": false,
+          "suggest": {
+            "query": "name",
+            "api": "/api/v1/suggest/skill/",
+            "data": "data"
+          }
+        },
+        "validation": {}
+      },
       "currency": {
         "data_type": "string",
         "title": "Currency",
