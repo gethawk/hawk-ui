@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/modal",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "hawk-ui: Basic Modal Component",
   "main": "dist/index.min.js",
   "scripts": {
