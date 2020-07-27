@@ -19,6 +19,7 @@ import './index.scss';
 export default class RichTextEditor extends Component {
   state = {
     isModalOpen: false,
+    isSource: false,
     value: '',
   };
 
@@ -27,9 +28,50 @@ export default class RichTextEditor extends Component {
       this.setState({
         isModalOpen: true,
       });
+    } else if (_.isEqual(tool, 'trash')) {
+      const doc = document.getElementById('containerEditable');
+
+      doc.innerHTML = '';
+      doc.focus();
     } else {
       document.execCommand(tool, false, tag);
     }
+  };
+
+  onHandleCode = () => {
+    let content;
+    const doc = document.getElementById('containerEditable');
+
+    if (this.state.isSource) {
+      content = document.createTextNode(doc.innerHTML);
+      doc.innerHTML = '';
+      const pre = document.createElement('pre');
+
+      doc.contentEditable = false;
+      pre.id = 'sourceText';
+      pre.contentEditable = true;
+      pre.appendChild(content);
+      doc.appendChild(pre);
+      document.execCommand('defaultParagraphSeparator', false, 'div');
+    } else {
+      if (document.all) {
+        doc.innerHTML = doc.innerText;
+      } else {
+        content = document.createRange();
+        content.selectNodeContents(doc.firstChild);
+        doc.innerHTML = content.toString();
+      }
+      doc.contentEditable = true;
+    }
+  };
+
+  onHandlePrint = () => {
+    const doc = document.getElementById('containerEditable');
+    const printWindow = window.open('', '_blank', 'width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes');
+
+    printWindow.document.open();
+    printWindow.document.write(`<!doctype html><html><head><title>Print<\/title><\/head><body onload="print();">${doc.innerHTML}<\/body><\/html>`);
+    printWindow.document.close();
   };
 
   render() {
@@ -43,7 +85,26 @@ export default class RichTextEditor extends Component {
               {_.isEqual(tool.field_type, 'button') && (
                 <Button
                   key={index}
-                  onClick={() => { this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames')); }}
+                  onClick={_.isEqual(tool.name, 'pre') ? () => {
+                    this.setState({
+                      isSource: !this.state.isSource,
+                    }, () => {
+                      this.onHandleCode();
+                    });
+                  } : _.isEqual(tool.name, 'print') ? () => {
+                    this.onHandlePrint();
+                  } : () => {
+                    this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
+                  }}
+                  // onClick={_.isEqual(tool.name, 'pre') ? () => {
+                  //   this.setState({
+                  //     isSource: !this.state.isSource,
+                  //   }, () => {
+                  //     this.onHandleCode();
+                  //   });
+                  // } : () => {
+                  //   this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
+                  // }}
                 >
                   {!_.isEmpty(tool.contentFA) ? (
                     <i className={tool.contentFA} />
