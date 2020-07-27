@@ -12,7 +12,7 @@
       />
     </div>
     <div>
-      <p>With Background Color</p>
+      <p>With Background</p>
       <br />
       <ColorPicker
         defaultColor="f18ca6"
@@ -21,12 +21,24 @@
       />
     </div>
     <div>
-      <p>With Text Color</p>
+      <p>With Text</p>
       <br />
       <ColorPicker
         defaultColor="f18ca6"
         showHexCode={false}
-        forText
+        isText
+        title="A"
+        onSave={(event) => { console.log('query onSave', event); }}
+      />
+    </div>
+    <div>
+      <p>With Icon</p>
+      <br />
+      <ColorPicker
+        defaultColor="f18ca6"
+        showHexCode={false}
+        isIcon
+        title="fas fa-paint-roller"
         onSave={(event) => { console.log('query onSave', event); }}
       />
     </div>
