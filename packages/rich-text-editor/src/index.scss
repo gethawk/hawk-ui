@@ -37,6 +37,17 @@
         transform: translate3d(0px, 30px, 0px);
       }
     }
+    .hawk-color-picker {
+      .hawk-button {
+        border-color: #6997DB;
+        background-color: #6997DB;
+        color: $white;
+        &:hover {
+          background-color: #5b8dd7;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
   }
   &__editable {
     padding: 10px;

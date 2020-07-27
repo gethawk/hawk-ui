@@ -7,6 +7,7 @@ import getClassnames from 'classnames';
 import Button from '@hawk-ui/button';
 import Dropdown from '@hawk-ui/dropdown';
 import Modal from '@hawk-ui/modal';
+import ColorPicker from '@hawk-ui/color-picker';
 // utils modules
 import { getTools } from './utils/tools';
 // css modules
@@ -79,6 +80,15 @@ export default class RichTextEditor extends Component {
                         `h${item.value}` :
                         item.value,
                     );
+                  }}
+                />
+              )}
+              {_.isEqual(tool.field_type, 'color-picker') && (
+                <ColorPicker
+                  defaultColor="000000"
+                  showHexCode={false}
+                  onSave={(event) => {
+                    console.log('query event', event);
                   }}
                 />
               )}
