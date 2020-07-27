@@ -6,6 +6,7 @@ import _ from 'lodash';
 import getClassnames from 'classnames';
 import Button from '@hawk-ui/button';
 import Dropdown from '@hawk-ui/dropdown';
+import Modal from '@hawk-ui/modal';
 // utils modules
 import { getTools } from './utils/tools';
 // css modules
@@ -16,23 +17,23 @@ import './index.scss';
  */
 export default class RichTextEditor extends Component {
   state = {
+    isModalOpen: false,
     value: '',
   };
 
   onHandleTags = (tool, tag) => {
-    console.log('query tool', tool);
-    console.log('query tag', tag);
-    const containerEditable = document.getElementById('containerEditable');
-
-    const sel = window.getSelection();
-    const text = containerEditable.innerHTML;
-
-    containerEditable.innerHTML = text.replace(sel, `<${tag}>${sel}</${tag}>`);
+    if (_.includes(['link'], tag)) {
+      this.setState({
+        isModalOpen: true,
+      });
+    } else {
+      document.execCommand(tool, false, tag);
+    }
   };
 
   render() {
+    const { isModalOpen } = this.state;
 
-    console.log('query getTools', getTools);
     return (
       <div className="hawk-rich-text-editor">
         <div className="hawk-rich-text-editor__toolbar">
@@ -41,12 +42,7 @@ export default class RichTextEditor extends Component {
               {_.isEqual(tool.field_type, 'button') && (
                 <Button
                   key={index}
-                  // onClick={() => {
-                  //   this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
-                  // }}
-                  onClick={() => {
-                    document.execCommand(_.get(tool, 'name'), false, _.get(tool, 'tagNames'));
-                  }}
+                  onClick={() => { this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames')); }}
                 >
                   {!_.isEmpty(tool.contentFA) ? (
                     <i className={tool.contentFA} />
@@ -55,42 +51,21 @@ export default class RichTextEditor extends Component {
                   )}
                 </Button>
               )}
-            </Fragment>
-          ))}
-          {/* {_.map(getTools, (tool, index) => (
-            <Fragment>
-              {_.isEqual(tool.field_type, 'button') && (
-                <Button
-                  key={index}
-                  onClick={() => {
-                    this.onHandleTags(_.get(tool, 'type'));
-                  }}
-                  // onClick={() => {
-                  //   document.execCommand(_.get(tool, 'type'), false, '');
-                  // }}
-                >
-                  {tool.is_icon ? (
-                    <i className={tool.title} />
-                  ) : (
-                    <span>{tool.title}</span>
-                  )}
-                </Button>
-              )}
               {_.isEqual(tool.field_type, 'select') && (
                 <Dropdown
-                  title={tool.title}
+                  title={tool.contentDefault}
                   isIcon
                   suggestions={_.get(tool, 'suggest.options')}
                   renderSuggestion={(suggestion) =>
                     <Fragment>
-                      {_.isEqual(_.get(tool, 'style'), 'heading') ? (
-                        <div dangerouslySetInnerHTML={{ __html: `<h${suggestion[_.get(tool, 'suggest.value')]}>${suggestion[_.get(tool, 'suggest.name')]}</h${suggestion[_.get(tool, 'suggest.value')]}>` }} />
+                      {_.isEqual(_.get(tool, 'suggest.style'), 'formatblock') ? (
+                        <div
+                          dangerouslySetInnerHTML={{ __html: `<h${suggestion[_.get(tool, 'suggest.value')]}>${suggestion[_.get(tool, 'suggest.name')]}</h${suggestion[_.get(tool, 'suggest.value')]}>` }}
+                        />
                       ) : (
                         <span
-                          style={_.isEqual(_.get(tool, 'style'), 'fontSize') ?
-                            { fontSize: `${suggestion[_.get(tool, 'suggest.name')]}px` } :
-                              _.isEqual(_.get(tool, 'style'), 'fontFamily') ?
-                            { fontFamily: suggestion[_.get(tool, 'suggest.name')] } : null
+                          style={_.isEqual(_.get(tool, 'suggest.style'), 'fontname') ?
+                            { fontFamily: suggestion[_.get(tool, 'suggest.value')] } : null
                           }
                         >
                           {suggestion[_.get(tool, 'suggest.name')]}
@@ -99,12 +74,16 @@ export default class RichTextEditor extends Component {
                     </Fragment>
                   }
                   selectValue={(meta, item) => {
-                    console.log('query select', meta, item);
+                    this.onHandleTags(_.get(tool, 'suggest.style'),
+                      _.isEqual(_.get(tool, 'suggest.style'), 'formatblock') ?
+                        `h${item.value}` :
+                        item.value,
+                    );
                   }}
                 />
               )}
             </Fragment>
-          ))} */}
+          ))}
         </div>
         <div
           className={getClassnames('hawk-rich-text-editor__editable', {
@@ -122,6 +101,19 @@ export default class RichTextEditor extends Component {
           data-medium-focused
           style={{ textAlign: 'left' }}
         />
+        <Modal
+          isOpen={isModalOpen}
+          className="hawk-rich-text-editor__modal"
+          title="Modal Title"
+          onKeyDown={() => {
+            this.setState({ isModalOpen: false });
+          }}
+          onClose={() => {
+            this.setState({ isModalOpen: false });
+          }}
+        >
+          <div>Modal Window</div>
+        </Modal>
       </div>
     );
   }
