@@ -116,7 +116,7 @@ export default class RichTextEditor extends Component {
         <Modal
           isOpen={isModalOpen}
           className="hawk-rich-text-editor__modal"
-          title="Modal Title"
+          title="Insert or Edit Link"
           onKeyDown={() => {
             this.setState({ isModalOpen: false });
           }}
