@@ -127,6 +127,20 @@ export const getTools = [
   },
   {
     id: 10,
+    name: 'formatblock',
+    field_type: 'button',
+    aria: 'formatblock',
+    tagNames: 'blockquote',
+    style: {
+      prop: '',
+      value: '',
+    },
+    contentDefault: '',
+    contentFA: 'fas fa-quote-left',
+    appearance: 'link',
+  },
+  {
+    id: 10,
     name: 'cut',
     field_type: 'button',
     aria: 'cut',
@@ -246,6 +260,20 @@ export const getTools = [
     contentDefault: 'Size',
     contentFA: '',
     appearance: 'button',
+  },
+  {
+    id: 17,
+    name: 'selectAll',
+    field_type: 'button',
+    aria: 'select all',
+    tagNames: '',
+    style: {
+      prop: '',
+      value: '',
+    },
+    contentDefault: '',
+    contentFA: 'fas fa-clipboard-list',
+    appearance: 'link',
   },
   {
     id: 15,

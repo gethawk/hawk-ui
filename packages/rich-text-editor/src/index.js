@@ -96,15 +96,6 @@ export default class RichTextEditor extends Component {
                   } : () => {
                     this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
                   }}
-                  // onClick={_.isEqual(tool.name, 'pre') ? () => {
-                  //   this.setState({
-                  //     isSource: !this.state.isSource,
-                  //   }, () => {
-                  //     this.onHandleCode();
-                  //   });
-                  // } : () => {
-                  //   this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
-                  // }}
                 >
                   {!_.isEmpty(tool.contentFA) ? (
                     <i className={tool.contentFA} />
