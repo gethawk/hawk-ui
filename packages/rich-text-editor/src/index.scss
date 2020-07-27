@@ -47,6 +47,35 @@
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         }
       }
+      &__input-picker {
+        width: 31px;
+        height: 27px;
+        border-radius: 4px;
+        margin-left: 5px;
+        padding: 0;
+        border-color: #ffffff;
+        background-color: #ffffff;
+        color: #6997DB;
+        &:hover {
+          box-shadow: unset;
+          background-color: #eaf1fa;
+        }
+        &__color {
+          height: 27px;
+          width: 31px;
+          border-radius: 4px;
+          &:hover {
+            background-color: #eaf1fa !important;
+          }
+        }
+        i {
+          font-size: 13px;
+        }
+      }
+      &__dropdown {
+        left: 6px;
+        transform: translate3d(0px, 30px, 0px);
+      }
     }
   }
   &__editable {

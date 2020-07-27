@@ -87,8 +87,10 @@ export default class RichTextEditor extends Component {
                 <ColorPicker
                   defaultColor="000000"
                   showHexCode={false}
+                  isIcon
+                  title={tool.contentFA}
                   onSave={(event) => {
-                    console.log('query event', event);
+                    this.onHandleTags(_.get(tool, 'style.prop'), _.get(event, 'hex'));
                   }}
                 />
               )}

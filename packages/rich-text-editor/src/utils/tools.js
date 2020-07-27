@@ -226,7 +226,7 @@ export const getTools = [
     aria: 'text color picker',
     tagNames: '',
     style: {
-      prop: 'color',
+      prop: 'forecolor',
       value: '',
     },
     contentDefault: 'A',
@@ -240,11 +240,11 @@ export const getTools = [
     aria: 'background color picker',
     tagNames: '',
     style: {
-      prop: 'background-color',
+      prop: 'backcolor',
       value: '',
     },
     contentDefault: 'A',
-    contentFA: 'fas fa-font',
+    contentFA: 'fas fa-fill-drip',
     appearance: 'link',
   },
   {
