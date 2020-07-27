@@ -19,11 +19,20 @@ export default class RichTextEditor extends Component {
     value: '',
   };
 
-  onHandleStyle = (event) => {
-    console.log('query event', event);
+  onHandleTags = (tool, tag) => {
+    console.log('query tool', tool);
+    console.log('query tag', tag);
+    const containerEditable = document.getElementById('containerEditable');
+
+    const sel = window.getSelection();
+    const text = containerEditable.innerHTML;
+
+    containerEditable.innerHTML = text.replace(sel, `<${tag}>${sel}</${tag}>`);
   };
 
   render() {
+
+    console.log('query getTools', getTools);
     return (
       <div className="hawk-rich-text-editor">
         <div className="hawk-rich-text-editor__toolbar">
@@ -32,10 +41,33 @@ export default class RichTextEditor extends Component {
               {_.isEqual(tool.field_type, 'button') && (
                 <Button
                   key={index}
-                  data-command={_.get(tool, 'type')}
+                  // onClick={() => {
+                  //   this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
+                  // }}
                   onClick={() => {
-                    document.execCommand(_.get(tool, 'type'), false, '');
+                    document.execCommand(_.get(tool, 'name'), false, _.get(tool, 'tagNames'));
                   }}
+                >
+                  {!_.isEmpty(tool.contentFA) ? (
+                    <i className={tool.contentFA} />
+                  ) : (
+                    <span>{tool.contentDefault}</span>
+                  )}
+                </Button>
+              )}
+            </Fragment>
+          ))}
+          {/* {_.map(getTools, (tool, index) => (
+            <Fragment>
+              {_.isEqual(tool.field_type, 'button') && (
+                <Button
+                  key={index}
+                  onClick={() => {
+                    this.onHandleTags(_.get(tool, 'type'));
+                  }}
+                  // onClick={() => {
+                  //   document.execCommand(_.get(tool, 'type'), false, '');
+                  // }}
                 >
                   {tool.is_icon ? (
                     <i className={tool.title} />
@@ -72,12 +104,13 @@ export default class RichTextEditor extends Component {
                 />
               )}
             </Fragment>
-          ))}
+          ))} */}
         </div>
         <div
           className={getClassnames('hawk-rich-text-editor__editable', {
             'hawk-rich-text-editor__editable-blank': _.isEmpty(this.state.value),
           })}
+          id="containerEditable"
           contentEditable
           data-placeholder="Add description"
           spellCheck="true"
@@ -87,6 +120,7 @@ export default class RichTextEditor extends Component {
             });
           }}
           data-medium-focused
+          style={{ textAlign: 'left' }}
         />
       </div>
     );
