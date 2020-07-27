@@ -8,6 +8,7 @@ import Button from '@hawk-ui/button';
 import Dropdown from '@hawk-ui/dropdown';
 import Modal from '@hawk-ui/modal';
 import ColorPicker from '@hawk-ui/color-picker';
+import Components from './components';
 // utils modules
 import { getTools } from './utils/tools';
 // css modules
@@ -21,6 +22,7 @@ export default class RichTextEditor extends Component {
     isModalOpen: false,
     isSource: false,
     value: '',
+    formType: 'link',
   };
 
   onHandleTags = (tool, tag) => {
@@ -76,6 +78,7 @@ export default class RichTextEditor extends Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const FormComponent = _.get(Components, this.state.formType);
 
     return (
       <div className="hawk-rich-text-editor">
@@ -176,7 +179,7 @@ export default class RichTextEditor extends Component {
             this.setState({ isModalOpen: false });
           }}
         >
-          <div>Modal Window</div>
+          <FormComponent />
         </Modal>
       </div>
     );
