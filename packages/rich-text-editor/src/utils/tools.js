@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { fontSize, fontFamily } from '../constants';
 
 export const getTools = [
   {
@@ -163,12 +164,12 @@ export const getTools = [
       value: '',
     },
     suggest: {
-      type: 'title',
+      name: 'title',
       value: 'value',
       options: _.map(_.range(1, 7), (item) => (
         { title: `Heading ${item}`, value: `${item}` }
       )),
-      style: 'header',
+      style: 'formatblock',
     },
     contentDefault: 'Header',
     contentFA: '',
@@ -185,31 +186,12 @@ export const getTools = [
       value: '',
     },
     suggest: {
-      type: 'title',
+      name: 'title',
       value: 'value',
-      options: [
-        { title: 'Arial', value: 'Arial' },
-        { title: 'Comic Sans MS', value: 'Comic Sans MS' },
-        { title: 'Courier New', value: 'Courier New' },
-        { title: 'Georgia', value: 'Georgia' },
-        { title: 'Helvetica', value: 'Helvetica' },
-        { title: 'Lucida', value: 'Lucida' },
-        { title: 'Tahoma', value: 'Tahoma' },
-        { title: 'Times New Roman', value: 'Times New Roman' },
-        { title: 'Trebuchet MS', value: 'Trebuchet MS' },
-        { title: 'Verdana', value: 'Verdana' },
-        { title: 'Arvo', value: 'Arvo' },
-        { title: 'Lato', value: 'Lato' },
-        { title: 'Lora', value: 'Lora' },
-        { title: 'Merriweather', value: 'Merriweather' },
-        { title: 'Merriweather Sans', value: 'Merriweather Sans' },
-        { title: 'Noticia Text', value: 'Noticia Text' },
-        { title: 'Open Sans', value: 'Open Sans' },
-        { title: 'Playfair Display', value: 'Playfair Display' },
-        { title: 'Roboto', value: 'Roboto' },
-        { title: 'Source Sans Pro', value: 'Source Sans Pro' },
-      ],
-      style: 'fontFamily',
+      options: _.map(fontFamily, (item) => (
+        { title: item, value: item }
+      )),
+      style: 'fontname',
     },
     contentDefault: 'Font',
     contentFA: '',
@@ -226,12 +208,12 @@ export const getTools = [
       value: '',
     },
     suggest: {
-      type: 'title',
+      name: 'title',
       value: 'value',
-      options: _.map(_.range(10, 65), (item) => (
-        { title: item, value: item }
+      options: _.map(fontSize, (item, index) => (
+        { title: item, value: index + 1 }
       )),
-      style: 'fontSize',
+      style: 'fontsize',
     },
     contentDefault: 'Size',
     contentFA: '',
