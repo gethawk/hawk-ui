@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 // react modules
 import _ from 'lodash';
+import getClassnames from 'classnames';
 import Button from '@hawk-ui/button';
 import Dropdown from '@hawk-ui/dropdown';
 // utils modules
@@ -14,7 +15,13 @@ import './index.scss';
  * @example ../README.md
  */
 export default class RichTextEditor extends Component {
-  state = {};
+  state = {
+    value: '',
+  };
+
+  onHandleStyle = (event) => {
+    console.log('query event', event);
+  };
 
   render() {
     return (
@@ -25,6 +32,10 @@ export default class RichTextEditor extends Component {
               {_.isEqual(tool.field_type, 'button') && (
                 <Button
                   key={index}
+                  data-command={_.get(tool, 'type')}
+                  onClick={() => {
+                    document.execCommand(_.get(tool, 'type'), false, '');
+                  }}
                 >
                   {tool.is_icon ? (
                     <i className={tool.title} />
@@ -63,7 +74,20 @@ export default class RichTextEditor extends Component {
             </Fragment>
           ))}
         </div>
-        <div className="hawk-rich-text-editor__editable" contentEditable="true"></div>
+        <div
+          className={getClassnames('hawk-rich-text-editor__editable', {
+            'hawk-rich-text-editor__editable-blank': _.isEmpty(this.state.value),
+          })}
+          contentEditable
+          data-placeholder="Add description"
+          spellCheck="true"
+          onInput={(event) => {
+            this.setState({
+              value: event.target.textContent,
+            });
+          }}
+          data-medium-focused
+        />
       </div>
     );
   }
