@@ -94,13 +94,14 @@
   }
   &__modal {
     .hawk-modal__content {
-      width: 300px;
-      height: 300px;
-      position: absolute;
-      left: 50%;
-      top: 50%; 
-      margin-left: -150px;
-      margin-top: -150px;
+      width: 450px;
+      padding: unset;
+      &-header {
+        padding: 20px;
+      }
+      &-body {
+        margin-top: 0;
+      }
     }
   }
   &:not([contenteditable=""]), :not([contenteditable="true"]) {
@@ -108,5 +109,15 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+  &__form {
+    &-content {
+      padding: 20px;
+    }
+    &-button {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
   }
 }
