@@ -249,20 +249,6 @@ export const getTools = [
   },
   {
     id: 17,
-    name: 'mergeTags',
-    field_type: 'select',
-    aria: 'merge tags',
-    tagNames: '',
-    style: {
-      prop: '',
-      value: '',
-    },
-    contentDefault: 'Merge Tags',
-    contentFA: '',
-    appearance: 'button',
-  },
-  {
-    id: 18,
     name: 'insertHorizontalRule',
     field_type: 'button',
     aria: 'divider',
@@ -276,7 +262,7 @@ export const getTools = [
     appearance: 'link',
   },
   {
-    id: 19,
+    id: 18,
     name: 'justifyLeft',
     field_type: 'button',
     aria: 'left justify',
@@ -290,7 +276,7 @@ export const getTools = [
     appearance: 'link',
   },
   {
-    id: 20,
+    id: 19,
     name: 'justifyCenter',
     field_type: 'button',
     aria: 'center justify',
@@ -304,7 +290,7 @@ export const getTools = [
     appearance: 'link',
   },
   {
-    id: 21,
+    id: 20,
     name: 'justifyRight',
     field_type: 'button',
     aria: 'right justify',
@@ -318,7 +304,7 @@ export const getTools = [
     appearance: 'link',
   },
   {
-    id: 22,
+    id: 21,
     name: 'undo',
     field_type: 'button',
     aria: 'undo',
@@ -332,7 +318,7 @@ export const getTools = [
     appearance: 'link',
   },
   {
-    id: 23,
+    id: 22,
     name: 'redo',
     field_type: 'button',
     aria: 'redo',
