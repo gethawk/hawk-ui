@@ -26,6 +26,11 @@
         margin-right: 0;
       }
     }
+    .hawk-file-upload {
+      .hawk-button {
+        width: unset;
+      }
+    }
     .hawk-dropdown {
       margin-left: 5px;
       &__button-icon {
@@ -94,6 +99,9 @@
         pointer-events: none;
         position: absolute;
       }
+    }
+    img {
+      width: 200px;
     }
   }
   &__modal {

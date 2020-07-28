@@ -62,7 +62,7 @@ export default class RichTextEditor extends Component {
         <div className="hawk-rich-text-editor__toolbar">
           {_.map(getTools, (tool, index) => (
             <Fragment>
-              {_.isEqual(tool.field_type, 'button') && (
+              {_.isEqual(tool.field_type, 'button') && tool.isEnable && (
                 <Button
                   key={index}
                   onClick={_.isEqual(tool.name, 'pre') ? () => {
@@ -92,15 +92,16 @@ export default class RichTextEditor extends Component {
                   )}
                 </Button>
               )}
-              {_.isEqual(tool.field_type, 'file') && (
+              {_.isEqual(tool.field_type, 'file') && tool.isEnable && (
                 <FileUpload
-                  title="Browse"
+                  title={tool.contentFA}
+                  isIcon
                   onUpload={(file) => {
-                    console.log('file', file);
+                    console.log('query file', file);
                   }}
                 />
               )}
-              {_.isEqual(tool.field_type, 'select') && (
+              {_.isEqual(tool.field_type, 'select') && tool.isEnable && (
                 <Dropdown
                   title={tool.contentDefault}
                   isIcon
@@ -131,7 +132,7 @@ export default class RichTextEditor extends Component {
                   }}
                 />
               )}
-              {_.isEqual(tool.field_type, 'color-picker') && (
+              {_.isEqual(tool.field_type, 'color-picker') && tool.isEnable && (
                 <ColorPicker
                   defaultColor="000000"
                   showHexCode={false}
