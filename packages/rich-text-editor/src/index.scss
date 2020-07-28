@@ -104,7 +104,7 @@
       }
     }
   }
-  &:not([contenteditable=""]), :not([contenteditable="true"]) {
+  *:not(input):not(textarea):not([contenteditable=""]):not([contenteditable="true"]) {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
