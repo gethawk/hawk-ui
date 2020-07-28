@@ -14,6 +14,9 @@ import { getTools } from './utils/tools';
 // css modules
 import './index.scss';
 
+let fragment = null;
+let range = null;
+
 /**
  * @example ../README.md
  */
@@ -106,6 +109,29 @@ export default class RichTextEditor extends Component {
       // }
     }
   };
+
+  onSaveSelection = () => {
+    if (window.getSelection) {
+      const sel = window.getSelection();
+
+      if (sel.getRangeAt && sel.rangeCount) {
+        return sel.getRangeAt(0);
+      }
+    } else if (document.selection && document.selection.createRange) {
+      return document.selection.createRange();
+    }
+
+    return null;
+  };
+
+  onSaveRangeEvent = (event) => {
+    range = this.onSaveSelection();
+
+    if (range && !range.collapsed) {
+      fragment = range.cloneContents();
+    }
+    console.log('query onMouse range', range);
+  }
 
   render() {
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
@@ -202,9 +228,7 @@ export default class RichTextEditor extends Component {
           spellCheck="true"
           onInput={(event) => { this.onHandleInput(event); }}
           style={{ textAlign: 'left' }}
-          onBlur={() => { console.log('query onBlur'); }}
-          onFocus={() => { console.log('query onFocus'); }}
-          onFocusCapture={() => { console.log('query onFocusCapture'); }}
+          onMouseUp={this.onSaveRangeEvent}
         />
         <Modal
           isOpen={this.state.isModalOpen}
@@ -221,21 +245,33 @@ export default class RichTextEditor extends Component {
             onCancel={() => {
               this.setState({ isModalOpen: false });
             }}
-            onInsert={(event) => {
+            onInsert={(value) => {
+              console.log('query value', value);
               if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
-                console.log('query selectedText', this.state.selectedText);
-                if (_.get(this.state.selectedText, 'rangeCount')) {
-                  console.log('query selectedText rangeCount', this.state.selectedText.rangeCount);
-                  const range = this.state.selectedText.getRangeAt(0);
-                  console.log('query selectedText range', range);
-                  range.deleteContents();
-                  range.insertNode(document.createTextNode('Hola Hola'));
-                }
+                const link = document.createElement('a');
+
+                link.href = value[_.get(this.state.formMeta, 'type')];
+                range.surroundContents(link);
               }
               // this.onHandleTags(_.get(this.state.formMeta, 'name'), event[_.get(this.state.formMeta, 'type')]);
               this.setState({
                 isModalOpen: false,
               });
+            }}
+            onFocus={() => {
+              if (fragment) {
+                const span = document.createElement('span');
+
+                console.log('query span', span);
+                span.className = 'selected';
+                range.surroundContents(span);
+              }
+            }}
+            onBlur={() => {
+              if (fragment) {
+                range.deleteContents();
+                range.insertNode(fragment);
+              }
             }}
           />
         </Modal>
