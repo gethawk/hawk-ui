@@ -11,6 +11,9 @@ import ColorPicker from '@hawk-ui/color-picker';
 import Components from './components';
 // utils modules
 import { getTools } from './utils/tools';
+import { onCode } from './utils/codeHandler';
+import { onPrint } from './utils/printHandler';
+import { onTags } from './utils/tagHandler';
 // css modules
 import './index.scss';
 
@@ -36,53 +39,6 @@ export default class RichTextEditor extends Component {
     this.setState({
       value: event.target.textContent,
     });
-  };
-
-  onHandleTags = (tool, tag) => {
-    if (_.isEqual(tool, 'trash')) {
-      const doc = document.getElementById('containerEditable');
-
-      doc.innerHTML = '';
-      doc.focus();
-    } else {
-      document.execCommand(tool, false, tag);
-    }
-  };
-
-  onHandleCode = () => {
-    let content;
-    const doc = document.getElementById('containerEditable');
-
-    if (this.state.isSource) {
-      content = document.createTextNode(doc.innerHTML);
-      doc.innerHTML = '';
-      const pre = document.createElement('pre');
-
-      doc.contentEditable = false;
-      pre.id = 'sourceText';
-      pre.contentEditable = true;
-      pre.appendChild(content);
-      doc.appendChild(pre);
-      document.execCommand('defaultParagraphSeparator', false, 'div');
-    } else {
-      if (document.all) {
-        doc.innerHTML = doc.innerText;
-      } else {
-        content = document.createRange();
-        content.selectNodeContents(doc.firstChild);
-        doc.innerHTML = content.toString();
-      }
-      doc.contentEditable = true;
-    }
-  };
-
-  onHandlePrint = () => {
-    const doc = document.getElementById('containerEditable');
-    const printWindow = window.open('', '_blank', 'width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes');
-
-    printWindow.document.open();
-    printWindow.document.write(`<!doctype html><html><head><title>Print<\/title><\/head><body onload="print();">${doc.innerHTML}<\/body><\/html>`);
-    printWindow.document.close();
   };
 
   onSaveSelection = () => {
@@ -122,10 +78,10 @@ export default class RichTextEditor extends Component {
                     this.setState({
                       isSource: !this.state.isSource,
                     }, () => {
-                      this.onHandleCode();
+                      onCode(this.state.isSource);
                     });
                   } : _.isEqual(tool.name, 'print') ? () => {
-                    this.onHandlePrint();
+                    onPrint();
                   } : _.includes(['link'], _.get(tool, 'tagNames')) ? () => {
                     this.setState({
                       formMeta: {
@@ -135,7 +91,7 @@ export default class RichTextEditor extends Component {
                       isModalOpen: true,
                     });
                   } : () => {
-                    this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
+                    onTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
                   }}
                 >
                   {!_.isEmpty(tool.contentFA) ? (
@@ -168,7 +124,7 @@ export default class RichTextEditor extends Component {
                     </Fragment>
                   }
                   selectValue={(meta, item) => {
-                    this.onHandleTags(_.get(tool, 'suggest.style'),
+                    onTags(_.get(tool, 'suggest.style'),
                       _.isEqual(_.get(tool, 'suggest.style'), 'formatblock') ?
                         `h${item.value}` :
                         item.value,
@@ -183,7 +139,7 @@ export default class RichTextEditor extends Component {
                   isIcon
                   title={tool.contentFA}
                   onSave={(event) => {
-                    this.onHandleTags(_.get(tool, 'style.prop'), _.get(event, 'hex'));
+                    onTags(_.get(tool, 'style.prop'), _.get(event, 'hex'));
                   }}
                 />
               )}
