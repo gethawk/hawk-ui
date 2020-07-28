@@ -1,5 +1,5 @@
-export function onPrint() {
-  const doc = document.getElementById('containerEditable');
+export function onPrint(editableId) {
+  const doc = document.getElementById(editableId);
   const printWindow = window.open('', '_blank', 'width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes');
 
   printWindow.document.open();
