@@ -14,11 +14,9 @@ import { getTools } from './utils/tools';
 import { onCode } from './utils/codeHandler';
 import { onPrint } from './utils/printHandler';
 import { onTags } from './utils/tagHandler';
+import { onSaveRangeEvent, onLinkFocus, onLinkBlur, onLinkInsert } from './utils/linkHandler';
 // css modules
 import './index.scss';
-
-let fragment = null;
-let range = null;
 
 /**
  * @example ../README.md
@@ -54,14 +52,6 @@ export default class RichTextEditor extends Component {
 
     return null;
   };
-
-  onSaveRangeEvent = () => {
-    range = this.onSaveSelection();
-
-    if (range && !range.collapsed) {
-      fragment = range.cloneContents();
-    }
-  }
 
   render() {
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
@@ -156,7 +146,7 @@ export default class RichTextEditor extends Component {
           spellCheck="true"
           onInput={(event) => { this.onHandleInput(event); }}
           style={{ textAlign: 'left' }}
-          onMouseUp={this.onSaveRangeEvent}
+          onMouseUp={onSaveRangeEvent}
         />
         <Modal
           isOpen={this.state.isModalOpen}
@@ -175,28 +165,17 @@ export default class RichTextEditor extends Component {
             }}
             onInsert={(value) => {
               if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
-                const link = document.createElement('a');
-
-                link.href = value[_.get(this.state.formMeta, 'type')];
-                range.surroundContents(link);
+                onLinkInsert(value[_.get(this.state.formMeta, 'type')]);
               }
               this.setState({
                 isModalOpen: false,
               });
             }}
             onFocus={() => {
-              if (fragment) {
-                const span = document.createElement('span');
-
-                span.className = 'selected';
-                range.surroundContents(span);
-              }
+              onLinkFocus();
             }}
             onBlur={() => {
-              if (fragment) {
-                range.deleteContents();
-                range.insertNode(fragment);
-              }
+              onLinkBlur();
             }}
           />
         </Modal>

@@ -3,7 +3,7 @@ import _ from 'lodash';
 let fragment = null;
 let range = null;
 
-export function onSaveSelection() {
+function onSaveSelection() {
   if (window.getSelection) {
     const sel = window.getSelection();
 
@@ -18,7 +18,7 @@ export function onSaveSelection() {
 }
 
 export function onSaveRangeEvent() {
-  range = this.onSaveSelection();
+  range = onSaveSelection();
 
   if (range && !range.collapsed) {
     fragment = range.cloneContents();
