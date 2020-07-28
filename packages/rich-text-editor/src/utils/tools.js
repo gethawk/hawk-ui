@@ -89,7 +89,7 @@ export const getTools = [
   {
     id: 7,
     name: 'image',
-    field_type: 'button',
+    field_type: 'file',
     aria: 'image',
     tagNames: 'img',
     style: {},
