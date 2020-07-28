@@ -6,8 +6,6 @@ initialState = {
 };
 
 <div className="styleguidist__btns-wrap">
-  <p>Toolbar in top</p>
-  <br /><br />
   <RichTextEditor
     toolbarClass="toolbar"
     editableClass="editable"
