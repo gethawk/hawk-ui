@@ -85,31 +85,6 @@ export default class RichTextEditor extends Component {
     printWindow.document.close();
   };
 
-  onHandleSelected = () => {
-    let sel, range;
-    // const doc = document.getElementById('containerEditable');
-    // const replaceText = 'Hola Hola';
-
-    // console.log('query doc', doc);
-    if (window.getSelection) {
-      sel = window.getSelection();
-
-      console.log('query sel', sel);
-      this.setState({
-        selectedText: window.getSelection(),
-      }, () => {
-        console.log('query selectedText', this.state.selectedText);
-      });
-      // if (sel.rangeCount) {
-      //   console.log('query sel rangeCount', sel.rangeCount);
-      //   range = sel.getRangeAt(0);
-      //   console.log('query sel range', range);
-      //   range.deleteContents();
-      //   range.insertNode(document.createTextNode(replaceText));
-      // }
-    }
-  };
-
   onSaveSelection = () => {
     if (window.getSelection) {
       const sel = window.getSelection();
@@ -124,13 +99,12 @@ export default class RichTextEditor extends Component {
     return null;
   };
 
-  onSaveRangeEvent = (event) => {
+  onSaveRangeEvent = () => {
     range = this.onSaveSelection();
 
     if (range && !range.collapsed) {
       fragment = range.cloneContents();
     }
-    console.log('query onMouse range', range);
   }
 
   render() {
@@ -159,8 +133,6 @@ export default class RichTextEditor extends Component {
                         type: _.get(tool, 'tagNames'),
                       },
                       isModalOpen: true,
-                    }, () => {
-                      this.onHandleSelected();
                     });
                   } : () => {
                     this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
@@ -246,14 +218,12 @@ export default class RichTextEditor extends Component {
               this.setState({ isModalOpen: false });
             }}
             onInsert={(value) => {
-              console.log('query value', value);
               if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
                 const link = document.createElement('a');
 
                 link.href = value[_.get(this.state.formMeta, 'type')];
                 range.surroundContents(link);
               }
-              // this.onHandleTags(_.get(this.state.formMeta, 'name'), event[_.get(this.state.formMeta, 'type')]);
               this.setState({
                 isModalOpen: false,
               });
@@ -262,7 +232,6 @@ export default class RichTextEditor extends Component {
               if (fragment) {
                 const span = document.createElement('span');
 
-                console.log('query span', span);
                 span.className = 'selected';
                 range.surroundContents(span);
               }
