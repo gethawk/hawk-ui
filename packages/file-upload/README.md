@@ -11,6 +11,16 @@
     }}
   />
   <br /><br />
+  <p>File Upload With Icon</p>
+  <br />
+  <FileUpload
+    title="fas fa-upload"
+    isIcon
+    onUpload={(file) => {
+      console.log('query file', file);
+    }}
+  />
+  <br /><br />
   <p>File Upload With Describable</p>
   <br />
   <FileUpload
