@@ -1,19 +1,35 @@
 // vendor modules
 import React, { Component } from 'react';
 // react modules
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 import Input from '@hawk-ui/input';
 import Button from '@hawk-ui/button';
 
 export default class FormLink extends Component {
-  state = {};
+  static propTypes = {
+    onCancel: PropTypes.func,
+    onInsert: PropTypes.func,
+  };
+  state = {
+    link: '',
+  };
 
   render() {
+    const { onCancel, onInsert } = this.props;
+    const { link } = this.state;
+
     return (
       <div className="hawk-rich-text-editor__form">
         <div className="hawk-rich-text-editor__form-content">
           <Input
             type="text"
-            value=""
+            value={link}
+            onChange={(event) => {
+              this.setState({
+                link: event.target.value,
+              });
+            }}
             label="Web address (URL)"
             description="Please enter a valid URL or merge field."
             placeholder="https://example.com"
@@ -23,10 +39,16 @@ export default class FormLink extends Component {
         <div className="hawk-rich-text-editor__form-button">
           <Button
             variant="outlined"
+            onClick={onCancel}
           >
             <span>Cancel</span>
           </Button>
-          <Button>
+          <Button
+            isDisabled={_.isEmpty(link)}
+            onClick={() => {
+              onInsert(this.state);
+            }}
+          >
             <span>Insert</span>
           </Button>
         </div>

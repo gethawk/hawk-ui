@@ -46,7 +46,7 @@ export const getTools = [
   },
   {
     id: 4,
-    name: 'link',
+    name: 'createlink',
     field_type: 'button',
     aria: 'link',
     tagNames: 'link',

@@ -22,15 +22,21 @@ export default class RichTextEditor extends Component {
     isModalOpen: false,
     isSource: false,
     value: '',
-    formType: 'link',
+    formMeta: {
+      type: 'link',
+      name: 'createlink',
+    },
+    selectedText: {},
+  };
+
+  onHandleInput = (event) => {
+    this.setState({
+      value: event.target.textContent,
+    });
   };
 
   onHandleTags = (tool, tag) => {
-    if (_.includes(['link'], tag)) {
-      this.setState({
-        isModalOpen: true,
-      });
-    } else if (_.isEqual(tool, 'trash')) {
+    if (_.isEqual(tool, 'trash')) {
       const doc = document.getElementById('containerEditable');
 
       doc.innerHTML = '';
@@ -76,9 +82,33 @@ export default class RichTextEditor extends Component {
     printWindow.document.close();
   };
 
+  onHandleSelected = () => {
+    let sel, range;
+    // const doc = document.getElementById('containerEditable');
+    // const replaceText = 'Hola Hola';
+
+    // console.log('query doc', doc);
+    if (window.getSelection) {
+      sel = window.getSelection();
+
+      console.log('query sel', sel);
+      this.setState({
+        selectedText: window.getSelection(),
+      }, () => {
+        console.log('query selectedText', this.state.selectedText);
+      });
+      // if (sel.rangeCount) {
+      //   console.log('query sel rangeCount', sel.rangeCount);
+      //   range = sel.getRangeAt(0);
+      //   console.log('query sel range', range);
+      //   range.deleteContents();
+      //   range.insertNode(document.createTextNode(replaceText));
+      // }
+    }
+  };
+
   render() {
-    const { isModalOpen } = this.state;
-    const FormComponent = _.get(Components, this.state.formType);
+    const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
 
     return (
       <div className="hawk-rich-text-editor">
@@ -96,6 +126,16 @@ export default class RichTextEditor extends Component {
                     });
                   } : _.isEqual(tool.name, 'print') ? () => {
                     this.onHandlePrint();
+                  } : _.includes(['link'], _.get(tool, 'tagNames')) ? () => {
+                    this.setState({
+                      formMeta: {
+                        name: _.get(tool, 'name'),
+                        type: _.get(tool, 'tagNames'),
+                      },
+                      isModalOpen: true,
+                    }, () => {
+                      this.onHandleSelected();
+                    });
                   } : () => {
                     this.onHandleTags(_.get(tool, 'name'), _.get(tool, 'tagNames'));
                   }}
@@ -160,16 +200,14 @@ export default class RichTextEditor extends Component {
           contentEditable
           data-placeholder="Add description"
           spellCheck="true"
-          onInput={(event) => {
-            this.setState({
-              value: event.target.textContent,
-            });
-          }}
-          data-medium-focused
+          onInput={(event) => { this.onHandleInput(event); }}
           style={{ textAlign: 'left' }}
+          onBlur={() => { console.log('query onBlur'); }}
+          onFocus={() => { console.log('query onFocus'); }}
+          onFocusCapture={() => { console.log('query onFocusCapture'); }}
         />
         <Modal
-          isOpen={isModalOpen}
+          isOpen={this.state.isModalOpen}
           className="hawk-rich-text-editor__modal"
           title="Insert or Edit Link"
           onKeyDown={() => {
@@ -179,7 +217,27 @@ export default class RichTextEditor extends Component {
             this.setState({ isModalOpen: false });
           }}
         >
-          <FormComponent />
+          <FormComponent
+            onCancel={() => {
+              this.setState({ isModalOpen: false });
+            }}
+            onInsert={(event) => {
+              if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
+                console.log('query selectedText', this.state.selectedText);
+                if (_.get(this.state.selectedText, 'rangeCount')) {
+                  console.log('query selectedText rangeCount', this.state.selectedText.rangeCount);
+                  const range = this.state.selectedText.getRangeAt(0);
+                  console.log('query selectedText range', range);
+                  range.deleteContents();
+                  range.insertNode(document.createTextNode('Hola Hola'));
+                }
+              }
+              // this.onHandleTags(_.get(this.state.formMeta, 'name'), event[_.get(this.state.formMeta, 'type')]);
+              this.setState({
+                isModalOpen: false,
+              });
+            }}
+          />
         </Modal>
       </div>
     );
