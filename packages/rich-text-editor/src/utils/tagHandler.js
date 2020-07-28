@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-export function onTags(tool, tag) {
+export function onTags(tool, tag, editableId) {
   if (_.isEqual(tool, 'trash')) {
-    const doc = document.getElementById('containerEditable');
+    const doc = document.getElementById(editableId);
 
     doc.innerHTML = '';
     doc.focus();

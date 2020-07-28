@@ -1,6 +1,6 @@
-export function onCode(isSource) {
+export function onCode(isSource, editableId) {
   let content;
-  const doc = document.getElementById('containerEditable');
+  const doc = document.getElementById(editableId);
 
   if (isSource) {
     content = document.createTextNode(doc.innerHTML);
