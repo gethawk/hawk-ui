@@ -51,6 +51,9 @@ export default class FormLink extends Component {
             isDisabled={_.isEmpty(link)}
             onClick={() => {
               onInsert(this.state);
+              this.setState({
+                link: '',
+              });
             }}
           >
             <span>Insert</span>
