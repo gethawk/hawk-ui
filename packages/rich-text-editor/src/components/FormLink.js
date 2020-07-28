@@ -10,13 +10,15 @@ export default class FormLink extends Component {
   static propTypes = {
     onCancel: PropTypes.func,
     onInsert: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
   };
   state = {
     link: '',
   };
 
   render() {
-    const { onCancel, onInsert } = this.props;
+    const { onCancel, onInsert, onFocus, onBlur } = this.props;
     const { link } = this.state;
 
     return (
@@ -30,6 +32,8 @@ export default class FormLink extends Component {
                 link: event.target.value,
               });
             }}
+            onFocus={() => { onFocus(); }}
+            onBlur={() => { onBlur(); }}
             label="Web address (URL)"
             description="Please enter a valid URL or merge field."
             placeholder="https://example.com"
