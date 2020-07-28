@@ -12,6 +12,7 @@
     "@hawk-ui/button": "^2.4.8",
     "@hawk-ui/color-picker": "^2.4.8",
     "@hawk-ui/dropdown": "^2.4.8",
+    "@hawk-ui/file-upload": "^2.4.8",
     "@hawk-ui/input": "^2.4.8",
     "@hawk-ui/modal": "^2.4.8",
     "classnames": "^2.2.6",

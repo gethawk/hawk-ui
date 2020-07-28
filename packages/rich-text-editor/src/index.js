@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import getClassnames from 'classnames';
 import Button from '@hawk-ui/button';
+import FileUpload from '@hawk-ui/file-upload';
 import Dropdown from '@hawk-ui/dropdown';
 import Modal from '@hawk-ui/modal';
 import ColorPicker from '@hawk-ui/color-picker';
@@ -90,6 +91,14 @@ export default class RichTextEditor extends Component {
                     <span>{tool.contentDefault}</span>
                   )}
                 </Button>
+              )}
+              {_.isEqual(tool.field_type, 'file') && (
+                <FileUpload
+                  title="Browse"
+                  onUpload={(file) => {
+                    console.log('file', file);
+                  }}
+                />
               )}
               {_.isEqual(tool.field_type, 'select') && (
                 <Dropdown
