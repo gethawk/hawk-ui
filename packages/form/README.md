@@ -133,10 +133,10 @@ const configuration = {
         },
         validation: {}
       },
-      description: {
+      address: {
         data_type: "string",
-        title: "Description",
-        placeholder: "Description",
+        title: "Address",
+        placeholder: "Address",
         visual: {
           field_type: "textarea",
           show_title: true,
@@ -144,9 +144,27 @@ const configuration = {
         },
         validation: {}
       },
-      price: {
+      description: {
         data_type: "string",
         title: "Description",
+        placeholder: "Description",
+        visual: {
+          field_type: "rich-text-editor",
+          show_title: true,
+          editable_id: "containerEditable",
+          options: [
+            'bold', 'italic', 'underline', 'link', 'unlink', 'strike through', 'ordered list'
+            , 'unordered list', 'formatblock', 'cut', 'copy', 'print', 'pre', 'header', 'font family'
+            , 'font size', 'select all', 'text color picker', 'background color picker', 'remove format', 'clean', 'divider', 'left justify'
+            , 'center justify', 'right justify', 'outdent', 'indent', 'undo', 'redo'
+          ],
+          rows: 10,
+        },
+        validation: {}
+      },
+      price: {
+        data_type: "string",
+        title: "Price",
         placeholder: "Write price",
         visual: {
           field_type: "input-group",

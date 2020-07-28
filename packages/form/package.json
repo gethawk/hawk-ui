@@ -19,6 +19,7 @@
     "@hawk-ui/label": "^2.5.1",
     "@hawk-ui/radio": "^2.5.1",
     "@hawk-ui/range-slider": "^2.5.1",
+    "@hawk-ui/rich-text-editor": "^2.5.1",
     "@hawk-ui/select-dropdown": "^2.5.1",
     "@hawk-ui/tags-input": "^2.5.1",
     "axios": "^0.19.2",
