@@ -17,11 +17,13 @@ export default class FileUpload extends Component {
     description: PropTypes.string,
     placeholder: PropTypes.string,
     title: PropTypes.string,
+    isIcon: PropTypes.bool,
     isDescribable: PropTypes.bool,
     onUpload: PropTypes.func,
   };
   static defaultProps = {
     isDescribable: false,
+    isIcon: false,
   };
   state = {
     fileName: '',
@@ -43,7 +45,7 @@ export default class FileUpload extends Component {
   };
 
   render() {
-    const { label, description, placeholder, title, isDescribable } = this.props;
+    const { label, description, placeholder, title, isDescribable, isIcon } = this.props;
     const { fileName } = this.state;
 
     return (
@@ -66,7 +68,11 @@ export default class FileUpload extends Component {
               this.onFileUpload();
             }}
           >
-            <span>{title}</span>
+            {!isIcon ? (
+              <span>{title}</span>
+            ) : (
+              <i className={title} />
+            )}
           </Button>
         </div>
         <input
