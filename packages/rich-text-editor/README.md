@@ -1,14 +1,17 @@
 #### Basic Range Slider Usage:
 
 ```js
-initialState = {};
+initialState = {
+  body: '',
+};
 
 <div className="styleguidist__btns-wrap">
+  <p>Toolbar in top</p>
+  <br /><br />
   <RichTextEditor
-    toolbarPosition="top"
     toolbarClass="toolbar"
     editableClass="editable"
-    editableId="containerEditable"
+    editableId="containerEditable1"
     placeholder="Click here to start typing"
     toolbarItems={[
       'bold', 'italic', 'underline', 'link', 'unlink', 'strike through', 'ordered list'
@@ -18,6 +21,10 @@ initialState = {};
     ]}
     htmlAttributes={{
       rows: '10',
+    }}
+    value={state.body}
+    onChange={({ html, text }) => {
+      setState({ body: html });
     }}
   />
 </div>

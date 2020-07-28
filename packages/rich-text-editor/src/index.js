@@ -24,22 +24,22 @@ import './index.scss';
  */
 export default class RichTextEditor extends Component {
   static propTypes = {
-    toolbarPosition: PropTypes.string,
     editableId: PropTypes.string,
     placeholder: PropTypes.string,
     toolbarClass: PropTypes.string,
     editableClass: PropTypes.string,
     toolbarItems: PropTypes.array,
     htmlAttributes: PropTypes.object,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
   };
   static defaultProps = {
-    toolbarPosition: 'top',
+    value: '',
     htmlAttributes: {},
   };
   state = {
     isModalOpen: false,
     isSource: false,
-    value: '',
     formMeta: {
       type: 'link',
       name: 'createlink',
@@ -47,11 +47,11 @@ export default class RichTextEditor extends Component {
     selectedText: {},
   };
 
-  onHandleInput = (event) => {
-    this.setState({
-      value: event.target.textContent,
-    });
-  };
+  componentDidMount() {
+    const doc = document.getElementById(this.props.editableId);
+
+    doc.innerHTML = this.props.value;
+  }
 
   onSaveSelection = () => {
     if (window.getSelection) {
@@ -68,16 +68,12 @@ export default class RichTextEditor extends Component {
   };
 
   render() {
-    const { toolbarPosition, editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes } = this.props;
+    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, value, onChange } = this.props;
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
 
     return (
       <div className="hawk-rich-text-editor">
-        <div
-          className={getClassnames('hawk-rich-text-editor__content', {
-            [`hawk-rich-text-editor__position-${toolbarPosition}`]: _.isString(toolbarPosition),
-          })}
-        >
+        <div className="hawk-rich-text-editor__content">
           <div
             className={getClassnames('hawk-rich-text-editor__toolbar', {
               [toolbarClass]: _.isString(toolbarClass),
@@ -176,7 +172,7 @@ export default class RichTextEditor extends Component {
           </div>
           <div
             className={getClassnames('hawk-rich-text-editor__editable', {
-              'hawk-rich-text-editor__editable-blank': _.isEmpty(this.state.value),
+              'hawk-rich-text-editor__editable-blank': _.isEmpty(value),
               [editableClass]: _.isString(editableClass),
             })}
             {...htmlAttributes}
@@ -184,7 +180,9 @@ export default class RichTextEditor extends Component {
             contentEditable
             data-placeholder={placeholder}
             spellCheck="true"
-            onInput={(event) => { this.onHandleInput(event); }}
+            onInput={(event) => {
+              onChange({ html: event.target.innerHTML, text: event.target.textContent });
+            }}
             style={{
               textAlign: 'left',
               height: !_.isEmpty(_.get(htmlAttributes, 'rows')) ? `${_.get(htmlAttributes, 'rows') * 20}px` : '200px',
@@ -207,9 +205,9 @@ export default class RichTextEditor extends Component {
             onCancel={() => {
               this.setState({ isModalOpen: false });
             }}
-            onInsert={(value) => {
+            onInsert={(event) => {
               if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
-                onLinkInsert(value[_.get(this.state.formMeta, 'type')]);
+                onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
               }
               this.setState({
                 isModalOpen: false,
