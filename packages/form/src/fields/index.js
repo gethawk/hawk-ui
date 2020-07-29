@@ -10,6 +10,7 @@ import FormTagsInput from './FormTagsInput';
 import FormColorPicker from './FormColorPicker';
 import FormBorderPicker from './FormBorderPicker';
 import FormRangeSlider from './FormRangeSlider';
+import FormRichTextEditor from './FormRichTextEditor';
 
 export default {
   input: FormInput,
@@ -24,4 +25,5 @@ export default {
   'border-picker': FormBorderPicker,
   'range-slider': FormRangeSlider,
   select: FormSelectDropdown,
+  'rich-text-editor': FormRichTextEditor,
 };

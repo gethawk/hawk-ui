@@ -120,12 +120,11 @@ export default class Input extends Component {
       return;
     }
 
-    this.props.onFocus(e.target.value);
-  }
-  focus() {
     if (this.fieldNode && !this.props.isDisabled) {
       this.fieldNode.focus();
     }
+
+    this.props.onFocus(e.target.value);
   }
 
   render() {

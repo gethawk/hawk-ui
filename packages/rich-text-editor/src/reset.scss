@@ -1,0 +1,49 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-rich-text-editor {
+  h1 {
+    font-size: 42px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 18px;
+  }
+  h6 {
+    font-size: 16px;
+  }
+  &__editable {
+    b {
+      font-weight: bold;
+    }
+    i {
+      font-style: italic;
+    }
+    u {
+      text-decoration: underline;
+    }
+    ol, ul {
+      margin-left: 10px;
+    }
+    ol {
+      list-style: decimal;
+    }
+    ul {
+      list-style: unset;
+    }
+    blockquote {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 40px;
+      margin-inline-end: 40px;
+    }
+  }
+}
