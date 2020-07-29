@@ -350,8 +350,6 @@ initialState = {
         });
 
         return ({ data, errors: _.omitBy(updatedErrors, _.isEmpty) });
-      }, () => {
-        // console.log('query state', state);
       });
     }}
     isSubmitted={state.submitted}
