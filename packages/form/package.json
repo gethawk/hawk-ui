@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/form",
-  "version": "2.5.3",
+  "version": "2.5.6",
   "description": "hawk-ui: Basic Form Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,27 +9,29 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/border-picker": "^2.5.3",
-    "@hawk-ui/checkbox": "^2.5.3",
-    "@hawk-ui/color-picker": "^2.5.3",
-    "@hawk-ui/date-picker": "^2.5.3",
-    "@hawk-ui/file-upload": "^2.5.3",
-    "@hawk-ui/input": "^2.5.3",
-    "@hawk-ui/input-group": "^2.5.3",
-    "@hawk-ui/label": "^2.5.3",
-    "@hawk-ui/radio": "^2.5.3",
-    "@hawk-ui/range-slider": "^2.5.3",
-    "@hawk-ui/rich-text-editor": "^2.5.3",
-    "@hawk-ui/select-dropdown": "^2.5.3",
-    "@hawk-ui/tags-input": "^2.5.3",
+    "@hawk-ui/border-picker": "^2.5.6",
+    "@hawk-ui/checkbox": "^2.5.6",
+    "@hawk-ui/color-picker": "^2.5.6",
+    "@hawk-ui/date-picker": "^2.5.6",
+    "@hawk-ui/file-upload": "^2.5.6",
+    "@hawk-ui/input": "^2.5.6",
+    "@hawk-ui/input-group": "^2.5.6",
+    "@hawk-ui/label": "^2.5.6",
+    "@hawk-ui/radio": "^2.5.6",
+    "@hawk-ui/range-slider": "^2.5.6",
+    "@hawk-ui/rich-text-editor": "^2.5.6",
+    "@hawk-ui/select-dropdown": "^2.5.6",
+    "@hawk-ui/tags-input": "^2.5.6",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "prop-types": "^15.7.2"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
