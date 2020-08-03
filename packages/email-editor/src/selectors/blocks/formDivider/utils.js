@@ -57,9 +57,7 @@ export function configuration(type) {
             },
             validation: {},
           },
-          border: {
-            
-          },
+          border: {},
           color: {},
         },
       };
