@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export function configuration(type) {
   switch (type) {
     case 'content':
@@ -89,7 +91,7 @@ export function configuration(type) {
             },
           },
           button_text_style: {
-            data_style: 'object',
+            data_type: 'object',
             title: 'Button Text Style',
             visual: {
               show_title: true,
@@ -97,15 +99,113 @@ export function configuration(type) {
             },
             validation: {},
             properties: {
-              color: {
-                data_type: 'string',
-                title: 'Color',
+              font_style: {
+                data_type: 'object',
                 visual: {
-                  field_type: 'color-picker',
-                  show_title: true,
-                  default_color: '000000',
+                  show_title: false,
+                  show_inline: true,
                 },
                 validation: {},
+                properties: {
+                  color: {
+                    data_type: 'string',
+                    title: 'Color',
+                    visual: {
+                      field_type: 'color-picker',
+                      show_title: true,
+                      default_color: '000000',
+                    },
+                    validation: {},
+                  },
+                  style: {
+                    data_type: 'string',
+                    title: 'Style',
+                    visual: {
+                      field_type: 'button-group',
+                      show_title: true,
+                      variant: 'outlined',
+                      active: 1,
+                      suggest: {
+                        options: [
+                          { key: 1, title: 'Normal' },
+                          { key: 2, title: 'Bold' },
+                        ],
+                      },
+                    },
+                  },
+                },
+              },
+              spacing: {
+                data_type: 'string',
+                title: 'Spacing',
+                visual: {
+                  field_type: 'select',
+                  show_title: true,
+                  show_icon: true,
+                  suggest: {
+                    name: 'title',
+                    value: 'value',
+                    options: _.map(_.range(-5, 6), (item) => (
+                      { title: `${item}px`, value: `${item}px` }
+                    )),
+                  },
+                },
+              },
+              font: {
+                data_type: 'string',
+                title: 'Font',
+                visual: {
+                  field_type: 'select',
+                  show_title: true,
+                  show_icon: true,
+                  suggest: {
+                    name: 'title',
+                    value: 'value',
+                    options: [
+                      { title: 'Arial', value: 'arial' },
+                    ],
+                  },
+                },
+              },
+              font_size_padding: {
+                data_type: 'object',
+                visual: {
+                  show_title: false,
+                  show_inline: true,
+                },
+                validation: {},
+                properties: {
+                  size: {
+                    data_type: 'string',
+                    title: 'Size',
+                    visual: {
+                      field_type: 'select',
+                      show_title: true,
+                      show_icon: true,
+                      suggest: {
+                        name: 'title',
+                        value: 'value',
+                        options: _.map(_.range(12, 21), (item) => (
+                          { title: `${item}px`, value: `${item}px` }
+                        )),
+                      },
+                    },
+                  },
+                  padding: {
+                    data_type: 'string',
+                    title: 'Padding',
+                    placeholder: 'Padding',
+                    visual: {
+                      field_type: 'input-group',
+                      show_title: true,
+                      addon: 'px',
+                      addon_size: 'small',
+                      addon_placement: 'right',
+                      addon_icon: false,
+                    },
+                    validation: {},
+                  },
+                },
               },
             },
           },
