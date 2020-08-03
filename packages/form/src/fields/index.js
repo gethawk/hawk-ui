@@ -11,6 +11,7 @@ import FormColorPicker from './FormColorPicker';
 import FormBorderPicker from './FormBorderPicker';
 import FormRangeSlider from './FormRangeSlider';
 import FormRichTextEditor from './FormRichTextEditor';
+import FormButtonGroup from './FormButtonGroup';
 
 export default {
   input: FormInput,
@@ -26,4 +27,5 @@ export default {
   'range-slider': FormRangeSlider,
   select: FormSelectDropdown,
   'rich-text-editor': FormRichTextEditor,
+  'button-group': FormButtonGroup,
 };

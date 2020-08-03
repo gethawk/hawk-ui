@@ -176,25 +176,52 @@ const configuration = {
         },
         validation: {}
       },
-      color: {
-        data_type: "string",
-        title: "Color Picker",
+      style: {
+        data_type: "object",
+        title: "",
         visual: {
-          field_type: "color-picker",
-          default_color: "f18ca6",
-          show_title: true
+          show_inline: true,
         },
-        validation: {}
-      },
-      border: {
-        data_type: "string",
-        title: "Border Picker",
-        visual: {
-          field_type: "border-picker",
-          border_type: "dotted",
-          show_title: true
+        validation: {},
+        properties: {
+          color: {
+            data_type: "string",
+            title: "Color Picker",
+            visual: {
+              field_type: "color-picker",
+              default_color: "f18ca6",
+              show_title: true,
+            },
+            validation: {},
+          },
+          border: {
+            data_type: "string",
+            title: "Border Picker",
+            visual: {
+              field_type: "border-picker",
+              border_type: "dotted",
+              show_title: true,
+            },
+            validation: {},
+          },
+          group: {
+            data_type: "string",
+            title: "Select Options",
+            visual: {
+              field_type: "button-group",
+              show_title: true,
+              variant: "outlined",
+              active: 0,
+              suggest: {
+                options: [
+                  { key: 1, title: 'First' },
+                  { key: 2, title: 'Second' },
+                ],
+              },
+            },
+            validation: {},
+          },
         },
-        validation: {}
       },
       range: {
         data_type: "number",

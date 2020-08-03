@@ -18,7 +18,7 @@ export default class ButtonGroup extends Component {
       PropTypes.array,
       PropTypes.object,
     ]),
-    activeIndex: PropTypes.number,
+    value: PropTypes.object,
     onClick: PropTypes.func,
   };
   static defaultProps = {
@@ -27,7 +27,7 @@ export default class ButtonGroup extends Component {
   state = {};
 
   render() {
-    const { panes, variant, activeIndex, onClick } = this.props;
+    const { panes, variant, value, onClick } = this.props;
 
     return (
       <div
@@ -40,13 +40,12 @@ export default class ButtonGroup extends Component {
             key={index}
             variant={variant}
             className={getClassNames('hawk-button-group__button', {
-              active: _.isEqual(activeIndex, index),
+              active: _.isEqual(_.get(value, 'key'), index + 1),
             })}
             onClick={() => {
               const data = {
                 key: item.key,
                 title: item.title,
-                active: index,
               };
 
               onClick(data);
