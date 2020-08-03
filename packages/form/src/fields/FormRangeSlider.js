@@ -10,6 +10,11 @@ import RangeSlider from '@hawk-ui/range-slider';
 export default class FormRangeSlider extends Component {
   static propTypes = {
     visual: PropTypes.object,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+    ]),
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
     onChange: PropTypes.func,
@@ -17,7 +22,7 @@ export default class FormRangeSlider extends Component {
   state = {};
 
   render() {
-    const { visual, property, noTitle, onChange } = this.props;
+    const { visual, property, noTitle, value, onChange } = this.props;
 
     const valueId = _.get(visual, 'value_id', '');
     const rangeId = _.get(visual, 'range_id', '');
@@ -38,6 +43,7 @@ export default class FormRangeSlider extends Component {
           min={min}
           max={max}
           step={rangeStep}
+          value={value || _.get(visual, 'value', 50)}
           onChange={(event) => {
             onChange({ value: event });
           }}
