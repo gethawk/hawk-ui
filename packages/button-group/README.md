@@ -7,7 +7,7 @@ initialState = {
     { key: 2, title: 'Second' },
     { key: 3, title: 'Third' },
   ],
-  value: {},
+  value: 1,
 };
 
 <div className="styleguidist__btns-wrap">
@@ -19,7 +19,7 @@ initialState = {
     value={state.value}
     onClick={(event) => {
       setState({
-        value: event,
+        value: event.key,
       });
     }}
   />
@@ -32,7 +32,7 @@ initialState = {
     value={state.value}
     onClick={(event) => {
       setState({
-        value: event,
+        value: event.key,
       });
     }}
   />
@@ -44,7 +44,7 @@ initialState = {
     value={state.value}
     onClick={(event) => {
       setState({
-        value: event,
+        value: event.key,
       });
     }}
   />
