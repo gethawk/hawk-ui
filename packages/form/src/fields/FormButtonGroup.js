@@ -11,6 +11,11 @@ export default class FormButtonGroup extends Component {
   static propTypes = {
     onChange: PropTypes.func,
     visual: PropTypes.object,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+    ]),
     property: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     noTitle: PropTypes.bool,
     dataType: PropTypes.string,
@@ -18,10 +23,10 @@ export default class FormButtonGroup extends Component {
   state = {};
 
   render() {
-    const { visual, property, noTitle, onChange } = this.props;
+    const { visual, property, noTitle, value, onChange } = this.props;
     const variant = _.get(visual, 'variant', 'text');
     const suggestion = _.get(visual, 'suggest.options', []);
-    const active = _.get(visual, 'active', 0);
+    const active = _.get(visual, 'active', '');
 
     return (
       <div
@@ -33,9 +38,9 @@ export default class FormButtonGroup extends Component {
         <ButtonGroup
           variant={variant}
           panes={suggestion}
-          activeIndex={active}
+          value={_.isEmpty(value) ? active : value}
           onClick={(event) => {
-            onChange(event);
+            onChange({ value: event.key });
           }}
         />
       </div>

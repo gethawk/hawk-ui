@@ -211,7 +211,7 @@ const configuration = {
               field_type: "button-group",
               show_title: true,
               variant: "outlined",
-              active: 0,
+              active: 1,
               suggest: {
                 options: [
                   { key: 1, title: 'First' },
