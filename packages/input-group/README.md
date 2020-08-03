@@ -12,7 +12,7 @@ initialState = {
   <p>Addon Left Placement</p>
   <br />
   <InputGroup
-    addon="text"
+    addon="Text"
     addonPlacement="left"
     type="text"
     value={state.value}
@@ -34,21 +34,21 @@ initialState = {
   <p>Addon Small Placement</p>
   <br />
   <InputGroup
-    addon="text"
+    addon="Text"
     addonSize="small"
   />
   <br /><br />
   <p>Addon Medium Placement</p>
   <br />
   <InputGroup
-    addon="text"
+    addon="Text"
     addonSize="medium"
   />
   <br /><br />
   <p>Addon Large Placement</p>
   <br />
   <InputGroup
-    addon="text"
+    addon="Text"
     addonSize="large"
   />
   <br /><br />
