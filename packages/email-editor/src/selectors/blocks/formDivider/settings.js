@@ -2,6 +2,8 @@
 import React from 'react';
 // react modules
 import { useNode } from '@craftjs/core';
+import Form from '@hawk-ui/form';
+import { configuration } from './utils';
 
 export default function Settings() {
   const { actions: { setProp } } = useNode((node) => ({
@@ -9,6 +11,8 @@ export default function Settings() {
   }));
 
   return (
-    <div>Divider Settings</div>
+    <Form
+      configuration={configuration('content')}
+    />
   );
 }
