@@ -7,7 +7,7 @@ initialState = {
     { key: 2, title: 'Second' },
     { key: 3, title: 'Third' },
   ],
-  activeIndex: 0,
+  value: {},
 };
 
 <div className="styleguidist__btns-wrap">
@@ -16,10 +16,10 @@ initialState = {
   <ButtonGroup
     variant="text"
     panes={state.grouped}
-    activeIndex={state.activeIndex}
+    value={state.value}
     onClick={(event) => {
       setState({
-        activeIndex: event.active,
+        value: event,
       });
     }}
   />
@@ -29,10 +29,10 @@ initialState = {
   <ButtonGroup
     variant="outlined"
     panes={state.grouped}
-    activeIndex={state.activeIndex}
+    value={state.value}
     onClick={(event) => {
       setState({
-        activeIndex: event.active,
+        value: event,
       });
     }}
   />
@@ -41,10 +41,10 @@ initialState = {
   <br />
   <ButtonGroup
     panes={state.grouped}
-    activeIndex={state.activeIndex}
+    value={state.value}
     onClick={(event) => {
       setState({
-        activeIndex: event.active,
+        value: event,
       });
     }}
   />
