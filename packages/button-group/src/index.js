@@ -40,7 +40,7 @@ export default class ButtonGroup extends Component {
             key={index}
             variant={variant}
             className={getClassNames('hawk-button-group__button', {
-              active: _.isEqual(_.get(value, 'key'), index + 1),
+              active: _.isEqual(value, index + 1),
             })}
             onClick={() => {
               const data = {
