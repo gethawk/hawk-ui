@@ -26,7 +26,6 @@ export default class FormButtonGroup extends Component {
     const { visual, property, noTitle, value, onChange } = this.props;
     const variant = _.get(visual, 'variant', 'text');
     const suggestion = _.get(visual, 'suggest.options', []);
-    const active = _.get(visual, 'active', '');
 
     return (
       <div
@@ -38,7 +37,7 @@ export default class FormButtonGroup extends Component {
         <ButtonGroup
           variant={variant}
           panes={suggestion}
-          value={_.isEmpty(value) ? active : value}
+          value={value || _.get(visual, 'active', 1)}
           onClick={(event) => {
             onChange({ value: event.key });
           }}
