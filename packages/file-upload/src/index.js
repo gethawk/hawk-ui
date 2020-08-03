@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
 import _ from 'lodash';
@@ -19,10 +19,12 @@ export default class FileUpload extends Component {
     title: PropTypes.string,
     isIcon: PropTypes.bool,
     isDescribable: PropTypes.bool,
+    isDraggable: PropTypes.bool,
     onUpload: PropTypes.func,
   };
   static defaultProps = {
     isDescribable: false,
+    isDraggable: false,
     isIcon: false,
   };
   state = {
@@ -45,41 +47,63 @@ export default class FileUpload extends Component {
   };
 
   render() {
-    const { label, description, placeholder, title, isDescribable, isIcon } = this.props;
+    const { label, description, placeholder, title, isDescribable, isDraggable, isIcon } = this.props;
     const { fileName } = this.state;
 
     return (
       <div className="hawk-file-upload">
-        <div className="hawk-file-upload__section">
-          {isDescribable && (
-            <div className="hawk-file-upload__option">
-              <Input
-                type="text"
-                label={label}
-                placeholder={placeholder}
-                value={fileName}
-                isDisabled
-                description={description}
-              />
+        {isDraggable ? (
+          <div className="hawk-file-upload__draggable">
+            <div className="hawk-file-upload__draggable-content">
+              <div className="hawk-file-upload__draggable-title">{title}</div>
+              <div className="hawk-file-upload__draggable-description">{description}</div>
+              <Button
+                onClick={() => {
+                  this.onFileUpload();
+                }}
+              >
+                <span>Browse</span>
+              </Button>
             </div>
-          )}
-          <Button
-            onClick={() => {
-              this.onFileUpload();
-            }}
-          >
-            {!isIcon ? (
-              <span>{title}</span>
-            ) : (
-              <i className={title} />
-            )}
-          </Button>
-        </div>
-        <input
-          ref={(ref) => { this.uploadButton = ref; }}
-          type="file"
-          onChange={(event) => { this.onFileSelect(event); }}
-        />
+            <input
+              type="file"
+              onChange={(event) => { this.onFileSelect(event); }}
+            />
+          </div>
+        ) : (
+          <Fragment>
+            <div className="hawk-file-upload__section">
+              {isDescribable && (
+                <div className="hawk-file-upload__option">
+                  <Input
+                    type="text"
+                    label={label}
+                    placeholder={placeholder}
+                    value={fileName}
+                    isDisabled
+                    description={description}
+                  />
+                </div>
+              )}
+              <Button
+                onClick={() => {
+                  this.onFileUpload();
+                }}
+              >
+                {!isIcon ? (
+                  <span>{title}</span>
+                ) : (
+                  <i className={title} />
+                )}
+              </Button>
+            </div>
+            <input
+              ref={(ref) => { this.uploadButton = ref; }}
+              type="file"
+              onChange={(event) => { this.onFileSelect(event); }}
+            />
+          </Fragment>
+        )}
       </div>
     );
   }

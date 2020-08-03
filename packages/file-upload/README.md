@@ -33,5 +33,16 @@
       console.log('query file', file);
     }}
   />
+  <br /><br />
+  <p>On Drag and Drop</p>
+  <br />
+  <FileUpload
+    title="Drag and Drop Image Here"
+    description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
+    isDraggable
+    onUpload={(file) => {
+      console.log('query file', file);
+    }}
+  />
 </div>
 ```
