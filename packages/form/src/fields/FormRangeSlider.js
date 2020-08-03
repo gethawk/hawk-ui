@@ -28,7 +28,7 @@ export default class FormRangeSlider extends Component {
   }
 
   render() {
-    const { visual, property, value, noTitle, onChange } = this.props;
+    const { visual, property, noTitle, value, onChange } = this.props;
 
     const valueId = _.get(visual, 'value_id', '');
     const rangeId = _.get(visual, 'range_id', '');
@@ -49,7 +49,7 @@ export default class FormRangeSlider extends Component {
           min={min}
           max={max}
           step={rangeStep}
-          value={value}
+          value={value || _.get(visual, 'value', 50)}
           onChange={(event) => {
             onChange({ value: event });
           }}

@@ -233,6 +233,7 @@ const configuration = {
           range_min: 0,
           range_max: 100,
           range_step: 1,
+          value: 20,
           show_title: true
         },
         validation: {}
