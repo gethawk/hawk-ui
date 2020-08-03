@@ -63,7 +63,7 @@ export function configuration(type) {
             visual: {
               show_title: true,
               show_inline: true,
-              section_title: 'divider-picker',
+              section_title: 'border-styles',
             },
             validation: {},
             properties: {
