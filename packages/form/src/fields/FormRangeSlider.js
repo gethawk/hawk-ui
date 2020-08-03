@@ -36,6 +36,8 @@ export default class FormRangeSlider extends Component {
     const max = _.get(visual, 'range_max', 100);
     const rangeStep = _.get(visual, 'range_step', 1);
 
+    console.log('query value', value);
+    console.log('query visual value', _.get(visual, 'value', 50));
     return (
       <div
         data-field={property}
