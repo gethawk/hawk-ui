@@ -57,7 +57,56 @@ export function configuration(type) {
             },
             validation: {},
           },
-          border: {},
+          border: {
+            data_type: 'object',
+            title: 'Border',
+            visual: {
+              show_title: true,
+              show_inline: true,
+              section_title: 'divider-picker',
+            },
+            validation: {},
+            properties: {
+              border_style: {
+                data_type: 'string',
+                title: 'Border Style',
+                visual: {
+                  field_type: 'select',
+                  show_icon: true,
+                  show_title: false,
+                  suggest: {
+                    name: 'title',
+                    value: 'value',
+                    options: [
+                      { title: 'Solid', value: 'solid' },
+                    ],
+                  },
+                },
+              },
+              border_width: {
+                data_type: 'string',
+                title: 'Border Width',
+                visual: {
+                  field_type: 'input-group',
+                  show_title: false,
+                  addon: 'px',
+                  addon_size: 'small',
+                  addon_placement: 'right',
+                  addon_icon: false,
+                },
+                validation: {},
+              },
+              border_color: {
+                data_type: 'string',
+                title: 'Border Color',
+                visual: {
+                  field_type: 'color-picker',
+                  default_color: 'd9d9d9',
+                  show_title: false,
+                },
+              },
+            },
+          },
           color: {},
         },
       };

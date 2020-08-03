@@ -1,0 +1,19 @@
+@import '../../../../../../assets/scss/utils/variables';
+
+.divider-picker {
+  .hawk-label {
+    margin-bottom: 5px;
+  }
+  .hawk-select-dropdown {
+    width: 150px;
+  }
+  .hawk-input-group {
+    width: 80px;
+    .hawk-button {
+      width: 30px;
+    }
+    .hawk-input__wrapper {
+      width: 50px;
+    }
+  }
+}
