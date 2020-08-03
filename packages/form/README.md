@@ -133,6 +133,18 @@ const configuration = {
         },
         validation: {}
       },
+      update_drag_image: {
+        data_type: "string",
+        title: 'Upload Image',
+        visual: {
+          show_title: true,
+          title: "Drag and Drop Image Here",
+          description: "Supported file types: (*.png, *.jpg, *.jpeg). View format instructions.",
+          draggable: true,
+          field_type: "file-upload",
+        },
+        validation: {}
+      },
       address: {
         data_type: "string",
         title: "Address",
