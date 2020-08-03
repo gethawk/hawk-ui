@@ -17,6 +17,17 @@ export default function HawkTextSettings() {
       <Tabbed
         headers={['Container', 'Content']}
         panes={[
+          <div>Container</div>,
+          <div>Content</div>,
+        ]}
+        activeTabIndex={activeTabIndex}
+        onActiveTabChange={(event) => {
+          setActiveTabIndex(event);
+        }}
+      />
+      {/* <Tabbed
+        headers={['Container', 'Content']}
+        panes={[
           <HawkTextContainer />,
           <HawkTextContent />,
         ]}
@@ -24,7 +35,7 @@ export default function HawkTextSettings() {
         onActiveTabChange={(event) => {
           setActiveTabIndex(event);
         }}
-      />
+      /> */}
     </div>
   );
 }

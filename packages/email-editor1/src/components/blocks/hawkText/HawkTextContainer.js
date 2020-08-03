@@ -1,14 +1,14 @@
 // vendor modules
 import React from 'react';
 // react modules
-import Label from '@hawk-ui/label';
-import RangeSlider from '@hawk-ui/range-slider';
-import ColorPicker from '@hawk-ui/color-picker';
+// import Label from '@hawk-ui/label';
+// import RangeSlider from '@hawk-ui/range-slider';
+// import ColorPicker from '@hawk-ui/color-picker';
 
 export default function HawkTextContainer() {
   return (
     <div className="text-editor-container">
-      <div className="editor-form-section">
+      {/* <div className="editor-form-section">
         <Label
           title="Background Color"
         />
@@ -34,7 +34,7 @@ export default function HawkTextContainer() {
         <RangeSlider
           value="50"
         />
-      </div>
+      </div> */}
     </div>
   );
 }

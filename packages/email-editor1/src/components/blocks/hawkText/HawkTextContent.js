@@ -17,7 +17,7 @@ const lineSuggestions = [
 export default function HawkTextContent() {
   return (
     <div className="text-editor-content">
-      <div className="editor-form-section">
+      {/* <div className="editor-form-section">
         <SelectDropdown
           suggestions={suggestions}
           isIcon
@@ -34,7 +34,7 @@ export default function HawkTextContent() {
           renderSuggestion={(suggestion) => suggestion.title}
           label="Number of Columns"
         />
-      </div>
+      </div> */}
     </div>
   );
 }

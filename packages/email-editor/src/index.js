@@ -2,17 +2,12 @@
 import React, { Component } from 'react';
 // react modules
 import { Editor, Frame, Element } from '@craftjs/core';
-// block modules
-import HawkColumn from './components/blocks/hawkColumn/HawkColumn';
-import HawkButton from './components/blocks/hawkButton/HawkButton';
-import HawkText from './components/blocks/hawkText/HawkText';
-import HawkDivider from './components/blocks/hawkDivider/HawkDivider';
-import HawkImage from './components/blocks/hawkImage/HawkImage';
-import HawkContainer from './components/blocks/hawkContainer/HawkContainer';
-import RenderNode from './components/globals/RenderNode';
-import ViewPort from './components/viewPort/ViewPort';
+import _ from 'lodash';
+import Blocks from './selectors/blocks';
+import RenderNode from './editor/renderNode';
+import ViewPort from './editor/viewPort/viewPort';
 // css modules
-import './scss/index.scss';
+import './assets/scss/main.scss';
 
 /**
  * @example ../README.md
@@ -24,20 +19,23 @@ export default class EmailEditor extends Component {
 
   render() {
     const { enabled } = this.state;
+    const Text = _.get(Blocks, 'text');
 
     return (
       <div className="hawk-email-editor">
         <Editor
-          resolver={{
-            HawkColumn, HawkButton, HawkText, HawkDivider, HawkImage,
-          }}
+          resolver={
+            _.map(Blocks, (item) => {
+              _.keys(item);
+            })
+          }
           enabled={enabled}
           onRender={RenderNode}
         >
           <ViewPort>
             <Frame>
-              <Element canvas is={HawkContainer} padding={5} background="#eeeeee">
-                <HawkText>This is title</HawkText>
+              <Element canvas is={_.get(Blocks, 'container')} padding={5} background="#eeeeee">
+                <Text>This is Title</Text>
               </Element>
             </Frame>
           </ViewPort>
