@@ -6,6 +6,7 @@ import _ from 'lodash';
 import Blocks from './selectors/blocks';
 import RenderNode from './editor/renderNode';
 import ViewPort from './editor/viewPort/viewPort';
+import Layout1 from './selectors/layouts/sections/layout1';
 // css modules
 import './assets/scss/main.scss';
 
@@ -35,7 +36,16 @@ export default class EmailEditor extends Component {
           <ViewPort>
             <Frame>
               <Element canvas is={_.get(Blocks, 'container')} padding={5} background="#eeeeee">
-                <Text>This is Title</Text>
+                {/* <Layout1 />
+                <Text /> */}
+                <div>
+                  <div className="">
+                    <Text />
+                  </div>
+                  <div className="">
+                    <Text />
+                  </div>
+                </div>
               </Element>
             </Frame>
           </ViewPort>

@@ -4,7 +4,7 @@ import React from 'react';
 import _ from 'lodash';
 import { useEditor, Element } from '@craftjs/core';
 import FormColumn from './formColumn/formColumn';
-import FormText from './formText/FormText';
+import FormText from './formText/formText';
 import FormButton from './formButton/formButton';
 import FormDivider from './formDivider/formDivider';
 import FormImage from './formImage/formImage';
