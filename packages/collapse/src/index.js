@@ -14,20 +14,37 @@ export default class Collapse extends Component {
   static propTypes = {
     headers: PropTypes.array,
     panes: PropTypes.array,
-    activeItem: PropTypes.bool,
-    setActiveItem: PropTypes.func,
     className: PropTypes.string,
   };
-  static defaultProps = {
-    activeItem: 0,
+
+  componentDidMount() {
+    const accordianItemHeaders = document.querySelectorAll(
+      '.hawk-collapse-item-header',
+    );
+
+    accordianItemHeaders.forEach(accordianItemHeader => {
+      accordianItemHeader.addEventListener('click', () => {
+        const current = document.querySelector('.hawk-collapse-item-header.active');
+
+        if (current && current !== accordianItemHeader) {
+          current.classList.toggle('active');
+          current.nextElementSibling.style.maxHeight = 0;
+        }
+        accordianItemHeader.classList.toggle('active');
+
+        const accordianItemBody = accordianItemHeader.nextElementSibling;
+
+        if (accordianItemHeader.classList.contains('active')) {
+          accordianItemBody.style.maxHeight = `${accordianItemBody.scrollHeight}px`;
+        } else {
+          accordianItemBody.style.maxHeight = 0;
+        }
+      });
+    });
   }
 
-  state = {
-    activeItem: this.props.activeItem || 0,
-  };
-
   render() {
-    const { headers, panes, className, activeItem, setActiveItem } = this.props;
+    const { headers, panes, className } = this.props;
 
     return (
       <div
@@ -36,34 +53,13 @@ export default class Collapse extends Component {
         })}
       >
         {_.map(headers, (header, index) => (
-          <div
-            className="hawk-collapse__section"
-            key={index}
-          >
-            <div
-              className="hawk-collapse__header"
-              onClick={() => {
-                setActiveItem(index);
-              }}
-            >
-              <div className="hawk-collapse__header-title">
-                {header}
-              </div>
-              <div className="hawk-collapse__header-icon">
-                <i
-                  className={getClassnames('fa', {
-                    'fa-angle-up': activeItem === index,
-                    'fa-angle-down': activeItem !== index,
-                  })}
-                />
-              </div>
+          <div className="hawk-collapse-item">
+            <div className="hawk-collapse-item-header">
+              <h4>{header}</h4>
             </div>
-            <div
-              className="hawk-collapse__content"
-              style={activeItem !== index ? { maxHeight: '0px', padding: '0px' } : { maxHeight: '500px' }}
-            >
-              <div className="hawk-collapse__content-text">
-                {panes[index]}
+            <div className="hawk-collapse-item-body">
+              <div className="hawk-collapse-item-body-content">
+                <p>{panes[index]}</p>
               </div>
             </div>
           </div>
