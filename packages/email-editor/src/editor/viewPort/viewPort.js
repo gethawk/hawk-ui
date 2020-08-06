@@ -12,17 +12,17 @@ export default function ViewPort({ children, selectedLayout, onSelectLayout }) {
 
   return (
     <div
-      className="hawk-email-editor__container"
+      className="hawk-email-editor-viewport"
     >
       <div
-        className="hawk-email-editor__frame emailRender"
+        className="hawk-email-editor-viewport__frame emailRender"
         ref={(ref) => {
           connectors.select(connectors.hover(ref, null), null);
         }}
       >
         {children}
       </div>
-      <div className="hawk-email-editor__panel">
+      <div className="hawk-email-editor-viewport__panel">
         <Toolbar
           selectedLayout={selectedLayout}
           onSelectLayout={onSelectLayout}

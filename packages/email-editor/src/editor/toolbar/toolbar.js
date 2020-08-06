@@ -30,18 +30,18 @@ export default function Toolbar(props) {
   const { selectedLayout, onSelectLayout } = props;
 
   return (
-    <div className="toolbar-editor">
+    <div className="hawk-email-editor-toolbar">
       {_.isEmpty(selected) ? (
         <Header
           selectedLayout={selectedLayout}
           onSelectLayout={onSelectLayout}
         />
       ) : (
-        <div className="toolbar-editor__container">
-          <div className="toolbar-editor__title">
+        <div className="hawk-email-editor-toolbar__container">
+          <div className="hawk-email-editor-toolbar__title">
             {selected.name}
           </div>
-          <div className="toolbar-editor__content">
+          <div className="hawk-email-editor-toolbar__content">
             {selected.settings && React.createElement(selected.settings)}
           </div>
           <Footer />

@@ -1,8 +1,9 @@
 @import './editor/editor';
 @import './editor/toolbar';
 
-@import './selectors/columns';
-@import './selectors/layout';
-@import './selectors/tools';
+@import './selectors/layouts';
+@import './selectors/blocks';
+@import './selectors/styles';
 
 @import './components/components';
+@import './components/form';

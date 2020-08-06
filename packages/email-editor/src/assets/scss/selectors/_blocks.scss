@@ -1,0 +1,43 @@
+@import '../../../../../../assets/scss/utils/variables';
+
+.hawk-email-editor-blocks {
+  display: block;
+  justify-content: center;
+  flex-wrap: wrap;
+  .card-block {
+    width: 100px;
+    height: 110px;
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 1px 2px 1px rgba(90, 90, 90, 0.16);
+    background-color: $white;
+    border-radius: 4px;
+    outline: 0;
+    opacity: 0.5;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.18);
+      border: 1px solid $blue-1;
+      background-color: $blue-2;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+  &__icon {
+    i {
+      font-size: 30px;
+      color: $gray-4;
+    }
+  }
+  &__title {
+    color: $gray-4;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  .active {
+    border: 1px solid $blue-1;
+    background-color: $blue-2;
+  }
+}
