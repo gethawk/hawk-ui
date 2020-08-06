@@ -1,38 +1,47 @@
 @import '../../../assets/scss/utils/variables';
 
 .hawk-collapse {
-  &__section {
-    display: flex;
-    flex-direction: column;
-  }
-  &__header {
-    background-color: $white;
-    color: $blue-4;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: none;
-    outline: none;
-    transition: background-color 0.4s ease;
-    border-top: 2px solid $gray-4;
-    padding: 15px 10px;
-    &-title {
-      text-align: left;
-      font-size: 18px;
-      width: 90%;
-      color: $gray-1;
+  &-item {
+    background-color: white;
+    margin: 16px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    &-header {
+      padding: 8px 48px 8px 16px;
+      min-height: 48px;
+      line-height: 16px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #425a70;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      &::after {
+        content: "\002B";
+        font-size: 23px;
+        font-weight: bold;
+        position: absolute;
+        right: 16px;
+        transition: all 0.2s ease;
+      }
     }
-  }
-  &__content {
-    background-color: $white;
-    overflow: auto;
-    transition: max-height 0.4s ease;
-    font-size: 14px;
-    max-height: fit-content;
-    &-text {
-      padding: 15px 10px;
-      color: $gray-1;
+    .active {
+      &::after {
+        content: "\2212";
+      }
+    }
+    &-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      &-content {
+        padding: 16px;
+        line-height: 1.5;
+        border-top: 1px solid #e4e7eb;
+        font-size: 14px;
+        color: #425a70;
+      }
     }
   }
 }

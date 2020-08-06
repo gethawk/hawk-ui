@@ -1,29 +1,14 @@
 #### Pill Usage:
 
 ```js
-const headers = ['Will this opportunity allow me to work for Sequoia Capital India or across multiple startups?', 'I’ve seen Surge roles advertised on LinkedIn and other job boards. Is this the same thing?', 'How can I track the status of my application?'];
-const panes = [
-  <div>The Employee One program represents an application for a job at one of our Surge portfolio companies. It does not represent an application for a job at Surge or Sequoia Capital India.</div>,
-  <div>We do advertise for these roles on job boards like LinkedIn. These job listings all link back to our website, so yes, these are one and the same thing.</div>,
-  <div>You can follow the status of your application through the emails that you receive from Belong. At each stage, they will update you via email on whether you have been shortlisted. And if you have any questions about your application, you can email them at surgesupport@belong.co.</div>,
+const headers = ['How do I find my Windows Product key?', 'I’ve downloaded an ISO file, now what?', 'What’s the difference between 32-bit and 64-bit versions of Windows?'];
+const panes = ['The product key is located inside the product packaging, on the receipt or confirmation page for a digital purchase or in a confirmation e-mail that shows you purchased Windows. If you purchased a digital copy from Microsoft Store, you can locate your product key in your Account under Digital Content.', 'You can use the ISO file to create bootable media for installation or recovery. You can also install Windows on your current device by opening the ISO file, selecting the Setup and following the instructions.', 'The terms 32-bit and 64-bit refer to the way a computer’s processor (also called a CPU) handles information. The 64-bit version of Windows handles large amounts of random access memory (RAM) more effectively than a 32-bit system. Not all devices can run the 64-bit versions of Windows.',
 ];
 
-initialState = {
-  activeItem: 0,
-};
-
 <div className="styleguidist__input-wrap">
-  <div>Collapse Without Component</div>
-  <br /><br />
   <Collapse
     headers={headers}
     panes={panes}
-    activeItem={state.activeItem}
-    setActiveItem={(event) => {
-      setState({
-        activeItem: event,
-      });
-    }}
   />
 </div>
 ```
