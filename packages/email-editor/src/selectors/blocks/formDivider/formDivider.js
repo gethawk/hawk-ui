@@ -19,7 +19,6 @@ export default function FormDivider(props) {
           width: `${width}%`,
           alignItems: `${align}`,
         }}
-        className="divider-editor"
       />
     </div>
   );

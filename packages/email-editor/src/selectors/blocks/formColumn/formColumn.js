@@ -16,7 +16,6 @@ export default function FormColumn(props) {
         background,
         padding: `${padding}px`,
       }}
-      className="column-editor"
     >
       {children}
     </div>

@@ -12,7 +12,7 @@ export default function Layout1() {
   return (
     <Frame>
       <Element canvas is={_.get(Blocks, 'container')} padding={5} background="#eeeeee">
-        <div>
+        <div className="">
           <div className="">
             <Image />
             <Text />
