@@ -12,12 +12,12 @@ export default function Layout1() {
   return (
     <Frame>
       <Element canvas is={_.get(Blocks, 'container')} padding={5} background="#eeeeee">
-        <div className="">
-          <div className="">
+        <div className="hawk-email-editor-frame">
+          <div className="hawk-email-editor-frame__section">
             <Image />
             <Text />
           </div>
-          <div className="">
+          <div className="hawk-email-editor-frame__section">
             <Image />
             <Text />
           </div>

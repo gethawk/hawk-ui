@@ -1,0 +1,16 @@
+@import '../../../../../../assets/scss/utils/variables';
+
+.hawk-email-editor-frame {
+  &__section {
+    margin-top: 20px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  &__rows {
+    display: flex;
+  }
+  &__column {
+    flex: 1;
+  }
+}

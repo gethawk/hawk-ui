@@ -17,10 +17,22 @@ export default function Layout2() {
         padding={5}
         background="#eeeeee"
       >
-        <div>
-          <div className="">
+        <div className="hawk-email-editor-frame">
+          <div className="hawk-email-editor-frame__section">
             <Image />
             <Text />
+          </div>
+          <div className="hawk-email-editor-frame__section">
+            <div className="hawk-email-editor-frame__rows">
+              <div className="hawk-email-editor-frame__column">
+                <Image />
+                <Text />
+              </div>
+              <div className="hawk-email-editor-frame__column">
+                <Image />
+                <Text />
+              </div>
+            </div>
           </div>
         </div>
       </Element>
