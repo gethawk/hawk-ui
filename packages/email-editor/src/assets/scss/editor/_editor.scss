@@ -24,9 +24,12 @@
 }
 
 .hawk-email-editor-header {
+  height: 100%;
   .hawk-tabbed {
+    height: 100%;
     &__content {
       padding: 10px;
+      height: 100%;
     }
     &__header {
       &-item {
