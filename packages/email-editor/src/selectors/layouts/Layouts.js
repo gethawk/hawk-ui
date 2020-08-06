@@ -19,6 +19,7 @@ export default function Layouts(props) {
             active: _.isEqual(selected, index + 1),
           })}
           onClick={() => {
+            console.log('query layouts', index + 1);
             onSelectLayout(index + 1);
           }}
         >

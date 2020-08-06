@@ -1,15 +1,14 @@
 // vendor modules
-import React, { useState } from 'react';
+import React from 'react';
 // react modules
 import PropTypes from 'prop-types';
 import { useEditor } from '@craftjs/core';
 import Toolbar from '../toolbar/toolbar';
 
-export default function ViewPort({ children }) {
+export default function ViewPort({ children, selectedLayout, onSelectLayout }) {
   const { connectors } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
-  const [selected, setSelected] = useState(1);
 
   return (
     <div
@@ -25,10 +24,8 @@ export default function ViewPort({ children }) {
       </div>
       <div className="hawk-email-editor__panel">
         <Toolbar
-          selectedLayout={selected}
-          onSelectLayout={(event) => {
-            setSelected(event);
-          }}
+          selectedLayout={selectedLayout}
+          onSelectLayout={onSelectLayout}
         />
       </div>
     </div>
@@ -42,4 +39,6 @@ ViewPort.propTypes = {
     PropTypes.array,
     PropTypes.object,
   ]),
+  selectedLayout: PropTypes.number,
+  onSelectLayout: PropTypes.func,
 };

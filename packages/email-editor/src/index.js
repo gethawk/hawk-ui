@@ -1,12 +1,13 @@
 // vendor modules
 import React, { Component } from 'react';
 // react modules
-import { Editor, Frame, Element } from '@craftjs/core';
+import { Editor } from '@craftjs/core';
 import _ from 'lodash';
 import Blocks from './selectors/blocks';
 import RenderNode from './editor/renderNode';
 import ViewPort from './editor/viewPort/viewPort';
 import Layout1 from './selectors/layouts/sections/layout1';
+import Layout2 from './selectors/layouts/sections/layout2';
 // css modules
 import './assets/scss/main.scss';
 
@@ -15,12 +16,12 @@ import './assets/scss/main.scss';
  */
 export default class EmailEditor extends Component {
   state = {
+    layoutRender: 1,
     enabled: true,
   };
 
   render() {
-    const { enabled } = this.state;
-    const Text = _.get(Blocks, 'text');
+    const { layoutRender, enabled } = this.state;
 
     return (
       <div className="hawk-email-editor">
@@ -33,21 +34,19 @@ export default class EmailEditor extends Component {
           enabled={enabled}
           onRender={RenderNode}
         >
-          <ViewPort>
-            <Frame>
-              <Element canvas is={_.get(Blocks, 'container')} padding={5} background="#eeeeee">
-                {/* <Layout1 />
-                <Text /> */}
-                <div>
-                  <div className="">
-                    <Text />
-                  </div>
-                  <div className="">
-                    <Text />
-                  </div>
-                </div>
-              </Element>
-            </Frame>
+          <ViewPort
+            onSelectLayout={(event) => {
+              this.setState({
+                layoutRender: event,
+              });
+            }}
+            selectedLayout={layoutRender}
+          >
+            {_.isEqual(layoutRender, 1) ? (
+              <Layout1 />
+            ) : _.isEqual(layoutRender, 2) ? (
+              <Layout2 />
+            ) : null}
           </ViewPort>
         </Editor>
       </div>
