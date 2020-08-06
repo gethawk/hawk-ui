@@ -10,11 +10,12 @@
   "license": "MIT",
   "dependencies": {
     "@craftjs/core": "0.1.0-beta.10",
-    "@hawk-ui/button": "^2.6.4",
-    "@hawk-ui/file-upload": "^2.6.4",
-    "@hawk-ui/form": "^2.6.4",
-    "@hawk-ui/rich-text-editor": "^2.6.4",
-    "@hawk-ui/tabbed": "^2.6.4",
+    "@hawk-ui/button": "^2.6.5",
+    "@hawk-ui/collapse": "^2.6.5",
+    "@hawk-ui/file-upload": "^2.6.5",
+    "@hawk-ui/form": "^2.6.5",
+    "@hawk-ui/rich-text-editor": "^2.6.5",
+    "@hawk-ui/tabbed": "^2.6.5",
     "prop-types": "^15.7.2"
   },
   "publishConfig": {
