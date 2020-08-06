@@ -1,6 +1,7 @@
 // vendor modules
 import React, { useState } from 'react';
 // react modules
+import { useEditor } from '@craftjs/core';
 import _ from 'lodash';
 import getClassnames from 'classnames';
 
