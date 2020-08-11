@@ -6,7 +6,7 @@
   }
   &__icon {
     pointer-events: none;
-    color: orange;
+    color: $orange-3;
   }
   &__input {
     position: absolute !important;
@@ -17,16 +17,16 @@
   }
   &__label {
     cursor: pointer;
-    padding: 0 0.1em;
-    font-size: 2rem;
+    padding: 0 3px;
+    font-size: 32px;
   }
 }
 .hawk-rating__input:checked ~ .hawk-rating__label .hawk-rating__icon {
-  color: #ddd;
+  color: $gray-11;
 }
 .hawk-rating__group:hover .hawk-rating__label .hawk-rating__icon {
-  color: orange;
+  color: $orange-3;
 }
 .hawk-rating__input:hover ~ .hawk-rating__label .hawk-rating__icon {
-  color: #ddd;
+  color: $gray-11;
 }
