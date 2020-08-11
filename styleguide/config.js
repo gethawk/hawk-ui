@@ -21,6 +21,7 @@ module.exports = {
         '../packages/border-picker/src/index.js',
         '../packages/checkbox/src/index.js',
         '../packages/radio/src/index.js',
+        '../packages/rating/src/index.js',
         '../packages/toggle/src/index.js',
         '../packages/loader/src/index.js',
         '../packages/modal/src/index.js',

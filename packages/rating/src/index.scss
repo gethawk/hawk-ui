@@ -1,0 +1,32 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-rating {
+  &__group {
+    display: inline-flex;
+  }
+  &__icon {
+    pointer-events: none;
+    color: orange;
+  }
+  &__input {
+    position: absolute !important;
+    display: none;
+    &-none {
+      display: none;
+    }
+  }
+  &__label {
+    cursor: pointer;
+    padding: 0 0.1em;
+    font-size: 2rem;
+  }
+}
+.hawk-rating__input:checked ~ .hawk-rating__label .hawk-rating__icon {
+  color: #ddd;
+}
+.hawk-rating__group:hover .hawk-rating__label .hawk-rating__icon {
+  color: orange;
+}
+.hawk-rating__input:hover ~ .hawk-rating__label .hawk-rating__icon {
+  color: #ddd;
+}
