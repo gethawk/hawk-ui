@@ -29,6 +29,7 @@ module.exports = {
         '../packages/tabbed/src/index.js',
         '../packages/card/src/index.js',
         '../packages/image/src/index.js',
+        '../packages/carousel/src/index.js',
         '../packages/pagination/src/index.js',
         '../packages/table/src/index.js',
         '../packages/form/src/index.js',
