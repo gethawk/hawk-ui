@@ -49,7 +49,7 @@ export default class Rating extends Component {
                 htmlFor={`rating-${item}`}
                 onClick={() => { this.onHandleClick(item); }}
               >
-                <i className="hawk-rating__icon fa fa-star" />
+                <i className="hawk-rating__icon fas fa-star" />
               </label>
               <input
                 type="radio"
