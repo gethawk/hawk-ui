@@ -200,7 +200,7 @@ class TableContent extends Component {
           </thead>
         )}
         <tbody>
-          {_.map(this.state.tableContent, (content, index) => (
+          {_.map(tableContent, (content, index) => (
             <tr
               key={index}
               className={_.includes(selectedItems, content.id) ? 'active' : 'inactive'}
@@ -295,12 +295,14 @@ export default class Table extends Component {
   onSearchInput = (event) => {
     const searchValue = event.target.value.toLowerCase();
 
+    console.log('query searchValue', searchValue);
     const tableContent = _.filter(this.props.tableContent, (content) => _.reduce(this.props.tableSearchContent, (result, key) => {
       if (content[key].toLowerCase().includes(searchValue)) { return true; }
 
       return result || false;
     }, false));
 
+    console.log('query tableContent', tableContent);
     this.setState({ tableContent });
   };
 
