@@ -39,12 +39,11 @@ initialState = {
     exports={[
       {
         key: 'csv',
-        title: 'CSV',
+        title: 'CSV Download',
         columns: [0, 1, 2],
       },
       'excel', 'pdf', 'print'
     ]}
-    // exports={['csv', 'excel', 'pdf', 'print']}
   >
     <Table.SEARCH />
     <Table.CONTENT
@@ -66,6 +65,7 @@ initialState = {
     id="table2"
     tableContent={state.searchContent}
     tableSearchContent={['company', 'contact', 'country']}
+    exports={['csv', 'excel', 'pdf', 'print']}
   >
     <Table.SEARCH />
     <Table.CONTENT
