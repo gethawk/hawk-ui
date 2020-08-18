@@ -2,6 +2,7 @@
 import React, { Fragment, Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 import Button from '@hawk-ui/button';
 import Input from '@hawk-ui/input';
@@ -72,7 +73,11 @@ export default class FileUpload extends Component {
           </div>
         ) : (
           <Fragment>
-            <div className="hawk-file-upload__section">
+            <div
+              className={getClassnames('hawk-file-upload__section', {
+                'hawk-file-upload__section-label': _.isString(label),
+              })}
+            >
               {isDescribable && (
                 <div className="hawk-file-upload__option">
                   <Input

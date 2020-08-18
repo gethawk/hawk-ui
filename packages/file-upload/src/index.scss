@@ -9,7 +9,10 @@
   }
   &__section {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    &-label {
+      align-items: center;
+    }
   }
   &__option {
     width: calc(100% - 110px);
