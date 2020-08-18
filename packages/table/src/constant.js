@@ -1,4 +1,4 @@
-import { keyMirror } from './utils';
+import { keyMirror } from './utils/sortBy';
 
 export const sortOrders = keyMirror([
   'ASCENDING',

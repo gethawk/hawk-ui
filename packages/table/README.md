@@ -36,6 +36,14 @@ initialState = {
   <Table
     tableContent={state.searchContent}
     tableSearchContent={['company', 'contact', 'country']}
+    exports={[
+      {
+        key: 'csv',
+        title: 'CSV',
+      },
+      'excel', 'pdf', 'print'
+    ]}
+    // exports={['csv', 'excel', 'pdf', 'print']}
   >
     <Table.SEARCH />
     <Table.CONTENT
@@ -54,6 +62,7 @@ initialState = {
   <p>Multiple Row</p>
   <br />
   <Table
+    id="table2"
     tableContent={state.searchContent}
     tableSearchContent={['company', 'contact', 'country']}
   >

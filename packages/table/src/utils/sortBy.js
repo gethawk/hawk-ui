@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { sortOrders } from './constant';
+import { sortOrders } from '../constant';
 
 export function keyMirror(keys) {
   return keys.reduce((result, key) => ({ ...result, [key]: key }), {});

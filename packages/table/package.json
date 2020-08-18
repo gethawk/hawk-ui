@@ -9,6 +9,7 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
+    "@hawk-ui/button": "^2.7.3",
     "@hawk-ui/checkbox": "^2.7.3",
     "@hawk-ui/input": "^2.7.3",
     "@hawk-ui/pagination": "^2.7.3",

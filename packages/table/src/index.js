@@ -7,10 +7,12 @@ import getClassnames from 'classnames';
 import Input from '@hawk-ui/input';
 import Pagination from '@hawk-ui/pagination';
 import Checkbox from '@hawk-ui/checkbox';
+import Button from '@hawk-ui/button';
 // constant modules
 import { sortOrders } from './constant';
 // utils modules
-import { sortByColumn } from './utils';
+import { sortByColumn } from './utils/sortBy';
+import { exportToCsv } from './utils/downloadCSV';
 // css modules
 import './index.scss';
 
@@ -20,23 +22,55 @@ const TableContext = createContext({
 
 class TableSearch extends Component {
   static displayName = 'TableSearch';
+  static contextType = TableContext;
   state = {};
 
   render() {
     return (
       <div className="hawk-table__filter">
-        <TableContext.Consumer>
-          {({ onSearch }) => (
-            <Input
-              type="text"
-              isLabel
-              label="Search:"
-              onChange={(event) => {
-                onSearch(event);
-              }}
-            />
-          )}
-        </TableContext.Consumer>
+        <div className="hawk-table__filter-downloads">
+          {_.map(_.get(this.context, 'exports'), (item, index) => (
+            <Button
+              key={index}
+              onClick={
+                _.isObject(item) ?
+                  _.isEqual(_.get(item, 'key'), 'csv') ? () => { exportToCsv(_.get(this.context, 'id')); }
+                    : null
+                  : _.isEqual(item, 'csv') ? () => { exportToCsv(_.get(this.context, 'id')); }
+                    : null
+              }
+            >
+              <span>
+                {_.isObject(item) ?
+                  _.isEqual(_.get(item, 'key'), 'csv') ? _.get(item, 'title', 'CSV')
+                    : _.isEqual(_.get(item, 'key'), 'excel') ? _.get(item, 'title', 'Excel')
+                    : _.isEqual(_.get(item, 'key'), 'pdf') ? _.get(item, 'title', 'PDF')
+                    : _.isEqual(_.get(item, 'key'), 'print') ? _.get(item, 'title', 'Print')
+                    : null
+                  : _.isEqual(item, 'csv') ? 'CSV'
+                    : _.isEqual(item, 'excel') ? 'Excel'
+                    : _.isEqual(item, 'pdf') ? 'PDF'
+                    : _.isEqual(item, 'print') ? 'Print'
+                    : null
+                }
+              </span>
+            </Button>
+          ))}
+        </div>
+        <div className="hawk-table__filter-search">
+          <TableContext.Consumer>
+            {({ onSearch }) => (
+              <Input
+                type="text"
+                isLabel
+                label="Search:"
+                onChange={(event) => {
+                  onSearch(event);
+                }}
+              />
+            )}
+          </TableContext.Consumer>
+        </div>
       </div>
     );
   }
@@ -175,7 +209,7 @@ class TableContent extends Component {
     const { tableContent } = this.context;
 
     return (
-      <table>
+      <table id={this.context.id}>
         {isHeaderShow && (
           <thead>
             <tr>
@@ -264,6 +298,7 @@ class TableContent extends Component {
 export default class Table extends Component {
   static displayName = 'Table';
   static propTypes = {
+    id: PropTypes.string,
     children: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.array,
@@ -275,7 +310,12 @@ export default class Table extends Component {
     ]),
     tableSearchContent: PropTypes.array,
     onSearch: PropTypes.func,
+    exports: PropTypes.array,
   };
+  static defaultProps = {
+    id: 'table',
+    exports: [],
+  }
   static SEARCH = TableSearch;
   static PAGINATION = TablePagination;
   static CONTENT = TableContent;
@@ -288,7 +328,9 @@ export default class Table extends Component {
 
     this.state = {
       tableContent: this.props.tableContent,
+      id: this.props.id,
       onSearch: this.onSearch,
+      exports: this.props.exports,
     };
   }
 

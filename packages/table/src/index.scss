@@ -3,8 +3,23 @@
 .hawk-table {
   &__filter {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+    &-downloads {
+      display: flex;
+      .hawk-button {
+        font-size: 12px;
+        padding: 5px 8px;
+        margin-left: 5px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+    &-search {
+      display: flex;
+      align-items: center;
+    }
     .hawk-input__label {
       margin-bottom: 0;
     }
