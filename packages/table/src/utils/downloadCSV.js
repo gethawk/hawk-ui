@@ -1,3 +1,6 @@
+import _ from 'lodash';
+import { Fragment } from 'react';
+
 function downloadCSV(csv, filename) {
   // CSV FILE
   const csvFile = new Blob([csv], { type: 'text/csv' });
@@ -21,7 +24,7 @@ function downloadCSV(csv, filename) {
   downloadLink.click();
 }
 
-export function exportToCsv(tableId) {
+export function exportToCsv(tableId, columns = []) {
   const filename = 'download.csv';
   const csv = [];
   const rows = document.getElementById(tableId).querySelectorAll('tr');
@@ -31,7 +34,12 @@ export function exportToCsv(tableId) {
     const cols = rows[i].querySelectorAll('td, th');
 
     for (let j = 0; j < cols.length; j++) {
-      row.push(cols[j].innerText);
+      if (_.includes(columns, j) && !_.isEmpty(columns)) {
+        row.push(cols[j].innerText);
+      }
+      if (_.isEmpty(columns)) {
+        row.push(cols[j].innerText);
+      }
     }
     csv.push(row.join(','));
   }

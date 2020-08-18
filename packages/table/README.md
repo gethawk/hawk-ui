@@ -40,6 +40,7 @@ initialState = {
       {
         key: 'csv',
         title: 'CSV',
+        columns: [0, 1, 2],
       },
       'excel', 'pdf', 'print'
     ]}

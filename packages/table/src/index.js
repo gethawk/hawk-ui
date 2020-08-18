@@ -34,7 +34,7 @@ class TableSearch extends Component {
               key={index}
               onClick={
                 _.isObject(item) ?
-                  _.isEqual(_.get(item, 'key'), 'csv') ? () => { exportToCsv(_.get(this.context, 'id')); }
+                  _.isEqual(_.get(item, 'key'), 'csv') ? () => { exportToCsv(_.get(this.context, 'id'), _.get(item, 'columns')); }
                     : null
                   : _.isEqual(item, 'csv') ? () => { exportToCsv(_.get(this.context, 'id')); }
                     : null
