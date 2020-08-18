@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/dropdown",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "hawk-ui: Basic Dropdown Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^2.7.1",
+    "@hawk-ui/button": "^2.7.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
