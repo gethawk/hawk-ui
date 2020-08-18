@@ -200,50 +200,58 @@ class TableContent extends Component {
           </thead>
         )}
         <tbody>
-          {_.map(tableContent, (content, index) => (
-            <tr
-              key={index}
-              className={_.includes(selectedItems, content.id) ? 'active' : 'inactive'}
-            >
-              {isSelectable && (
-                <td>
-                  <Checkbox
-                    isChecked={_.includes(selectedItems, content.id)}
-                    onChange={() => { this.onSelect(content.id); }}
-                  />
-                </td>
-              )}
-              {_.map(tableHeader, (item, subIndex) => (
-                !_.isEmpty(item.dataIndex) ? (
-                  <td key={subIndex}>
-                    {_.isString(item.dataIndex) ? (
-                      <span>
-                        {content[item.dataIndex]}
-                      </span>
-                    ) : (
-                      <div
-                        className="hawk-table__content"
-                      >
-                        {_.map(item.dataIndex, (value, tdIndex) => (
-                          (!item.dataRender) ? (
-                            <div key={tdIndex}>{content[value]}</div>
-                          ) : (
-                            <Fragment>
-                              {_.isEmpty(item.renderItem(content)[tdIndex]) ? (
+          {!_.isEmpty(tableContent) ? (
+            <Fragment>
+              {_.map(tableContent, (content, index) => (
+                <tr
+                  key={index}
+                  className={_.includes(selectedItems, content.id) ? 'active' : 'inactive'}
+                >
+                  {isSelectable && (
+                    <td>
+                      <Checkbox
+                        isChecked={_.includes(selectedItems, content.id)}
+                        onChange={() => { this.onSelect(content.id); }}
+                      />
+                    </td>
+                  )}
+                  {_.map(tableHeader, (item, subIndex) => (
+                    !_.isEmpty(item.dataIndex) ? (
+                      <td key={subIndex}>
+                        {_.isString(item.dataIndex) ? (
+                          <span>
+                            {content[item.dataIndex]}
+                          </span>
+                        ) : (
+                          <div
+                            className="hawk-table__content"
+                          >
+                            {_.map(item.dataIndex, (value, tdIndex) => (
+                              (!item.dataRender) ? (
                                 <div key={tdIndex}>{content[value]}</div>
                               ) : (
-                                <div key={tdIndex}>{item.renderItem(content)[tdIndex]}</div>
-                              )}
-                            </Fragment>
-                          )
-                        ))}
-                      </div>
-                    )}
-                  </td>
-                ) : <td key={subIndex}>{item.render(content)}</td>
+                                <Fragment>
+                                  {_.isEmpty(item.renderItem(content)[tdIndex]) ? (
+                                    <div key={tdIndex}>{content[value]}</div>
+                                  ) : (
+                                    <div key={tdIndex}>{item.renderItem(content)[tdIndex]}</div>
+                                  )}
+                                </Fragment>
+                              )
+                            ))}
+                          </div>
+                        )}
+                      </td>
+                    ) : <td key={subIndex}>{item.render(content)}</td>
+                  ))}
+                </tr>
               ))}
+            </Fragment>
+          ) : (
+            <tr>
+              <td className="not-found" colSpan={tableHeader.length}>No matching records found</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     );
