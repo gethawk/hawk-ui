@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { Fragment } from 'react';
 
 function downloadCSV(csv, filename) {
   // CSV FILE
