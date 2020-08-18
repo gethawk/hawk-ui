@@ -18,6 +18,7 @@ import './index.scss';
 
 const TableContext = createContext({
   onSearch: () => {},
+  onSort: () => {},
 });
 
 class TableSearch extends Component {
@@ -129,7 +130,6 @@ class TableContent extends Component {
     isSorting: false,
   }
   state = {
-    tableContent: this.context.tableContent,
     selectedItems: this.props.selected || [],
     sortingMeta: {
       columnKey: '',
@@ -178,28 +178,30 @@ class TableContent extends Component {
     const isOrderingSetForColumn = this.state.sortingMeta.columnKey === column.key;
 
     return (
-      <i
-        className={getClassnames('icon fas', {
-          'fa-sort-amount-up': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
-          'fa-sort-amount-down': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
-        })}
-        onClick={() => {
-          const order = !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING) ? sortOrders.ASCENDING : sortOrders.DESCENDING;
+      <TableContext.Consumer>
+        {({ onSort }) => (
+          <i
+            className={getClassnames('icon fas', {
+              'fa-sort-amount-up': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
+              'fa-sort-amount-down': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
+            })}
+            onClick={() => {
+              const order = !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING) ? sortOrders.ASCENDING : sortOrders.DESCENDING;
 
-          this.setState({
-            sortingMeta: {
-              columnKey: column.dataIndex,
-              order,
-            },
-          }, () => {
-            const sortedColumn = sortByColumn(column.dataIndex, this.context.tableContent, this.state.sortingMeta.order);
+              this.setState({
+                sortingMeta: {
+                  columnKey: column.dataIndex,
+                  order,
+                },
+              }, () => {
+                const sortedColumn = sortByColumn(column.dataIndex, this.context.tableContent, this.state.sortingMeta.order);
 
-            this.setState({
-              tableContent: sortedColumn,
-            });
-          });
-        }}
-      />
+                onSort(sortedColumn);
+              });
+            }}
+          />
+        )}
+      </TableContext.Consumer>
     );
   };
 
@@ -326,10 +328,15 @@ export default class Table extends Component {
       this.onSearchInput(event);
     };
 
+    this.onSort = (event) => {
+      this.onSortColumn(event);
+    };
+
     this.state = {
       tableContent: this.props.tableContent,
       id: this.props.id,
       onSearch: this.onSearch,
+      onSort: this.onSort,
       exports: this.props.exports,
     };
   }
@@ -352,6 +359,12 @@ export default class Table extends Component {
     }, false));
 
     this.setState({ tableContent });
+  };
+
+  onSortColumn = (event) => {
+    this.setState({
+      tableContent: event,
+    });
   };
 
   render() {
