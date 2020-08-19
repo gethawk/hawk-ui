@@ -12,7 +12,8 @@ import Button from '@hawk-ui/button';
 import { sortOrders } from './constant';
 // utils modules
 import { sortByColumn } from './utils/sortBy';
-import { exportToCsv } from './utils/downloadCSV';
+import { exportToCsv } from './utils/exportCSV';
+import { exportToPrint } from './utils/exportPrint';
 // css modules
 import './index.scss';
 
@@ -36,8 +37,10 @@ class TableSearch extends Component {
               onClick={
                 _.isObject(item) ?
                   _.isEqual(_.get(item, 'key'), 'csv') ? () => { exportToCsv(_.get(this.context, 'id'), _.get(item, 'columns')); }
+                    : _.isEqual(_.get(item, 'key'), 'print') ? () => { exportToPrint(_.get(this.context, 'id'), _.get(item, 'columns')); }
                     : null
                   : _.isEqual(item, 'csv') ? () => { exportToCsv(_.get(this.context, 'id')); }
+                    : _.isEqual(item, 'print') ? () => { exportToPrint(_.get(this.context, 'id')); }
                     : null
               }
             >

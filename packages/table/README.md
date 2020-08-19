@@ -42,7 +42,11 @@ initialState = {
         title: 'CSV Download',
         columns: [0, 1, 2],
       },
-      'excel', 'pdf', 'print'
+      {
+        key: 'print',
+        title: 'Print',
+        columns: [0, 1, 2],
+      },
     ]}
   >
     <Table.SEARCH />
@@ -65,7 +69,7 @@ initialState = {
     id="table2"
     tableContent={state.searchContent}
     tableSearchContent={['company', 'contact', 'country']}
-    exports={['csv', 'excel', 'pdf', 'print']}
+    exports={['csv', 'print']}
   >
     <Table.SEARCH />
     <Table.CONTENT
