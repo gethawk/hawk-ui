@@ -1,0 +1,41 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-json-pretty {
+  pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.428571429;
+    word-break: break-all;
+    word-wrap: break-word;
+    border: 1px solid $gray-2;
+    border-radius: 4px;
+  }
+  .light {
+    color: $gray-12;
+    background-color: $gray-6;
+    .key {
+      color: brown;
+    }
+    .val {
+      color: navy;
+    }
+    .str {
+      color: olive;
+    }
+  }
+  .dark {
+    color: $white;
+    background-color: $gray-13;
+    .key {
+      color: #f92672;
+    }
+    .val {
+      color: #a6e22e;
+    }
+    .str {
+      color: #fd971f;
+    }
+  }
+}
