@@ -1,5 +1,5 @@
 ## Installation
-`$ npm install react-button --save`
+`$ npm install @hawk-ui/button --save`
 
 
 ## Usage
@@ -37,7 +37,7 @@
 
 
 #### Disabled Button:
-[Demo](https://hawk.wallnit.com/#!/Button/1)
+[Demo](https://hawk.wallnit.com/#!/Button/3)
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Button
@@ -71,7 +71,7 @@
 
 
 #### Icon Button:
-[Demo](https://hawk.wallnit.com/#!/Button/1)
+[Demo](https://hawk.wallnit.com/#!/Button/5)
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Button
