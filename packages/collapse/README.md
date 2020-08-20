@@ -1,14 +1,19 @@
-#### Pill Usage:
+## Installation
+`$ npm install @hawk-ui/collapse --save`
 
+
+## Usage
+
+
+#### Collapse
+[Demo]()
 ```js
 const headers = ['How do I find my Windows Product key?', 'I’ve downloaded an ISO file, now what?', 'What’s the difference between 32-bit and 64-bit versions of Windows?'];
 const panes = ['The product key is located inside the product packaging, on the receipt or confirmation page for a digital purchase or in a confirmation e-mail that shows you purchased Windows. If you purchased a digital copy from Microsoft Store, you can locate your product key in your Account under Digital Content.', 'You can use the ISO file to create bootable media for installation or recovery. You can also install Windows on your current device by opening the ISO file, selecting the Setup and following the instructions.', 'The terms 32-bit and 64-bit refer to the way a computer’s processor (also called a CPU) handles information. The 64-bit version of Windows handles large amounts of random access memory (RAM) more effectively than a 32-bit system. Not all devices can run the 64-bit versions of Windows.',
 ];
 
-<div className="styleguidist__input-wrap">
-  <Collapse
-    headers={headers}
-    panes={panes}
-  />
-</div>
+<Collapse
+  headers={headers}
+  panes={panes}
+/>
 ```

@@ -1,5 +1,12 @@
-#### Basic Pagination Usage:
+## Installation
+`$ npm install @hawk-ui/pagination --save`
 
+
+## Usage
+
+
+#### Pagination
+[Demo]()
 ```js
 const [PAGE_RANGE_DISPLAYED, PAGE_SIZE, totalResults] = [5, 15, 1000];
 

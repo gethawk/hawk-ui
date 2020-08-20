@@ -1,10 +1,15 @@
-#### Basic Progress Bar Usage:
+## Installation
+`$ npm install @hawk-ui/progress-bar --save`
 
+
+## Usage
+
+
+#### Progress Bar
+[Demo]()
 ```js
-<div className="styleguidist__btns-wrap">
-  <ProgressBar
-    value={7}
-    maxRange={10}
-  />
-</div>
+<ProgressBar
+  value={7}
+  maxRange={10}
+/>
 ```

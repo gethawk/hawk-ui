@@ -1,72 +1,96 @@
-#### Basic Input Group Usage:
+## Installation
+`$ npm install @hawk-ui/button-group --save`
 
+
+## Usage
+
+
+#### Addon Left Placement
+[Demo]()
+```js
+initialState = {
+  value: 'Hello World',
+};
+
+<InputGroup
+  addon="Text"
+  addonPlacement="left"
+  type="text"
+  value={state.value}
+  placeholder="Please enter value"
+  onChange={(event) => {
+    setState({
+      value: event.target.value,
+    });
+  }}
+/>
+```
+
+
+#### Addon Right Placement
+[Demo]()
+```js
+<InputGroup
+  addon="0.00"
+  addonPlacement="right"
+/>
+```
+
+
+#### Addon Small Placement
+[Demo]()
+```js
+<InputGroup
+  addon="Text"
+  addonSize="small"
+/>
+```
+
+
+#### Addon Medium Placement
+[Demo]()
+```js
+<InputGroup
+  addon="Text"
+  addonSize="medium"
+/>
+```
+
+
+#### Addon Large Placement
+[Demo]()
+```js
+<InputGroup
+  addon="Text"
+  addonSize="large"
+/>
+```
+
+
+#### Addon Icon
+[Demo]()
+```js
+<InputGroup
+  addon="fa fa-at"
+  isAddonIcon
+/>
+```
+
+
+#### Addon Element
+[Demo]()
 ```js
 initialState = {
   fruits: [
     { key: 1, label: '', value: '1' },
   ],
-  value: 'Hello World',
 };
 
-<div className="styleguidist__btns-wrap">
-  <p>Addon Left Placement</p>
-  <br />
-  <InputGroup
-    addon="Text"
-    addonPlacement="left"
-    type="text"
-    value={state.value}
-    placeholder="Please enter value"
-    onChange={(event) => {
-      setState({
-        value: event.target.value,
-      });
-    }}
-  />
-  <br /><br />
-  <p>Addon Right Placement</p>
-  <br />
-  <InputGroup
-    addon="0.00"
-    addonPlacement="right"
-  />
-  <br /><br />
-  <p>Addon Small Placement</p>
-  <br />
-  <InputGroup
-    addon="Text"
-    addonSize="small"
-  />
-  <br /><br />
-  <p>Addon Medium Placement</p>
-  <br />
-  <InputGroup
-    addon="Text"
-    addonSize="medium"
-  />
-  <br /><br />
-  <p>Addon Large Placement</p>
-  <br />
-  <InputGroup
-    addon="Text"
-    addonSize="large"
-  />
-  <br /><br />
-  <p>Addon Element Placement</p>
-  <br />
-  <InputGroup
-    addon="fa fa-at"
-    isAddonIcon
-  />
-  <br /><br />
-  <p>Addon Element Placement</p>
-  <br />
-  <InputGroup
-    addon={
-      <Checkbox
-        options={state.fruits}
-      />
-    }
-  />
-</div>
+<InputGroup
+  addon={
+    <Checkbox
+      options={state.fruits}
+    />
+  }
+/>
 ```

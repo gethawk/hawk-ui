@@ -1,39 +1,48 @@
-#### Basic Range Slider Usage:
+## Installation
+`$ npm install @hawk-ui/range-slider --save`
 
+
+## Usage
+
+
+#### Default Range Slider
+[Demo]()
 ```js
 initialState = {
-  range1: 50,
-  range2: 20,
+  range: 50,
 };
 
-<div className="styleguidist__btns-wrap">
-  <p>Default Range Slider</p>
-  <br />
-  <RangeSlider
-    valueId="rangeValue1"
-    rangeId="range1"
-    value={state.range1}
-    onChange={(value) => {
-      setState({
-        range1: value,
-      });
-    }}
-  />
-  <br /><br />
-  <p>Range Slider 0 - 50</p>
-  <br />
-  <RangeSlider
-    valueId="rangeValue2"
-    rangeId="range2"
-    min={0}
-    max={50}
-    step={5}
-    value={state.range2}
-    onChange={(value) => {
-      setState({
-        range2: value,
-      });
-    }}
-  />
-</div>
+<RangeSlider
+  valueId="rangeValue1"
+  rangeId="range1"
+  value={state.range}
+  onChange={(value) => {
+    setState({
+      range: value,
+    });
+  }}
+/>
+```
+
+
+#### Range Slider 0 - 50
+[Demo]()
+```js
+initialState = {
+  range: 20,
+};
+
+<RangeSlider
+  valueId="rangeValue2"
+  rangeId="range2"
+  min={0}
+  max={50}
+  step={5}
+  value={state.range}
+  onChange={(value) => {
+    setState({
+      range: value,
+    });
+  }}
+/>
 ```

@@ -1,7 +1,12 @@
-#### Basic Time Picker Usage:
+## Installation
+`$ npm install @hawk-ui/time-picker --save`
 
+
+## Usage
+
+
+#### Time Picker:
+[Demo]()
 ```js
-<div className="styleguidist__btns-wrap">
-  <TimePicker />
-</div>
+<TimePicker />
 ```

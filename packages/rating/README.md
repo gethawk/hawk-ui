@@ -1,10 +1,15 @@
-#### Basic Rating Usage:
+## Installation
+`$ npm install @hawk-ui/rating --save`
 
+
+## Usage
+
+
+#### Rating
+[Demo]()
 ```js
-<div className="styleguidist__btns-wrap">
-  <Rating
-    active={3}
-    onClick={(item) => { console.log('item', item); }}
-  />
-</div>
+<Rating
+  active={3}
+  onClick={(item) => { console.log('item', item); }}
+/>
 ```

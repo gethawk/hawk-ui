@@ -1,5 +1,12 @@
-#### Basic Form Usage:
+## Installation
+`$ npm install @hawk-ui/form --save`
 
+
+## Usage
+
+
+#### Form:
+[Demo]()
 ```js
 const configuration = {
   data_type: "object",
@@ -354,13 +361,14 @@ const configuration = {
       }
   }
 };
+
 initialState = {
   data: {},
   errors: {},
   submitted: false,
 };
 
-<div className="styleguidist__btns-wrap">
+<div>
   <Form
     className="candidate-edit-form"
     configuration={configuration}
@@ -393,6 +401,7 @@ initialState = {
     }}
     isSubmitted={state.submitted}
   />
+
   <button
     type="button"
     className="hawk-button"

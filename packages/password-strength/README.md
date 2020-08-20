@@ -1,11 +1,18 @@
-#### Basic Password Strength Usage:
+## Installation
+`$ npm install @hawk-ui/password-strength --save`
 
+
+## Usage
+
+
+#### Password Strength
+[Demo]()
 ```js
 initialState = {
   password: ''
 };
 
-<div className="styleguidist__btns-wrap">
+<div>
   <input
     type="password"
     className="hawk-input"
@@ -15,7 +22,7 @@ initialState = {
       setState({ password: event.target.value });
     }}
   />
-  <br />
+
   <PasswordStrength
     value={state.password}
   />

@@ -1,12 +1,17 @@
-#### Basic Tooltip Usage:
+## Installation
+`$ npm install @hawk-ui/tooltip --save`
 
+
+## Usage
+
+
+#### Tooltip:
+[Demo]()
 ```js
-<div className="styleguidist__btns-wrap">
-  <Tooltip
-    position="right"
-    content="Tooltip"
-  >
-    Hover me
-  </Tooltip>
-</div>
+<Tooltip
+  position="right"
+  content="Tooltip"
+>
+  Hover me
+</Tooltip>
 ```

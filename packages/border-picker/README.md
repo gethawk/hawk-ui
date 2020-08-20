@@ -1,18 +1,23 @@
-#### Basic Border Picker Usage:
+## Installation
+`$ npm install @hawk-ui/border-picker --save`
 
+
+## Usage
+
+
+#### Border Picker:
+[Demo]()
 ```js
 initialState = {
   selectedBorder: 'solid',
 };
 
-<div className="styleguidist__btns-wrap">
-  <BorderPicker
-    type={state.selectedBorder}
-    onSelect={(event) => {
-      setState({
-        selectedBorder: event,
-      });
-    }}
-  />
-</div>
+<BorderPicker
+  type={state.selectedBorder}
+  onSelect={(event) => {
+    setState({
+      selectedBorder: event,
+    });
+  }}
+/>
 ```

@@ -1,19 +1,21 @@
-#### Basic Loader Usage:
+## Installation
+`$ npm install @hawk-ui/loader --save`
 
+
+## Usage
+
+
+#### Jelly Loader
+[Demo]()
 ```js
-<div className="styleguidist__btns-wrap">
-  <p>Jelly Loader</p>
-  <br /><br />
-  <div style={{ marginLeft:'20px' }}>
-    <Loader
-      type="jelly"
-    />
-  </div>
-  <br /><br />
-  <p>Spinner Loader</p>
-  <br /><br />
-  <div style={{ marginLeft:'20px' }}>
-    <Loader />
-  </div>
-</div>
+<Loader
+  type="jelly"
+/>
+```
+
+
+#### Spinner Loader
+[Demo]()
+```js
+<Loader />
 ```

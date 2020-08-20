@@ -1,5 +1,12 @@
-#### Basic Suggestions Usage:
+## Installation
+`$ npm install @hawk-ui/suggestions --save`
 
+
+## Usage
+
+
+#### Suggestions
+[Demo]()
 ```js
 const countries = [
   {title: 'Argentina', value: 'argentina'},
@@ -22,39 +29,37 @@ initialState = {
   value: '',
 };
 
-<div className="styleguidist__btns-wrap">
-  <Suggestions
-    suggestions={countries}
-    renderSuggestion={(suggestion) => suggestion.title}
-    searchContent={['title']}
-    onSuggestionSelect={(value, meta) => {
-      if (meta.isSuggestion) {
-        window.alert(value.title);
-      } else {
-        window.alert(value);
-      }
+<Suggestions
+  suggestions={countries}
+  renderSuggestion={(suggestion) => suggestion.title}
+  searchContent={['title']}
+  onSuggestionSelect={(value, meta) => {
+    if (meta.isSuggestion) {
+      window.alert(value.title);
+    } else {
+      window.alert(value);
+    }
+  }}
+>
+  <p>Suggestions Input</p>
+  <br />
+  <Suggestions.INPUT
+    placeholder="Search country name"
+    value={state.value}
+    onChange={(event) => {
+      setState({
+        value: event.target.value,
+      });
     }}
-  >
-    <p>Suggestions Input</p>
-    <br />
-    <Suggestions.INPUT
-      placeholder="Search country name"
-      value={state.value}
-      onChange={(event) => {
-        setState({
-          value: event.target.value,
-        });
-      }}
-    />
-    <br />
-    <p>Suggestions Wrap</p>
-    <br />
-    <Suggestions.CONTAINER
-      messageIfEmpty="No item Found"
-      onSuggestionClick={(value) => {
-        window.alert(value.title);
-      }}
-    />
-  </Suggestions>
-</div>
+  />
+  <br />
+  <p>Suggestions Wrap</p>
+  <br />
+  <Suggestions.CONTAINER
+    messageIfEmpty="No item Found"
+    onSuggestionClick={(value) => {
+      window.alert(value.title);
+    }}
+  />
+</Suggestions>
 ```

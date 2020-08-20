@@ -1,71 +1,82 @@
-#### Basic Modal Usage:
+## Installation
+`$ npm install @hawk-ui/modal --save`
 
+
+## Usage
+
+
+#### With Close Button and background dark
+[Demo]()
 ```js
 initialState = {
-  isModalWithCloseButton: false,
-  isModalWithoutCloseButton: false,
+  isOpen: false,
 };
 
-<div className="styleguidist__btns-wrap">
-  <p>With Close Button and background dark</p>
-  <br /><br />
-  <div>
-    <Modal
-      isOpen={state.isModalWithCloseButton}
-      hideCloseIcon
-      type="dark"
-      title="Modal Title"
-      position="center"
-      onKeyDown={(event) => {
-        setState({ isModalWithCloseButton: false });
-      }}
-      onClose={() => {
-        setState({ isModalWithCloseButton: false });
-      }}
-    >
-      <div>
-        <div style={{ marginTop: '20px' }}>Modal Box</div>
-      </div>
-    </Modal>
-    <button
-      type="button"
-      className="hawk-button"
-      onClick={() => {
-        setState({ isModalWithCloseButton: !state.isModalWithCloseButton });
-      }}
-    >
-      Modal With Close Option
-    </button>
-  </div>
-  <br /><br />
-  <p>Without Close Button and background light</p>
-  <br /><br />
-  <div>
-    <Modal
-      isOpen={state.isModalWithoutCloseButton}
-      type="light"
-      position="center"
-      onKeyDown={(event) => {
-        setState({ isModalWithoutCloseButton: false });
-      }}
-      onClose={() => {
-        setState({ isModalWithoutCloseButton: false });
-      }}
-    >
-      <div>
-        <div style={{ fontSize: '24px', fontWeight: '500', color: '#555555' }}>Title</div>
-        <div style={{ marginTop: '20px' }}>Modal Box</div>
-      </div>
-    </Modal>
-    <button
-      type="button"
-      className="hawk-button"
-      onClick={() => {
-        setState({ isModalWithoutCloseButton: !state.isModalWithoutCloseButton });
-      }}
-    >
-      Modal Without Close Option
-    </button>
-  </div>
+<div>
+  <Modal
+    isOpen={state.isOpen}
+    hideCloseIcon
+    type="dark"
+    title="Modal Title"
+    position="center"
+    onKeyDown={(event) => {
+      setState({ isOpen: false });
+    }}
+    onClose={() => {
+      setState({ isOpen: false });
+    }}
+  >
+    <div>
+      <div style={{ marginTop: '20px' }}>Modal Box</div>
+    </div>
+  </Modal>
+
+  <button
+    type="button"
+    className="hawk-button"
+    onClick={() => {
+      setState({ isOpen: !state.isOpen });
+    }}
+  >
+    Modal With Close Option
+  </button>
+</div>
+```
+
+
+#### Without Close Button and background light
+[Demo]()
+```js
+initialState = {
+  isOpen: false,
+};
+
+<div>
+  <Modal
+    isOpen={state.isOpen}
+    type="light"
+    position="center"
+    onKeyDown={(event) => {
+      setState({ isOpen: false });
+    }}
+    onClose={() => {
+      setState({ isOpen: false });
+    }}
+  >
+    <div>
+      <div style={{ fontSize: '24px', fontWeight: '500', color: '#555555' }}>Title</div>
+      <div style={{ marginTop: '20px' }}>Modal Box</div>
+    </div>
+  </Modal>
+
+  <button
+    type="button"
+    className="hawk-button"
+    onClick={() => {
+      setState({ isOpen: !state.isOpen });
+    }}
+  >
+    Modal Without Close Option
+  </button>
 </div>
 ```

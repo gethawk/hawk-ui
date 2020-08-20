@@ -1,48 +1,60 @@
-#### Basic File Upload Usage:
+## Installation
+`$ npm install @hawk-ui/file-upload --save`
 
+
+## Usage
+
+
+#### File Upload With Button:
+[Demo]()
 ```js
-<div className="styleguidist__btns-wrap">
-  <p>File Upload With Button</p>
-  <br />
-  <FileUpload
-    title="Browse"
-    onUpload={(file) => {
-      console.log('query file', file);
-    }}
-  />
-  <br /><br />
-  <p>File Upload With Icon</p>
-  <br />
-  <FileUpload
-    title="fas fa-upload"
-    isIcon
-    onUpload={(file) => {
-      console.log('query file', file);
-    }}
-  />
-  <br /><br />
-  <p>File Upload With Describable</p>
-  <br />
-  <FileUpload
-    title="Browse"
-    label="File Upload"
-    description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
-    placeholder="Please select a file to Upload"
-    isDescribable
-    onUpload={(file) => {
-      console.log('query file', file);
-    }}
-  />
-  <br /><br />
-  <p>On Drag and Drop</p>
-  <br />
-  <FileUpload
-    title="Drag and Drop Image Here"
-    description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
-    isDraggable
-    onUpload={(file) => {
-      console.log('query file', file);
-    }}
-  />
-</div>
+<FileUpload
+  title="Browse"
+  onUpload={(file) => {
+    console.log('query file', file);
+  }}
+/>
+```
+
+
+#### File Upload With Icon
+[Demo]()
+```js
+<FileUpload
+  title="fas fa-upload"
+  isIcon
+  onUpload={(file) => {
+    console.log('query file', file);
+  }}
+/>
+```
+
+
+#### File Upload With Describable
+[Demo]()
+```js
+<FileUpload
+  title="Browse"
+  label="File Upload"
+  description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
+  placeholder="Please select a file to Upload"
+  isDescribable
+  onUpload={(file) => {
+    console.log('query file', file);
+  }}
+/>
+```
+
+
+#### On Drag and Drop
+[Demo]()
+```js
+<FileUpload
+  title="Drag and Drop Image Here"
+  description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
+  isDraggable
+  onUpload={(file) => {
+    console.log('query file', file);
+  }}
+/>
 ```

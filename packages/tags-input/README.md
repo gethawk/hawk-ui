@@ -1,5 +1,12 @@
-#### Basic Tags Input Usage:
+## Installation
+`$ npm install @hawk-ui/tags-input --save`
 
+
+## Usage
+
+
+#### Tags Input
+[Demo]()
 ```js
 const suggestions = [
   {title: 'Argentina', value: 'argentina'},
@@ -24,43 +31,41 @@ initialState = {
   searchValue: '',
 };
 
-<div className="styleguidist__btns-wrap">
-  <TagsInput
-    label="Tags Input"
-    suggestions={state.suggestionContent}
-    placeholder="Select anyone"
-    searchValue={state.searchValue}
-    onChange={(event) => {
-      setState({
-        searchValue: event.target.value,
-      })
-    }}
-    searchContent={['title']}
-    renderSuggestion={(suggestion) => suggestion.title}
-    messageIfEmpty="No Item Found"
-    onAddTag={(item, meta) => {
-      if (meta.isSuggestion) {
-        setState(prevState => ({
-          selectedItem: [...prevState.selectedItem, item.value],
-          searchValue: '',
-        }));
-      } else {
-        setState(prevState => ({
-          selectedItem: [...prevState.selectedItem, item],
-          searchValue: '',
-        }));
-      }
-    }}
-    onRemoveTag={(item, index, meta) => {
-      setState({
-        selectedItem: state.selectedItem.filter((item, i) => i !== index),
-      });
-    }}
-    tags={state.selectedItem}
-    renderTag={tag => tag}
-    isRequired
-    isError
-    errorMessage="This field is a compulsory field."
-  />
-</div>
+<TagsInput
+  label="Tags Input"
+  suggestions={state.suggestionContent}
+  placeholder="Select anyone"
+  searchValue={state.searchValue}
+  onChange={(event) => {
+    setState({
+      searchValue: event.target.value,
+    })
+  }}
+  searchContent={['title']}
+  renderSuggestion={(suggestion) => suggestion.title}
+  messageIfEmpty="No Item Found"
+  onAddTag={(item, meta) => {
+    if (meta.isSuggestion) {
+      setState(prevState => ({
+        selectedItem: [...prevState.selectedItem, item.value],
+        searchValue: '',
+      }));
+    } else {
+      setState(prevState => ({
+        selectedItem: [...prevState.selectedItem, item],
+        searchValue: '',
+      }));
+    }
+  }}
+  onRemoveTag={(item, index, meta) => {
+    setState({
+      selectedItem: state.selectedItem.filter((item, i) => i !== index),
+    });
+  }}
+  tags={state.selectedItem}
+  renderTag={tag => tag}
+  isRequired
+  isError
+  errorMessage="This field is a compulsory field."
+/>
 ```

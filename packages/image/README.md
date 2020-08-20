@@ -1,16 +1,20 @@
-#### Basic Image Usage:
+## Installation
+`$ npm install @hawk-ui/image --save`
 
+
+## Usage
+
+
+#### Image
+[Demo]()
 ```js
-<div className="styleguidist__btns-wrap">
-  <br /><br />
-  <div style={{ width: '200px' }}>
-    <Image
-      src={null}
-      fallbackSrc="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-      alt="google image"
-      role="show image"
-      title="google"
-    />
-  </div>
+<div style={{ width: '200px' }}>
+  <Image
+    src={null}
+    fallbackSrc="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    alt="google image"
+    role="show image"
+    title="google"
+  />
 </div>
 ```

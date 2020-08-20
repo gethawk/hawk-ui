@@ -1,5 +1,12 @@
-#### Basic Toggle Usage:
+## Installation
+`$ npm install @hawk-ui/toggle --save`
 
+
+## Usage
+
+
+#### Without Required
+[Demo]()
 ```js
 initialState = {
   name: 'fruits',
@@ -7,43 +14,56 @@ initialState = {
   isChecked: false,
 };
 
-<div className="styleguidist__btns-wrap">
-  <p>Without Required</p>
-  <br /><br />
-  <Toggle
-    name={state.name}
-    value={state.value}
-    isChecked={state.isChecked}
-    onChange={(event) => {
-      setState({
-        isChecked: !state.isChecked,
-      });
-    }}
-  />
-  <br /><br />
-  <p>With Required</p>
-  <br /><br />
-  <Toggle
-    label="Toggle"
-    name={state.name}
-    value={state.value}
-    isChecked={state.isChecked}
-    onChange={(event) => {
-      setState({
-        isChecked: !state.isChecked,
-      });
-    }}
-    isRequired
-    isError={!state.isChecked}
-    errorMessage="This field is a compulsory field."
-  />
-  <br /><br />
-  <p>With Disabled</p>
-  <br /><br />
-  <Toggle
-    name={state.name}
-    isChecked={state.isChecked}
-    isDisabled
-  />
-</div>
+<Toggle
+  name={state.name}
+  value={state.value}
+  isChecked={state.isChecked}
+  onChange={(event) => {
+    setState({
+      isChecked: !state.isChecked,
+    });
+  }}
+/>
+```
+
+
+#### With Required
+[Demo]()
+```js
+initialState = {
+  name: 'fruits',
+  value: 'apple',
+  isChecked: false,
+};
+
+<Toggle
+  label="Toggle"
+  name={state.name}
+  value={state.value}
+  isChecked={state.isChecked}
+  onChange={(event) => {
+    setState({
+      isChecked: !state.isChecked,
+    });
+  }}
+  isRequired
+  isError={!state.isChecked}
+  errorMessage="This field is a compulsory field."
+/>
+```
+
+
+#### With Disabled
+[Demo]()
+```js
+initialState = {
+  name: 'fruits',
+  isChecked: false,
+};
+
+<Toggle
+  name={state.name}
+  isChecked={state.isChecked}
+  isDisabled
+/>
 ```
