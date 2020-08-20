@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/color-picker",
-  "version": "2.7.7",
+  "version": "2.7.8",
   "description": "hawk-ui: Basic Color Picker Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -9,9 +9,9 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^2.7.7",
-    "@hawk-ui/input": "^2.7.7",
-    "@hawk-ui/input-group": "^2.7.7",
+    "@hawk-ui/button": "^2.7.8",
+    "@hawk-ui/input": "^2.7.8",
+    "@hawk-ui/input-group": "^2.7.8",
     "clamp": "^1.0.1",
     "color": "^3.1.2",
     "color-string": "^1.5.3",

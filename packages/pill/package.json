@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/pill",
-  "version": "2.7.7",
+  "version": "2.7.8",
   "description": "hawk-ui: Basic Pill Component",
   "main": "dist/index.min.js",
   "scripts": {
