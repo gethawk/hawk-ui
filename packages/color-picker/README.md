@@ -6,7 +6,7 @@
 
 
 #### With Hex Code
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/ColorPicker/1)
 ```js
 <ColorPicker
   defaultColor="f18ca6"
@@ -16,7 +16,7 @@
 
 
 ### With Background
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/ColorPicker/3)
 ```js
 <ColorPicker
   defaultColor="f18ca6"
@@ -27,7 +27,7 @@
 
 
 ### With Text
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/ColorPicker/5)
 ```js
 <ColorPicker
   defaultColor="f18ca6"
@@ -40,7 +40,7 @@
 
 
 ### With Icon
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/ColorPicker/7)
 ```js
 <ColorPicker
   defaultColor="f18ca6"

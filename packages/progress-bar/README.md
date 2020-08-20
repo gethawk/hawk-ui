@@ -6,7 +6,7 @@
 
 
 #### Progress Bar
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/ProgressBar/1)
 ```js
 <ProgressBar
   value={7}

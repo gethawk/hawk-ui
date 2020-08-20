@@ -6,7 +6,7 @@
 
 
 #### Without Required
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Toggle/1)
 ```js
 initialState = {
   name: 'fruits',
@@ -28,7 +28,7 @@ initialState = {
 
 
 #### With Required
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Toggle/3)
 ```js
 initialState = {
   name: 'fruits',
@@ -54,7 +54,7 @@ initialState = {
 
 
 #### With Disabled
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Toggle/5)
 ```js
 initialState = {
   name: 'fruits',

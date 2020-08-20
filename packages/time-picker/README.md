@@ -6,7 +6,7 @@
 
 
 #### Time Picker:
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/TimePicker/1)
 ```js
 <TimePicker />
 ```

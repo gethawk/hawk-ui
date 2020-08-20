@@ -6,7 +6,7 @@
 
 
 #### Image
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Image/1)
 ```js
 <div style={{ width: '200px' }}>
   <Image

@@ -6,7 +6,7 @@
 
 
 #### Simple table
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Table/1)
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -64,7 +64,7 @@ initialState = {
 
 
 #### Multiple Row
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Table/3)
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: ['company', 'contact'], dataRender: true, renderItem: (event) => ['', <span style={{ fontWeight: 'bold' }}>{event.contact}</span>] },
@@ -111,7 +111,7 @@ initialState = {
 
 
 #### Without Header
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Table/5)
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -158,7 +158,7 @@ initialState = {
 
 
 #### Table Selectable
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Table/7)
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -209,7 +209,7 @@ initialState = {
 
 
 #### Table Sorting
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Table/9)
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },

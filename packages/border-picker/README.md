@@ -6,7 +6,7 @@
 
 
 #### Border Picker:
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/BorderPicker/1)
 ```js
 initialState = {
   selectedBorder: 'solid',

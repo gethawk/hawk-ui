@@ -6,7 +6,7 @@
 
 
 #### Without Label and Without Required:
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Input/1)
 ```js
 initialState = {
   value: '',
@@ -30,7 +30,7 @@ initialState = {
 
 
 #### With Copy
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Input/3)
 ```js
 initialState = {
   value: '',
@@ -55,7 +55,7 @@ initialState = {
 
 
 #### With Password Visible
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Input/5)
 ```js
 initialState = {
   value: '',
@@ -79,7 +79,7 @@ initialState = {
 
 
 #### With Label and With Required
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Input/7)
 ```js
 initialState = {
   value: '',
@@ -105,7 +105,7 @@ initialState = {
 
 
 #### Textarea With Label
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Input/9)
 ```js
 initialState = {
   value: '',

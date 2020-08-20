@@ -6,7 +6,7 @@
 
 
 #### Without animation:
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Carousel/1)
 ```js
 initialState = {
   slides: [
@@ -33,7 +33,7 @@ initialState = {
 
 
 #### With animation
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Carousel/3)
 ```js
 initialState = {
   slides: [

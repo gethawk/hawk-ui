@@ -6,7 +6,7 @@
 
 
 #### Without Required
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Label/1)
 ```js
 <Label
   title="Label"
@@ -15,7 +15,7 @@
 
 
 #### With Required
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Label/3)
 ```js
 <Label
   title="Label"
@@ -25,7 +25,7 @@
 
 
 #### With Left icon
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Label/5)
 ```js
 <Label
   icon="fa fa-copy"
@@ -35,7 +35,7 @@
 
 
 #### With Right icon
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Label/7)
 ```js
 <Label
   icon="fa fa-copy"

@@ -6,7 +6,7 @@
 
 
 #### Password Strength
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/PasswordStrength/1)
 ```js
 initialState = {
   password: ''

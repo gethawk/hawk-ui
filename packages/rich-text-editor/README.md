@@ -6,7 +6,7 @@
 
 
 #### Rich Text Editor
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/RichTextEditor/1)
 ```js
 initialState = {
   body: '',

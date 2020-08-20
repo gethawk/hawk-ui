@@ -6,7 +6,7 @@
 
 
 #### Addon Left Placement
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/InputGroup/1)
 ```js
 initialState = {
   value: 'Hello World',
@@ -28,7 +28,7 @@ initialState = {
 
 
 #### Addon Right Placement
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/InputGroup/3)
 ```js
 <InputGroup
   addon="0.00"
@@ -38,7 +38,7 @@ initialState = {
 
 
 #### Addon Small Placement
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/InputGroup/5)
 ```js
 <InputGroup
   addon="Text"
@@ -48,7 +48,7 @@ initialState = {
 
 
 #### Addon Medium Placement
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/InputGroup/7)
 ```js
 <InputGroup
   addon="Text"
@@ -58,7 +58,7 @@ initialState = {
 
 
 #### Addon Large Placement
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/InputGroup/9)
 ```js
 <InputGroup
   addon="Text"
@@ -68,7 +68,7 @@ initialState = {
 
 
 #### Addon Icon
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/InputGroup/11)
 ```js
 <InputGroup
   addon="fa fa-at"
@@ -78,7 +78,7 @@ initialState = {
 
 
 #### Addon Element
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/InputGroup/13)
 ```js
 initialState = {
   fruits: [

@@ -6,7 +6,7 @@
 
 
 #### Jelly Loader
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Loader/1)
 ```js
 <Loader
   type="jelly"
@@ -15,7 +15,7 @@
 
 
 #### Spinner Loader
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Loader/3)
 ```js
 <Loader />
 ```

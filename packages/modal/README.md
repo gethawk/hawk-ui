@@ -6,7 +6,7 @@
 
 
 #### With Close Button and background dark
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Modal/1)
 ```js
 initialState = {
   isOpen: false,
@@ -45,7 +45,7 @@ initialState = {
 
 
 #### Without Close Button and background light
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Modal/3)
 ```js
 initialState = {
   isOpen: false,

@@ -6,7 +6,7 @@
 
 
 #### Pill:
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Pill/1)
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Pill>

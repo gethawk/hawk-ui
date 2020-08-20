@@ -6,7 +6,7 @@
 
 
 #### Default Range Slider
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/RangeSlider/1)
 ```js
 initialState = {
   range: 50,
@@ -26,7 +26,7 @@ initialState = {
 
 
 #### Range Slider 0 - 50
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/RangeSlider/3)
 ```js
 initialState = {
   range: 20,

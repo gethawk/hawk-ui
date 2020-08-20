@@ -6,7 +6,7 @@
 
 
 #### Rating
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Rating/1)
 ```js
 <Rating
   active={3}

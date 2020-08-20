@@ -6,7 +6,7 @@
 
 
 #### Pagination
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/Pagination/1)
 ```js
 const [PAGE_RANGE_DISPLAYED, PAGE_SIZE, totalResults] = [5, 15, 1000];
 

@@ -6,7 +6,7 @@
 
 
 #### Tags Input
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/TagsInput/1)
 ```js
 const suggestions = [
   {title: 'Argentina', value: 'argentina'},
