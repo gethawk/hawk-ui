@@ -23,14 +23,22 @@ function downloadCSV(csv, filename) {
   downloadLink.click();
 }
 
-export function exportToCsv(tableId, columns = []) {
+export function exportToCsv(tableId, columns = [], isSelected = false, selected = []) {
   const filename = 'download.csv';
   const csv = [];
   const rows = document.getElementById(tableId).querySelectorAll('tr');
 
   for (let i = 0; i < rows.length; i++) {
     const row = [];
-    const cols = rows[i].querySelectorAll('td, th');
+    let cols = [];
+
+    if (_.isEqual(isSelected, true)) {
+      if (_.includes([0, ...selected], i)) {
+        cols = rows[i].querySelectorAll('td, th');
+      }
+    } else {
+      cols = rows[i].querySelectorAll('td, th');
+    }
 
     for (let j = 0; j < cols.length; j++) {
       if (_.includes(columns, j) && !_.isEmpty(columns)) {

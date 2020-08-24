@@ -19,6 +19,8 @@ export default class Tabbed extends Component {
     className: PropTypes.string,
   };
   static defaultProps = {
+    headers: [],
+    panes: [],
     layout: 'horizontalTop',
     activeTabIndex: 0,
   }
@@ -62,9 +64,11 @@ export default class Tabbed extends Component {
             ))}
           </div>
         )}
-        <div className="hawk-tabbed__content">
-          {panes[activeTabIndex]}
-        </div>
+        {!_.isEmpty(panes) && (
+          <div className="hawk-tabbed__content">
+            {panes[activeTabIndex]}
+          </div>
+        )}
       </div>
     );
   }

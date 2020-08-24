@@ -208,6 +208,61 @@ initialState = {
 ```
 
 
+#### Download Selectable
+[Demo](https://hawk.wallnit.com/#!/Table/7)
+```js
+const header = [
+  { key: 'company', title: 'Company', dataIndex: 'company' },
+  { key: 'contact', title: 'Contact', dataIndex: 'contact' },
+  { key: 'country', title: 'Country', dataIndex: 'country' },
+  { key: 'action', title: 'Action', dataIndex: '', render: (event) => <span onClick={() => { console.log(event); }} style={{ cursor: 'pointer' }}>Delete</span> },
+];
+
+const content = [
+  { id: 1, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders', 'country': 'Germany' },
+  { id: 2, 'company': 'Centro comercial Moctezuma', 'contact': 'Francisco Chang', 'country': 'Mexico' },
+  { id: 3, 'company': 'Ernst Handel', 'contact': 'Roland Mendel', 'country': 'Austria' },
+  { id: 4, 'company': 'Island Trading', 'contact': 'Helen Bennett', 'country': 'UK' },
+  { id: 5, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders', 'country': 'Germany' },
+];
+
+initialState = {
+  searchContent: content,
+  selectedItems: [1, 3],
+};
+
+<Table
+  tableContent={state.searchContent}
+  tableSearchContent={['company', 'contact', 'country']}
+  exports={[
+    {
+      key: 'csv',
+      title: 'CSV Download',
+      columns: [0, 1, 2],
+    },
+    {
+      key: 'print',
+      title: 'Print',
+      columns: [0, 1, 2],
+    },
+  ]}
+>
+  <Table.SEARCH
+    selected={state.selectedItems}
+    isSelectedExport
+  />
+  <Table.CONTENT
+    tableHeader={header}
+    isSelectable
+    selected={state.selectedItems}
+    onSelect={(items) => {
+      setState({ selectedItems: items });
+    }}
+  />
+</Table>
+```
+
+
 #### Table Sorting
 [Demo](https://hawk.wallnit.com/#!/Table/9)
 ```js
