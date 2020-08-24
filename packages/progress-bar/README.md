@@ -16,7 +16,7 @@
 
 
 #### Progress Bar With Same Color
-[Demo]()
+[Demo](https://hawk.wallnit.com/#!/ProgressBar/3)
 ```js
 <ProgressBar
   value={85}
