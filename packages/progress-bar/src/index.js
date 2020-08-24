@@ -14,40 +14,52 @@ function percentage(percent, total) {
  */
 export default class ProgressBar extends Component {
   static propTypes = {
+    id: PropTypes.string,
     className: PropTypes.string,
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
     ]),
     maxRange: PropTypes.number,
+    isColorVary: PropTypes.bool,
+    isProgress: PropTypes.bool,
+    progressContent: PropTypes.string,
   };
+  static defaultProps = {
+    id: 'progress',
+    isColorVary: true,
+    isProgress: false,
+    progressContent: 'Progress',
+  }
   state = {};
 
   componentDidMount() {
-    this.checkPasswordStrength(this.props.value);
+    this.rangeVary(this.props.value);
   }
 
-  checkPasswordStrength = (value) => {
-    const { maxRange } = this.props;
+  rangeVary = (value) => {
+    const { maxRange, isColorVary } = this.props;
     const progressBar = document.getElementById('progress');
     const percent = percentage(value, maxRange);
 
-    if (percent === 0) {
-      progressBar.removeAttribute('class');
-    }
-    if (percent > 0 && percent <= 50) {
-      progressBar.classList.add('success');
-    }
-    if (percent > 50 && percent <= 75) {
-      progressBar.classList.add('warning');
-    }
-    if (percent > 75) {
-      progressBar.classList.add('danger');
+    if (isColorVary) {
+      if (percent === 0) {
+        progressBar.removeAttribute('class');
+      }
+      if (percent > 0 && percent <= 50) {
+        progressBar.classList.add('success');
+      }
+      if (percent > 50 && percent <= 75) {
+        progressBar.classList.add('warning');
+      }
+      if (percent > 75) {
+        progressBar.classList.add('danger');
+      }
     }
   };
 
   render() {
-    const { className, value, maxRange } = this.props;
+    const { id, className, value, maxRange, isProgress, progressContent } = this.props;
 
     return (
       <div className="hawk-progress-bar">
@@ -55,8 +67,14 @@ export default class ProgressBar extends Component {
           className={className}
           max={maxRange}
           value={value}
-          id="progress"
-        />
+          id={id}
+        >{value}</progress>
+        {isProgress && (
+          <div className="hawk-progress-bar__content">
+            <span>{progressContent}</span>
+            <span>{`${value}%`}</span>
+          </div>
+        )}
       </div>
     );
   }

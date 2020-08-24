@@ -9,6 +9,8 @@
     }
   }
   &__content {
+    display: flex;
+    justify-content: center;
     visibility: hidden;
     width: 120px;
     background-color: $black;
@@ -18,6 +20,13 @@
     padding: 5px 0;
     position: absolute;
     z-index: 1;
+    div, i {
+      margin-left: 10px;
+      cursor: pointer;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
     &-top {
       bottom: 150%;
       left: 50%;

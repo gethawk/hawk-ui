@@ -18,18 +18,14 @@ export default class Tooltip extends Component {
     ]),
     position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
     content: PropTypes.string,
-    onmouseout: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { children, position, content, onmouseout } = this.props;
+    const { children, position, content } = this.props;
 
     return (
-      <div
-        className="hawk-tooltip"
-        onmouseout={(event) => { onmouseout(event); }}
-      >
+      <div className="hawk-tooltip">
         {children}
         <div
           className={getClassnames('hawk-tooltip__content', {

@@ -11,6 +11,14 @@
       background-color: #f3f3f3;
       border-radius: 9px;
     }
+    &::-webkit-progress-value {
+      background: $blue-1;
+      border-radius: 9px;
+    }
+    &::-moz-progress-bar {
+      background: $blue-1;
+      border-radius: 9px;
+    }
     &.danger {
       &::-webkit-progress-value {
         background: $red-1;
@@ -40,6 +48,16 @@
         background: $green-2;
         border-radius: 9px;
       }
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 14px;
+      color: $blue-1;
+      text-transform: capitalize;
+      margin-top: 5px;
     }
   }
 }
