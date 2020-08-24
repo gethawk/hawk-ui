@@ -209,7 +209,7 @@ initialState = {
 
 
 #### Download Selectable
-[Demo](https://hawk.wallnit.com/#!/Table/7)
+[Demo](https://hawk.wallnit.com/#!/Table/9)
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -264,7 +264,7 @@ initialState = {
 
 
 #### Table Sorting
-[Demo](https://hawk.wallnit.com/#!/Table/9)
+[Demo](https://hawk.wallnit.com/#!/Table/11)
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
