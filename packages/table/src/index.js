@@ -8,6 +8,8 @@ import Input from '@hawk-ui/input';
 import Pagination from '@hawk-ui/pagination';
 import Checkbox from '@hawk-ui/checkbox';
 import Button from '@hawk-ui/button';
+import Dropdown from '@hawk-ui/dropdown';
+import Pill from '@hawk-ui/pill';
 // constant modules
 import { sortOrders } from './constant';
 // utils modules
@@ -134,14 +136,17 @@ class TableContent extends Component {
     isHeaderShow: PropTypes.bool,
     isSelectable: PropTypes.bool,
     isSorting: PropTypes.bool,
+    isFilter: PropTypes.bool,
     selected: PropTypes.array,
     onSelect: PropTypes.func,
     sortBy: PropTypes.array,
+    filterBy: PropTypes.array,
   };
   static defaultProps = {
     isHeaderShow: true,
     isSelectable: false,
     isSorting: false,
+    isFilter: false,
   }
   state = {
     selectedItems: this.props.selected || [],
@@ -219,91 +224,169 @@ class TableContent extends Component {
     );
   };
 
+  renderFilter = () => {
+    const suggestions = [
+      { title: 'Action', value: 'action' },
+      { title: 'Another action', value: 'another action' },
+      { title: 'Something else here', value: 'something else here' },
+    ];
+
+    return (
+      <div className="hawk-table__content-filter">
+        <Dropdown
+          title={<i className="fas fa-filter" />}
+          suggestions={suggestions}
+          renderSuggestion={(suggestion) => suggestion.title}
+        />
+      </div>
+    );
+  };
+
   render() {
-    const { tableHeader, isHeaderShow, isSelectable, isSorting, sortBy } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, sortBy, isFilter, filterBy } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
 
     return (
-      <table id={this.context.id}>
-        {isHeaderShow && (
-          <thead>
-            <tr>
-              {isSelectable && (
-                <th>
-                  <Checkbox
-                    isChecked={selectedItems.length <= tableContent.length && selectedItems.length > 0}
-                    onChange={() => { this.onMultiSelect(); }}
-                    className={_.isEqual(selectedItems.length, tableContent.length) && selectedItems.length > 0 ? 'checkmark' : selectedItems.length < tableContent.length && selectedItems.length > 0 ? 'minus' : null}
-                  />
-                </th>
-              )}
-              {_.map(tableHeader, (item, index) => (
-                <th key={index}>
-                  <span>{item.title}</span>
-                  {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
-                    this.renderHeaderCell(item)
-                  )}
-                </th>
-              ))}
-            </tr>
-          </thead>
+      <Fragment>
+        {isFilter && (
+          <div className="hawk-table__content-filter-values">
+            <span className="hawk-table__content-filter-title">Filter :</span>
+            <div className="hawk-table__content-filter-pills">
+              <Pill>
+                <span>Inactive</span>
+              </Pill>
+              <Pill>
+                <span>Inactive</span>
+              </Pill>
+              <Pill>
+                <span>Inactive</span>
+              </Pill>
+              <Pill>
+                <span>Inactive</span>
+              </Pill>
+              <Pill>
+                <span>Inactive</span>
+              </Pill>
+              <Pill>
+                <span>Inactive</span>
+              </Pill>
+              <Pill>
+                <span>Inactive</span>
+              </Pill>
+              <Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill><Pill>
+                <span>Inactive</span>
+              </Pill>
+            </div>
+          </div>
         )}
-        <tbody>
-          {!_.isEmpty(tableContent) ? (
-            <Fragment>
-              {_.map(tableContent, (content, index) => (
-                <tr
-                  key={index}
-                  className={_.includes(selectedItems, content.id) ? 'active' : 'inactive'}
-                >
-                  {isSelectable && (
-                    <td>
-                      <Checkbox
-                        isChecked={_.includes(selectedItems, content.id)}
-                        onChange={() => { this.onSelect(content.id); }}
-                      />
-                    </td>
-                  )}
-                  {_.map(tableHeader, (item, subIndex) => (
-                    !_.isEmpty(item.dataIndex) ? (
-                      <td key={subIndex}>
-                        {_.isString(item.dataIndex) ? (
-                          <span>
-                            {content[item.dataIndex]}
-                          </span>
-                        ) : (
-                          <div
-                            className="hawk-table__content"
-                          >
-                            {_.map(item.dataIndex, (value, tdIndex) => (
-                              (!item.dataRender) ? (
-                                <div key={tdIndex}>{content[value]}</div>
-                              ) : (
-                                <Fragment>
-                                  {_.isEmpty(item.renderItem(content)[tdIndex]) ? (
-                                    <div key={tdIndex}>{content[value]}</div>
-                                  ) : (
-                                    <div key={tdIndex}>{item.renderItem(content)[tdIndex]}</div>
-                                  )}
-                                </Fragment>
-                              )
-                            ))}
-                          </div>
-                        )}
-                      </td>
-                    ) : <td key={subIndex}>{item.render(content)}</td>
-                  ))}
-                </tr>
-              ))}
-            </Fragment>
-          ) : (
-            <tr>
-              <td className="not-found" colSpan={tableHeader.length}>No matching records found</td>
-            </tr>
+        <table id={this.context.id}>
+          {isHeaderShow && (
+            <thead>
+              <tr>
+                {isSelectable && (
+                  <th>
+                    <Checkbox
+                      isChecked={selectedItems.length <= tableContent.length && selectedItems.length > 0}
+                      onChange={() => { this.onMultiSelect(); }}
+                      className={_.isEqual(selectedItems.length, tableContent.length) && selectedItems.length > 0 ? 'checkmark' : selectedItems.length < tableContent.length && selectedItems.length > 0 ? 'minus' : null}
+                    />
+                  </th>
+                )}
+                {_.map(tableHeader, (item, index) => (
+                  <th key={index}>
+                    <div className="hawk-table-th">
+                      <span>{item.title}</span>
+                      {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
+                        this.renderHeaderCell(item)
+                      )}
+                      {isFilter && _.includes(filterBy, item.dataIndex) && (
+                        this.renderFilter()
+                      )}
+                    </div>
+                  </th>
+                ))}
+              </tr>
+            </thead>
           )}
-        </tbody>
-      </table>
+          <tbody>
+            {!_.isEmpty(tableContent) ? (
+              <Fragment>
+                {_.map(tableContent, (content, index) => (
+                  <tr
+                    key={index}
+                    className={_.includes(selectedItems, content.id) ? 'active' : 'inactive'}
+                  >
+                    {isSelectable && (
+                      <td>
+                        <Checkbox
+                          isChecked={_.includes(selectedItems, content.id)}
+                          onChange={() => { this.onSelect(content.id); }}
+                        />
+                      </td>
+                    )}
+                    {_.map(tableHeader, (item, subIndex) => (
+                      !_.isEmpty(item.dataIndex) ? (
+                        <td key={subIndex}>
+                          {_.isString(item.dataIndex) ? (
+                            <span>
+                              {content[item.dataIndex]}
+                            </span>
+                          ) : (
+                            <div
+                              className="hawk-table__content"
+                            >
+                              {_.map(item.dataIndex, (value, tdIndex) => (
+                                (!item.dataRender) ? (
+                                  <div key={tdIndex}>{content[value]}</div>
+                                ) : (
+                                  <Fragment>
+                                    {_.isEmpty(item.renderItem(content)[tdIndex]) ? (
+                                      <div key={tdIndex}>{content[value]}</div>
+                                    ) : (
+                                      <div key={tdIndex}>{item.renderItem(content)[tdIndex]}</div>
+                                    )}
+                                  </Fragment>
+                                )
+                              ))}
+                            </div>
+                          )}
+                        </td>
+                      ) : <td key={subIndex}>{item.render(content)}</td>
+                    ))}
+                  </tr>
+                ))}
+              </Fragment>
+            ) : (
+              <tr>
+                <td className="not-found" colSpan={tableHeader.length}>No matching records found</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </Fragment>
     );
   }
 }
