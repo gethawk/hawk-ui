@@ -309,3 +309,34 @@ initialState = {
   />
 </Table>
 ```
+
+
+#### Table Expandable
+[Demo]()
+```js
+const header = [
+  { key: 'company', title: 'Company', dataIndex: 'company' },
+  { key: 'contact', title: 'Contact', dataIndex: 'contact' },
+  { key: 'action', title: 'Action', dataIndex: '', render: (event) => <i class="fa fa-sort-down" style={{ cursor: 'pointer' }} onClick={() => { console.log(event); }} /> },
+];
+
+const content = [
+  { id: 1, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders',
+    expandable: [
+      { id: 1, '' },
+    ],
+  },
+  { id: 2, 'company': 'Centro comercial Moctezuma', 'contact': 'Francisco Chang' },
+  { id: 3, 'company': 'Ernst Handel', 'contact': 'Roland Mendel' },
+  { id: 4, 'company': 'Island Trading', 'contact': 'Helen Bennett' },
+  { id: 5, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders' },
+];
+
+<Table
+  tableContent={content}
+>
+  <Table.CONTENT
+    tableHeader={header}
+  />
+</Table>
+```
