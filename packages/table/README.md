@@ -323,13 +323,26 @@ const header = [
 const content = [
   { id: 1, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders',
     expandable: [
-      { id: 1, '' },
+      { id: 1, contact: '+91-7867890109' },
+      { id: 1, contact: 'dummy@example.com' },
     ],
   },
-  { id: 2, 'company': 'Centro comercial Moctezuma', 'contact': 'Francisco Chang' },
-  { id: 3, 'company': 'Ernst Handel', 'contact': 'Roland Mendel' },
+  { id: 2, 'company': 'Centro comercial Moctezuma', 'contact': 'Francisco Chang',
+    expandable: [
+      { id: 1, contact: '+91-7867890109' },
+    ],
+  },
+  { id: 3, 'company': 'Ernst Handel', 'contact': 'Roland Mendel',
+    expandable: [
+      { id: 1, contact: 'dummy@example.com' },
+    ],
+  },
   { id: 4, 'company': 'Island Trading', 'contact': 'Helen Bennett' },
-  { id: 5, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders' },
+  { id: 5, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders',
+    expandable: [
+      { id: 1, contact: '+91-7867890109' },
+    ],
+  },
 ];
 
 <Table
