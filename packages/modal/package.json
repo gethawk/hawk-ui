@@ -6,6 +6,15 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=modal"
   },
+  "keywords": [
+    "modal",
+    "react",
+    "react component",
+    "react modal",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

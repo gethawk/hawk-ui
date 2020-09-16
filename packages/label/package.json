@@ -6,6 +6,15 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=label"
   },
+  "keywords": [
+    "label",
+    "react",
+    "react component",
+    "react label",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

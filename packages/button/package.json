@@ -6,6 +6,15 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=button"
   },
+  "keywords": [
+    "button",
+    "react",
+    "react component",
+    "react button",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

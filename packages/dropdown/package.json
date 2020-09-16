@@ -6,6 +6,15 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=dropdown"
   },
+  "keywords": [
+    "dropdown",
+    "react",
+    "react component",
+    "react dropdown",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

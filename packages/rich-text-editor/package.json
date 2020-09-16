@@ -6,6 +6,15 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=rich-text-editor"
   },
+  "keywords": [
+    "rich text editor",
+    "react",
+    "react component",
+    "react rich text editor",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

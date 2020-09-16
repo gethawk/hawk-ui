@@ -6,6 +6,15 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=navigation-drawer"
   },
+  "keywords": [
+    "navigation drawer",
+    "react",
+    "react component",
+    "react navigation drawer",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

@@ -6,6 +6,16 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=time-picker"
   },
+  "keywords": [
+    "time",
+    "time picker",
+    "react",
+    "react component",
+    "react time picker",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

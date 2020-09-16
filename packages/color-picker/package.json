@@ -6,6 +6,16 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=color-picker"
   },
+  "keywords": [
+    "color",
+    "color picker",
+    "react",
+    "react component",
+    "react color picker",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

@@ -6,6 +6,16 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=date-picker"
   },
+  "keywords": [
+    "date",
+    "date picker",
+    "react",
+    "react component",
+    "react date picker",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {

@@ -6,6 +6,16 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=file-upload"
   },
+  "keywords": [
+    "upload",
+    "file upload",
+    "react",
+    "react component",
+    "react upload",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
