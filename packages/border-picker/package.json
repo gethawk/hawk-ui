@@ -6,6 +6,13 @@
   "scripts": {
     "build": "webpack --config ../../webpack.lib.config.js --env.pkg=border-picker"
   },
+  "keywords": [
+    "border",
+    "border picker",
+    "react",
+    "react component",
+    "ui"
+  ],
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
