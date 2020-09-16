@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/border-picker",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "hawk-ui: Border Picker Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "saurabh gaur",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/input": "^2.8.1",
+    "@hawk-ui/input": "^2.8.2",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2"
   },

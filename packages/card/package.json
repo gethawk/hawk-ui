@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/card",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "hawk-ui: Basic Card Component",
   "main": "dist/index.min.js",
   "scripts": {
