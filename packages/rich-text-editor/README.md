@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/rich-text-editor --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/rich-text-editor/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Rich Text Editor
 [Demo](https://hawk.wallnit.com/#!/RichTextEditor/1)
+```js static
+import RichTextEditor from '@hawk-ui/rich-text-editor';
+```
 ```js
 initialState = {
   body: '',

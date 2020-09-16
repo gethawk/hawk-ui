@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/suggestions --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/suggestions/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Suggestions
 [Demo](https://hawk.wallnit.com/#!/Suggestions/1)
+```js static
+import Suggestions from '@hawk-ui/suggestions';
+```
 ```js
 const countries = [
   {title: 'Argentina', value: 'argentina'},

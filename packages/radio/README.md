@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/radio --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/radio/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Without Required
 [Demo](https://hawk.wallnit.com/#!/Radio/1)
+```js static
+import Radio from '@hawk-ui/radio';
+```
 ```js
 initialState = {
   fruits: [
@@ -33,6 +45,9 @@ initialState = {
 
 #### With Required
 [Demo](https://hawk.wallnit.com/#!/Radio/3)
+```js static
+import Radio from '@hawk-ui/radio';
+```
 ```js
 initialState = {
   fruits: [

@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/table --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/table/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Simple table
 [Demo](https://hawk.wallnit.com/#!/Table/1)
+```js static
+import Table from '@hawk-ui/table';
+```
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -65,6 +77,9 @@ initialState = {
 
 #### Multiple Row
 [Demo](https://hawk.wallnit.com/#!/Table/3)
+```js static
+import Table from '@hawk-ui/table';
+```
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: ['company', 'contact'], dataRender: true, renderItem: (event) => ['', <span style={{ fontWeight: 'bold' }}>{event.contact}</span>] },
@@ -112,6 +127,9 @@ initialState = {
 
 #### Without Header
 [Demo](https://hawk.wallnit.com/#!/Table/5)
+```js static
+import Table from '@hawk-ui/table';
+```
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -159,6 +177,9 @@ initialState = {
 
 #### Table Selectable
 [Demo](https://hawk.wallnit.com/#!/Table/7)
+```js static
+import Table from '@hawk-ui/table';
+```
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -210,6 +231,9 @@ initialState = {
 
 #### Download Selectable
 [Demo](https://hawk.wallnit.com/#!/Table/9)
+```js static
+import Table from '@hawk-ui/table';
+```
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -265,6 +289,9 @@ initialState = {
 
 #### Table Sorting
 [Demo](https://hawk.wallnit.com/#!/Table/11)
+```js static
+import Table from '@hawk-ui/table';
+```
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
@@ -313,6 +340,9 @@ initialState = {
 
 #### Table Expandable
 [Demo]()
+```js static
+import Table from '@hawk-ui/table';
+```
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },

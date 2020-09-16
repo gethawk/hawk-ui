@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/checkbox --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/checkbox/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Without Required
 [Demo](https://hawk.wallnit.com/#!/Checkbox/1)
+```js static
+import Checkbox from '@hawk-ui/checkbox';
+```
 ```js
 initialState = {
   fruits: [
@@ -42,6 +54,9 @@ initialState = {
 
 #### With Required
 [Demo](https://hawk.wallnit.com/#!/Checkbox/3)
+```js static
+import Checkbox from '@hawk-ui/checkbox';
+```
 ```js
 initialState = {
   fruits: [
@@ -81,6 +96,9 @@ initialState = {
 
 #### Without object
 [Demo](https://hawk.wallnit.com/#!/Checkbox/5)
+```js static
+import Checkbox from '@hawk-ui/checkbox';
+```
 ```js
 initialState = {
   isChecked: false,

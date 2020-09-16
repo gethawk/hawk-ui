@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/form --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/form/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Form:
 [Demo](https://hawk.wallnit.com/#!/Form/1)
+```js static
+import Form from '@hawk-ui/form';
+```
 ```js
 const configuration = {
   data_type: "object",

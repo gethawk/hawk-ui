@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/modal --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/modal/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### With Close Button and background dark
 [Demo](https://hawk.wallnit.com/#!/Modal/1)
+```js static
+import Modal from '@hawk-ui/modal';
+```
 ```js
 initialState = {
   isOpen: false,
@@ -46,6 +58,9 @@ initialState = {
 
 #### Without Close Button and background light
 [Demo](https://hawk.wallnit.com/#!/Modal/3)
+```js static
+import Modal from '@hawk-ui/modal';
+```
 ```js
 initialState = {
   isOpen: false,

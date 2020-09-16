@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/toast --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/toast/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Top Left:
 [Demo](https://hawk.wallnit.com/#!/Toast/1)
+```js static
+import Toast from '@hawk-ui/toast';
+```
 ```js
 initialState = {
   isShow: false,
@@ -50,6 +62,9 @@ initialState = {
 
 #### Top Right
 [Demo](https://hawk.wallnit.com/#!/Toast/3)
+```js static
+import Toast from '@hawk-ui/toast';
+```
 ```js
 initialState = {
   isShow: false,
@@ -93,6 +108,9 @@ initialState = {
 
 #### Bottom Right
 [Demo](https://hawk.wallnit.com/#!/Toast/5)
+```js static
+import Toast from '@hawk-ui/toast';
+```
 ```js
 initialState = {
   isShow: false,
@@ -136,6 +154,9 @@ initialState = {
 
 #### Bottom Left
 [Demo](https://hawk.wallnit.com/#!/Toast/7)
+```js static
+import Toast from '@hawk-ui/toast';
+```
 ```js
 initialState = {
   isShow: false,

@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/tabbed --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/tabbed/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Horizontal Top Tabs
 [Demo](https://hawk.wallnit.com/#!/Tabbed/1)
+```js static
+import Tabbed from '@hawk-ui/tabbed';
+```
 ```js
 const headers = ['First', 'Second', 'Third'];
 const panes = [
@@ -32,6 +44,9 @@ initialState = {
 
 #### Horizontal Bottom Tabs
 [Demo](https://hawk.wallnit.com/#!/Tabbed/3)
+```js static
+import Tabbed from '@hawk-ui/tabbed';
+```
 ```js
 const headers = ['First', 'Second', 'Third'];
 const panes = [
@@ -58,6 +73,9 @@ initialState = {
 
 #### Vertical Left Tabs
 [Demo](https://hawk.wallnit.com/#!/Tabbed/5)
+```js static
+import Tabbed from '@hawk-ui/tabbed';
+```
 ```js
 const headers = ['First', 'Second', 'Third'];
 const panes = [
@@ -84,6 +102,9 @@ initialState = {
 
 #### Vertical Right Tabs
 [Demo](https://hawk.wallnit.com/#!/Tabbed/7)
+```js static
+import Tabbed from '@hawk-ui/tabbed';
+```
 ```js
 const headers = ['First', 'Second', 'Third'];
 const panes = [
@@ -110,6 +131,9 @@ initialState = {
 
 #### Header and Panes are Separate
 [Demo](https://hawk.wallnit.com/#!/Tabbed/9)
+```js static
+import Tabbed from '@hawk-ui/tabbed';
+```
 ```js
 const headers = ['First', 'Second', 'Third'];
 const panes = [

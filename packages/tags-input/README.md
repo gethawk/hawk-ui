@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/tags-input --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/tags-input/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Tags Input
 [Demo](https://hawk.wallnit.com/#!/TagsInput/1)
+```js static
+import TagsInput from '@hawk-ui/tags-input';
+```
 ```js
 const suggestions = [
   {title: 'Argentina', value: 'argentina'},

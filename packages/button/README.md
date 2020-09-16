@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/button --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/button/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Simple Button:
 [Demo](https://hawk.wallnit.com/#!/Button/1)
+```js static
+import Button from '@hawk-ui/button';
+```
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Button
@@ -38,6 +50,9 @@
 
 #### Disabled Button:
 [Demo](https://hawk.wallnit.com/#!/Button/3)
+```js static
+import Button from '@hawk-ui/button';
+```
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Button
@@ -72,6 +87,9 @@
 
 #### Icon Button:
 [Demo](https://hawk.wallnit.com/#!/Button/5)
+```js static
+import Button from '@hawk-ui/button';
+```
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Button

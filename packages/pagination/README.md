@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/pagination --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/pagination/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Pagination
 [Demo](https://hawk.wallnit.com/#!/Pagination/1)
+```js static
+import Pagination from '@hawk-ui/pagination';
+```
 ```js
 const [PAGE_RANGE_DISPLAYED, PAGE_SIZE, totalResults] = [5, 15, 1000];
 

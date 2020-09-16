@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/input --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/input/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Without Label and Without Required:
 [Demo](https://hawk.wallnit.com/#!/Input/1)
+```js static
+import Input from '@hawk-ui/input';
+```
 ```js
 initialState = {
   value: '',
@@ -31,6 +43,9 @@ initialState = {
 
 #### With Copy
 [Demo](https://hawk.wallnit.com/#!/Input/3)
+```js static
+import Input from '@hawk-ui/input';
+```
 ```js
 initialState = {
   value: '',
@@ -56,6 +71,9 @@ initialState = {
 
 #### With Password Visible
 [Demo](https://hawk.wallnit.com/#!/Input/5)
+```js static
+import Input from '@hawk-ui/input';
+```
 ```js
 initialState = {
   value: '',
@@ -80,6 +98,9 @@ initialState = {
 
 #### With Label and With Required
 [Demo](https://hawk.wallnit.com/#!/Input/7)
+```js static
+import Input from '@hawk-ui/input';
+```
 ```js
 initialState = {
   value: '',
@@ -106,6 +127,9 @@ initialState = {
 
 #### Textarea With Label
 [Demo](https://hawk.wallnit.com/#!/Input/9)
+```js static
+import Input from '@hawk-ui/input';
+```
 ```js
 initialState = {
   value: '',

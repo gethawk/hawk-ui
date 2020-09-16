@@ -1,10 +1,23 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/button-group --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/button-group/dist/index.min.css
+```
+
 
 ## Usage
 
 #### Text Button:
 [Demo](https://hawk.wallnit.com/#!/ButtonGroup/1)
+```js static
+import ButtonGroup from '@hawk-ui/button-group';
+```
 ```js
 initialState = {
   grouped: [
@@ -30,6 +43,9 @@ initialState = {
 
 #### Outlined Button:
 [Demo](https://hawk.wallnit.com/#!/ButtonGroup/3)
+```js static
+import ButtonGroup from '@hawk-ui/button-group';
+```
 ```js
 initialState = {
   grouped: [
@@ -54,6 +70,9 @@ initialState = {
 
 #### Contained Button:
 [Demo](https://hawk.wallnit.com/#!/ButtonGroup/5)
+```js static
+import ButtonGroup from '@hawk-ui/button-group';
+```
 ```js
 initialState = {
   grouped: [

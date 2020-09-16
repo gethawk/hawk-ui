@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/file-upload --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/file-upload/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### File Upload With Button:
 [Demo](https://hawk.wallnit.com/#!/FileUpload/1)
+```js static
+import FileUpload from '@hawk-ui/file-upload';
+```
 ```js
 <FileUpload
   title="Browse"
@@ -19,6 +31,9 @@
 
 #### File Upload With Icon
 [Demo](https://hawk.wallnit.com/#!/FileUpload/3)
+```js static
+import FileUpload from '@hawk-ui/file-upload';
+```
 ```js
 <FileUpload
   title="fas fa-upload"
@@ -32,6 +47,9 @@
 
 #### File Upload With Describable
 [Demo](https://hawk.wallnit.com/#!/FileUpload/5)
+```js static
+import FileUpload from '@hawk-ui/file-upload';
+```
 ```js
 <FileUpload
   title="Browse"
@@ -48,6 +66,9 @@
 
 #### On Drag and Drop
 [Demo](https://hawk.wallnit.com/#!/FileUpload/7)
+```js static
+import FileUpload from '@hawk-ui/file-upload';
+```
 ```js
 <FileUpload
   title="Drag and Drop Image Here"

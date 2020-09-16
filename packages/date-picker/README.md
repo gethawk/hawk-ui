@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/date-picker --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/date-picker/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Single Date Selector
 [Demo](https://hawk.wallnit.com/#!/DatePicker/1)
+```js static
+import DatePicker from '@hawk-ui/date-picker';
+```
 ```js
 const moment = require('moment');
 initialState = {
@@ -32,6 +44,9 @@ initialState = {
 
 #### Range Date Selector
 [Demo](https://hawk.wallnit.com/#!/DatePicker/3)
+```js static
+import DatePicker from '@hawk-ui/date-picker';
+```
 ```js
 const moment = require('moment');
 initialState = {

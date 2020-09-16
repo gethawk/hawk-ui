@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/navigation-drawer --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/navigation-drawer/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### With Close Button and background dark
 [Demo](https://hawk.wallnit.com/#!/NavigationDrawer/1)
+```js static
+import NavigationDrawer from '@hawk-ui/navigation-drawer';
+```
 ```js
 initialState = {
   isLeftOpen: false,
@@ -74,6 +86,9 @@ initialState = {
 
 #### Without Close Button and background light
 [Demo](https://hawk.wallnit.com/#!/NavigationDrawer/3)
+```js static
+import NavigationDrawer from '@hawk-ui/navigation-drawer';
+```
 ```js
 initialState = {
   isLeftOpen: false,

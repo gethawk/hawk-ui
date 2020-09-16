@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/tag --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/tag/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Tags
 [Demo](https://hawk.wallnit.com/#!/Tag/1)
+```js static
+import Tag from '@hawk-ui/tag';
+```
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Tag>

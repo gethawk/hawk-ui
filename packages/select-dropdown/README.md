@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/select-dropdown --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/select-dropdown/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Without editable:
 [Demo](https://hawk.wallnit.com/#!/SelectDropdown/1)
+```js static
+import SelectDropdown from '@hawk-ui/select-dropdown';
+```
 ```js
 const suggestions = [
   {title: 'Argentina', value: 'argentina'},
@@ -50,6 +62,9 @@ initialState = {
 
 #### With editable
 [Demo](https://hawk.wallnit.com/#!/SelectDropdown/3)
+```js static
+import SelectDropdown from '@hawk-ui/select-dropdown';
+```
 ```js
 const suggestions = [
   {title: 'Argentina', value: 'argentina'},

@@ -1,5 +1,14 @@
 ## Installation
-`$ npm install @hawk-ui/button-group --save`
+
+
+#### To install a component run
+`$ npm install @hawk-ui/input-group --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/input-group/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Addon Left Placement
 [Demo](https://hawk.wallnit.com/#!/InputGroup/1)
+```js static
+import InputGroup from '@hawk-ui/input-group';
+```
 ```js
 initialState = {
   value: 'Hello World',
@@ -29,6 +41,9 @@ initialState = {
 
 #### Addon Right Placement
 [Demo](https://hawk.wallnit.com/#!/InputGroup/3)
+```js static
+import InputGroup from '@hawk-ui/input-group';
+```
 ```js
 <InputGroup
   addon="0.00"
@@ -49,6 +64,9 @@ initialState = {
 
 #### Addon Medium Placement
 [Demo](https://hawk.wallnit.com/#!/InputGroup/7)
+```js static
+import InputGroup from '@hawk-ui/input-group';
+```
 ```js
 <InputGroup
   addon="Text"
@@ -59,6 +77,9 @@ initialState = {
 
 #### Addon Large Placement
 [Demo](https://hawk.wallnit.com/#!/InputGroup/9)
+```js static
+import InputGroup from '@hawk-ui/input-group';
+```
 ```js
 <InputGroup
   addon="Text"
@@ -69,6 +90,9 @@ initialState = {
 
 #### Addon Icon
 [Demo](https://hawk.wallnit.com/#!/InputGroup/11)
+```js static
+import InputGroup from '@hawk-ui/input-group';
+```
 ```js
 <InputGroup
   addon="fa fa-at"
@@ -79,6 +103,9 @@ initialState = {
 
 #### Addon Element
 [Demo](https://hawk.wallnit.com/#!/InputGroup/13)
+```js static
+import InputGroup from '@hawk-ui/input-group';
+```
 ```js
 initialState = {
   fruits: [

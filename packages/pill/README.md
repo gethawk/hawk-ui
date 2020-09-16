@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/pill --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/pill/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Pill:
 [Demo](https://hawk.wallnit.com/#!/Pill/1)
+```js static
+import Pill from '@hawk-ui/pill';
+```
 ```js
 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
   <Pill>

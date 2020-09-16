@@ -1,5 +1,14 @@
 ## Installation
+
+
+#### To install a component run
 `$ npm install @hawk-ui/carousel --save`
+
+
+#### Please import CSS styles via
+```scss noeditor
+@import '/path__to__node_modules/@hawk-ui/carousel/dist/index.min.css
+```
 
 
 ## Usage
@@ -7,6 +16,9 @@
 
 #### Without animation:
 [Demo](https://hawk.wallnit.com/#!/Carousel/1)
+```js static
+import Carousel from '@hawk-ui/carousel';
+```
 ```js
 initialState = {
   slides: [
@@ -34,6 +46,9 @@ initialState = {
 
 #### With animation
 [Demo](https://hawk.wallnit.com/#!/Carousel/3)
+```js static
+import Carousel from '@hawk-ui/carousel';
+```
 ```js
 initialState = {
   slides: [
