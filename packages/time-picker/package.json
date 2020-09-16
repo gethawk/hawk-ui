@@ -16,7 +16,7 @@
     "hawk-ui",
     "ui"
   ],
-  "author": "saurabh gaur",
+  "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@hawk-ui/select-dropdown": "^2.8.3",
