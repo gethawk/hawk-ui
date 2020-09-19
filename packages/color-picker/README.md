@@ -21,7 +21,7 @@ import ColorPicker from '@hawk-ui/color-picker';
 ```
 ```js
 <ColorPicker
-  defaultColor="f18ca6"
+  defaultColor="#f18ca6"
   onSave={(event) => { console.log('query onSave', event); }}
 />
 ```

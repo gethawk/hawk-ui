@@ -98,7 +98,7 @@ export default class Picker extends Component {
         g: color.g,
         b: color.b,
       },
-      hex: color.hex,
+      hex: `#${color.hex}`,
     };
 
     this.props.onSave(colorCode);

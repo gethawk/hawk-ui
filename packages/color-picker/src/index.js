@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import Input from '@hawk-ui/input';
 import Picker from './component/picker';
 // css modules
@@ -81,6 +82,11 @@ export default class ColorPicker extends Component {
 
   render() {
     const { showHexCode, isText, isIcon, title } = this.props;
+    let code = this.state.defaultColor;
+
+    if (!_.includes(this.state.defaultColor, '#')) {
+      code = `#${this.state.defaultColor}`;
+    }
 
     return (
       <div ref={this.myRef} className="hawk-color-picker">
@@ -95,13 +101,13 @@ export default class ColorPicker extends Component {
           <div
             className="hawk-color-picker__input-picker__color"
             style={{
-              backgroundColor: !isText && !isIcon ? `#${this.state.defaultColor}` : '#ffffff',
+              backgroundColor: !isText && !isIcon ? `${code}` : '#ffffff',
             }}
           >
             {isText && (
               <span
                 style={{
-                  color: `#${this.state.defaultColor}`,
+                  color: code,
                 }}
               >{title}</span>
             )}
@@ -112,7 +118,7 @@ export default class ColorPicker extends Component {
           {showHexCode && (
             <Input
               type="text"
-              value={`#${this.state.defaultColor}`}
+              value={code}
               readOnly
             />
           )}
@@ -124,7 +130,7 @@ export default class ColorPicker extends Component {
           >
             <Picker
               mounted={this.setInstance}
-              initialValue={`#${this.state.defaultColor}`}
+              initialValue={code}
               onSave={this.onSave}
             />
           </div>
