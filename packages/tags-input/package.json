@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/tags-input",
-  "version": "2.8.7",
+  "version": "2.8.8",
   "description": "hawk-ui: Basic Tags Input Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,8 +18,8 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/label": "^2.8.7",
-    "@hawk-ui/suggestions": "^2.8.7",
+    "@hawk-ui/label": "^2.8.8",
+    "@hawk-ui/suggestions": "^2.8.8",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"
   },
