@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/pagination",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "description": "hawk-ui: Pagination Component",
   "main": "dist/index.min.js",
   "scripts": {
