@@ -27,6 +27,14 @@ export default class TimePicker extends Component {
     searchValue: '',
   };
 
+  componentWillReceiveProps(nextProps, prevProps) {
+    if (!_.isEqual(nextProps.dateTime, prevProps.dateTime)) {
+      this.setState({
+        startDate: nextProps.dateTime,
+      });
+    }
+  }
+
   getTimings = ({ baseTime, startOffset, endOffset }) => {
     const baseStartOffset = {
       hours: 0,
