@@ -10,15 +10,17 @@ import './index.scss';
 /**
  * @example ../README.md
  */
-
-// const startMoment = moment(new Date());
-
 export default class TimePicker extends Component {
   static propTypes = {
     className: PropTypes.string,
+    onSelect: PropTypes.func,
+    dateTime: PropTypes.string,
   };
+  static defaultProps = {
+    dateTime: moment().format(),
+  }
   state = {
-    startDate: moment(new Date()).toISOString(),
+    startDate: this.props.dateTime,
     startTimeOffset: { hours: moment(new Date()).hours(), minutes: moment(new Date()).minutes() },
     endTimeOffset: null,
     selectedItem: '',
@@ -59,7 +61,8 @@ export default class TimePicker extends Component {
   }
 
   render() {
-    const { startDate, startTimeOffset, endTimeOffset } = this.state;
+    const { onSelect } = this.props;
+    const { startDate, endTimeOffset } = this.state;
     const startSlots = this.getTimings({
       date: moment(startDate),
       endOffset: endTimeOffset ? {
@@ -80,30 +83,19 @@ export default class TimePicker extends Component {
           placeholder="Select Timepicker"
           searchValue={this.state.searchValue ? this.state.searchValue : startSlots[0].label}
           renderSuggestion={(suggestion) => suggestion.label}
-          // renderSelectedItem={() => (
-          //   this.state.selectedItem ? this.state.selectedItem : 'Select anyone'
-          // )}
-          // renderSelectedItem={() => (<span>Hello</span>)}
-          // renderSelectedItem={() => 'hello'}
-          // renderSelectedItem={() => (
-          //   startTimeOffset ? _.findIndex(startSlots, startTimeOffset) : -1
-          // )}
-          onSuggestionSelect={(item, meta) => {
+          onSuggestionSelect={(item) => {
             this.setState({
               startTimeOffset: _.pick(item, ['hours', 'minutes']),
               selectedItem: item.label,
               searchValue: item.label,
             }, () => {
-              console.log('query startSlots', startSlots);
-              console.log('query startTimeOffset', startTimeOffset);
-              console.log('query findIndex', _.findIndex(startSlots, this.state.startTimeOffset));
+              onSelect(moment(startDate).set(this.state.startTimeOffset).format());
             });
           }}
           onSearch={(value) => {
             this.setState({
               searchValue: value,
             });
-            console.log('query value', value);
           }}
         />
       </div>

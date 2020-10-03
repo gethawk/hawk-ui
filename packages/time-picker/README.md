@@ -20,5 +20,8 @@
 import TimePicker from '@hawk-ui/time-picker';
 ```
 ```js
-<TimePicker />
+<TimePicker
+  onSelect={(event) => { console.log('query event', event); }}
+  dateTime="2020-10-01T01:30:27+05:30"
+/>
 ```
