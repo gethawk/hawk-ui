@@ -317,7 +317,7 @@ class TableContent extends Component {
             </Fragment>
           ) : (
             <tr>
-              <td className="not-found" colSpan={tableHeader.length}>No matching records found</td>
+              <td className="hawk-table__not-found" colSpan={tableHeader.length}>No matching records found</td>
             </tr>
           )}
         </tbody>

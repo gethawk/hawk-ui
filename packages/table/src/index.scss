@@ -54,9 +54,6 @@
       .active {
         background-color: $gray-6;
       }
-      .not-found {
-        text-align: center;
-      }
     }
     th {
       font-size: 14px;
@@ -76,6 +73,9 @@
       color: $blue-4;
       text-align: left;
       padding: 12px 8px;
+    }
+    .hawk-table__not-found {
+      text-align: center;
     }
   }
 
