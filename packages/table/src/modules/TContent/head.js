@@ -12,7 +12,7 @@ import { sortByColumn } from '../../utils/sorting';
 // constant modules
 import { sortOrders } from '../../constants';
 
-export default class Header extends Component {
+export default class Head extends Component {
   static propTypes = {
     tableHeader: PropTypes.array,
     tableContent: PropTypes.array,

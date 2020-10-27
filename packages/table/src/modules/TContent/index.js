@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // React modules
 import _ from 'lodash';
-import Header from './header';
+import Head from './head';
 import Body from './body';
 // context modules
 import { TableContext } from '../../context/tableContext';
 
-export default class TableContent extends Component {
-  static displayName = 'TableContent';
+export default class TContent extends Component {
+  static displayName = 'TContent';
   static contextType = TableContext;
   static propTypes = {
     tableHeader: PropTypes.array,
@@ -74,7 +74,7 @@ export default class TableContent extends Component {
     return (
       <table id={this.context.id}>
         {isHeaderShow && (
-          <Header
+          <Head
             tableHeader={tableHeader}
             tableContent={tableContent}
             isSelectable={isSelectable}

@@ -11,7 +11,7 @@ import { TableContext } from '../context/tableContext';
 import { exportToCsv } from '../utils/exports/csv';
 import { exportToPrint } from '../utils/exports/print';
 
-export default class TableSearch extends Component {
+export default class TSearch extends Component {
   static propTypes = {
     selected: PropTypes.array,
     isSelectedExport: PropTypes.bool,
@@ -20,7 +20,7 @@ export default class TableSearch extends Component {
     isSelectedExport: false,
     selected: [],
   }
-  static displayName = 'TableSearch';
+  static displayName = 'TSearch';
   static contextType = TableContext;
   state = {};
 

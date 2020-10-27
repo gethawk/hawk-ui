@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 // React modules
 import Pagination from '@hawk-ui/pagination';
 
-export default class TablePagination extends Component {
-  static displayName = 'TablePagination';
+export default class TPagination extends Component {
+  static displayName = 'TPagination';
   static propTypes = {
     pageRangeDisplayed: PropTypes.number,
     itemsCountPerPage: PropTypes.number,

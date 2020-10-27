@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 // React modules
-import TableSearch from './modules/tableSearch';
-import TablePagination from './modules/tablePagination';
-import TableContent from './modules/tableContent';
+import TSearch from './modules/TSearch';
+import TPagination from './modules/TPagination';
+import TContent from './modules/TContent';
 // context modules
 import { TableContext } from './context/tableContext';
 // css modules
@@ -36,9 +36,9 @@ export default class Table extends Component {
     exports: [],
   }
 
-  static SEARCH = TableSearch;
-  static PAGINATION = TablePagination;
-  static CONTENT = TableContent;
+  static SEARCH = TSearch;
+  static PAGINATION = TPagination;
+  static CONTENT = TContent;
   constructor(props) {
     super(props);
 
