@@ -34,6 +34,7 @@ export default class Header extends Component {
   };
 
   renderHeaderCell = (column) => {
+    const { tableContent } = this.props;
     const isOrderingSetForColumn = this.state.sortingMeta.columnKey === column.key;
 
     return (
@@ -53,7 +54,7 @@ export default class Header extends Component {
                   order,
                 },
               }, () => {
-                const sortedColumn = sortByColumn(column.dataIndex, this.context.tableContent, this.state.sortingMeta.order);
+                const sortedColumn = sortByColumn(column.dataIndex, tableContent, this.state.sortingMeta.order);
 
                 onSort(sortedColumn);
               });

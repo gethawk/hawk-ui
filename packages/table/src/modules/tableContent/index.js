@@ -27,10 +27,6 @@ export default class TableContent extends Component {
   }
   state = {
     selectedItems: this.props.selected || [],
-    sortingMeta: {
-      columnKey: '',
-      order: 'ASCENDING',
-    },
   };
 
   onMultiSelect = () => {
