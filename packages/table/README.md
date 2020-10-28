@@ -289,18 +289,20 @@ initialState = {
 <Table
   tableContent={state.searchContent}
   tableSearchContent={['company', 'contact', 'country']}
-  exports={[
-    {
-      key: 'csv',
-      title: 'CSV Download',
-      columns: [0, 1, 2],
-    },
-    {
-      key: 'print',
-      title: 'Print',
-      columns: [0, 1, 2],
-    },
-  ]}
+  exports={{
+    options: [
+      {
+        key: 'csv',
+        title: 'CSV Download',
+        columns: [0, 1, 2],
+      },
+      {
+        key: 'print',
+        title: 'Print',
+        columns: [0, 1, 2],
+      },
+    ],
+  }}
 >
   <Table.SEARCH
     selected={state.selectedItems}
