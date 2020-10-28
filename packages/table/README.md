@@ -46,18 +46,26 @@ initialState = {
 <Table
   tableContent={state.searchContent}
   tableSearchContent={['company', 'contact', 'country']}
-  exports={[
-    {
-      key: 'csv',
-      title: 'CSV Download',
-      columns: [0, 1, 2],
+  exports={{
+    options: [
+      {
+        key: 'csv',
+        title: 'CSV Download',
+        columns: [0, 1, 2],
+      },
+      {
+        key: 'print',
+        title: 'Print',
+        columns: [0, 1, 2],
+      },
+    ],
+    headers: {
+      company: 'Company',
+      contact: 'Contact No.',
+      country: 'Country',
     },
-    {
-      key: 'print',
-      title: 'Print',
-      columns: [0, 1, 2],
-    },
-  ]}
+    items: content,
+  }}
 >
   <Table.SEARCH />
   <Table.CONTENT
@@ -95,6 +103,12 @@ const content = [
   { id: 5, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders', 'country': 'Germany' },
 ];
 
+const contentValue = [
+  { 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders', 'country': 'Germany' },
+  { 'company': 'Centro comercial Moctezuma', 'contact': 'Francisco Chang', 'country': 'Mexico' },
+  { 'company': 'Ernst Handel', 'contact': 'Roland Mendel', 'country': 'Austria' },
+];
+
 const [PAGE_RANGE_DISPLAYED, PAGE_SIZE, TOTAL_RESULTS] = [3, 10, 1000];
 
 initialState = {
@@ -107,7 +121,24 @@ initialState = {
   id="table2"
   tableContent={state.searchContent}
   tableSearchContent={['company', 'contact', 'country']}
-  exports={['csv', 'print']}
+  exports={{
+    options: [
+      {
+        key: 'csv',
+        title: 'CSV Download',
+      },
+      {
+        key: 'print',
+        title: 'Print',
+      },
+    ],
+    headers: {
+      company: 'Company',
+      contact: 'Contact No.',
+      country: 'Country',
+    },
+    items: contentValue,
+  }}
 >
   <Table.SEARCH />
   <Table.CONTENT
