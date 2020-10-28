@@ -1,11 +1,18 @@
 // react modules
 import _ from 'lodash';
 // exports modules
-import { exportToCsv } from './csv';
+import { exportTableToCsv } from './csv/tableCSV';
+import { exportJsonToCsv } from './csv/jsonCSV';
 import { exportToPrint } from './print';
 
-export function getExportClick({ id, key, columns = [], items = {}, isSelected = false, selected = [] }) {
-  return _.isEqual(key, 'csv') ? () => { exportToCsv(id, columns, isSelected, selected); }
+export function getExportClick({ id, key, columns = [], headers = {}, content = [], isSelected = false, selected = [] }) {
+  if (!_.isEmpty(columns)) {
+    return _.isEqual(key, 'csv') ? () => { exportTableToCsv(id, columns, isSelected, selected); }
+    : _.isEqual(key, 'print') ? () => { exportToPrint(id, columns, isSelected, selected); }
+      : null;
+  }
+
+  return _.isEqual(key, 'csv') ? () => { exportJsonToCsv(headers, content); }
     : _.isEqual(key, 'print') ? () => { exportToPrint(id, columns, isSelected, selected); }
       : null;
 }

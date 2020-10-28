@@ -23,7 +23,7 @@ function downloadCSV(csv, filename) {
   downloadLink.click();
 }
 
-export function exportToCsv(tableId, columns = [], isSelected = false, selected = []) {
+export function exportTableToCsv(tableId, columns = [], isSelected = false, selected = []) {
   const filename = 'download.csv';
   const csv = [];
   const rows = document.getElementById(tableId).querySelectorAll('tr');

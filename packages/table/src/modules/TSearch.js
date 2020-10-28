@@ -23,7 +23,7 @@ export default class TSearch extends Component {
   static contextType = TableContext;
   state = {};
 
-  exportBtn = (item) => {
+  exportBtn = (item, headers = {}, content = []) => {
     const { selected, isSelectedExport } = this.props;
 
     return (
@@ -34,7 +34,8 @@ export default class TSearch extends Component {
             id: _.get(this.context, 'id'),
             key: _.get(item, 'key'),
             columns: _.get(item, 'columns'),
-            items: {},
+            headers,
+            content,
             isSelected: isSelectedExport,
             selected,
           })
@@ -48,11 +49,13 @@ export default class TSearch extends Component {
   };
 
   render() {
+    const { exports } = this.context;
+
     return (
       <div className="hawk-table__filter">
         <div className="hawk-table__filter-downloads">
-          {_.map(_.get(this.context, 'exports.options'), (item) => (
-            this.exportBtn(item)
+          {_.map(_.get(exports, 'options'), (item) => (
+            this.exportBtn(item, _.get(exports, 'headers'), _.get(exports, 'items'))
           ))}
         </div>
         <div className="hawk-table__filter-search">
