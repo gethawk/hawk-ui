@@ -16,14 +16,17 @@ export default class TContent extends Component {
     isHeaderShow: PropTypes.bool,
     isSelectable: PropTypes.bool,
     isSorting: PropTypes.bool,
+    isFilter: PropTypes.bool,
     selected: PropTypes.array,
     onSelect: PropTypes.func,
     sortBy: PropTypes.array,
+    filterBy: PropTypes.array,
   };
   static defaultProps = {
     isHeaderShow: true,
     isSelectable: false,
     isSorting: false,
+    isFilter: false,
   }
   state = {
     selectedItems: this.props.selected || [],
@@ -67,7 +70,7 @@ export default class TContent extends Component {
   };
 
   render() {
-    const { tableHeader, isHeaderShow, isSelectable, isSorting, sortBy } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, sortBy, filterBy } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
 
@@ -80,7 +83,9 @@ export default class TContent extends Component {
             isSelectable={isSelectable}
             selected={selectedItems}
             isSorting={isSorting}
+            isFilter={isFilter}
             sortBy={sortBy}
+            filterBy={filterBy}
             onMultiSelect={this.onMultiSelect}
           />
         )}

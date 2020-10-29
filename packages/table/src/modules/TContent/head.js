@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import _ from 'lodash';
 import Checkbox from '@hawk-ui/checkbox';
+import Dropdown from '@hawk-ui/dropdown';
 // context modules
 import { TableContext } from '../../context/tableContext';
 // utils modules
@@ -19,12 +20,15 @@ export default class Head extends Component {
     isSelectable: PropTypes.bool,
     selected: PropTypes.array,
     isSorting: PropTypes.bool,
+    isFilter: PropTypes.bool,
     sortBy: PropTypes.array,
+    filterBy: PropTypes.array,
     onMultiSelect: PropTypes.func,
   };
   static defaultProps = {
     isSelectable: false,
     isSorting: false,
+    isFilter: false,
   }
   state = {
     sortingMeta: {
@@ -65,8 +69,19 @@ export default class Head extends Component {
     );
   };
 
+  renderFilter = (suggestions) => (
+    <div className="hawk-table__content-filter">
+      <Dropdown
+        title={<i className="fas fa-filter" />}
+        isClickable={false}
+        suggestions={suggestions}
+        renderSuggestion={(suggestion) => suggestion}
+      />
+    </div>
+  );
+
   render() {
-    const { tableHeader, tableContent, isSelectable, selected, isSorting, sortBy, onMultiSelect } = this.props;
+    const { tableHeader, tableContent, isSelectable, selected, isSorting, isFilter, sortBy, filterBy, onMultiSelect } = this.props;
 
     return (
       <thead>
@@ -82,10 +97,15 @@ export default class Head extends Component {
           )}
           {_.map(tableHeader, (item, index) => (
             <th key={index}>
-              <span>{item.title}</span>
-              {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
-                this.renderHeaderCell(item)
-              )}
+              <div className="hawk-table-th">
+                <span>{item.title}</span>
+                {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
+                  this.renderHeaderCell(item)
+                )}
+                {_.map(filterBy, (filter) => isFilter && _.includes(filter, item.dataIndex) && (
+                  this.renderFilter(_.get(filter, 'properties', {}))
+                ))}
+              </div>
             </th>
           ))}
         </tr>

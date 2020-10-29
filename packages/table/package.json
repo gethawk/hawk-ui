@@ -20,6 +20,7 @@
   "dependencies": {
     "@hawk-ui/button": "^2.9.4",
     "@hawk-ui/checkbox": "^2.9.4",
+    "@hawk-ui/dropdown": "^2.9.4",
     "@hawk-ui/input": "^2.9.4",
     "@hawk-ui/pagination": "^2.9.4",
     "classnames": "^2.2.6",
