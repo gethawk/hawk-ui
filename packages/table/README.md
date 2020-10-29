@@ -371,6 +371,88 @@ initialState = {
 ```
 
 
+#### Table Filter
+[Demo]()
+```js static
+import Table from '@hawk-ui/table';
+```
+```js
+const header = [
+  { key: 'company', title: 'Company', dataIndex: 'company' },
+  { key: 'contact', title: 'Contact', dataIndex: 'contact' },
+  { key: 'country', title: 'Country', dataIndex: 'country' },
+  { key: 'action', title: 'Action', dataIndex: '', render: (event) => <span onClick={() => { console.log(event); }} style={{ cursor: 'pointer' }}>Delete</span> },
+];
+
+const content = [
+  { id: 1, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders', 'country': 'Germany' },
+  { id: 2, 'company': 'Centro comercial Moctezuma', 'contact': 'Francisco Chang', 'country': 'Mexico' },
+  { id: 3, 'company': 'Ernst Handel', 'contact': 'Roland Mendel', 'country': 'Austria' },
+  { id: 4, 'company': 'Island Trading', 'contact': 'Helen Bennett', 'country': 'UK' },
+  { id: 5, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders', 'country': 'Germany' },
+];
+
+const filterCompany = [
+  { key: 1, label: 'Centro', value: 1 },
+  { key: 1, label: 'Ernst', value: 1 },
+  { key: 1, label: 'Alfreds', value: 1 },
+];
+
+const filterCountry = [
+  { key: 1, label: 'Germany', value: 1 },
+  { key: 2, label: 'Austria', value: 2 },
+  { key: 3, label: 'Mexico', value: 3 },
+];
+
+initialState = {
+  searchContent: content,
+  selectedItems: [1, 3],
+};
+
+<Table
+  tableContent={state.searchContent}
+  tableSearchContent={['company', 'contact', 'country']}
+>
+  <Table.CONTENT
+    tableHeader={header}
+    isFilter
+    // filterBy={['company', 'contact', 'country']}
+    filterBy={[
+      {
+        key: 'company',
+        properties: {
+          search: (
+            <Input
+              type="text"
+              className="hawk-input"
+              onChange={(event) => {
+                console.log('company search', event)
+              }}
+              placeholder="Search Company"
+            />
+          ),
+          options: (
+            <Checkbox
+              options={filterCompany}
+            />
+          ),
+          // search: <input type="text" />,
+          // options: <input type="checkbox" />
+        },
+      },
+      // {
+      //   key: 'country',
+      //   properties: {
+      //     search: <input type="text" />,
+      //     options: <input type="checkbox" />
+      //   },
+      // }
+    ]}
+  />
+</Table>
+```
+
+
 #### Table Expandable
 [Demo]()
 ```js static
