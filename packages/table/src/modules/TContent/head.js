@@ -102,7 +102,7 @@ export default class Head extends Component {
                 {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
                   this.renderHeaderCell(item)
                 )}
-                {_.map(filterBy, (filter) => isFilter && _.includes(filter, item.dataIndex) && (
+                {_.map(filterBy, (filter) => isFilter && _.includes(filter, item.key) && (
                   this.renderFilter(_.get(filter, 'properties', {}))
                 ))}
               </div>
