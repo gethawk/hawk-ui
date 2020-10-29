@@ -399,8 +399,8 @@ const filterCompany = [
 ];
 
 const filterCountry = [
-  { key: 1, label: 'Germany', value: 1 },
-  { key: 2, label: 'Austria', value: 2 },
+  { key: 1, label: 'Austria', value: 1 },
+  { key: 1, label: 'Germany', value: 2 },
   { key: 3, label: 'Mexico', value: 3 },
 ];
 
@@ -416,7 +416,6 @@ initialState = {
   <Table.CONTENT
     tableHeader={header}
     isFilter
-    // filterBy={['company', 'contact', 'country']}
     filterBy={[
       {
         key: 'company',
@@ -436,17 +435,18 @@ initialState = {
               options={filterCompany}
             />
           ),
-          // search: <input type="text" />,
-          // options: <input type="checkbox" />
         },
       },
-      // {
-      //   key: 'country',
-      //   properties: {
-      //     search: <input type="text" />,
-      //     options: <input type="checkbox" />
-      //   },
-      // }
+      {
+        key: 'country',
+        properties: {
+          options: (
+            <Checkbox
+              options={filterCountry}
+            />
+          ),
+        },
+      },
     ]}
   />
 </Table>

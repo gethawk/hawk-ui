@@ -97,13 +97,15 @@ export default class Head extends Component {
           )}
           {_.map(tableHeader, (item, index) => (
             <th key={index}>
-              <span>{item.title}</span>
-              {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
-                this.renderHeaderCell(item)
-              )}
-              {_.map(filterBy, (filter) => isFilter && _.includes(filter, item.dataIndex) && (
-                this.renderFilter(_.get(filter, 'properties', {}))
-              ))}
+              <div className="hawk-table-th">
+                <span>{item.title}</span>
+                {!_.isEmpty(item.dataIndex) && isSorting && _.includes(sortBy, item.dataIndex) && (
+                  this.renderHeaderCell(item)
+                )}
+                {_.map(filterBy, (filter) => isFilter && _.includes(filter, item.dataIndex) && (
+                  this.renderFilter(_.get(filter, 'properties', {}))
+                ))}
+              </div>
             </th>
           ))}
         </tr>

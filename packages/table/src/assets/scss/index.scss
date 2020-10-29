@@ -35,6 +35,36 @@
         margin-top: 0;
       }
     }
+    &-filter {
+      .hawk-dropdown {
+        &__menu {
+          transform: translate3d(0px, 19px, 0px);
+        }
+        .hawk-button {
+          padding: 0;
+          border: 0;
+          &:hover {
+            box-shadow: unset;
+          }
+          &__contained {
+            border-color: unset;
+            background-color: unset;
+            color: unset;
+          }
+        }
+        &__item {
+          .hawk-checkbox {
+            margin-top: 5px;
+            &:first-child {
+              margin-top: 0;
+            }
+            &__content {
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
   }
   table {
     width: 100%;
@@ -112,5 +142,8 @@
         transform: rotate(90deg);
       }
     }
+  }
+  &-th {
+    display: flex;
   }
 }
