@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/select-dropdown",
-  "version": "2.9.6",
+  "version": "2.9.8",
   "description": "hawk-ui: Basic Select Dropdown Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,8 +18,8 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/label": "^2.9.6",
-    "@hawk-ui/suggestions": "^2.9.6",
+    "@hawk-ui/label": "^2.9.8",
+    "@hawk-ui/suggestions": "^2.9.8",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
