@@ -69,22 +69,16 @@ export default class Head extends Component {
     );
   };
 
-  renderFilter = (suggestions) => {
-    console.log('query suggestions', suggestions);
-
-    return (
-      <div className="hawk-table__content-filter">
-        <Dropdown
-          title={<i className="fas fa-filter" />}
-          suggestions={suggestions}
-          renderSuggestion={(suggestion) => suggestion}
-          selectValue={(meta, item) => {
-            console.log('query meta', meta, item);
-          }}
-        />
-      </div>
-    );
-  };
+  renderFilter = (suggestions) => (
+    <div className="hawk-table__content-filter">
+      <Dropdown
+        title={<i className="fas fa-filter" />}
+        isClickable={false}
+        suggestions={suggestions}
+        renderSuggestion={(suggestion) => suggestion}
+      />
+    </div>
+  );
 
   render() {
     const { tableHeader, tableContent, isSelectable, selected, isSorting, isFilter, sortBy, filterBy, onMultiSelect } = this.props;
