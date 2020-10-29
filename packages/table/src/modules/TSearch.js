@@ -26,6 +26,8 @@ export default class TSearch extends Component {
   exportBtn = (item, headers = {}, content = []) => {
     const { selected, isSelectedExport } = this.props;
 
+    console.log('query headers', headers);
+    console.log('query content', content);
     return (
       <Button
         isDisabled={isSelectedExport && _.isEmpty(selected)}
