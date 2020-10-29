@@ -20,9 +20,11 @@ export default class Dropdown extends Component {
     ]),
     renderSuggestion: PropTypes.func,
     selectValue: PropTypes.func,
+    isClickable: PropTypes.bool,
   };
   static defaultProps = {
     renderSuggestion: () => ('render suggestion'),
+    isClickable: true,
   }
   constructor(props) {
     super(props);
@@ -50,7 +52,7 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { title, isIcon, suggestions, renderSuggestion, selectValue } = this.props;
+    const { title, isIcon, suggestions, renderSuggestion, selectValue, isClickable } = this.props;
 
     return (
       <div ref={this.myRef} className="hawk-dropdown">
@@ -85,11 +87,11 @@ export default class Dropdown extends Component {
               <div
                 className="hawk-dropdown__item"
                 key={index}
-                onClick={() => {
-                  this.setState({ shouldDropdownShow: false }, () => {
-                    selectValue(index, item);
-                  });
-                }}
+                onClick={() => isClickable && this.setState({
+                  shouldDropdownShow: false,
+                }, () => {
+                  selectValue(index, item);
+                })}
               >
                 {renderSuggestion(item)}
               </div>
