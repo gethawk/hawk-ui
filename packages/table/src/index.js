@@ -71,7 +71,9 @@ export default class Table extends Component {
     const searchValue = event.target.value.toLowerCase();
 
     const tableContent = _.filter(this.props.tableContent, (content) => _.reduce(this.props.tableSearchContent, (result, key) => {
-      if (content[key].toLowerCase().includes(searchValue)) { return true; }
+      if (!_.isEmpty(content[key])) {
+        if (content[key].toLowerCase().includes(searchValue)) { return true; }
+      }
 
       return result || false;
     }, false));
