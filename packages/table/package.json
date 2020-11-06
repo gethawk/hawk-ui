@@ -22,6 +22,7 @@
     "@hawk-ui/checkbox": "^2.9.8",
     "@hawk-ui/dropdown": "^2.9.8",
     "@hawk-ui/input": "^2.9.8",
+    "@hawk-ui/loader": "^2.9.8",
     "@hawk-ui/pagination": "^2.9.8",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",

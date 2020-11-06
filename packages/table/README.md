@@ -70,6 +70,7 @@ initialState = {
   <Table.SEARCH />
   <Table.CONTENT
     tableHeader={header}
+    isLoading={false}
   />
   <Table.PAGINATION
     pageRangeDisplayed={PAGE_RANGE_DISPLAYED}

@@ -146,4 +146,14 @@
   &-th {
     display: flex;
   }
+  &__loader {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    div {
+      margin: auto;
+    }
+  }
 }
