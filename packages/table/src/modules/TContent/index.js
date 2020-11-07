@@ -22,6 +22,7 @@ export default class TContent extends Component {
     onSelect: PropTypes.func,
     sortBy: PropTypes.array,
     filterBy: PropTypes.array,
+    renderLoading: PropTypes.element,
   };
   static defaultProps = {
     isHeaderShow: true,
@@ -72,7 +73,7 @@ export default class TContent extends Component {
   };
 
   render() {
-    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, sortBy, filterBy } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, renderLoading, sortBy, filterBy } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
 
@@ -96,6 +97,7 @@ export default class TContent extends Component {
           tableContent={tableContent}
           selectedItems={selectedItems}
           isLoading={isLoading}
+          renderLoading={renderLoading}
           isSelectable={isSelectable}
           onSelect={this.onSelect}
         />

@@ -13,12 +13,13 @@ export default class Body extends Component {
     selectedItems: PropTypes.array,
     isSelectable: PropTypes.bool,
     isLoading: PropTypes.bool,
+    renderLoading: PropTypes.element,
     onSelect: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { tableHeader, tableContent, selectedItems, isSelectable, isLoading, onSelect } = this.props;
+    const { tableHeader, tableContent, selectedItems, isSelectable, isLoading, renderLoading, onSelect } = this.props;
 
     return (
       <tbody>
@@ -28,9 +29,15 @@ export default class Body extends Component {
               colSpan={isSelectable ? tableHeader.length + 1 : tableHeader.length}
             >
               <div className="hawk-table__loader">
-                <Loader
-                  type="jelly"
-                />
+                {renderLoading ? (
+                  <Fragment>
+                    {renderLoading}
+                  </Fragment>
+                ) : (
+                  <Loader
+                    type="jelly"
+                  />
+                )}
               </div>
             </td>
           </tr>

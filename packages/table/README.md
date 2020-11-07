@@ -71,6 +71,7 @@ initialState = {
   <Table.CONTENT
     tableHeader={header}
     isLoading={false}
+    renderLoading={<div>Loading...</div>}
   />
   <Table.PAGINATION
     pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
