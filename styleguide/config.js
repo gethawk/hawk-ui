@@ -7,6 +7,7 @@ module.exports = {
     {
       name: 'Core UI Components',
       components: () => ([
+        '../packages/breadcrumb/src/index.js',
         '../packages/button/src/index.js',
         '../packages/button-group/src/index.js',
         '../packages/label/src/index.js',

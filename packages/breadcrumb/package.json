@@ -1,0 +1,31 @@
+{
+  "name": "@hawk-ui/breadcrumb",
+  "version": "2.10.2",
+  "description": "hawk-ui: Basic Breadcrumb Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=breadcrumb"
+  },
+  "keywords": [
+    "breadcrumb",
+    "react",
+    "react component",
+    "react breadcrumb",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
+  "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

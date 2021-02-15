@@ -1,0 +1,25 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    font-size: 14px;
+    color: $gray-7;
+    text-transform: capitalize;
+    a {
+      color: $blue-1;
+      text-decoration: unset;
+    }
+    &::before {
+      content: "/";
+      color: $gray-7;
+      padding: 0 7px;
+    }
+    &:first-child {
+      &::before {
+        content: unset;
+      }
+    }
+  }
+}
