@@ -56,7 +56,9 @@ export default class Tabbed extends Component {
                   this.setState({
                     activeTabIndex: index,
                   });
-                  onActiveTabChange(index);
+                  if (_.isFunction(onActiveTabChange)) {
+                    onActiveTabChange(index);
+                  }
                 }}
               >
                 {header}

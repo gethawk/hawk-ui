@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -37,11 +38,21 @@ export default class Dropdown extends Component {
   };
 
   componentDidMount() {
+    const { isHoverable } = this.props;
+
     document.addEventListener('click', this.onClick);
+    if (isHoverable) {
+      document.addEventListener('mouseout', this.onClick);
+    }
   }
 
   componentWillUnmount() {
+    const { isHoverable } = this.props;
+
     document.removeEventListener('click', this.onClick);
+    if (isHoverable) {
+      document.removeEventListener('mouseout', this.onClick);
+    }
   }
 
   onClick = (event) => {
@@ -57,13 +68,20 @@ export default class Dropdown extends Component {
     const { title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isHoverable } = this.props;
 
     return (
-      <div ref={this.myRef} className="hawk-dropdown">
+      <div
+        ref={this.myRef}
+        className="hawk-dropdown"
+      >
         <Button
           className="hawk-dropdown__button"
           onClick={() => {
             this.setState({
               shouldDropdownShow: !this.state.shouldDropdownShow,
             });
+          }}
+          onMouseOver={() => {
+            isHoverable &&
+              this.setState({ shouldDropdownShow: true });
           }}
         >
           {title ? (
