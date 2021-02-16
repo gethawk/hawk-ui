@@ -29,9 +29,9 @@ export default class Carousel extends Component {
     },
   };
 
-  prev = () => {
+  onHandleClick = (type) => {
     const { id, options } = this.props;
-    const width = _.get(options, 'width');
+    const width = _.isEqual(type, 'previous') ? _.get(options, 'width') : -_.get(options, 'width');
     let num = 0;
     const slider = document.getElementById(`slider-${id}`);
     const left = slider.style.transform.split('px')[0].split('(')[1];
@@ -46,32 +46,8 @@ export default class Carousel extends Component {
     this.setState((prevState) => {
       const slideOptions = { ...prevState.slideOptions };
 
-      slideOptions.start -= 1;
-      slideOptions.end += 1;
-
-      return { slideOptions };
-    });
-  };
-
-  next = () => {
-    const { id, options } = this.props;
-    const width = -_.get(options, 'width');
-    let num = 0;
-    const slider = document.getElementById(`slider-${id}`);
-    const left = slider.style.transform.split('px')[0].split('(')[1];
-
-    if (left) {
-      num = Number(left) + Number(width);
-    } else {
-      num = Number(width);
-    }
-    slider.style.transform = `translateX(${num}px)`;
-    slider.style.transition = 'all 0.5s';
-    this.setState((prevState) => {
-      const slideOptions = { ...prevState.slideOptions };
-
-      slideOptions.start += 1;
-      slideOptions.end -= 1;
+      slideOptions.start = _.isEqual(type, 'previous') ? slideOptions.start - 1 : slideOptions.start + 1;
+      slideOptions.end = _.isEqual(type, 'previous') ? slideOptions.end + 1 : slideOptions.end - 1;
 
       return { slideOptions };
     });
@@ -97,7 +73,7 @@ export default class Carousel extends Component {
             variant="outlined"
             icon="fas fa-chevron-left"
             className="hawk-carousel__prev-next previous"
-            onClick={() => { this.prev(); }}
+            onClick={() => { this.onHandleClick('previous'); }}
           />
         )}
         {!_.isEqual(slideOptions.end, _.get(options, 'display')) && (
@@ -106,7 +82,7 @@ export default class Carousel extends Component {
             variant="outlined"
             icon="fas fa-chevron-right"
             className="hawk-carousel__prev-next next"
-            onClick={() => { this.next(); }}
+            onClick={() => { this.onHandleClick('next'); }}
           />
         )}
       </div>
