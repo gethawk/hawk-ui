@@ -52,6 +52,8 @@ module.exports = {
       "import/no-extraneous-dependencies": ["off", { "devDependencies": ["**/*.test.js", "**/*.spec.js"], }], // TODO:: fix eslint config - false positives
       "react/no-unused-prop-types": "off", // too many false positives
       "no-nested-ternary": "off",
+      "react/no-did-mount-set-state": "off",
+      "no-undef": "off",
     },
     "ecmaFeatures": {
       "jsx": true,

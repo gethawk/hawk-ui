@@ -22,54 +22,47 @@ import Carousel from '@hawk-ui/carousel';
 ```js
 initialState = {
   slides: [
-    {
-      image: 'https://www.w3schools.com/howto/img_nature_wide.jpg',
-      caption: 'Caption One',
-    },
-    {
-      image: 'https://www.w3schools.com/howto/img_snow_wide.jpg',
-      caption: 'Caption Two',
-    },
-    {
-      image: 'https://www.w3schools.com/howto/img_mountains_wide.jpg',
-      caption: 'Caption Thre',
-    },
+    <div
+      style={{
+        height: '100%',
+        width: '400px',
+        flex: '0 0 400px',
+        backgroundColor: 'lavender',
+      }}
+    />,
+    <div
+      style={{
+        height: '100%',
+        width: '400px',
+        flex: '0 0 400px',
+        backgroundColor: 'lavenderblush',
+      }}
+    />,
+    <div
+      style={{
+        height: '100%',
+        width: '400px',
+        flex: '0 0 400px',
+        backgroundColor: 'lavender',
+      }}
+    />,
+    <div
+      style={{
+        height: '100%',
+        width: '400px',
+        flex: '0 0 400px',
+        backgroundColor: 'lavenderblush',
+      }}
+    />,
   ],
 };
 
 <Carousel
-  id="slider1"
+  id="carousel1"
   slides={state.slides}
-/>
-```
-
-
-#### With animation
-[Demo](https://hawk.wallnit.com/#!/Carousel/3)
-```js static
-import Carousel from '@hawk-ui/carousel';
-```
-```js
-initialState = {
-  slides: [
-    {
-      image: 'https://www.w3schools.com/howto/img_nature_wide.jpg',
-      caption: 'Caption One',
-    },
-    {
-      image: 'https://www.w3schools.com/howto/img_snow_wide.jpg',
-      caption: 'Caption Two',
-    },
-    {
-      image: 'https://www.w3schools.com/howto/img_mountains_wide.jpg',
-      caption: 'Caption Thre',
-    },
-  ],
-};
-
-<Carousel
-  id="slider2"
-  slides={state.slides}
-  isAnimated
+  options={{
+    display: 2,
+    width: 400,
+  }}
 />
 ```
