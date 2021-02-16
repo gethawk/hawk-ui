@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/collapse",
-  "version": "2.11.0",
+  "version": "2.11.1",
   "description": "hawk-ui: Basic Collapse Component",
   "main": "dist/index.min.js",
   "scripts": {
