@@ -24,7 +24,7 @@ initialState = {
   slides: [
     <div
       style={{
-        height: '100%',
+        height: '250px',
         width: '400px',
         flex: '0 0 400px',
         backgroundColor: 'lavender',
@@ -32,7 +32,7 @@ initialState = {
     />,
     <div
       style={{
-        height: '100%',
+        height: '250px',
         width: '400px',
         flex: '0 0 400px',
         backgroundColor: 'lavenderblush',
@@ -40,7 +40,7 @@ initialState = {
     />,
     <div
       style={{
-        height: '100%',
+        height: '250px',
         width: '400px',
         flex: '0 0 400px',
         backgroundColor: 'lavender',
@@ -48,7 +48,7 @@ initialState = {
     />,
     <div
       style={{
-        height: '100%',
+        height: '250px',
         width: '400px',
         flex: '0 0 400px',
         backgroundColor: 'lavenderblush',
