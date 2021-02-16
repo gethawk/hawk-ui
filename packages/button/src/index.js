@@ -24,8 +24,10 @@ export default class Button extends Component {
     onMouseOut: PropTypes.func,
     isDisabled: PropTypes.bool,
     icon: PropTypes.string,
+    htmlAttributes: PropTypes.object,
   };
   static defaultProps = {
+    htmlAttributes: {},
     type: 'button',
     variant: 'contained',
   }
@@ -49,7 +51,7 @@ export default class Button extends Component {
   }
 
   render() {
-    const { type, variant, className, children, isDisabled, icon } = this.props;
+    const { type, variant, className, children, isDisabled, icon, htmlAttributes } = this.props;
 
     return (
       <button
@@ -58,6 +60,7 @@ export default class Button extends Component {
           [`hawk-button__${variant}`]: _.isString(variant),
           [`hawk-button__${variant}-disabled`]: isDisabled,
         })}
+        {...htmlAttributes}
         onClick={(e) => { this.onClick(e); }}
         onMouseOver={(e) => { this.onMouseOver(e); }}
         onMouseOut={(e) => { this.onMouseOut(e); }}

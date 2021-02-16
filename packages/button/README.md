@@ -24,6 +24,9 @@ import Button from '@hawk-ui/button';
   <Button
     type="button"
     variant="text"
+    htmlAttributes={{
+      id: 'button',
+    }}
     onClick={() => { window.alert('Button Was Clicked'); }}
   >
     <span>Text Button</span>
