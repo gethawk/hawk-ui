@@ -20,6 +20,8 @@ export default class Button extends Component {
       PropTypes.array,
     ]),
     onClick: PropTypes.func,
+    onMouseOver: PropTypes.func,
+    onMouseOut: PropTypes.func,
     isDisabled: PropTypes.bool,
     icon: PropTypes.string,
   };
@@ -34,6 +36,18 @@ export default class Button extends Component {
     }
   }
 
+  onMouseOver = (e) => {
+    if (!this.props.isDisabled && _.isFunction(this.props.onMouseOver)) {
+      this.props.onMouseOver(e);
+    }
+  }
+
+  onMouseOut = (e) => {
+    if (!this.props.isDisabled && _.isFunction(this.props.onMouseOut)) {
+      this.props.onMouseOut(e);
+    }
+  }
+
   render() {
     const { type, variant, className, children, isDisabled, icon } = this.props;
 
@@ -45,6 +59,8 @@ export default class Button extends Component {
           [`hawk-button__${variant}-disabled`]: isDisabled,
         })}
         onClick={(e) => { this.onClick(e); }}
+        onMouseOver={(e) => { this.onMouseOver(e); }}
+        onMouseOut={(e) => { this.onMouseOut(e); }}
       >
         {_.isString(icon) ? (
           <i className={icon} />

@@ -14,6 +14,7 @@ export default class Dropdown extends Component {
   static propTypes = {
     title: PropTypes.string,
     isIcon: PropTypes.bool,
+    isHoverable: PropTypes.bool,
     suggestions: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
@@ -25,6 +26,7 @@ export default class Dropdown extends Component {
   static defaultProps = {
     renderSuggestion: () => ('render suggestion'),
     isClickable: true,
+    isHoverable: false,
   }
   constructor(props) {
     super(props);
@@ -52,7 +54,7 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { title, isIcon, suggestions, renderSuggestion, selectValue, isClickable } = this.props;
+    const { title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isHoverable } = this.props;
 
     return (
       <div ref={this.myRef} className="hawk-dropdown">
