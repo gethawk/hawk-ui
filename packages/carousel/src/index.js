@@ -32,17 +32,14 @@ export default class Carousel extends Component {
     },
   };
 
-  onHandleClick = ({ type, navigation = null }) => {
+  onHandleClick = ({ type }) => {
     const { id, options, variant } = this.props;
-    const { slideOptions } = this.state;
 
-    console.log('query navigation', navigation, slideOptions.start);
     const width = _.isEqual(type, 'previous') ? _.get(options, 'width') : -_.get(options, 'width');
     let num = 0;
     const slider = document.getElementById(`slider-${id}`);
     const left = slider.style.transform.split(_.isEqual(variant, 'contained') ? '%' : 'px')[0].split('(')[1];
 
-    console.log('query left', left);
     if (left) {
       num = Number(left) + Number(width);
     } else {
@@ -86,7 +83,6 @@ export default class Carousel extends Component {
                 className={getClassnames('hawk-carousel__navigation-dot', {
                   active: _.isEqual(slideOptions.start, index),
                 })}
-                onClick={() => { this.onHandleClick({ navigation: index }); }}
               />
             ))}
           </div>
