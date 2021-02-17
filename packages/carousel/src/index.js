@@ -1,7 +1,8 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import _, { transform } from 'lodash';
+import getClassnames from 'classnames';
 // react modules
 import Button from '@hawk-ui/button';
 // css modules
@@ -31,13 +32,17 @@ export default class Carousel extends Component {
     },
   };
 
-  onHandleClick = (type) => {
+  onHandleClick = ({ type, navigation = null }) => {
     const { id, options, variant } = this.props;
+    const { slideOptions } = this.state;
+
+    console.log('query navigation', navigation, slideOptions.start);
     const width = _.isEqual(type, 'previous') ? _.get(options, 'width') : -_.get(options, 'width');
     let num = 0;
     const slider = document.getElementById(`slider-${id}`);
     const left = slider.style.transform.split(_.isEqual(variant, 'contained') ? '%' : 'px')[0].split('(')[1];
 
+    console.log('query left', left);
     if (left) {
       num = Number(left) + Number(width);
     } else {
@@ -56,7 +61,7 @@ export default class Carousel extends Component {
   };
 
   render() {
-    const { slides, id, options } = this.props;
+    const { slides, id, options, variant } = this.props;
     const { slideOptions } = this.state;
 
     return (
@@ -64,18 +69,35 @@ export default class Carousel extends Component {
         <div
           className="hawk-carousel__container"
           id={`slider-${id}`}
+          style={{
+            transform: `translateX(0${_.isEqual(variant, 'contained') ? '%' : 'px'})`,
+            transition: 'all 0.5s ease 0s',
+          }}
         >
           {_.map(slides, (item) => (
             item
           ))}
         </div>
+        {_.isEqual(variant, 'contained') && (
+          <div className="hawk-carousel__navigation">
+            {_.map(slides, (item, index) => (
+              <span
+                key={index}
+                className={getClassnames('hawk-carousel__navigation-dot', {
+                  active: _.isEqual(slideOptions.start, index),
+                })}
+                onClick={() => { this.onHandleClick({ navigation: index }); }}
+              />
+            ))}
+          </div>
+        )}
         {slideOptions.start >= 1 && (
           <Button
             type="button"
             variant="outlined"
             icon="fas fa-chevron-left"
             className="hawk-carousel__prev-next previous"
-            onClick={() => { this.onHandleClick('previous'); }}
+            onClick={() => { this.onHandleClick({ type: 'previous' }); }}
           />
         )}
         {!_.isEqual(slideOptions.end, _.get(options, 'display')) && (
@@ -84,7 +106,7 @@ export default class Carousel extends Component {
             variant="outlined"
             icon="fas fa-chevron-right"
             className="hawk-carousel__prev-next next"
-            onClick={() => { this.onHandleClick('next'); }}
+            onClick={() => { this.onHandleClick({ type: 'next' }); }}
           />
         )}
       </div>

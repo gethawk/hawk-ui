@@ -27,4 +27,27 @@
       right: 10px;
     }
   }
+  &__navigation {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    .active {
+      background: $white;
+    }
+    &-dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 3px;
+      background: hsla(0,0%,100%,.75);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+      cursor: pointer;
+      &:hover {
+        background: $white;
+      }
+    }
+  }
 }
