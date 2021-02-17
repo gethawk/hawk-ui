@@ -12,6 +12,7 @@ import './index.scss';
  */
 export default class Carousel extends Component {
   static propTypes = {
+    variant: PropTypes.oneOf(['contained', 'card']),
     slides: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
@@ -21,6 +22,7 @@ export default class Carousel extends Component {
   };
   static defaultProps = {
     id: 'carousel',
+    variant: 'contained',
   }
   state = {
     slideOptions: {
@@ -30,18 +32,18 @@ export default class Carousel extends Component {
   };
 
   onHandleClick = (type) => {
-    const { id, options } = this.props;
+    const { id, options, variant } = this.props;
     const width = _.isEqual(type, 'previous') ? _.get(options, 'width') : -_.get(options, 'width');
     let num = 0;
     const slider = document.getElementById(`slider-${id}`);
-    const left = slider.style.transform.split('px')[0].split('(')[1];
+    const left = slider.style.transform.split(_.isEqual(variant, 'contained') ? '%' : 'px')[0].split('(')[1];
 
     if (left) {
       num = Number(left) + Number(width);
     } else {
       num = Number(width);
     }
-    slider.style.transform = `translateX(${num}px)`;
+    slider.style.transform = `translateX(${num}${_.isEqual(variant, 'contained') ? '%' : 'px'})`;
     slider.style.transition = 'all 0.5s';
     this.setState((prevState) => {
       const slideOptions = { ...prevState.slideOptions };
