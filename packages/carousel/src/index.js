@@ -1,7 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import _, { transform } from 'lodash';
+import _ from 'lodash';
 import getClassnames from 'classnames';
 // react modules
 import Button from '@hawk-ui/button';
