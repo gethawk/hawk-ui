@@ -13,7 +13,7 @@ import './index.scss';
  */
 export default class Carousel extends Component {
   static propTypes = {
-    variant: PropTypes.oneOf(['contained', 'card', 'image']),
+    variant: PropTypes.oneOf(['contained', 'card']),
     slides: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
@@ -32,48 +32,40 @@ export default class Carousel extends Component {
     },
   };
 
-  onHandleClick = ({ type }) => {
-    const { id, options, variant } = this.props;
-
-    const width = _.isEqual(type, 'previous') ? _.get(options, 'width') : -_.get(options, 'width');
+  onHandleClick = ({ type = 'options', index = 0 }) => {
+    const { id, options, variant, slides } = this.props;
+    const width = _.isEqual(type, 'options')
+      ? -100 * index
+      : _.isEqual(type, 'previous')
+        ? _.get(options, 'width')
+        : -_.get(options, 'width');
     let num = 0;
     const slider = document.getElementById(`slider-${id}`);
     const left = slider.style.transform.split(_.isEqual(variant, 'contained') ? '%' : 'px')[0].split('(')[1];
 
     if (left) {
-      num = Number(left) + Number(width);
+      num = _.isEqual(type, 'options')
+        ? Number(width)
+        : Number(left) + Number(width);
     } else {
       num = Number(width);
     }
-    slider.style.transform = `translateX(${num}${_.isEqual(variant, 'contained') ? '%' : 'px'})`;
-    slider.style.transition = 'all 0.5s';
-    this.setState((prevState) => {
-      const slideOptions = { ...prevState.slideOptions };
-
-      slideOptions.start = _.isEqual(type, 'previous') ? slideOptions.start - 1 : slideOptions.start + 1;
-      slideOptions.end = _.isEqual(type, 'previous') ? slideOptions.end + 1 : slideOptions.end - 1;
-
-      return { slideOptions };
-    });
-  };
-
-  onHandleDots = (index) => {
-    const { id, variant, slides } = this.props;
-    let num = 0;
-    const slider = document.getElementById(`slider-${id}`);
-    const left = slider.style.transform.split(_.isEqual(variant, 'contained') ? '%' : 'px')[0].split('(')[1];
-
-    if (left) {
-      num = -100 * index;
-    }
 
     slider.style.transform = `translateX(${num}${_.isEqual(variant, 'contained') ? '%' : 'px'})`;
     slider.style.transition = 'all 0.5s';
     this.setState((prevState) => {
       const slideOptions = { ...prevState.slideOptions };
 
-      slideOptions.start = index;
-      slideOptions.end = _.size(slides) - index;
+      slideOptions.start = _.isEqual(type, 'options')
+        ? index
+        : _.isEqual(type, 'previous')
+          ? slideOptions.start - 1
+          : slideOptions.start + 1;
+      slideOptions.end = _.isEqual(type, 'options')
+        ? _.size(slides) - index
+        : _.isEqual(type, 'previous')
+          ? slideOptions.end + 1
+          : slideOptions.end - 1;
 
       return { slideOptions };
     });
@@ -105,7 +97,7 @@ export default class Carousel extends Component {
                 className={getClassnames('hawk-carousel__navigation-dot', {
                   active: _.isEqual(slideOptions.start, index),
                 })}
-                onClick={() => { this.onHandleDots(index); }}
+                onClick={() => { this.onHandleClick({ index }); }}
               />
             ))}
           </div>
