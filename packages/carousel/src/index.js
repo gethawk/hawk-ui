@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import getClassnames from 'classnames';
@@ -13,17 +13,20 @@ import './index.scss';
  */
 export default class Carousel extends Component {
   static propTypes = {
-    variant: PropTypes.oneOf(['contained', 'card']),
+    variant: PropTypes.oneOf(['contained', 'card', 'poster']),
+    layout: PropTypes.oneOf(['horizontalTop', 'horizontalBottom']),
     slides: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
     ]),
+    header: PropTypes.array,
     id: PropTypes.string,
     options: PropTypes.bool,
   };
   static defaultProps = {
     id: 'carousel',
     variant: 'contained',
+    layout: 'horizontalTop',
   }
   state = {
     slideOptions: {
@@ -41,7 +44,7 @@ export default class Carousel extends Component {
         : -_.get(options, 'width');
     let num = 0;
     const slider = document.getElementById(`slider-${id}`);
-    const left = slider.style.transform.split(_.isEqual(variant, 'contained') ? '%' : 'px')[0].split('(')[1];
+    const left = slider.style.transform.split(_.includes(['contained', 'poster'], variant) ? '%' : 'px')[0].split('(')[1];
 
     if (left) {
       num = _.isEqual(type, 'options')
@@ -51,7 +54,7 @@ export default class Carousel extends Component {
       num = Number(width);
     }
 
-    slider.style.transform = `translateX(${num}${_.isEqual(variant, 'contained') ? '%' : 'px'})`;
+    slider.style.transform = `translateX(${num}${_.includes(['contained', 'poster'], variant) ? '%' : 'px'})`;
     slider.style.transition = 'all 0.5s';
     this.setState((prevState) => {
       const slideOptions = { ...prevState.slideOptions };
@@ -72,16 +75,20 @@ export default class Carousel extends Component {
   };
 
   render() {
-    const { slides, id, options, variant } = this.props;
+    const { slides, id, options, variant, header, layout } = this.props;
     const { slideOptions } = this.state;
 
     return (
-      <div className="hawk-carousel">
+      <div
+        className={getClassnames('hawk-carousel', {
+          [`hawk-carousel__${layout}`]: _.isString(layout),
+        })}
+      >
         <div
           className="hawk-carousel__container"
           id={`slider-${id}`}
           style={{
-            transform: `translateX(0${_.isEqual(variant, 'contained') ? '%' : 'px'})`,
+            transform: `translateX(0${_.includes(['contained', 'poster'], variant) ? '%' : 'px'})`,
             transition: 'all 0.5s ease 0s',
           }}
         >
@@ -102,23 +109,43 @@ export default class Carousel extends Component {
             ))}
           </div>
         )}
-        {slideOptions.start >= 1 && (
-          <Button
-            type="button"
-            variant="outlined"
-            icon="fas fa-chevron-left"
-            className="hawk-carousel__prev-next previous"
-            onClick={() => { this.onHandleClick({ type: 'previous' }); }}
-          />
-        )}
-        {!_.isEqual(slideOptions.end, _.get(options, 'display')) && (
-          <Button
-            type="button"
-            variant="outlined"
-            icon="fas fa-chevron-right"
-            className="hawk-carousel__prev-next next"
-            onClick={() => { this.onHandleClick({ type: 'next' }); }}
-          />
+        {_.isEqual(variant, 'poster') ? (
+          <div className="hawk-carousel__thumbnail">
+            {_.map(header, (item, index) => (
+              <div
+                key={index}
+                className={getClassnames('hawk-carousel__thumbnail-item', {
+                  active: _.isEqual(slideOptions.start, index),
+                })}
+                onClick={() => { this.onHandleClick({ index }); }}
+              >
+                <img
+                  src={item}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Fragment>
+            {slideOptions.start >= 1 && (
+              <Button
+                type="button"
+                variant="outlined"
+                icon="fas fa-chevron-left"
+                className="hawk-carousel__prev-next previous"
+                onClick={() => { this.onHandleClick({ type: 'previous' }); }}
+              />
+            )}
+            {!_.isEqual(slideOptions.end, _.get(options, 'display')) && (
+              <Button
+                type="button"
+                variant="outlined"
+                icon="fas fa-chevron-right"
+                className="hawk-carousel__prev-next next"
+                onClick={() => { this.onHandleClick({ type: 'next' }); }}
+              />
+            )}
+          </Fragment>
         )}
       </div>
     );
