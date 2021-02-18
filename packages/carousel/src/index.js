@@ -13,7 +13,7 @@ import './index.scss';
  */
 export default class Carousel extends Component {
   static propTypes = {
-    variant: PropTypes.oneOf(['contained', 'card']),
+    variant: PropTypes.oneOf(['contained', 'card', 'image']),
     slides: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
@@ -57,6 +57,28 @@ export default class Carousel extends Component {
     });
   };
 
+  onHandleDots = (index) => {
+    const { id, variant, slides } = this.props;
+    let num = 0;
+    const slider = document.getElementById(`slider-${id}`);
+    const left = slider.style.transform.split(_.isEqual(variant, 'contained') ? '%' : 'px')[0].split('(')[1];
+
+    if (left) {
+      num = -100 * index;
+    }
+
+    slider.style.transform = `translateX(${num}${_.isEqual(variant, 'contained') ? '%' : 'px'})`;
+    slider.style.transition = 'all 0.5s';
+    this.setState((prevState) => {
+      const slideOptions = { ...prevState.slideOptions };
+
+      slideOptions.start = index;
+      slideOptions.end = _.size(slides) - index;
+
+      return { slideOptions };
+    });
+  };
+
   render() {
     const { slides, id, options, variant } = this.props;
     const { slideOptions } = this.state;
@@ -83,6 +105,7 @@ export default class Carousel extends Component {
                 className={getClassnames('hawk-carousel__navigation-dot', {
                   active: _.isEqual(slideOptions.start, index),
                 })}
+                onClick={() => { this.onHandleDots(index); }}
               />
             ))}
           </div>
