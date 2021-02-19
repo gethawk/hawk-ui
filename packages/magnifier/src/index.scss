@@ -1,0 +1,28 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-magnifier {
+  position: relative;
+  &:hover {
+    .hawk-magnifier__result {
+      display: block;
+    }
+  }
+  &__lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    width: 40px;
+    height: 40px;
+  }
+  &__result {
+    width: 488px;
+    height: 368px;
+    left: 300px;
+    top: 0px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #d4d4d4;
+    background-color: white;
+    display: block;
+  }
+}

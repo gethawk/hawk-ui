@@ -1,0 +1,30 @@
+{
+  "name": "@hawk-ui/magnifier",
+  "version": "2.11.4",
+  "description": "hawk-ui: Basic Magnifier Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=magnifier"
+  },
+  "keywords": [
+    "magnifier",
+    "react",
+    "react component",
+    "react magnifier",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
+  "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
