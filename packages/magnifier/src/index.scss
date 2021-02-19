@@ -3,8 +3,11 @@
 .hawk-magnifier {
   position: relative;
   &:hover {
+    .hawk-magnifier__lens {
+      visibility: visible;
+    }
     .hawk-magnifier__result {
-      display: block;
+      visibility: visible;
     }
   }
   &__lens {
@@ -12,6 +15,7 @@
     border: 1px solid #d4d4d4;
     width: 40px;
     height: 40px;
+    visibility: hidden;
   }
   &__result {
     width: 488px;
@@ -23,6 +27,7 @@
     z-index: 1;
     border: 1px solid #d4d4d4;
     background-color: white;
-    display: block;
+    background-repeat: no-repeat;
+    visibility: hidden;
   }
 }
