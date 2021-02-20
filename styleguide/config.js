@@ -28,6 +28,7 @@ module.exports = {
         '../packages/modal/src/index.js',
         '../packages/navigation-drawer/src/index.js',
         '../packages/tabbed/src/index.js',
+        '../packages/stepper/src/index.js',
         '../packages/card/src/index.js',
         '../packages/image/src/index.js',
         '../packages/magnifier/src/index.js',
