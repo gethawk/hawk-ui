@@ -11,17 +11,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: 0.4s ease;
     &::after {
       content: "";
       width: 100%;
       height: 5px;
       position: absolute;
       top: 32px;
-      background-color: #f1f1f1;
+      background-color: $gray-14;
       z-index: 0;
       transform: translateX(-50%);
-      transition: 0.4s ease;
     }
     &:first-child {
       &::after {
@@ -35,32 +33,32 @@
         transform: translateX(-50%);
       }
     }
-    &-upper-text {
-      font-size: 11px;
-      line-height: 1.5;
+    &-title {
+      font-size: 14px;
+      font-weight: 600;
       text-align: center;
-      color: #999;
-      height: 20px;
+      color: $gray-7;
       display: block;
     }
-    &-lower-text {
+    &-description {
       font-size: 14px;
-      line-height: 1.57;
       text-align: center;
-      color: #999;
+      color: $gray-7;
       display: block;
+      margin-top: 6px;
     }
     &-rounded {
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      border: 3px solid #f1f1f1;
-      background-color: #fff;
+      border: 3px solid $gray-14;
+      background-color: $white;
       z-index: 1;
       transition: 0.4s ease;
+      margin-top: 6px;
       &::after {
         content: '✔';
-        color: #fff;
+        color: $white;
         text-align: center;
         display: block;
         line-height: 23px;
@@ -68,18 +66,22 @@
     }
   }
   .active {
-    .hawk-stepper__step-rounded {
-      background-color: #2378e1;
-      border-color: #2378e1;
-    }
-    .hawk-stepper__step-upper-text {
-      color: #2378e1;
-    }
-    .hawk-stepper__step-lower-text {
-      color: #2378e1;
+    .hawk-stepper {
+      &__step {
+        &-rounded {
+          background-color: $blue-1;
+          border-color: $blue-1;
+        }
+        &-title {
+          color: $blue-1;
+        }
+        &-description {
+          color: $blue-1;
+        }
+      }
     }
     &::after {
-      background-color: #2378e1;
+      background-color: $blue-1;
       transition: 0.4s ease;
     }
   }

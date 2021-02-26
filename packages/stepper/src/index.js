@@ -35,14 +35,14 @@ class Stepper extends Component {
           >
             {_.get(item, 'title') && (
               <span
-                className="hawk-stepper__step-upper-text"
+                className="hawk-stepper__step-title"
               >
                 {item.title}
               </span>
             )}
             <span className="hawk-stepper__step-rounded" />
             {_.get(item, 'description') && (
-              <span className="hawk-stepper__step-lower-text">
+              <span className="hawk-stepper__step-description">
                 {item.description}
               </span>
             )}
