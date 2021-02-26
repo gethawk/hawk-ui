@@ -10,34 +10,44 @@ import './index.scss';
  * @example ../README.md
  */
 class Stepper extends Component {
-  static propTypes = {};
+  static propTypes = {
+    panes: PropTypes.array,
+    activeIndex: PropTypes.number,
+  };
+  static defaultProps = {
+    panes: [],
+    activeIndex: 0,
+  }
 
   state = {};
 
   render() {
+    const { panes, activeIndex } = this.props;
+
     return (
       <ul className="hawk-stepper">
-        <li className="hawk-stepper__step active">
-          <span className="hawk-stepper__step-upper-text">01</span>
-          <span className="hawk-stepper__step-rounded" />
-          <span className="hawk-stepper__step-lower-text">
-            First
-          </span>
-        </li>
-        <li className="hawk-stepper__step">
-          <span className="hawk-stepper__step-upper-text">02</span>
-          <span className="hawk-stepper__step-dot" />
-          <span className="hawk-stepper__step-lower-text">
-            Second
-          </span>
-        </li>
-        <li className="hawk-stepper__step">
-          <span className="hawk-stepper__step-upper-text">03</span>
-          <span className="hawk-stepper__step-dot" />
-          <span className="hawk-stepper__step-lower-text">
-            Third
-          </span>
-        </li>
+        {_.map(panes, (item, index) => (
+          <li
+            key={index}
+            className={getClassnames('hawk-stepper__step', {
+              active: index + 1 <= activeIndex,
+            })}
+          >
+            {_.get(item, 'title') && (
+              <span
+                className="hawk-stepper__step-upper-text"
+              >
+                {item.title}
+              </span>
+            )}
+            <span className="hawk-stepper__step-rounded" />
+            {_.get(item, 'description') && (
+              <span className="hawk-stepper__step-lower-text">
+                {item.description}
+              </span>
+            )}
+          </li>
+        ))}
       </ul>
     );
   }

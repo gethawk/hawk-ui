@@ -11,18 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    &:last-child {
-      &::after {
-        width: 50%;
-        transform: translateX(-50%);
-      }
-    }
-    &:first-child {
-      &::after {
-        width: 50%;
-        transform: translateX(50%);
-      }
-    }
+    transition: 0.4s ease;
     &::after {
       content: "";
       width: 100%;
@@ -31,6 +20,20 @@
       top: 32px;
       background-color: #f1f1f1;
       z-index: 0;
+      transform: translateX(-50%);
+      transition: 0.4s ease;
+    }
+    &:first-child {
+      &::after {
+        width: 100%;
+        transform: translateX(50%);
+      }
+    }
+    &:last-child {
+      &::after {
+        width: 100%;
+        transform: translateX(-50%);
+      }
     }
     &-upper-text {
       font-size: 11px;
@@ -47,32 +50,37 @@
       color: #999;
       display: block;
     }
-    &-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      position: relative;
-      z-index: 1;
-      display: inline-block;
-      background-color: #fff;
-      border: 1px solid #f1f1f1;
-    }
     &-rounded {
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      border: 3px solid #2378e1;
+      border: 3px solid #f1f1f1;
+      background-color: #fff;
+      z-index: 1;
+      transition: 0.4s ease;
+      &::after {
+        content: '✔';
+        color: #fff;
+        text-align: center;
+        display: block;
+        line-height: 23px;
+      }
     }
   }
   .active {
-    .hawk-stepper__step-dot {
+    .hawk-stepper__step-rounded {
       background-color: #2378e1;
+      border-color: #2378e1;
+    }
+    .hawk-stepper__step-upper-text {
+      color: #2378e1;
     }
     .hawk-stepper__step-lower-text {
       color: #2378e1;
     }
     &::after {
       background-color: #2378e1;
+      transition: 0.4s ease;
     }
   }
 }
