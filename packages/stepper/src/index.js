@@ -19,7 +19,7 @@ class Stepper extends Component {
       <ul className="hawk-stepper">
         <li className="hawk-stepper__step active">
           <span className="hawk-stepper__step-upper-text">01</span>
-          <span className="hawk-stepper__step-dot" />
+          <span className="hawk-stepper__step-rounded" />
           <span className="hawk-stepper__step-lower-text">
             First
           </span>

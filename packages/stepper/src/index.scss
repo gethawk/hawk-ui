@@ -26,10 +26,10 @@
     &::after {
       content: "";
       width: 100%;
-      height: 1px;
+      height: 5px;
       position: absolute;
-      top: 25px;
-      background-color: #d5d5d5;
+      top: 32px;
+      background-color: #f1f1f1;
       z-index: 0;
     }
     &-upper-text {
@@ -55,7 +55,13 @@
       z-index: 1;
       display: inline-block;
       background-color: #fff;
-      border: 1px solid #d5d5d5;
+      border: 1px solid #f1f1f1;
+    }
+    &-rounded {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 3px solid #2378e1;
     }
   }
   .active {
