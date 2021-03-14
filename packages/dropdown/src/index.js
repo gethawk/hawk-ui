@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 // vendor modules
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import Button from '@hawk-ui/button';
@@ -104,17 +104,26 @@ export default class Dropdown extends Component {
             x-placement="bottom-start"
           >
             {_.map(suggestions, (item, index) => (
-              <div
-                className="hawk-dropdown__item"
-                key={index}
-                onClick={() => isClickable && this.setState({
-                  shouldDropdownShow: false,
-                }, () => {
-                  selectValue(index, item);
-                })}
-              >
-                {renderSuggestion(item)}
-              </div>
+              <Fragment>
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    className="hawk-dropdown__item"
+                  >{renderSuggestion(item)}</a>
+                ) : (
+                  <div
+                    className="hawk-dropdown__item"
+                    key={index}
+                    onClick={() => isClickable && this.setState({
+                      shouldDropdownShow: false,
+                    }, () => {
+                      selectValue(index, item);
+                    })}
+                  >
+                    {renderSuggestion(item)}
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
         ) : null}

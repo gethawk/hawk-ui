@@ -14,7 +14,7 @@
 ## Usage
 
 
-#### Dropdown
+#### Dropdown Button Click
 [Demo](https://hawk.wallnit.com/#!/Dropdown/1)
 ```js static
 import Dropdown from '@hawk-ui/dropdown';
@@ -36,8 +36,30 @@ const suggestions = [
 ```
 
 
-#### Dropdown
-[Demo](https://hawk.wallnit.com/#!/Dropdown/2)
+#### Dropdown Link
+[Demo](https://hawk.wallnit.com/#!/Dropdown/3)
+```js static
+import Dropdown from '@hawk-ui/dropdown';
+```
+```js
+const suggestions = [
+  {title: 'Action', value: 'action', link: '/#'},
+  {title: 'Another action', value: 'another action', link: '/#'},
+  {title: 'Something else here', value: 'something else here', link: '/#'},
+];
+
+<Dropdown
+  title="Dropdown"
+  isIcon
+  suggestions={suggestions}
+  renderSuggestion={(suggestion) => suggestion.title}
+  selectValue={(meta, item) => { console.log(meta, item); }}
+/>
+```
+
+
+#### Dropdown Button Hover
+[Demo](https://hawk.wallnit.com/#!/Dropdown/3)
 ```js static
 import Dropdown from '@hawk-ui/dropdown';
 ```
