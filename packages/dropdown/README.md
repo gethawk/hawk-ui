@@ -43,9 +43,9 @@ import Dropdown from '@hawk-ui/dropdown';
 ```
 ```js
 const suggestions = [
-  {title: 'Action', value: 'action', link: '/#'},
-  {title: 'Another action', value: 'another action', link: '/#'},
-  {title: 'Something else here', value: 'something else here', link: '/#'},
+  {title: 'Action', value: 'action', link: '/#', isActive: true},
+  {title: 'Another action', value: 'another action', link: '/#', isActive: false},
+  {title: 'Something else here', value: 'something else here', link: '/#', isActive: true},
 ];
 
 <Dropdown

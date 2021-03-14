@@ -105,23 +105,29 @@ export default class Dropdown extends Component {
           >
             {_.map(suggestions, (item, index) => (
               <Fragment>
-                {item.link ? (
-                  <a
-                    href={item.link}
-                    className="hawk-dropdown__item"
-                  >{renderSuggestion(item)}</a>
+                {!item.isActive ? (
+                  <span className="hawk-dropdown__item disabled">{renderSuggestion(item)}</span>
                 ) : (
-                  <div
-                    className="hawk-dropdown__item"
-                    key={index}
-                    onClick={() => isClickable && this.setState({
-                      shouldDropdownShow: false,
-                    }, () => {
-                      selectValue(index, item);
-                    })}
-                  >
-                    {renderSuggestion(item)}
-                  </div>
+                  <Fragment>
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        className="hawk-dropdown__item"
+                      >{renderSuggestion(item)}</a>
+                    ) : (
+                      <div
+                        className="hawk-dropdown__item"
+                        key={index}
+                        onClick={() => isClickable && this.setState({
+                          shouldDropdownShow: false,
+                        }, () => {
+                          selectValue(index, item);
+                        })}
+                      >
+                        {renderSuggestion(item)}
+                      </div>
+                    )}
+                  </Fragment>
                 )}
               </Fragment>
             ))}

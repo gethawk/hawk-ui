@@ -38,6 +38,10 @@
     &-transform {
       transform: translate3d(0px, 29px, 0px);
     }
+    .disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
   }
   &__item {
     cursor: pointer;
