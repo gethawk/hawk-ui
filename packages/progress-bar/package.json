@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/progress-bar",
-  "version": "2.11.8",
+  "version": "2.11.9",
   "description": "hawk-ui: Basic Progress Bar Component",
   "main": "dist/index.min.js",
   "scripts": {

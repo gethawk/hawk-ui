@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/rating",
-  "version": "2.11.8",
+  "version": "2.11.9",
   "description": "hawk-ui: Basic Rating Component",
   "main": "dist/index.min.js",
   "scripts": {
