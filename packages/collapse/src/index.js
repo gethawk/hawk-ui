@@ -55,11 +55,11 @@ export default class Collapse extends Component {
         {_.map(headers, (header, index) => (
           <div className="hawk-collapse-item">
             <div className="hawk-collapse-item-header">
-              <h4>{header}</h4>
+              {header}
             </div>
             <div className="hawk-collapse-item-body">
               <div className="hawk-collapse-item-body-content">
-                <p>{panes[index]}</p>
+                {panes[index]}
               </div>
             </div>
           </div>
