@@ -17,11 +17,15 @@ class CheckboxContent extends Component {
     isError: PropTypes.bool,
     isRequired: PropTypes.bool,
     selectedItem: PropTypes.array,
+    htmlAttributes: PropTypes.object,
   };
+  static defaultProps = {
+    htmlAttributes: {},
+  }
   state = {};
 
   render() {
-    const { index, value, label, checked, onChange, isError, isRequired, selectedItem } = this.props;
+    const { index, value, label, checked, onChange, isError, isRequired, selectedItem, htmlAttributes } = this.props;
 
     return (
       <label
@@ -34,6 +38,7 @@ class CheckboxContent extends Component {
           value={value}
           checked={checked}
           onClick={onChange}
+          {...htmlAttributes}
         />
         <span
           className={getClassnames('hawk-checkbox__checkmark', {
@@ -78,15 +83,17 @@ export default class Checkbox extends Component {
     isChecked: PropTypes.bool,
     title: PropTypes.string,
     value: PropTypes.string,
+    htmlAttributes: PropTypes.object,
   };
   static defaultProps = {
     className: null,
     isChecked: false,
+    htmlAttributes: {},
   }
   state = {};
 
   render() {
-    const { className, label, description, options, selectedItem, isRequired, isError, errorMessage, onChange, isChecked, title, value } = this.props;
+    const { className, label, description, options, selectedItem, isRequired, isError, errorMessage, onChange, isChecked, title, value, htmlAttributes } = this.props;
 
     return (
       <Fragment>
@@ -111,6 +118,7 @@ export default class Checkbox extends Component {
               onChange={onChange}
               isError={isError}
               isRequired={isRequired}
+              htmlAttributes={htmlAttributes}
             />
           ) : (
             <Fragment>
