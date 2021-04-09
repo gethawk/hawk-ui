@@ -19,9 +19,6 @@ class CheckboxContent extends Component {
     selectedItem: PropTypes.array,
     htmlAttributes: PropTypes.object,
   };
-  static defaultProps = {
-    htmlAttributes: {},
-  }
   state = {};
 
   render() {

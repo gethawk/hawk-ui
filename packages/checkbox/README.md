@@ -114,5 +114,8 @@ initialState = {
       isChecked: !state.isChecked,
     });
   }}
+  htmlAttributes={{
+    disabled: true,
+  }}
 />
 ```
