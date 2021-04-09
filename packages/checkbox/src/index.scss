@@ -20,6 +20,10 @@
   &__content {
     display: flex;
     justify-content: space-between;
+    .disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
   }
   &__label {
     margin-top: -2px;

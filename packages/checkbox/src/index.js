@@ -26,7 +26,9 @@ class CheckboxContent extends Component {
 
     return (
       <label
-        className="hawk-checkbox"
+        className={getClassnames('hawk-checkbox', {
+          disabled: _.includes(_.keys(htmlAttributes), 'disabled'),
+        })}
         key={index}
       >
         <span className="hawk-checkbox__label">{label}</span>
