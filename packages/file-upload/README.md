@@ -21,7 +21,7 @@ import FileUpload from '@hawk-ui/file-upload';
 ```
 ```js
 <FileUpload
-  title="Browse"
+  btnTitle="Browse"
   onUpload={(file) => {
     console.log('query file', file);
   }}
@@ -36,8 +36,7 @@ import FileUpload from '@hawk-ui/file-upload';
 ```
 ```js
 <FileUpload
-  title="fas fa-upload"
-  isIcon
+  btnIcon="fas fa-upload"
   onUpload={(file) => {
     console.log('query file', file);
   }}
@@ -52,7 +51,7 @@ import FileUpload from '@hawk-ui/file-upload';
 ```
 ```js
 <FileUpload
-  title="Browse"
+  btnTitle="Browse"
   label="File Upload"
   description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
   placeholder="Please select a file to Upload"
