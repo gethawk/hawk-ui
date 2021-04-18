@@ -22,7 +22,7 @@ import Table from '@hawk-ui/table';
 ```js
 const header = [
   { key: 'company', title: 'Company', dataIndex: 'company' },
-  { key: 'contact', title: 'Contact', dataIndex: 'contact' },
+  false ? { key: 'contact', title: 'Contact', dataIndex: 'contact' } : {},
   { key: 'country', title: 'Country', dataIndex: 'country' },
   { key: 'action', title: 'Action', dataIndex: '', render: (event) => <span onClick={() => { console.log(event); }} style={{ cursor: 'pointer' }}>Delete</span> },
 ];
