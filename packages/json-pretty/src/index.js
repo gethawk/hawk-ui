@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+import _ from 'lodash';
 // utils modules
 import { pretty } from './utils';
 // css modules
@@ -18,6 +19,7 @@ export default class JsonPretty extends Component {
       PropTypes.object,
       PropTypes.array,
     ]),
+    className: PropTypes.string,
     theme: PropTypes.oneOf(['light', 'dark']),
   };
   static defaultProps = {
@@ -28,11 +30,13 @@ export default class JsonPretty extends Component {
   state = {};
 
   render() {
-    const { data, theme } = this.props;
+    const { data, theme, className } = this.props;
 
     return (
       <div
-        className="hawk-json-pretty"
+        className={getClassnames('hawk-json-pretty', {
+          [className]: _.isString(className),
+        })}
       >
         <pre
           className={theme}
