@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/breadcrumb",
-  "version": "2.12.9",
+  "version": "2.12.10",
   "description": "hawk-ui: Basic Breadcrumb Component",
   "main": "dist/index.min.js",
   "scripts": {
