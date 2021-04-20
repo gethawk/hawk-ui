@@ -6,6 +6,9 @@
     &__wrapper {
       width: 100%;
     }
+    &__disabled {
+      cursor: unset;
+    }
   }
   .hawk-button {
     cursor: unset;
@@ -16,6 +19,25 @@
     i {
       font-size: 16px;
       margin: 0 5px;
+    }
+    &__contained {
+      &-disabled {
+        color: $gray-1;
+        opacity: unset;
+        background-color: $gray-3;
+        border: 1px solid $gray-2;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        &:hover {
+          background-color: $gray-3;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+          -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+      }
     }
   }
   &__addon {

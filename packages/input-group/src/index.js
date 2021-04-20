@@ -25,17 +25,19 @@ export default class InputGroup extends Component {
     value: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
+    isDisabled: PropTypes.bool,
   };
   static defaultProps = {
     isAddonIcon: false,
     addonSize: 'small',
     addonPlacement: 'left',
     type: 'text',
+    isDisabled: false,
   }
   state = {};
 
   render() {
-    const { addon, isAddonIcon, addonSize, addonPlacement, type, value, placeholder, onChange } = this.props;
+    const { addon, isAddonIcon, addonSize, addonPlacement, type, value, placeholder, onChange, isDisabled } = this.props;
 
     return (
       <div
@@ -44,7 +46,9 @@ export default class InputGroup extends Component {
           [`hawk-input-group__addon-placement__${addonPlacement}`]: _.isString(addonPlacement),
         })}
       >
-        <Button>
+        <Button
+          isDisabled={isDisabled}
+        >
           {isAddonIcon ? (
             <i className={addon} />
           ) : _.isString(addon) ? (
@@ -55,6 +59,7 @@ export default class InputGroup extends Component {
           type={type}
           value={value}
           placeholder={placeholder}
+          isDisabled={isDisabled}
           onChange={(event) => {
             onChange(event);
           }}

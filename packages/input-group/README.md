@@ -52,12 +52,25 @@ import InputGroup from '@hawk-ui/input-group';
 ```
 
 
-#### Addon Small Placement
+#### Disabled
 [Demo](https://hawk.wallnit.com/#!/InputGroup/5)
 ```js
+initialState = {
+  value: 'Hello World',
+};
+
 <InputGroup
   addon="Text"
-  addonSize="small"
+  addonPlacement="left"
+  type="text"
+  value={state.value}
+  isDisabled
+  placeholder="Please enter value"
+  onChange={(event) => {
+    setState({
+      value: event.target.value,
+    });
+  }}
 />
 ```
 
