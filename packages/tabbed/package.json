@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/tabbed",
-  "version": "2.12.7",
+  "version": "2.12.8",
   "description": "hawk-ui: Basic Tabbed Component",
   "main": "dist/index.min.js",
   "scripts": {

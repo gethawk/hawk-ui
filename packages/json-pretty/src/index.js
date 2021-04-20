@@ -33,13 +33,11 @@ export default class JsonPretty extends Component {
     const { data, theme, className } = this.props;
 
     return (
-      <div
-        className={getClassnames('hawk-json-pretty', {
-          [className]: _.isString(className),
-        })}
-      >
+      <div className="hawk-json-pretty">
         <pre
-          className={theme}
+          className={getClassnames(theme, {
+            [className]: _.isString(className),
+          })}
         >
           <code
             dangerouslySetInnerHTML={{ __html: pretty(data) }}
