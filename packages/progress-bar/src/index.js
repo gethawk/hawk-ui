@@ -1,12 +1,12 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 // css modules
 import './index.scss';
 
-
-function percentage(percent, total) {
-  return ((percent / 100) * total).toFixed(2) * 100;
+function percentage(value, total) {
+  return ((value / total) * 100);
 }
 
 /**
@@ -25,16 +25,21 @@ export default class ProgressBar extends Component {
     isProgress: PropTypes.bool,
     progressContent: PropTypes.string,
   };
+
   static defaultProps = {
     id: 'progress',
     isColorVary: true,
     isProgress: false,
     progressContent: 'Progress',
   }
+
   state = {};
 
-  componentDidMount() {
-    this.rangeVary(this.props.value);
+  // eslint-disable-next-line react/no-deprecated
+  componentWillReceiveProps(nextProps, prevProps) {
+    if (!_.isEqual(nextProps.value, prevProps.value)) {
+      this.rangeVary(nextProps.value);
+    }
   }
 
   rangeVary = (value) => {
@@ -68,7 +73,9 @@ export default class ProgressBar extends Component {
           max={maxRange}
           value={value}
           id={id}
-        >{value}</progress>
+        >
+          {value}
+        </progress>
         {isProgress && (
           <div className="hawk-progress-bar__content">
             <span>{progressContent}</span>
