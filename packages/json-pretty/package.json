@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/json-pretty",
-  "version": "2.12.10",
+  "version": "2.13.0",
   "description": "hawk-ui: JSON Pretty Component",
   "main": "dist/index.min.js",
   "scripts": {

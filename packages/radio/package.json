@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/radio",
-  "version": "2.12.10",
+  "version": "2.13.0",
   "description": "hawk-ui: Basic Radio Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/label": "^2.12.10",
+    "@hawk-ui/label": "^2.13.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
