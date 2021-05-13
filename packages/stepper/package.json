@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/stepper",
-  "version": "2.13.0",
+  "version": "2.13.1",
   "description": "hawk-ui: Basic Stepper Component",
   "main": "dist/index.min.js",
   "scripts": {
