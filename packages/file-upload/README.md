@@ -22,6 +22,8 @@ import FileUpload from '@hawk-ui/file-upload';
 ```js
 <FileUpload
   btnTitle="Browse"
+  accept="images/*"
+  isMultiple
   onUpload={(file) => {
     console.log('query file', file);
   }}
