@@ -223,7 +223,7 @@ export const getTools = [
       name: 'title',
       value: 'value',
       options: _.map(_.range(1, 7), (item) => (
-        { title: `Heading ${item}`, value: `${item}` }
+        { title: `Heading ${item}`, value: `${item}`, isActive: true }
       )),
       style: 'formatblock',
     },
@@ -246,7 +246,7 @@ export const getTools = [
       name: 'title',
       value: 'value',
       options: _.map(fontFamily, (item) => (
-        { title: item, value: item }
+        { title: item, value: item, isActive: true }
       )),
       style: 'fontname',
     },
@@ -269,7 +269,7 @@ export const getTools = [
       name: 'title',
       value: 'value',
       options: _.map(fontSize, (item, index) => (
-        { title: item, value: index + 1 }
+        { title: item, value: index + 1, isActive: true }
       )),
       style: 'fontsize',
     },
