@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/date-picker",
-  "version": "2.13.1",
+  "version": "2.13.2",
   "description": "hawk-ui: Basic Date Picker Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/input": "^2.13.1",
+    "@hawk-ui/input": "^2.13.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
