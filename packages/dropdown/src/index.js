@@ -105,7 +105,7 @@ export default class Dropdown extends Component {
           >
             {_.map(suggestions, (item, index) => (
               <Fragment>
-                {!item.isActive ? (
+                {!item.isActive && !_.isUndefined(item.isActive) ? (
                   <span className="hawk-dropdown__item disabled">{renderSuggestion(item)}</span>
                 ) : (
                   <Fragment>

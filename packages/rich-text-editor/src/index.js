@@ -149,7 +149,7 @@ export default class RichTextEditor extends Component {
                             _.isEqual(_.get(tool, 'suggest.style'), 'formatblock') ?
                               `h${item.value}` :
                               item.value,
-                              editableId,
+                            editableId,
                           );
                         }}
                       />
