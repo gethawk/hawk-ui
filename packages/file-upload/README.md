@@ -57,7 +57,7 @@ import FileUpload from '@hawk-ui/file-upload';
   label="File Upload"
   description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
   placeholder="Please select a file to Upload"
-  isDescribable
+  variant="input"
   onUpload={(file) => {
     console.log('query file', file);
   }}
@@ -74,7 +74,7 @@ import FileUpload from '@hawk-ui/file-upload';
 <FileUpload
   title="Drag and Drop Image Here"
   description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
-  isDraggable
+  variant="draggable"
   onUpload={(file) => {
     console.log('query file', file);
   }}

@@ -14,6 +14,7 @@ import './index.scss';
  */
 export default class FileUpload extends Component {
   static propTypes = {
+    variant: PropTypes.oneOf(['button', 'input', 'draggable']),
     label: PropTypes.string,
     description: PropTypes.string,
     placeholder: PropTypes.string,
@@ -22,15 +23,12 @@ export default class FileUpload extends Component {
     btnTitle: PropTypes.string,
     btnIcon: PropTypes.string,
     isMultiple: PropTypes.bool,
-    isDescribable: PropTypes.bool,
-    isDraggable: PropTypes.bool,
     onUpload: PropTypes.func,
   };
   static defaultProps = {
+    variant: 'button',
     accept: '*',
     isMultiple: false,
-    isDescribable: false,
-    isDraggable: false,
     btnTitle: <span>Browse</span>,
   };
   state = {
@@ -54,12 +52,12 @@ export default class FileUpload extends Component {
   };
 
   render() {
-    const { label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple, isDescribable, isDraggable } = this.props;
+    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple } = this.props;
     const { fileNames } = this.state;
 
     return (
       <div className="hawk-file-upload">
-        {isDraggable ? (
+        {_.isEqual(variant, 'draggable') ? (
           <div
             className="hawk-file-upload__draggable"
             onClick={() => {
@@ -96,7 +94,7 @@ export default class FileUpload extends Component {
                 'hawk-file-upload__section-label': _.isString(label),
               })}
             >
-              {isDescribable && (
+              {_.isEqual(variant, 'input') && (
                 <div className="hawk-file-upload__option">
                   <Input
                     type="text"

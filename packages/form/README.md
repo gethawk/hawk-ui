@@ -159,7 +159,7 @@ const configuration = {
           show_title: true,
           title: "Drag and Drop Image Here",
           description: "Supported file types: (*.png, *.jpg, *.jpeg). View format instructions.",
-          draggable: true,
+          variant: "draggable",
           field_type: "file-upload",
         },
         validation: {}

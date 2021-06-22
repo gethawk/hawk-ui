@@ -22,8 +22,7 @@ export default class FormFileUpload extends Component {
     const { visual, property, placeholder, noTitle, onChange } = this.props;
     const title = _.get(visual, 'title', 'Browse');
     const description = _.get(visual, 'description', '');
-    const describable = _.get(visual, 'describable', false);
-    const draggable = _.get(visual, 'draggable', false);
+    const variant = _.get(visual, 'variant', 'button');
 
     return (
       <div
@@ -35,8 +34,7 @@ export default class FormFileUpload extends Component {
         <FileUpload
           title={title}
           description={description}
-          isDescribable={describable}
-          isDraggable={draggable}
+          variant={variant}
           placeholder={placeholder}
           onUpload={(file) => {
             onChange({ value: file });
