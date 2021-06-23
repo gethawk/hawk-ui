@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 let fragment = null;
 let range = null;
 

@@ -34,7 +34,6 @@ export default class RichTextEditor extends Component {
     onChange: PropTypes.func,
   };
   static defaultProps = {
-    value: '',
     htmlAttributes: {},
   };
   state = {
@@ -44,27 +43,8 @@ export default class RichTextEditor extends Component {
       type: 'link',
       name: 'createlink',
     },
+    value: this.props.value,
     selectedText: {},
-  };
-
-  componentDidMount() {
-    const doc = document.getElementById(this.props.editableId);
-
-    doc.innerHTML = this.props.value;
-  }
-
-  onSaveSelection = () => {
-    if (window.getSelection) {
-      const sel = window.getSelection();
-
-      if (sel.getRangeAt && sel.rangeCount) {
-        return sel.getRangeAt(0);
-      }
-    } else if (document.selection && document.selection.createRange) {
-      return document.selection.createRange();
-    }
-
-    return null;
   };
 
   render() {
@@ -181,6 +161,9 @@ export default class RichTextEditor extends Component {
             data-placeholder={placeholder}
             spellCheck="true"
             onInput={(event) => {
+              const range = document.createRange();
+
+              range.setStart(node, 0);
               onChange({ html: event.target.innerHTML, text: event.target.textContent });
             }}
             style={{
@@ -188,7 +171,9 @@ export default class RichTextEditor extends Component {
               height: !_.isEmpty(_.get(htmlAttributes, 'rows')) ? `${_.get(htmlAttributes, 'rows') * 20}px` : '200px',
             }}
             onMouseUp={onSaveRangeEvent}
-          />
+          >
+            {value}
+          </div>
         </div>
         <Modal
           isOpen={this.state.isModalOpen}
