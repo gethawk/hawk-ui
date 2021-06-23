@@ -171,9 +171,8 @@ export default class RichTextEditor extends Component {
               height: !_.isEmpty(_.get(htmlAttributes, 'rows')) ? `${_.get(htmlAttributes, 'rows') * 20}px` : '200px',
             }}
             onMouseUp={onSaveRangeEvent}
-          >
-            {value}
-          </div>
+            dangerouslySetInnerHTML={{ __html: value }}
+          />
         </div>
         <Modal
           isOpen={this.state.isModalOpen}
