@@ -43,13 +43,23 @@ export default class RichTextEditor extends Component {
       type: 'link',
       name: 'createlink',
     },
-    value: this.props.value,
     selectedText: {},
   };
 
+  componentDidMount() {
+    this.refEl.innerHTML = this.props.value;
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return nextProps.value === 'CLEARED';
+  }
+
+  componentDidUpdate() {
+    this.refEl.innerHTML = this.props.value;
+  }
+
   render() {
-    const { value } = this.state;
-    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, onChange } = this.props;
+    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, onChange, value } = this.props;
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
 
     return (
@@ -162,17 +172,20 @@ export default class RichTextEditor extends Component {
             data-placeholder={placeholder}
             spellCheck="true"
             onInput={(event) => {
-              // const range = document.createRange();
+              const html = event.target.innerHTML;
 
-              // range.setStart(node, 0);
-              onChange({ html: event.target.innerHTML, text: event.target.textContent });
+              if (this.props.onChange && html !== this.lastHtml) {
+                onChange({ html: event.target.innerHTML, text: event.target.textContent });
+              }
+              this.lastHtml = html;
             }}
             style={{
               textAlign: 'left',
               height: !_.isEmpty(_.get(htmlAttributes, 'rows')) ? `${_.get(htmlAttributes, 'rows') * 20}px` : '200px',
             }}
             onMouseUp={onSaveRangeEvent}
-            dangerouslySetInnerHTML={{ __html: value }}
+            // eslint-disable-next-line no-return-assign
+            ref={el => this.refEl = el}
           />
         </div>
         <Modal
