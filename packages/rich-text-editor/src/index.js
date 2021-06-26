@@ -48,7 +48,8 @@ export default class RichTextEditor extends Component {
   };
 
   render() {
-    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, value, onChange } = this.props;
+    const { value } = this.state;
+    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, onChange } = this.props;
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
 
     return (
@@ -161,9 +162,9 @@ export default class RichTextEditor extends Component {
             data-placeholder={placeholder}
             spellCheck="true"
             onInput={(event) => {
-              const range = document.createRange();
+              // const range = document.createRange();
 
-              range.setStart(node, 0);
+              // range.setStart(node, 0);
               onChange({ html: event.target.innerHTML, text: event.target.textContent });
             }}
             style={{
