@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/range-slider",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "hawk-ui: Range Slider Component",
   "main": "dist/index.min.js",
   "scripts": {
