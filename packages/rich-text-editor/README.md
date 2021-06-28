@@ -40,8 +40,6 @@ initialState = {
   }}
   value={state.body}
   onChange={({ html, text }) => {
-    console.log('query html', html);
-    console.log('query text', text);
     setState({ body: html });
   }}
 />

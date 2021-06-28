@@ -34,6 +34,7 @@ export default class RichTextEditor extends Component {
     onChange: PropTypes.func,
   };
   static defaultProps = {
+    value: '',
     htmlAttributes: {},
   };
   state = {
@@ -47,19 +48,27 @@ export default class RichTextEditor extends Component {
   };
 
   componentDidMount() {
-    this.refEl.innerHTML = this.props.value;
+    const doc = document.getElementById(this.props.editableId);
+
+    doc.innerHTML = this.props.value;
   }
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps.value === 'CLEARED';
-  }
+  onSaveSelection = () => {
+    if (window.getSelection) {
+      const sel = window.getSelection();
 
-  componentDidUpdate() {
-    this.refEl.innerHTML = this.props.value;
-  }
+      if (sel.getRangeAt && sel.rangeCount) {
+        return sel.getRangeAt(0);
+      }
+    } else if (document.selection && document.selection.createRange) {
+      return document.selection.createRange();
+    }
+
+    return null;
+  };
 
   render() {
-    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, onChange, value } = this.props;
+    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, value, onChange } = this.props;
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
 
     return (
@@ -172,20 +181,13 @@ export default class RichTextEditor extends Component {
             data-placeholder={placeholder}
             spellCheck="true"
             onInput={(event) => {
-              const html = event.target.innerHTML;
-
-              if (this.props.onChange && html !== this.lastHtml) {
-                onChange({ html: event.target.innerHTML, text: event.target.textContent });
-              }
-              this.lastHtml = html;
+              onChange({ html: event.target.innerHTML, text: event.target.textContent });
             }}
             style={{
               textAlign: 'left',
               height: !_.isEmpty(_.get(htmlAttributes, 'rows')) ? `${_.get(htmlAttributes, 'rows') * 20}px` : '200px',
             }}
             onMouseUp={onSaveRangeEvent}
-            // eslint-disable-next-line no-return-assign
-            ref={el => this.refEl = el}
           />
         </div>
         <Modal
