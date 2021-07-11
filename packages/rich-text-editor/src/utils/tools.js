@@ -474,3 +474,21 @@ export const getTools = [
     isEnable: true,
   },
 ];
+
+export const getBottomTools = [
+  {
+    id: 1,
+    name: 'preview',
+    field_type: 'button',
+    aria: 'preview',
+    tagNames: 'preview',
+    style: {
+      prop: 'font-weight',
+      value: 'bold',
+    },
+    contentDefault: 'P',
+    contentFA: 'fas fa-expand',
+    appearance: 'link',
+    isEnable: true,
+  },
+];
