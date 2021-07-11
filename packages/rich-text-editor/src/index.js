@@ -10,8 +10,9 @@ import Dropdown from '@hawk-ui/dropdown';
 import Modal from '@hawk-ui/modal';
 import ColorPicker from '@hawk-ui/color-picker';
 import Components from './components';
+import HTMLPreview from './components/HTMLPreview';
 // utils modules
-import { getTools } from './utils/tools';
+import { getTools, getBottomTools } from './utils/tools';
 import { onCode } from './utils/codeHandler';
 import { onPrint } from './utils/printHandler';
 import { onTags } from './utils/tagHandler';
@@ -38,7 +39,10 @@ export default class RichTextEditor extends Component {
     htmlAttributes: {},
   };
   state = {
-    isModalOpen: false,
+    modal: {
+      isOpen: false,
+      type: '',
+    },
     isSource: false,
     formMeta: {
       type: 'link',
@@ -66,6 +70,25 @@ export default class RichTextEditor extends Component {
 
     return null;
   };
+
+  editorHelper = (() => ({
+    openModal: ({ isOpen = true, type } = {}) => {
+      this.setState({
+        modal: {
+          isOpen,
+          type,
+        },
+      });
+    },
+    closeModal: ({ isOpen = false } = {}) => {
+      this.setState({
+        modal: {
+          isOpen,
+          type: '',
+        },
+      });
+    },
+  }))()
 
   render() {
     const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, value, onChange } = this.props;
@@ -100,7 +123,8 @@ export default class RichTextEditor extends Component {
                               name: _.get(tool, 'name'),
                               type: _.get(tool, 'tagNames'),
                             },
-                            isModalOpen: true,
+                          }, () => {
+                            this.editorHelper.openModal({ type: _.get(tool, 'tagNames') });
                           });
                         } : () => {
                           onTags(_.get(tool, 'name'), _.get(tool, 'tagNames'), editableId);
@@ -189,37 +213,59 @@ export default class RichTextEditor extends Component {
             }}
             onMouseUp={onSaveRangeEvent}
           />
+          <div className="hawk-rich-text-editor__footer">
+            {_.map(getBottomTools, (tool, index) => (
+              _.isEqual(tool.field_type, 'button') && tool.isEnable && (
+                <Button
+                  key={index}
+                  onClick={_.isEqual(tool.name, 'preview') ? () => {
+                    this.editorHelper.openModal({ type: _.get(tool, 'tagNames') });
+                  } : null}
+                >
+                  <i className={tool.contentFA} />
+                </Button>
+              )
+            ))}
+          </div>
         </div>
         <Modal
-          isOpen={this.state.isModalOpen}
-          className="hawk-rich-text-editor__modal"
-          title="Insert or Edit Link"
+          isOpen={this.state.modal.isOpen}
+          hideCloseIcon={_.isEqual(this.state.modal.type, 'preview')}
+          className={getClassnames('hawk-rich-text-editor__modal', {
+            [`hawk-rich-text-editor__modal-type-${this.state.modal.type}`]: !_.isEmpty(this.state.modal.type),
+          })}
+          title={_.isEqual(this.state.modal.type, 'link') && 'Insert or Edit Link'}
           onKeyDown={() => {
-            this.setState({ isModalOpen: false });
+            this.editorHelper.closeModal();
           }}
           onClose={() => {
-            this.setState({ isModalOpen: false });
+            this.editorHelper.closeModal();
           }}
         >
-          <FormComponent
-            onCancel={() => {
-              this.setState({ isModalOpen: false });
-            }}
-            onInsert={(event) => {
-              if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
-                onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
-              }
-              this.setState({
-                isModalOpen: false,
-              });
-            }}
-            onFocus={() => {
-              onLinkFocus();
-            }}
-            onBlur={() => {
-              onLinkBlur();
-            }}
-          />
+          {_.isEqual(this.state.modal.type, 'link') && (
+            <FormComponent
+              onCancel={() => {
+                this.editorHelper.closeModal();
+              }}
+              onInsert={(event) => {
+                if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
+                  onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
+                }
+                this.editorHelper.closeModal();
+              }}
+              onFocus={() => {
+                onLinkFocus();
+              }}
+              onBlur={() => {
+                onLinkBlur();
+              }}
+            />
+          )}
+          {_.isEqual(this.state.modal.type, 'preview') && (
+            <HTMLPreview
+              html={value}
+            />
+          )}
         </Modal>
       </div>
     );
