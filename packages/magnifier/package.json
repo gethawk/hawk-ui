@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/magnifier",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "hawk-ui: Basic Magnifier Component",
   "main": "dist/index.min.js",
   "scripts": {
