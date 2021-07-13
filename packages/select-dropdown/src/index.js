@@ -51,7 +51,7 @@ export default class SelectDropdown extends Component {
   }
 
   componentWillReceiveProps(nextProps, prevProps) {
-    if (!_.isEqual(nextProps.suggestions, prevProps.Suggestions)) {
+    if (!_.isEqual(nextProps.suggestions, prevProps.suggestions)) {
       this.setState({
         suggestions: nextProps.suggestions,
       });
