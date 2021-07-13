@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/dropdown",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "hawk-ui: Basic Dropdown Component",
   "main": "dist/index.min.js",
   "scripts": {

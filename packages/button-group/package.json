@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/button-group",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "hawk-ui: Button Group Component",
   "main": "dist/index.min.js",
   "scripts": {
