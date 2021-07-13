@@ -18,12 +18,12 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^3.0.6",
-    "@hawk-ui/checkbox": "^3.0.6",
-    "@hawk-ui/dropdown": "^3.0.6",
-    "@hawk-ui/input": "^3.0.6",
-    "@hawk-ui/loader": "^3.0.6",
-    "@hawk-ui/pagination": "^3.0.6",
+    "@hawk-ui/button": "^3.0.7",
+    "@hawk-ui/checkbox": "^3.0.7",
+    "@hawk-ui/dropdown": "^3.0.7",
+    "@hawk-ui/input": "^3.0.7",
+    "@hawk-ui/loader": "^3.0.7",
+    "@hawk-ui/pagination": "^3.0.7",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
