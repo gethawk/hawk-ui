@@ -153,7 +153,12 @@ export default class Suggestions extends Component {
     };
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    if (!_.isEqual(nextProps.suggestions, this.props.suggestions)) {
+      this.setState({
+        suggestions: nextProps.suggestions,
+      });
+    }
     this.setState({
       selectedIndex: -1,
     });
