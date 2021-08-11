@@ -4,29 +4,26 @@ import PropTypes from 'prop-types';
 // react modules
 import _ from 'lodash';
 import getClassnames from 'classnames';
-import { initDragElement } from './scripts/draggable';
-import { initResizeElement } from './scripts/resizable';
+import { initResizeElement } from './scripts';
 // css modules
 import './index.scss';
 
 /**
  * @example ../README.md
  */
-export default class DraggableAndResizable extends Component {
+export default class Resizable extends Component {
   static propTypes = {};
   static defaultProps = {}
 
   state = {};
 
   componentDidMount() {
-    initDragElement();
     initResizeElement();
   }
 
   render() {
     return (
-      <div className="popup">
-        <div className="popup-header">Click here to move</div>
+      <div className="hawk-resizable">
         <p>Move</p>
         <p>this</p>
         <p>DIV</p>

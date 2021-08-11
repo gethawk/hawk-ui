@@ -1,6 +1,6 @@
 /* eslint-disable */
 export const initResizeElement = () => {
-  const popups = document.getElementsByClassName('popup');
+  const popups = document.getElementsByClassName('hawk-resizable');
   let element = null;
   let startX;
   let startY;
@@ -12,21 +12,21 @@ export const initResizeElement = () => {
 
     const right = document.createElement('div');
 
-    right.className = 'resizer-right';
+    right.className = 'hawk-resizable__resizer-right';
     p.appendChild(right);
     right.addEventListener('mousedown', initDrag, false);
     right.parentPopup = p;
 
     const bottom = document.createElement('div');
 
-    bottom.className = 'resizer-bottom';
+    bottom.className = 'hawk-resizable__resizer-bottom';
     p.appendChild(bottom);
     bottom.addEventListener('mousedown', initDrag, false);
     bottom.parentPopup = p;
 
     const both = document.createElement('div');
 
-    both.className = 'resizer-both';
+    both.className = 'hawk-resizable__resizer-both';
     p.appendChild(both);
     both.addEventListener('mousedown', initDrag, false);
     both.parentPopup = p;

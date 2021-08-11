@@ -1,0 +1,51 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-resizable {
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px dashed #000;
+  text-align: center;
+  min-height: 0px;
+  min-width: 0px;
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  &__resizer {
+    &-right {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      position: absolute;
+      border: 1px solid;
+      border-radius: 10px;
+      top: 45%;
+      right: -6px;
+      cursor: e-resize;
+    }
+    &-bottom {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      position: absolute;
+      border: 1px solid;
+      border-radius: 10px;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      margin: auto;
+      cursor: n-resize;
+    }
+    &-both {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border: 1px solid;
+      border-radius: 10px;
+      z-index: 10;
+      position: absolute;
+      right: -6px;
+      bottom: -6px;
+      cursor: nw-resize;
+    }
+  }
+}

@@ -1,16 +1,16 @@
 {
-  "name": "@hawk-ui/draggable-and-resizable",
+  "name": "@hawk-ui/resizable",
   "version": "3.0.9",
-  "description": "hawk-ui: Draggable And Resizable Component",
+  "description": "hawk-ui: Resizable Component",
   "main": "dist/index.min.js",
   "scripts": {
-    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=draggable-and-resizable"
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=resizable"
   },
   "keywords": [
-    "draggable and resizable",
+    "resizable",
     "react",
     "react component",
-    "react draggable and resizable",
+    "react resizable",
     "hawk",
     "hawk-ui",
     "ui"
