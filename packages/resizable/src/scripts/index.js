@@ -1,5 +1,5 @@
 /* eslint-disable */
-export const initResizeElement = () => {
+export const initResizeElement = (elementId) => {
   const popups = document.getElementsByClassName('hawk-resizable');
   let element = null;
   let startX;
@@ -52,6 +52,8 @@ export const initResizeElement = () => {
   function doDrag(e) {
     element.style.width = `${startWidth + e.clientX - startX}px`;
     element.style.height = `${startHeight + e.clientY - startY}px`;
+    document.getElementById(elementId).style.width = `${startWidth + e.clientX - startX}px`;
+    document.getElementById(elementId).style.height = `${startHeight + e.clientY - startY}px`;
   }
 
   function stopDrag() {

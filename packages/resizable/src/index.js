@@ -21,13 +21,16 @@ export default class Resizable extends Component {
     config: {
       width: '200px',
       height: '200px',
+      id: 'resizable',
     },
   }
 
   state = {};
 
   componentDidMount() {
-    initResizeElement();
+    const { config } = this.props;
+
+    initResizeElement(config.id);
   }
 
   render() {

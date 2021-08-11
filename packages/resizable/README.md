@@ -23,13 +23,16 @@ import Resizable from '@hawk-ui/resizable';
 <div style={{ position: 'relative' }}>
   <Resizable
     config={{
+      id: 'resizable',
       width: '350px',
       height: '100px',
     }}
   >
-    <p>Move</p>
-    <p>this</p>
-    <p>DIV</p>
+    <div id="resizable">
+      <p>Move</p>
+      <p>this</p>
+      <p>DIV</p>
+    </div>
   </Resizable>
 </div>
 ```
