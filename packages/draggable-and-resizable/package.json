@@ -1,0 +1,32 @@
+{
+  "name": "@hawk-ui/draggable-and-resizable",
+  "version": "3.0.9",
+  "description": "hawk-ui: Draggable And Resizable Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=draggable-and-resizable"
+  },
+  "keywords": [
+    "draggable and resizable",
+    "react",
+    "react component",
+    "react draggable and resizable",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
+  "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.19",
+    "prop-types": "^15.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
