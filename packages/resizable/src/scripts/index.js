@@ -1,6 +1,6 @@
 /* eslint-disable */
 export const initResizeElement = (elementId) => {
-  const popups = document.getElementsByClassName('hawk-resizable');
+  const popups = document.getElementsByClassName('hawk-resizable__content');
   let element = null;
   let startX;
   let startY;

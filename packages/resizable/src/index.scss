@@ -1,15 +1,30 @@
 @import '../../../assets/scss/utils/variables';
 
 .hawk-resizable {
-  z-index: 9;
-  background-color: $gray-14;
-  border: 1px dashed $black;
-  text-align: center;
-  min-height: 0px;
-  min-width: 0px;
-  max-height: 100%;
-  max-width: 100%;
-  position: relative;
+  .hawk-tooltip {
+    &__content {
+      &::after {
+        display: none;
+      }
+      &-top {
+        left: unset;
+        margin-left: unset;
+        right: 0;
+        bottom: 101%;
+      }
+    }
+  }
+  &__content {
+    z-index: 9;
+    background-color: $gray-14;
+    border: 1px dashed $black;
+    text-align: center;
+    min-height: 0px;
+    min-width: 0px;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+  }
   &__resizer {
     &-right {
       width: 10px;

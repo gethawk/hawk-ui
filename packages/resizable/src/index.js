@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // react modules
 import _ from 'lodash';
 import getClassnames from 'classnames';
+import Tooltip from '@hawk-ui/tooltip';
 import { initResizeElement } from './scripts';
 // css modules
 import './index.scss';
@@ -41,12 +42,21 @@ export default class Resizable extends Component {
         className={getClassnames('hawk-resizable', {
           [className]: _.isString(className),
         })}
-        style={{
-          width: config.width,
-          height: config.height,
-        }}
       >
-        {children}
+        <Tooltip
+          position="top"
+          content="Hello World"
+        >
+          <div
+            className="hawk-resizable__content"
+            style={{
+              width: config.width,
+              height: config.height,
+            }}
+          >
+            {children}
+          </div>
+        </Tooltip>
       </div>
     );
   }
