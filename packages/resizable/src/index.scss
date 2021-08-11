@@ -2,8 +2,8 @@
 
 .hawk-resizable {
   z-index: 9;
-  background-color: #f1f1f1;
-  border: 1px dashed #000;
+  background-color: $gray-14;
+  border: 1px dashed $black;
   text-align: center;
   min-height: 0px;
   min-width: 0px;
@@ -14,7 +14,7 @@
     &-right {
       width: 10px;
       height: 10px;
-      background: #fff;
+      background: $white;
       position: absolute;
       border: 1px solid;
       border-radius: 10px;
@@ -25,7 +25,7 @@
     &-bottom {
       width: 10px;
       height: 10px;
-      background: #fff;
+      background: $white;
       position: absolute;
       border: 1px solid;
       border-radius: 10px;
@@ -38,7 +38,7 @@
     &-both {
       width: 10px;
       height: 10px;
-      background: #fff;
+      background: $white;
       border: 1px solid;
       border-radius: 10px;
       z-index: 10;

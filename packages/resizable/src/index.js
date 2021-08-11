@@ -12,8 +12,17 @@ import './index.scss';
  * @example ../README.md
  */
 export default class Resizable extends Component {
-  static propTypes = {};
-  static defaultProps = {}
+  static propTypes = {
+    config: PropTypes.object,
+    children: PropTypes.element,
+    className: PropTypes.string,
+  };
+  static defaultProps = {
+    config: {
+      width: '200px',
+      height: '200px',
+    },
+  }
 
   state = {};
 
@@ -22,11 +31,19 @@ export default class Resizable extends Component {
   }
 
   render() {
+    const { config, children, className } = this.props;
+
     return (
-      <div className="hawk-resizable">
-        <p>Move</p>
-        <p>this</p>
-        <p>DIV</p>
+      <div
+        className={getClassnames('hawk-resizable', {
+          [className]: _.isString(className),
+        })}
+        style={{
+          width: config.width,
+          height: config.height,
+        }}
+      >
+        {children}
       </div>
     );
   }

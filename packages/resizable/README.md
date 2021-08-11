@@ -21,6 +21,15 @@ import Resizable from '@hawk-ui/resizable';
 ```
 ```js
 <div style={{ position: 'relative' }}>
-  <Resizable />
+  <Resizable
+    config={{
+      width: '350px',
+      height: '100px',
+    }}
+  >
+    <p>Move</p>
+    <p>this</p>
+    <p>DIV</p>
+  </Resizable>
 </div>
 ```
