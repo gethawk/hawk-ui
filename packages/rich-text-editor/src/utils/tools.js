@@ -102,7 +102,7 @@ export const getTools = [
     contentDefault: 'image',
     contentFA: 'far fa-image',
     appearance: 'link',
-    isEnable: false,
+    isEnable: true,
   },
   {
     id: 8,

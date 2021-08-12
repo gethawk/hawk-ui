@@ -127,6 +127,9 @@ export default class RichTextEditor extends Component {
                             this.editorHelper.openModal({ type: _.get(tool, 'tagNames') });
                           });
                         } : () => {
+                          console.log('query toolName', _.get(tool, 'name'));
+                          console.log('query tagName', _.get(tool, 'tagNames'));
+                          console.log('query editableId', editableId);
                           onTags(_.get(tool, 'name'), _.get(tool, 'tagNames'), editableId);
                         }}
                       >
