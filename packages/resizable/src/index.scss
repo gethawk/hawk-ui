@@ -2,7 +2,12 @@
 
 .hawk-resizable {
   .hawk-tooltip {
+    width: inherit;
     &__content {
+      padding: unset;
+      .hawk-button {
+        width: 100%;
+      }
       &::after {
         display: none;
       }

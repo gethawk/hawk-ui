@@ -54,6 +54,8 @@ export const initResizeElement = (elementId) => {
     element.style.height = `${startHeight + e.clientY - startY}px`;
     document.getElementById(elementId).style.width = `${startWidth + e.clientX - startX}px`;
     document.getElementById(elementId).style.height = `${startHeight + e.clientY - startY}px`;
+    document.getElementById(`${elementId}-resizable`).style.width = `${startWidth + e.clientX - startX}px`;
+    document.getElementById(`${elementId}-resizable`).style.height = `${startHeight + e.clientY - startY}px`;
   }
 
   function stopDrag() {

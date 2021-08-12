@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import getClassnames from 'classnames';
 import Tooltip from '@hawk-ui/tooltip';
+import Button from '@hawk-ui/button';
 import { initResizeElement } from './scripts';
 // css modules
 import './index.scss';
@@ -31,6 +32,7 @@ export default class Resizable extends Component {
   componentDidMount() {
     const { config } = this.props;
 
+    document.getElementById(config.id).style.cssText += `width: ${config.width}; height: ${config.height};`;
     initResizeElement(config.id);
   }
 
@@ -42,10 +44,21 @@ export default class Resizable extends Component {
         className={getClassnames('hawk-resizable', {
           [className]: _.isString(className),
         })}
+        id={`${config.id}-resizable`}
       >
         <Tooltip
           position="top"
-          content="Hello World"
+          content={
+            <Button
+              onClick={() => {
+                document.getElementById(config.id).style.width = '100%';
+                document.getElementById(`${config.id}-content`).style.width = '100%';
+                document.getElementById(`${config.id}-resizable`).style.width = '100%';
+              }}
+            >
+              <span>Full Width</span>
+            </Button>
+          }
         >
           <div
             className="hawk-resizable__content"
@@ -53,6 +66,7 @@ export default class Resizable extends Component {
               width: config.width,
               height: config.height,
             }}
+            id={`${config.id}-content`}
           >
             {children}
           </div>
