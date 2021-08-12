@@ -33,6 +33,7 @@ module.exports = {
         '../packages/card/src/index.js',
         '../packages/image/src/index.js',
         '../packages/magnifier/src/index.js',
+        '../packages/resizable/src/index.js',
         '../packages/carousel/src/index.js',
         '../packages/pagination/src/index.js',
         '../packages/table/src/index.js',

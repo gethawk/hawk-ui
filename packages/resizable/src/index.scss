@@ -1,0 +1,71 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-resizable {
+  .hawk-tooltip {
+    width: inherit;
+    &__content {
+      padding: unset;
+      .hawk-button {
+        width: 100%;
+      }
+      &::after {
+        display: none;
+      }
+      &-top {
+        left: unset;
+        margin-left: unset;
+        right: 0;
+        bottom: 101%;
+      }
+    }
+  }
+  &__content {
+    z-index: 9;
+    background-color: $gray-14;
+    border: 1px dashed $black;
+    text-align: center;
+    min-height: 0px;
+    min-width: 0px;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+  &__resizer {
+    &-right {
+      width: 10px;
+      height: 10px;
+      background: $white;
+      position: absolute;
+      border: 1px solid;
+      border-radius: 10px;
+      top: 45%;
+      right: -6px;
+      cursor: e-resize;
+    }
+    &-bottom {
+      width: 10px;
+      height: 10px;
+      background: $white;
+      position: absolute;
+      border: 1px solid;
+      border-radius: 10px;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      margin: auto;
+      cursor: n-resize;
+    }
+    &-both {
+      width: 10px;
+      height: 10px;
+      background: $white;
+      border: 1px solid;
+      border-radius: 10px;
+      z-index: 10;
+      position: absolute;
+      right: -6px;
+      bottom: -6px;
+      cursor: nw-resize;
+    }
+  }
+}
