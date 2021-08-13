@@ -50,5 +50,6 @@ export function onImageInsert(data) {
   const img = document.createElement('img');
 
   img.src = data.link;
+  img.style.cssText = `width: ${data.width}; height: ${data.height}`;
   range.surroundContents(img);
 }
