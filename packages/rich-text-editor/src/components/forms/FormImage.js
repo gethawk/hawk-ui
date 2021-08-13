@@ -10,6 +10,8 @@ export default class FormImage extends Component {
   static propTypes = {
     onCancel: PropTypes.func,
     onInsert: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
   };
   state = {
     link: '',
@@ -18,7 +20,7 @@ export default class FormImage extends Component {
   };
 
   render() {
-    const { onCancel, onInsert } = this.props;
+    const { onCancel, onInsert, onFocus, onBlur } = this.props;
     const { link, width, height } = this.state;
 
     return (
@@ -32,6 +34,10 @@ export default class FormImage extends Component {
                 link: event.target.value,
               });
             }}
+            htmlAttributes={{
+              onMouseDown: () => { onFocus(); },
+            }}
+            onBlur={() => { onBlur(); }}
             label="Image (URL)"
             description="Please enter a valid URL or merge field."
             placeholder="https://example.com"
@@ -83,6 +89,8 @@ export default class FormImage extends Component {
               onInsert(this.state);
               this.setState({
                 link: '',
+                width: '100%',
+                height: '100%',
               });
             }}
           >

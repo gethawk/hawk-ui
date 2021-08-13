@@ -45,3 +45,10 @@ export function onLinkInsert(value) {
   link.href = value;
   range.surroundContents(link);
 }
+
+export function onImageInsert(data) {
+  const img = document.createElement('img');
+
+  img.src = data.link;
+  range.surroundContents(img);
+}

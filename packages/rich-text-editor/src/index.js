@@ -15,8 +15,12 @@ import { getTools, getBottomTools } from './utils/tools';
 import { onCode } from './utils/codeHandler';
 import { onPrint } from './utils/printHandler';
 import { onTags } from './utils/tagHandler';
-import { onImageTag } from './utils/imageHandler';
-import { onSaveRangeEvent, onLinkFocus, onLinkBlur, onLinkInsert } from './utils/linkHandler';
+import {
+  onSaveRangeEvent,
+  onLinkFocus,
+  onLinkBlur,
+  onLinkInsert, onImageInsert,
+} from './utils/inputHandler';
 // css modules
 import './index.scss';
 
@@ -246,7 +250,7 @@ export default class RichTextEditor extends Component {
                 if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
                   onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
                 } else if (_.isEqual(_.get(this.state.formMeta, 'type'), 'img')) {
-                  onImageTag(event);
+                  onImageInsert(event);
                 }
                 this.editorHelper.closeModal();
               }}

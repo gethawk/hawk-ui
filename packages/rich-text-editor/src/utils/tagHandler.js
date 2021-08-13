@@ -7,8 +7,6 @@ export function onTags(tool, tag, editableId) {
     doc.innerHTML = '';
     doc.focus();
   } else {
-    console.log('query tool', tool);
-    console.log('query tag', tag);
     document.execCommand(tool, false, tag);
   }
 }
