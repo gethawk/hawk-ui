@@ -17,8 +17,8 @@ import { onPrint } from './utils/printHandler';
 import { onTags } from './utils/tagHandler';
 import {
   onSaveRangeEvent,
-  onLinkFocus,
-  onLinkBlur,
+  onInputFocus,
+  onInputBlur,
   onLinkInsert, onImageInsert,
 } from './utils/inputHandler';
 // css modules
@@ -255,10 +255,10 @@ export default class RichTextEditor extends Component {
                 this.editorHelper.closeModal();
               }}
               onFocus={() => {
-                onLinkFocus();
+                onInputFocus();
               }}
               onBlur={() => {
-                onLinkBlur();
+                onInputBlur();
               }}
             />
           )}

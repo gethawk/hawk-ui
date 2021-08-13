@@ -23,7 +23,7 @@ export function onSaveRangeEvent() {
   }
 }
 
-export function onLinkFocus() {
+export function onInputFocus() {
   if (fragment) {
     const span = document.createElement('span');
 
@@ -32,7 +32,7 @@ export function onLinkFocus() {
   }
 }
 
-export function onLinkBlur() {
+export function onInputBlur() {
   if (fragment) {
     range.deleteContents();
     range.insertNode(fragment);
