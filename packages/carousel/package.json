@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/carousel",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "hawk-ui: Basic Carousel Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^3.1.0",
+    "@hawk-ui/button": "^3.1.1",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
