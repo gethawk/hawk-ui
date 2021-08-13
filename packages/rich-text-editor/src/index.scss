@@ -124,7 +124,7 @@
   }
   &__modal {
     &-type {
-      &-link {
+      &-link, &-img {
         .hawk-modal__content {
           width: 450px;
           padding: unset;
@@ -166,12 +166,26 @@
   }
   &__form {
     &-content {
-      padding: 20px;
+      padding: 10px 20px;
     }
     &-button {
       display: flex;
       justify-content: space-between;
       padding: 20px;
+    }
+    &-rows {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-field {
+      width: 100%;
+      margin: 0 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
   &__html-preview {

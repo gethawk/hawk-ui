@@ -33,7 +33,7 @@ initialState = {
     'bold', 'italic', 'underline', 'link', 'unlink', 'strike through', 'ordered list'
     , 'unordered list', 'formatblock', 'cut', 'copy', 'print', 'pre', 'header', 'font family'
     , 'font size', 'select all', 'text color picker', 'background color picker', 'remove format', 'clean', 'divider', 'left justify'
-    , 'center justify', 'right justify', 'outdent', 'indent', 'undo', 'redo'
+    , 'center justify', 'right justify', 'outdent', 'indent', 'undo', 'redo', 'image'
   ]}
   htmlAttributes={{
     rows: '10',

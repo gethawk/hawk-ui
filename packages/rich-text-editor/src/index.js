@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import getClassnames from 'classnames';
 import Button from '@hawk-ui/button';
-import FileUpload from '@hawk-ui/file-upload';
 import Dropdown from '@hawk-ui/dropdown';
 import Modal from '@hawk-ui/modal';
 import ColorPicker from '@hawk-ui/color-picker';
@@ -16,7 +15,12 @@ import { getTools, getBottomTools } from './utils/tools';
 import { onCode } from './utils/codeHandler';
 import { onPrint } from './utils/printHandler';
 import { onTags } from './utils/tagHandler';
-import { onSaveRangeEvent, onLinkFocus, onLinkBlur, onLinkInsert } from './utils/linkHandler';
+import {
+  onSaveRangeEvent,
+  onInputFocus,
+  onInputBlur,
+  onLinkInsert, onImageInsert,
+} from './utils/inputHandler';
 // css modules
 import './index.scss';
 
@@ -117,7 +121,8 @@ export default class RichTextEditor extends Component {
                           });
                         } : _.isEqual(tool.name, 'print') ? () => {
                           onPrint(editableId);
-                        } : _.includes(['link'], _.get(tool, 'tagNames')) ? () => {
+                        } : _.includes(['link', 'img'], _.get(tool, 'tagNames')) ? () => {
+                          onSaveRangeEvent();
                           this.setState({
                             formMeta: {
                               name: _.get(tool, 'name'),
@@ -136,15 +141,6 @@ export default class RichTextEditor extends Component {
                           <span>{tool.contentDefault}</span>
                         )}
                       </Button>
-                    )}
-                    {_.isEqual(tool.field_type, 'file') && tool.isEnable && (
-                      <FileUpload
-                        title={tool.contentFA}
-                        isIcon
-                        onUpload={(file) => {
-                          console.log('query file', file);
-                        }}
-                      />
                     )}
                     {_.isEqual(tool.field_type, 'select') && tool.isEnable && (
                       <Dropdown
@@ -211,7 +207,6 @@ export default class RichTextEditor extends Component {
               textAlign: 'left',
               height: !_.isEmpty(_.get(htmlAttributes, 'rows')) ? `${_.get(htmlAttributes, 'rows') * 20}px` : '200px',
             }}
-            onMouseUp={onSaveRangeEvent}
           />
           <div className="hawk-rich-text-editor__footer">
             {_.map(getBottomTools, (tool, index) => (
@@ -234,7 +229,11 @@ export default class RichTextEditor extends Component {
           className={getClassnames('hawk-rich-text-editor__modal', {
             [`hawk-rich-text-editor__modal-type-${this.state.modal.type}`]: !_.isEmpty(this.state.modal.type),
           })}
-          title={_.isEqual(this.state.modal.type, 'link') && 'Insert or Edit Link'}
+          title={_.isEqual(_.get(this.state.modal, 'type'), 'link')
+            ? 'Insert or Edit Link'
+            : _.isEqual(_.get(this.state.modal, 'type'), 'img')
+              && 'Insert or Edit Image'
+          }
           onKeyDown={() => {
             this.editorHelper.closeModal();
           }}
@@ -242,7 +241,7 @@ export default class RichTextEditor extends Component {
             this.editorHelper.closeModal();
           }}
         >
-          {_.isEqual(this.state.modal.type, 'link') && (
+          {_.includes(['link', 'img'], _.get(this.state.modal, 'type')) && (
             <FormComponent
               onCancel={() => {
                 this.editorHelper.closeModal();
@@ -250,14 +249,16 @@ export default class RichTextEditor extends Component {
               onInsert={(event) => {
                 if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
                   onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
+                } else if (_.isEqual(_.get(this.state.formMeta, 'type'), 'img')) {
+                  onImageInsert(event);
                 }
                 this.editorHelper.closeModal();
               }}
               onFocus={() => {
-                onLinkFocus();
+                onInputFocus();
               }}
               onBlur={() => {
-                onLinkBlur();
+                onInputBlur();
               }}
             />
           )}

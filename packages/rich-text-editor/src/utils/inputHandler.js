@@ -23,7 +23,7 @@ export function onSaveRangeEvent() {
   }
 }
 
-export function onLinkFocus() {
+export function onInputFocus() {
   if (fragment) {
     const span = document.createElement('span');
 
@@ -32,7 +32,7 @@ export function onLinkFocus() {
   }
 }
 
-export function onLinkBlur() {
+export function onInputBlur() {
   if (fragment) {
     range.deleteContents();
     range.insertNode(fragment);
@@ -44,4 +44,12 @@ export function onLinkInsert(value) {
 
   link.href = value;
   range.surroundContents(link);
+}
+
+export function onImageInsert(data) {
+  const img = document.createElement('img');
+
+  img.src = data.link;
+  img.style.cssText = `width: ${data.width}; height: ${data.height}`;
+  range.surroundContents(img);
 }
