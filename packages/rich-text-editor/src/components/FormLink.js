@@ -32,7 +32,9 @@ export default class FormLink extends Component {
                 link: event.target.value,
               });
             }}
-            onFocus={() => { onFocus(); }}
+            htmlAttributes={{
+              onMouseDown: () => { onFocus(); },
+            }}
             onBlur={() => { onBlur(); }}
             label="Web address (URL)"
             description="Please enter a valid URL or merge field."
