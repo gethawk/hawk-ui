@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import getClassnames from 'classnames';
 import Button from '@hawk-ui/button';
-import FileUpload from '@hawk-ui/file-upload';
 import Dropdown from '@hawk-ui/dropdown';
 import Modal from '@hawk-ui/modal';
 import ColorPicker from '@hawk-ui/color-picker';
@@ -16,7 +15,7 @@ import { getTools, getBottomTools } from './utils/tools';
 import { onCode } from './utils/codeHandler';
 import { onPrint } from './utils/printHandler';
 import { onTags } from './utils/tagHandler';
-import { onImage } from './utils/imageHandler';
+import { onImageTag } from './utils/imageHandler';
 import { onSaveRangeEvent, onLinkFocus, onLinkBlur, onLinkInsert } from './utils/linkHandler';
 // css modules
 import './index.scss';
@@ -118,7 +117,7 @@ export default class RichTextEditor extends Component {
                           });
                         } : _.isEqual(tool.name, 'print') ? () => {
                           onPrint(editableId);
-                        } : _.includes(['link'], _.get(tool, 'tagNames')) ? () => {
+                        } : _.includes(['link', 'img'], _.get(tool, 'tagNames')) ? () => {
                           onSaveRangeEvent();
                           this.setState({
                             formMeta: {
@@ -138,19 +137,6 @@ export default class RichTextEditor extends Component {
                           <span>{tool.contentDefault}</span>
                         )}
                       </Button>
-                    )}
-                    {_.isEqual(tool.field_type, 'file') && tool.isEnable && (
-                      <FileUpload
-                        title={tool.contentFA}
-                        isIcon
-                        onUpload={(file) => {
-                          onImage(file);
-                          // console.log('query toolName', _.get(tool, 'name'));
-                          // console.log('query tagName', _.get(tool, 'tagNames'));
-                          // console.log('query editableId', editableId);
-                          // console.log('query file', file);
-                        }}
-                      />
                     )}
                     {_.isEqual(tool.field_type, 'select') && tool.isEnable && (
                       <Dropdown
@@ -239,7 +225,11 @@ export default class RichTextEditor extends Component {
           className={getClassnames('hawk-rich-text-editor__modal', {
             [`hawk-rich-text-editor__modal-type-${this.state.modal.type}`]: !_.isEmpty(this.state.modal.type),
           })}
-          title={_.isEqual(this.state.modal.type, 'link') && 'Insert or Edit Link'}
+          title={_.isEqual(_.get(this.state.modal, 'type'), 'link')
+            ? 'Insert or Edit Link'
+            : _.isEqual(_.get(this.state.modal, 'type'), 'img')
+              && 'Insert or Edit Image'
+          }
           onKeyDown={() => {
             this.editorHelper.closeModal();
           }}
@@ -247,7 +237,7 @@ export default class RichTextEditor extends Component {
             this.editorHelper.closeModal();
           }}
         >
-          {_.isEqual(this.state.modal.type, 'link') && (
+          {_.includes(['link', 'img'], _.get(this.state.modal, 'type')) && (
             <FormComponent
               onCancel={() => {
                 this.editorHelper.closeModal();
@@ -255,6 +245,8 @@ export default class RichTextEditor extends Component {
               onInsert={(event) => {
                 if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
                   onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
+                } else if (_.isEqual(_.get(this.state.formMeta, 'type'), 'img')) {
+                  onImageTag(event);
                 }
                 this.editorHelper.closeModal();
               }}

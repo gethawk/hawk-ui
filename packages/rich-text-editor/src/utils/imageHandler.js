@@ -1,14 +1,6 @@
-export function onImage(event) {
-  console.log('query onImage');
-  const reader = new FileReader();
+export function onImageTag(data) {
+  const doc = document.getElementById('containerEditable1');
 
-  reader.onload = readOnLoad(event);
-
-  // reader.onload = (function(e) {
-  //   console.log('query e', e.target.result);
-  // })(e).bind(this);
+  doc.focus();
+  document.execCommand('insertImage', false, `${data.link}`);
 }
-
-const readOnLoad = (e) => {
-  console.log('query e', e.target.result);
-};

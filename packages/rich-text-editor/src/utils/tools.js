@@ -94,8 +94,8 @@ export const getTools = [
   },
   {
     id: 7,
-    name: 'image',
-    field_type: 'file',
+    name: 'insertImage',
+    field_type: 'button',
     aria: 'image',
     tagNames: 'img',
     style: {},
