@@ -16,6 +16,7 @@ import { getTools, getBottomTools } from './utils/tools';
 import { onCode } from './utils/codeHandler';
 import { onPrint } from './utils/printHandler';
 import { onTags } from './utils/tagHandler';
+import { onImage } from './utils/imageHandler';
 import { onSaveRangeEvent, onLinkFocus, onLinkBlur, onLinkInsert } from './utils/linkHandler';
 // css modules
 import './index.scss';
@@ -145,7 +146,11 @@ export default class RichTextEditor extends Component {
                         title={tool.contentFA}
                         isIcon
                         onUpload={(file) => {
-                          console.log('query file', file);
+                          onImage(file);
+                          // console.log('query toolName', _.get(tool, 'name'));
+                          // console.log('query tagName', _.get(tool, 'tagNames'));
+                          // console.log('query editableId', editableId);
+                          // console.log('query file', file);
                         }}
                       />
                     )}
