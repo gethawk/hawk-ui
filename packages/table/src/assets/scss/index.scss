@@ -15,6 +15,17 @@
           margin-left: 0;
         }
       }
+      .hawk-select-dropdown {
+        .hawk-input {
+          width: 25px;
+        }
+        .hawk-suggestions {
+          &__wrap {
+            width: 70px;
+            margin-left: 10px;
+          }
+        }
+      }
     }
     &-search {
       display: flex;

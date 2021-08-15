@@ -24,6 +24,7 @@
     "@hawk-ui/input": "^3.1.1",
     "@hawk-ui/loader": "^3.1.1",
     "@hawk-ui/pagination": "^3.1.1",
+    "@hawk-ui/select-dropdown": "^3.1.1",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
