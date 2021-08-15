@@ -28,12 +28,19 @@ export default class Table extends Component {
       PropTypes.object,
     ]),
     tableSearchContent: PropTypes.array,
-    onSearch: PropTypes.func,
     exports: PropTypes.array,
+    entries: PropTypes.object,
+    onSearch: PropTypes.func,
+    onShowEntries: PropTypes.func,
   };
   static defaultProps = {
     id: 'table',
     exports: [],
+    entries: {
+      isVisible: true,
+      range: [10, 25, 50, 100],
+      default: 10,
+    },
   }
 
   static SEARCH = TSearch;
@@ -50,12 +57,19 @@ export default class Table extends Component {
       this.onSortColumn(event);
     };
 
+    this.onEntries = (event) => {
+      this.onShowEntries(event);
+    };
+
     this.state = {
       tableContent: this.props.tableContent,
       id: this.props.id,
       onSearch: this.onSearch,
       onSort: this.onSort,
+      onEntries: this.onEntries,
       exports: this.props.exports,
+      entries: this.props.entries,
+      noOfEntries: _.get(props.entries, 'default'),
     };
   }
 
@@ -84,6 +98,14 @@ export default class Table extends Component {
   onSortColumn = (event) => {
     this.setState({
       tableContent: event,
+    });
+  };
+
+  onShowEntries = (event) => {
+    this.setState({
+      noOfEntries: event,
+    }, () => {
+      this.props.onShowEntries(event);
     });
   };
 

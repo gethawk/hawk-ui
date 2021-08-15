@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Input from '@hawk-ui/input';
 import Button from '@hawk-ui/button';
+import SelectDropdown from '@hawk-ui/select-dropdown';
 // context modules
 import { TableContext } from '../context/tableContext';
 // exports modules
@@ -49,11 +50,28 @@ export default class TSearch extends Component {
   };
 
   render() {
-    const { exports } = this.context;
+    const { exports, entries, noOfEntries } = this.context;
 
     return (
       <div className="hawk-table__filter">
         <div className="hawk-table__filter-downloads">
+          {entries.isVisible && !_.isUndefined(noOfEntries) && (
+            <TableContext.Consumer>
+              {({ onEntries }) => (
+                <SelectDropdown
+                  suggestions={entries.range}
+                  isIcon
+                  placeholder="Select"
+                  renderSuggestion={(suggestion) => suggestion}
+                  searchValue={noOfEntries}
+                  onSuggestionSelect={(item) => {
+                    onEntries(item);
+                  }}
+                  label="Entries"
+                />
+              )}
+            </TableContext.Consumer>
+          )}
           {_.map(_.get(exports, 'options'), (item) => (
             this.exportBtn(item, _.get(exports, 'headers'), _.get(exports, 'items'))
           ))}

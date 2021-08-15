@@ -46,6 +46,14 @@ initialState = {
 <Table
   tableContent={state.searchContent}
   tableSearchContent={['company', 'contact', 'country']}
+  entries={{
+    isVisible: true,
+    range: [10, 20, 30, 40, 50],
+    default: 10,
+  }}
+  onShowEntries={(event) => {
+    console.log('query onShowEntries', event);
+  }}
   exports={{
     options: [
       {
