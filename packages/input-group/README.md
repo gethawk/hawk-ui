@@ -35,6 +35,8 @@ initialState = {
       value: event.target.value,
     });
   }}
+  label="Username"
+  description="This is a input group field"
 />
 ```
 
