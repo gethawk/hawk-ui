@@ -18,8 +18,8 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/label": "^3.1.3",
-    "@hawk-ui/suggestions": "^3.1.3",
+    "@hawk-ui/label": "^3.1.4",
+    "@hawk-ui/suggestions": "^3.1.4",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"
   },
