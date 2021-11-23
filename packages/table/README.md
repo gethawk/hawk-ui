@@ -80,6 +80,7 @@ initialState = {
     tableHeader={header}
     isLoading={false}
     renderLoading={<div>Loading...</div>}
+    renderDataNotFound={<div>No matching records found</div>}
   />
   <Table.PAGINATION
     pageRangeDisplayed={PAGE_RANGE_DISPLAYED}

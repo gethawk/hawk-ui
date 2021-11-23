@@ -14,12 +14,13 @@ export default class Body extends Component {
     isSelectable: PropTypes.bool,
     isLoading: PropTypes.bool,
     renderLoading: PropTypes.element,
+    renderDataNotFound: PropTypes.func,
     onSelect: PropTypes.func,
   };
   state = {};
 
   render() {
-    const { tableHeader, tableContent, selectedItems, isSelectable, isLoading, renderLoading, onSelect } = this.props;
+    const { tableHeader, tableContent, selectedItems, isSelectable, isLoading, renderLoading, onSelect, renderDataNotFound } = this.props;
 
     return (
       <tbody>
@@ -116,7 +117,7 @@ export default class Body extends Component {
                   className="hawk-table__not-found"
                   colSpan={isSelectable ? tableHeader.length + 1 : tableHeader.length}
                 >
-                  No matching records found
+                  {renderDataNotFound}
                 </td>
               </tr>
             )}
