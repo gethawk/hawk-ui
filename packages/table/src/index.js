@@ -37,7 +37,7 @@ export default class Table extends Component {
     id: 'table',
     exports: [],
     entries: {
-      isVisible: true,
+      isVisible: false,
       range: [10, 25, 50, 100],
       default: 10,
     },
