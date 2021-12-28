@@ -71,13 +71,17 @@ import FileUpload from '@hawk-ui/file-upload';
 import FileUpload from '@hawk-ui/file-upload';
 ```
 ```js
+initialState = {
+  fileNames: [],
+};
+
 <FileUpload
   title="Drag and Drop Image Here"
   description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
   variant="draggable"
   isLoading
-  onUpload={(file) => {
-    console.log('query file', file);
+  onUpload={(files) => {
+    console.log('query files', files);
   }}
 />
 ```

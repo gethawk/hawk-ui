@@ -25,6 +25,7 @@ export default class FileUpload extends Component {
     btnIcon: PropTypes.string,
     isMultiple: PropTypes.bool,
     isLoading: PropTypes.bool,
+    fileNames: PropTypes.array,
     onUpload: PropTypes.func,
   };
   static defaultProps = {
@@ -32,11 +33,10 @@ export default class FileUpload extends Component {
     accept: '*',
     isMultiple: false,
     isLoading: false,
+    fileNames: [],
     btnTitle: <span>Browse</span>,
   };
-  state = {
-    fileNames: [],
-  };
+  state = {};
 
   onFileUpload = () => {
     this.uploadButton.click();
@@ -44,19 +44,14 @@ export default class FileUpload extends Component {
 
   onFileSelect = (event) => {
     const files = event.target.files;
-    const names = _.map(files, (item) => item.name);
 
     if (files.length) {
-      this.setState({
-        fileNames: names,
-      });
       this.props.onUpload(files);
     }
   };
 
   render() {
-    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple, isLoading } = this.props;
-    const { fileNames } = this.state;
+    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple, isLoading, fileNames } = this.props;
 
     return (
       <div className="hawk-file-upload">
