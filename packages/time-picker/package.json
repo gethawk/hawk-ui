@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/time-picker",
-  "version": "3.1.7",
+  "version": "3.1.8",
   "description": "hawk-ui: Basic Time Picker Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/select-dropdown": "^3.1.7",
+    "@hawk-ui/select-dropdown": "^3.1.8",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
