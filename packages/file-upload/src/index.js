@@ -58,25 +58,17 @@ export default class FileUpload extends Component {
         {_.isEqual(variant, 'draggable') ? (
           <div className="hawk-file-upload__draggable">
             <div className="hawk-file-upload__draggable-content">
-              {_.isEmpty(fileNames) ? (
+              {isLoading ? (
+                <Loader
+                  type="jelly"
+                />
+              ) : (
                 <Fragment>
                   {title && (
                     <div className="hawk-file-upload__draggable-title">{title}</div>
                   )}
                   {description && (
                     <div className="hawk-file-upload__draggable-description">{description}</div>
-                  )}
-                </Fragment>
-              ) : (
-                <Fragment>
-                  {isLoading ? (
-                    <Loader
-                      type="jelly"
-                    />
-                  ) : (
-                    <div className="hawk-file-upload__draggable-filenames">
-                      {_.map(fileNames, (name) => `${name}, `)}
-                    </div>
                   )}
                 </Fragment>
               )}
