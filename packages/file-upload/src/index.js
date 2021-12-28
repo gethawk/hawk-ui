@@ -6,6 +6,7 @@ import getClassnames from 'classnames';
 import _ from 'lodash';
 import Button from '@hawk-ui/button';
 import Input from '@hawk-ui/input';
+import Loader from '@hawk-ui/loader';
 // css modules
 import './index.scss';
 
@@ -23,12 +24,14 @@ export default class FileUpload extends Component {
     btnTitle: PropTypes.string,
     btnIcon: PropTypes.string,
     isMultiple: PropTypes.bool,
+    isLoading: PropTypes.bool,
     onUpload: PropTypes.func,
   };
   static defaultProps = {
     variant: 'button',
     accept: '*',
     isMultiple: false,
+    isLoading: false,
     btnTitle: <span>Browse</span>,
   };
   state = {
@@ -52,18 +55,13 @@ export default class FileUpload extends Component {
   };
 
   render() {
-    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple } = this.props;
+    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple, isLoading } = this.props;
     const { fileNames } = this.state;
 
     return (
       <div className="hawk-file-upload">
         {_.isEqual(variant, 'draggable') ? (
-          <div
-            className="hawk-file-upload__draggable"
-            onClick={() => {
-              this.onFileUpload();
-            }}
-          >
+          <div className="hawk-file-upload__draggable">
             <div className="hawk-file-upload__draggable-content">
               {_.isEmpty(fileNames) ? (
                 <Fragment>
@@ -75,16 +73,29 @@ export default class FileUpload extends Component {
                   )}
                 </Fragment>
               ) : (
-                <div className="hawk-file-upload__draggable-filenames">
-                  {_.map(fileNames, (name) => `${name}, `)}
-                </div>
+                <Fragment>
+                  {isLoading ? (
+                    <Loader
+                      type="jelly"
+                    />
+                  ) : (
+                    <div className="hawk-file-upload__draggable-filenames">
+                      {_.map(fileNames, (name) => `${name}, `)}
+                    </div>
+                  )}
+                </Fragment>
               )}
             </div>
             <input
               type="file"
               accept={accept}
               multiple={isMultiple}
-              onChange={(event) => { this.onFileSelect(event); }}
+              onChange={(event) => {
+                this.onFileSelect(event);
+              }}
+              onClick={(event) => {
+                event.target.value = null;
+              }}
             />
           </div>
         ) : (
