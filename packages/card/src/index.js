@@ -21,25 +21,27 @@ export default class Card extends Component {
     isHoverable: PropTypes.bool,
     isClickable: PropTypes.bool,
     isSelected: PropTypes.bool,
+    isDisabled: PropTypes.bool,
     onClick: PropTypes.func,
   };
   static defaultProps = {
     layout: 'box',
     isHoverable: false,
     isClickable: false,
+    isDisabled: false,
     isSelected: false,
   }
 
   state = {};
 
   onClick = (event) => {
-    if (this.props.isClickable) {
+    if (this.props.isClickable && !this.props.isDisabled) {
       this.props.onClick(event);
     }
   }
 
   render() {
-    const { className, layout, children, isHoverable, isClickable, isSelected } = this.props;
+    const { className, layout, children, isHoverable, isClickable, isDisabled, isSelected } = this.props;
 
     return (
       <div
@@ -49,6 +51,7 @@ export default class Card extends Component {
           'hawk-card__active': isSelected,
           'hawk-card__hover': isHoverable,
           'hawk-card__clickable': isClickable,
+          'hawk-card__disabled': isDisabled,
         })}
         onClick={(event) => { this.onClick(event); }}
       >

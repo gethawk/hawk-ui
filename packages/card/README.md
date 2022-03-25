@@ -43,6 +43,15 @@ import Card from '@hawk-ui/card';
       onClick={() => { alert('Card Clicked'); }}
     />
   </div>
+
+  <div>
+    <div>With Disabled</div>
+    <br />
+    <Card
+      isDisabled
+      onClick={() => { alert('Card Clicked'); }}
+    />
+  </div>
 </div>
 ```
 

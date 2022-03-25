@@ -27,4 +27,8 @@
       box-shadow: $box-shadow-2;
     }
   }
+  &__disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 }
