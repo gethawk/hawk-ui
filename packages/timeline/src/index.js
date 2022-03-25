@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
 import _ from 'lodash';
@@ -21,19 +21,14 @@ export default class Timeline extends Component {
 
     return (
       <div className="hawk-timeline">
-        {_.map(panes, (item, index) => (
-          <Fragment key={index}>
-            <div className="hawk-timeline__content">
-              <div className="hawk-timeline__content-title hawk-timeline__content-title--right">{item.title}</div>
-            </div>
-            <div className="hawk-timeline__separator">
-              <div className="hawk-timeline__separator-point" />
-            </div>
-            <div className="hawk-timeline__content hawk-timeline__content--bg">
-              {item.content}
-            </div>
-          </Fragment>
-        ))}
+        <ul>
+          {_.map(panes, (item, index) => (
+            <li key={index}>
+              <div className="hawk-timeline__content">{item.content}</div>
+              <div className="hawk-timeline__title">{item.title}</div>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

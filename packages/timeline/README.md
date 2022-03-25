@@ -33,8 +33,8 @@ import Timeline from '@hawk-ui/timeline';
         title: 'February 25, 2019',
         content: (
           <div>
-            <span>To celebrate 5,000 subscribers, I published a video answering some of the most popular questions which my viewers had asked me since starting my YouTube channel.</span>
-            <span>I didn't even remove the jumper in the background before recording that video</span>
+            <p>To celebrate 5,000 subscribers, I published a video answering some of the most popular questions which my viewers had asked me since starting my YouTube channel.</p>
+            <p>I didn't even remove the jumper in the background before recording that video</p>
           </div>
         ),
       },

@@ -1,40 +1,94 @@
 @import '../../../assets/scss/utils/variables';
 
 .hawk-timeline {
-  margin: 0 auto;
-  max-width: 750px;
-  padding: 25px;
-  display: grid;
-  grid-template-columns: 1fr 3px 1fr;
-  font-family: "Fira Sans", sans-serif;
-  color: #ffffff;
-  &__content {
-    margin: 0 20px 20px 20px;
-    &--bg {
-      padding: 1.5em;
-      background-color: #6997DB;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-    }
-    &-title {
-      color: #6997DB;
-      &--right {
+  position: relative;
+  margin: 0px auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 90%;
+    background: #425a70;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      position: relative;
+      width: 50%;
+      padding: 20px 40px;
+      box-sizing: border-box;
+      &:nth-child(odd) {
+        float: left;
         text-align: right;
+        clear: both;
+        &::before {
+          content: '';
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          top: 24px;
+          right: -8px;
+          background: #6997DB;
+          border-radius: 50%;
+          box-shadow: 0 0 0 3px rgba(105,151,219,0.2);
+        }
+        .hawk-timeline__title {
+          position: absolute;
+          top: 21px;
+          right: -190px;
+          margin: 0;
+          padding: 8px 16px;
+          background: #6997DB;
+          color: #fff;
+          border-radius: 18px;
+          box-shadow: 0 0 0 3px rgba(105,151,219,0.3);
+        }
+      }
+      &:nth-child(even) {
+        float: right;
+        text-align: left;
+        clear: both;
+        &::before {
+          content: '';
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          top: 24px;
+          left: -8px;
+          background: #6997DB;
+          border-radius: 50%;
+          box-shadow: 0 0 0 3px rgba(105,151,219,0.2);
+        }
+        .hawk-timeline__title {
+          position: absolute;
+          top: 21px;
+          left: -190px;
+          margin: 0;
+          padding: 8px 16px;
+          background: #6997DB;
+          color: #fff;
+          border-radius: 18px;
+          box-shadow: 0 0 0 3px rgba(105,151,219,0.3);
+        }
       }
     }
   }
-  &__separator {
-    position: relative;
-    background-color: #6997DB;
-    &-point {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 15px;
-      height: 15px;
-      background-color: #6997DB;
-      border-radius: 50%;
-    }
+  &__content {
+    padding: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    line-height: 1.5;
+    font-size: 14px;
+    color: #425a70;
+  }
+  &__title {
+    width: 120px;
+    font-size: 14px;
+    text-align: center;
   }
 }
