@@ -35,6 +35,7 @@ module.exports = {
         '../packages/magnifier/src/index.js',
         '../packages/resizable/src/index.js',
         '../packages/carousel/src/index.js',
+        '../packages/parallax/src/index.js',
         '../packages/pagination/src/index.js',
         '../packages/table/src/index.js',
         '../packages/form/src/index.js',

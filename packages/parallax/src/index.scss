@@ -1,0 +1,13 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-parallax {
+  display: block;
+  position: relative;
+  &__image {
+    position: absolute;
+    top: 0;
+    background-position: center !important;
+    transform: translateY(0px);
+    width: 100%;
+  }
+}
