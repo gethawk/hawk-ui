@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/rich-text-editor",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "hawk-ui: Rich Text Editor Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,13 +18,13 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^4.0.3",
-    "@hawk-ui/color-picker": "^4.0.3",
-    "@hawk-ui/dropdown": "^4.0.3",
-    "@hawk-ui/file-upload": "^4.0.3",
-    "@hawk-ui/input": "^4.0.3",
-    "@hawk-ui/modal": "^4.0.3",
-    "@hawk-ui/resizable": "^4.0.3",
+    "@hawk-ui/button": "^4.0.4",
+    "@hawk-ui/color-picker": "^4.0.4",
+    "@hawk-ui/dropdown": "^4.0.4",
+    "@hawk-ui/file-upload": "^4.0.4",
+    "@hawk-ui/input": "^4.0.4",
+    "@hawk-ui/modal": "^4.0.4",
+    "@hawk-ui/resizable": "^4.0.4",
     "classnames": "^2.2.6",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2"
