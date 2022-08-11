@@ -118,6 +118,40 @@
     .hawk-table__not-found {
       text-align: center;
     }
+    .hawk-table__collapse {
+      &-td {
+        padding: 0;
+        border: 0;
+      }
+      &-content {
+        transition: max-height 0.2s ease-out;
+        background-color: #f9f9f9;
+      }
+      &-table {
+        width: -webkit-fill-available;
+        margin: 0 20px;
+        thead {
+          tr {
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            background-color: unset;
+          }
+        }
+        tbody {
+          tr {
+            border-left: 0px;
+            border-right: 0px;
+            &:last-child {
+              border-bottom: 0px;
+              td {
+                border-bottom: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   .hawk-pagination {

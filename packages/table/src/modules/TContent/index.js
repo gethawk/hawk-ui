@@ -24,6 +24,7 @@ export default class TContent extends Component {
     filterBy: PropTypes.array,
     renderLoading: PropTypes.element,
     renderDataNotFound: PropTypes.func,
+    collapseIndex: PropTypes.number,
   };
   static defaultProps = {
     isHeaderShow: true,
@@ -74,7 +75,7 @@ export default class TContent extends Component {
   };
 
   render() {
-    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, renderLoading, sortBy, filterBy, renderDataNotFound } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, renderLoading, sortBy, filterBy, renderDataNotFound, collapseIndex } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
 
@@ -102,6 +103,7 @@ export default class TContent extends Component {
           isSelectable={isSelectable}
           onSelect={this.onSelect}
           renderDataNotFound={renderDataNotFound}
+          collapseIndex={collapseIndex}
         />
       </table>
     );
