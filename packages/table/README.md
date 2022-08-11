@@ -488,12 +488,8 @@ const header = [
       <button
         style={{ cursor: 'pointer' }}
         onClick={() => {
-          console.log('query event', event);
-          console.log('query index', index);
           setState({
             collapseIndex: state.collapseIndex === index ? null : index,
-          }, () => {
-            console.log('query collapseIndex', state.collapseIndex);
           });
         }}
       >
