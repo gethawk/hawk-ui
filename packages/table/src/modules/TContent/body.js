@@ -15,12 +15,16 @@ export default class Body extends Component {
     isLoading: PropTypes.bool,
     renderLoading: PropTypes.element,
     renderDataNotFound: PropTypes.func,
+    collapseIndex: PropTypes.number,
     onSelect: PropTypes.func,
+  };
+  static defaultProps = {
+    collapseIndex: null,
   };
   state = {};
 
   render() {
-    const { tableHeader, tableContent, selectedItems, isSelectable, isLoading, renderLoading, onSelect, renderDataNotFound } = this.props;
+    const { tableHeader, tableContent, selectedItems, isSelectable, isLoading, renderLoading, collapseIndex, onSelect, renderDataNotFound } = this.props;
 
     return (
       <tbody>
@@ -88,25 +92,61 @@ export default class Body extends Component {
                                 </div>
                               )}
                             </td>
-                          ) : <td key={subIndex}>{item.render(content)}</td>
+                          ) : <td key={subIndex}>{item.render(content, index)}</td>
                         )
                       ))}
                     </tr>
-                    {_.get(content, 'expandable') && (
-                      <Fragment>
-                        {_.map(content.expandable, (expandItem, subIndex) => (
-                          <tr
-                            key={subIndex}
-                            className="active"
+                    {_.isEqual(collapseIndex, index) && (
+                      !_.isEmpty(_.get(content, 'children.header', [])) ? (
+                        <tr className="hawk-table__collapse-tr">
+                          <td
+                            colSpan={_.size(tableHeader)}
+                            className="hawk-table__collapse-td"
                           >
-                            {_.map(tableHeader, (item, childIndex) => (
-                              <td key={childIndex}>
-                                {expandItem[item.dataIndex]}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </Fragment>
+                            <div className="hawk-table__collapse-content">
+                              <table className="hawk-table__collapse-table">
+                                <thead>
+                                  <tr>
+                                    {_.map(_.get(content, 'children.header', []), (collapseHContent, collapseHSubIndex) => (
+                                      <th key={collapseHSubIndex}>
+                                        <span>{_.get(collapseHContent, 'title', '')}</span>
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {_.map(_.get(content, 'children.body', []), (collapseBContent, collapseBSubIndex) => (
+                                    <tr key={collapseBSubIndex}>
+                                      {_.map(_.get(content, 'children.header', []), (collapseHContent, collapseHSubIndex) => (
+                                        !_.isEmpty(collapseHContent.dataIndex) ? (
+                                          <td key={collapseHSubIndex}>
+                                            {_.isString(collapseHContent.dataIndex) ? (
+                                              <span>
+                                                {collapseBContent[collapseHContent.dataIndex]}
+                                              </span>
+                                            ) : (
+                                              <div></div>
+                                            )}
+                                          </td>
+                                        ) : <td key={collapseHSubIndex}>{collapseHContent.render(collapseBContent, index)}</td>
+                                      ))}
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </td>
+                        </tr>
+                      ) : (
+                        <tr>
+                          <td
+                            className="hawk-table__not-found"
+                            colSpan={isSelectable ? tableHeader.length + 1 : tableHeader.length}
+                          >
+                            No matching records found
+                          </td>
+                        </tr>
+                      )
                     )}
                   </Fragment>
                 ))}
