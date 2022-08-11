@@ -2,6 +2,54 @@
 # yarn lockfile v1
 
 
+"@hawk-ui/button@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.0.6.tgz#8e6048a6af9dc53822af6829de6f53682c70b15a"
+  integrity sha512-75vszZ4yl8bX6WkDHjNyGe+OunfCnnXLPMUwOuFt+5Gg2PVv2tata/h5jd3+8Hyx5CxftkkIz38WrQf3aI2abg==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
+"@hawk-ui/input@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.0.6.tgz#8b12269ce2b12038a7ddd8f855796f2a5bf4ba04"
+  integrity sha512-NDzM+Q1tMwMRgFOPASQ+4ezXBQDtKmR2XlK7Yzj9KmHMgbUkI6iS2PyfDiWTP9YMpOWvMnWXxmqjImMh8GTVXA==
+  dependencies:
+    "@hawk-ui/label" "^4.0.6"
+    "@hawk-ui/tooltip" "^4.0.6"
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
+"@hawk-ui/label@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.0.6.tgz#f8ce9e5e1cfc113e5abf7a7b486ad530a991122c"
+  integrity sha512-kEQcngKWcWKCCTNuqg+F+t9dfzP3Ls8Bi6TPaxYBrm+7kG6DWkbhDfONtH9DrrwwLT9yPfANPCSu+ucmaRg01Q==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
+"@hawk-ui/suggestions@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/suggestions/-/suggestions-4.0.6.tgz#c6f147814f41fbd18e35d5448cc87fc8cb4e32da"
+  integrity sha512-7tfOYXgX+QKmIUqcEwm+PcxU4/BRLgHXnuUjt2IbvhDBDBc26fobwio7ZcHjg4WUu/8DJmnXuyYu1MEtHBl8IQ==
+  dependencies:
+    "@hawk-ui/input" "^4.0.6"
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
+"@hawk-ui/tooltip@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.0.6.tgz#c516ecdd5af9d3b7df5033ff5825d90631aad57d"
+  integrity sha512-fLKbQOm6YF+ph2tW/1BMYFKw68z1+6mi2fDSpt3cES7p2dfiwmU/COilYB0DljfIfLMLpWXskdneRg64kEkCjw==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
 classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"

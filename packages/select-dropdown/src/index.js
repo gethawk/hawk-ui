@@ -19,6 +19,7 @@ export default class SelectDropdown extends Component {
       PropTypes.object,
       PropTypes.array,
     ]),
+    children: PropTypes.element,
     label: PropTypes.string,
     description: PropTypes.string,
     isRequired: PropTypes.bool,
@@ -79,7 +80,7 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { isIcon, label, description, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { children, isIcon, label, description, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -123,6 +124,7 @@ export default class SelectDropdown extends Component {
             </div>
             {isOpen && (
               <Suggestions.CONTAINER
+                children={children}
                 messageIfEmpty={messageIfEmpty}
                 onSuggestionClick={(suggestion, meta) => {
                   onSuggestionSelect(suggestion, meta);

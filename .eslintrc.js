@@ -54,7 +54,8 @@ module.exports = {
       "no-nested-ternary": "off",
       "react/no-did-mount-set-state": "off",
       "no-undef": "off",
-      "no-param-reassign": "off"
+      "no-param-reassign": "off",
+      "react/no-children-prop": "off"
     },
     "ecmaFeatures": {
       "jsx": true,
