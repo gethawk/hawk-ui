@@ -464,7 +464,7 @@ initialState = {
 ```
 
 
-#### Table Expandable
+#### Table Collapsable
 [Demo]()
 ```js static
 import Table from '@hawk-ui/table';
