@@ -3,8 +3,6 @@
 .hawk-suggestions {
   &__wrap {
     width: 100%;
-    max-height: 200px;
-    overflow: auto;
     left: 0px;
     padding: 2px 0;
     font-size: 14px;
@@ -14,6 +12,23 @@
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     z-index: 1;
+    &-form {
+      display: flex;
+      margin: 8px;
+      .hawk-input__wrapper {
+        width: 100%;
+        .hawk-input {
+          margin-right: 8px;
+        }
+      }
+      .hawk-button {
+        padding: 8px 15px;
+      }
+    }
+    &-options {
+      max-height: 190px;
+      overflow: auto;
+    } 
     &-item {
       cursor: pointer;
       display: block;

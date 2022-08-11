@@ -68,6 +68,16 @@ initialState = {
   <p>Suggestions Wrap</p>
   <br />
   <Suggestions.CONTAINER
+    children={(
+      <>
+        <Input
+          type="text"
+        />
+        <Button>
+          <span>Create</span>
+        </Button>
+      </>
+    )}
     messageIfEmpty="No item Found"
     onSuggestionClick={(value) => {
       window.alert(value.title);
