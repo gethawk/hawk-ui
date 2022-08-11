@@ -470,42 +470,89 @@ initialState = {
 import Table from '@hawk-ui/table';
 ```
 ```js
+initialState = {
+  collapseIndex: null,
+};
+
 const header = [
-  { key: 'company', title: 'Company', dataIndex: 'company' },
-  { key: 'contact', title: 'Contact', dataIndex: 'contact' },
-  { key: 'action', title: 'Action', dataIndex: '', render: (event) => <i class="fa fa-sort-down" style={{ cursor: 'pointer' }} onClick={() => { console.log(event); }} /> },
+  {
+    key: 'company',
+    title: 'Company',
+    dataIndex: 'company',
+  },
+  {
+    key: 'action',
+    title: 'Action',
+    dataIndex: '',
+    render: (event, index) => (
+      <button
+        style={{ cursor: 'pointer' }}
+        onClick={() => {
+          console.log('query event', event);
+          console.log('query index', index);
+          setState({
+            collapseIndex: state.collapseIndex === index ? null : index,
+          }, () => {
+            console.log('query collapseIndex', state.collapseIndex);
+          });
+        }}
+      >
+        View
+      </button>
+    )
+  },
 ];
 
 const content = [
-  { id: 1, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders',
-    expandable: [
-      { id: 1, contact: '+91-7867890109' },
-      { id: 1, contact: 'dummy@example.com' },
-    ],
+  {
+    id: 1,
+    company: 'Alfreds Futterkiste',
+    children: {
+      header: [
+        { key: 'country', title: 'Country', dataIndex: 'country' },
+        { key: 'contact', title: 'Contact', dataIndex: 'contact' },
+      ],
+      body: [
+        { country: 'Germany', contact: 'Maria Anders' },
+        { country: 'Mexico', contact: 'Centro comercial Moctezuma' },
+      ],
+    },
   },
-  { id: 2, 'company': 'Centro comercial Moctezuma', 'contact': 'Francisco Chang',
-    expandable: [
-      { id: 1, contact: '+91-7867890109' },
-    ],
+  {
+    id: 2,
+    company: 'Ernst Handel',
+    children: {
+      header: [
+        { key: 'country', title: 'Country', dataIndex: 'country' },
+      ],
+      body: [
+        { country: 'Austria' },
+      ],
+    },
   },
-  { id: 3, 'company': 'Ernst Handel', 'contact': 'Roland Mendel',
-    expandable: [
-      { id: 1, contact: 'dummy@example.com' },
-    ],
-  },
-  { id: 4, 'company': 'Island Trading', 'contact': 'Helen Bennett' },
-  { id: 5, 'company': 'Alfreds Futterkiste', 'contact': 'Maria Anders',
-    expandable: [
-      { id: 1, contact: '+91-7867890109' },
-    ],
+  {
+    id: 3,
+    company: 'Island Trading',
+    children: {
+      header: [
+        { key: 'country', title: 'Country', dataIndex: 'country' },
+        { key: 'contact', title: 'Contact', dataIndex: 'contact' },
+      ],
+      body: [
+        { country: 'UK', contact: 'Helen Bennett' },
+        { country: 'Germany', contact: 'Maria Anders' },
+      ],
+    },
   },
 ];
+
 
 <Table
   tableContent={content}
 >
   <Table.CONTENT
     tableHeader={header}
+    collapseIndex={state.collapseIndex}
   />
 </Table>
 ```
