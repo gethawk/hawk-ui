@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/button",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "hawk-ui: Basic Button Component",
   "main": "dist/index.min.js",
   "scripts": {
