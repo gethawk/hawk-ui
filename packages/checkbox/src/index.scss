@@ -32,7 +32,7 @@
   a {
     text-decoration: none;
   }
-  input {
+  input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     cursor: pointer;

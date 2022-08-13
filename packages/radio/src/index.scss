@@ -32,7 +32,7 @@
       cursor: not-allowed;
     }
   }
-  input {
+  input[type="radio"] {
     position: absolute;
     opacity: 0;
     cursor: pointer;
