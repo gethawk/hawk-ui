@@ -74,3 +74,30 @@ initialState = {
   errorMessage="This field is a compulsory field."
 />
 ```
+
+
+#### Without object
+[Demo](https://hawk.wallnit.com/#!/Radio/5)
+```js static
+import Radio from '@hawk-ui/radio';
+```
+```js
+initialState = {
+  isChecked: false,
+};
+
+<Radio
+  label="Select Radio"
+  title="Title"
+  value="title"
+  isChecked={state.isChecked}
+  onChange={(event) => {
+    setState({
+      isChecked: !state.isChecked,
+    });
+  }}
+  htmlAttributes={{
+    disabled: true,
+  }}
+/>
+```

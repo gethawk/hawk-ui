@@ -27,6 +27,10 @@
   &__content {
     display: flex;
     justify-content: space-between;
+    .disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
   }
   input {
     position: absolute;

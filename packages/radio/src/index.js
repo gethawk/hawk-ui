@@ -15,17 +15,21 @@ class RadioContent extends Component {
     selectedItem: PropTypes.string,
     checked: PropTypes.bool,
     onChange: PropTypes.func,
-    isRequired: PropTypes.bool,
     isError: PropTypes.bool,
+    isRequired: PropTypes.bool,
+    htmlAttributes: PropTypes.object,
   };
+
   state = {};
 
   render() {
-    const { index, value, label, selectedItem, checked, onChange, isRequired, isError } = this.props;
+    const { index, value, label, selectedItem, checked, onChange, isRequired, isError, htmlAttributes } = this.props;
 
     return (
       <label
-        className="hawk-radio"
+        className={getClassnames('hawk-radio', {
+          disabled: _.includes(_.keys(htmlAttributes), 'disabled'),
+        })}
         key={index}
       >
         <span className="hawk-radio__label">{label}</span>
@@ -34,6 +38,7 @@ class RadioContent extends Component {
           value={value}
           checked={checked}
           onChange={onChange}
+          {...htmlAttributes}
         />
         <span
           className={getClassnames('hawk-radio__checkmark', {
@@ -68,17 +73,26 @@ export default class Radio extends Component {
   static propTypes = {
     label: PropTypes.string,
     description: PropTypes.string,
+    className: PropTypes.string,
     options: PropTypes.array,
     selectedItem: PropTypes.string,
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
     onChange: PropTypes.func,
+    isChecked: PropTypes.bool,
+    title: PropTypes.string,
+    value: PropTypes.string,
+    htmlAttributes: PropTypes.object,
   };
+  static defaultProps = {
+    isChecked: false,
+    htmlAttributes: {},
+  }
   state = {};
 
   render() {
-    const { label, description, options, selectedItem, isRequired, isError, errorMessage, onChange } = this.props;
+    const { label, description, className, options, selectedItem, isRequired, isError, errorMessage, onChange, isChecked, title, value, htmlAttributes } = this.props;
 
     return (
       <Fragment>
@@ -89,20 +103,39 @@ export default class Radio extends Component {
             className="hawk-radio__title"
           />
         )}
-        <div className="hawk-radio__content">
-          {_.map(options, (item, index) => (
+        <div
+          className={getClassnames('hawk-radio__content', {
+            [className]: _.isString(className),
+          })}
+        >
+          {_.isEmpty(options) ? (
             <RadioContent
-              key={index}
-              index={index}
-              value={item.value}
-              label={item.label}
+              label={title}
+              value={value}
               selectedItem={selectedItem}
-              checked={item.value === selectedItem}
+              checked={isChecked}
               onChange={onChange}
-              isRequired={isRequired}
               isError={isError}
+              isRequired={isRequired}
+              htmlAttributes={htmlAttributes}
             />
-          ))}
+          ) : (
+            <Fragment>
+              {_.map(options, (item, index) => (
+                <RadioContent
+                  key={index}
+                  index={index}
+                  value={item.value}
+                  label={item.label}
+                  selectedItem={selectedItem}
+                  checked={item.value === selectedItem}
+                  onChange={onChange}
+                  isRequired={isRequired}
+                  isError={isError}
+                />
+              ))}
+            </Fragment>
+          )}
         </div>
         {!_.isEmpty(description) && (
           <div className="hawk-radio__description">{description}</div>
