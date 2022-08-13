@@ -28,6 +28,8 @@
   &__label {
     margin-top: -2px;
     text-transform: capitalize;
+    display: flex;
+    align-items: center;
   }
   a {
     text-decoration: none;
