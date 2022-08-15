@@ -178,8 +178,8 @@ export default class Input extends Component {
             {(isPasswordVisible && !_.isEmpty(this.state.value)) && (
               <i
                 className={getClassNames('fa', {
-                  'fa-eye': type === 'password',
-                  'fa-eye-slash': type === 'text',
+                  'fa-eye': type === 'text',
+                  'fa-eye-slash': type === 'password',
                   'hawk-input__copy-icon': isPasswordVisible,
                 })}
                 onClick={() => { this.onPasswordVisible(); }}
