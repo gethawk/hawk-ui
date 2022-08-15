@@ -22,6 +22,7 @@ export default class SelectDropdown extends Component {
     children: PropTypes.element,
     label: PropTypes.string,
     description: PropTypes.string,
+    isDisabled: PropTypes.bool,
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
@@ -37,6 +38,7 @@ export default class SelectDropdown extends Component {
   static defaultProps = {
     isReadOnly: true,
     isRequired: false,
+    isDisabled: false,
   }
   constructor(props) {
     super(props);
@@ -80,7 +82,7 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { children, isIcon, label, description, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { children, isIcon, label, description, isDisabled, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -106,7 +108,11 @@ export default class SelectDropdown extends Component {
           >
             <div
               className="hawk-select-dropdown__input"
-              onClick={() => { this.setState({ isOpen: !isOpen }); }}
+              onClick={() => {
+                if (!isDisabled) {
+                  this.setState({ isOpen: !isOpen });
+                }
+              }}
             >
               {isIcon && (
                 <i className="fa fa-sort-down hawk-select-dropdown__icon" />
@@ -119,6 +125,7 @@ export default class SelectDropdown extends Component {
                 }}
                 readOnly={isReadOnly}
                 isRequired={isRequired}
+                isDisabled={isDisabled}
                 isError={isError && isRequired}
               />
             </div>

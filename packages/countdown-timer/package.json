@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/countdown-timer",
-  "version": "4.1.1",
+  "version": "4.1.3",
   "description": "hawk-ui: Countdown Timer Component",
   "main": "dist/index.min.js",
   "scripts": {

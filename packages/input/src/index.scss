@@ -63,10 +63,6 @@
       font-size: 13px;
     }
   }
-  &__disabled {
-    background-color: $gray-3;
-    cursor: not-allowed;
-  }
   &__wrapper {
     position: relative;
     .hawk-tooltip {
@@ -96,6 +92,10 @@
   }
   &__read-only {
     cursor: default;
+  }
+  &__disabled {
+    background-color: $gray-3;
+    cursor: not-allowed;
   }
 }
 

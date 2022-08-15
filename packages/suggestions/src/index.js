@@ -21,6 +21,7 @@ class SuggestionsInput extends Component {
     placeholder: PropTypes.string,
     value: PropTypes.string,
     readOnly: PropTypes.bool,
+    isDisabled: PropTypes.bool,
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     onKeyDown: PropTypes.func,
@@ -47,7 +48,7 @@ class SuggestionsInput extends Component {
   }
 
   render() {
-    const { placeholder, value, isRequired, isError, readOnly, onChange, onKeyDown } = this.props;
+    const { placeholder, value, isDisabled, isRequired, isError, readOnly, onChange, onKeyDown } = this.props;
 
     return (
       <SuggestionContext.Consumer>
@@ -59,6 +60,7 @@ class SuggestionsInput extends Component {
             value={value}
             readOnly={readOnly}
             isRequired={isRequired}
+            isDisabled={isDisabled}
             isError={isError}
             onChange={(event) => {
               onSearch(event.target.value);
