@@ -10,6 +10,9 @@
     &__read-only {
       cursor: pointer;
     }
+    &__disabled {
+      cursor: not-allowed;
+    }
   }
   .hawk-suggestions__wrap {
     position: absolute;
