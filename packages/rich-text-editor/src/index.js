@@ -123,7 +123,7 @@ export default class RichTextEditor extends Component {
               [toolbarClass]: _.isString(toolbarClass),
             })}
           >
-            {_.map(getTools, (tool, index) => (
+            {_.map(_.sortBy(getTools, (item) => toolbarItems.indexOf(item.aria)), (tool, index) => (
               <Fragment>
                 {_.includes(toolbarItems, tool.aria) && (
                   <Fragment>
