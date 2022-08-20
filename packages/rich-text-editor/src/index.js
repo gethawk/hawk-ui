@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // react modules
 import _ from 'lodash';
 import getClassnames from 'classnames';
+import Label from '@hawk-ui/label';
 import Button from '@hawk-ui/button';
 import Dropdown from '@hawk-ui/dropdown';
 import Modal from '@hawk-ui/modal';
@@ -35,12 +36,21 @@ export default class RichTextEditor extends Component {
     editableClass: PropTypes.string,
     toolbarItems: PropTypes.array,
     htmlAttributes: PropTypes.object,
+    isBottomOptions: PropTypes.bool,
+    isRequired: PropTypes.bool,
+    label: PropTypes.string,
+    description: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
   };
   static defaultProps = {
+    toolbarClass: 'toolbar',
+    editableClass: 'editable',
+    editableId: 'containerEditable1',
     value: '',
     htmlAttributes: {},
+    isBottomOptions: false,
+    isRequired: false,
   };
   state = {
     modal: {
@@ -95,11 +105,18 @@ export default class RichTextEditor extends Component {
   }))()
 
   render() {
-    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, value, onChange } = this.props;
+    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, label, description, value, onChange, isBottomOptions, isRequired } = this.props;
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
 
     return (
       <div className="hawk-rich-text-editor">
+        {label && (
+          <Label
+            title={label}
+            isRequired={isRequired}
+            className="hawk-rich-text-editor__label"
+          />
+        )}
         <div className="hawk-rich-text-editor__content">
           <div
             className={getClassnames('hawk-rich-text-editor__toolbar', {
@@ -205,69 +222,76 @@ export default class RichTextEditor extends Component {
             }}
             style={{
               textAlign: 'left',
-              height: !_.isEmpty(_.get(htmlAttributes, 'rows')) ? `${_.get(htmlAttributes, 'rows') * 20}px` : '200px',
+              height: !_.isNull(_.get(htmlAttributes, 'rows')) ? `${parseInt(_.get(htmlAttributes, 'rows'), 10) * 20}px` : '200px',
             }}
           />
-          <div className="hawk-rich-text-editor__footer">
-            {_.map(getBottomTools, (tool, index) => (
-              _.isEqual(tool.field_type, 'button') && tool.isEnable && (
-                <Button
-                  key={index}
-                  onClick={_.isEqual(tool.name, 'preview') ? () => {
-                    this.editorHelper.openModal({ type: _.get(tool, 'tagNames') });
-                  } : null}
-                >
-                  <i className={tool.contentFA} />
-                </Button>
-              )
-            ))}
-          </div>
+          {isBottomOptions && (
+            <div className="hawk-rich-text-editor__footer">
+              {_.map(getBottomTools, (tool, index) => (
+                _.isEqual(tool.field_type, 'button') && tool.isEnable && (
+                  <Button
+                    key={index}
+                    onClick={_.isEqual(tool.name, 'preview') ? () => {
+                      this.editorHelper.openModal({ type: _.get(tool, 'tagNames') });
+                    } : null}
+                  >
+                    <i className={tool.contentFA} />
+                  </Button>
+                )
+              ))}
+            </div>
+          )}
         </div>
-        <Modal
-          isOpen={this.state.modal.isOpen}
-          hideCloseIcon={_.isEqual(this.state.modal.type, 'preview')}
-          className={getClassnames('hawk-rich-text-editor__modal', {
-            [`hawk-rich-text-editor__modal-type-${this.state.modal.type}`]: !_.isEmpty(this.state.modal.type),
-          })}
-          title={_.isEqual(_.get(this.state.modal, 'type'), 'link')
-            ? 'Insert or Edit Link'
-            : _.isEqual(_.get(this.state.modal, 'type'), 'img')
-              && 'Insert or Edit Image'
-          }
-          onKeyDown={() => {
-            this.editorHelper.closeModal();
-          }}
-          onClose={() => {
-            this.editorHelper.closeModal();
-          }}
-        >
-          {_.includes(['link', 'img'], _.get(this.state.modal, 'type')) && (
-            <FormComponent
-              onCancel={() => {
-                this.editorHelper.closeModal();
-              }}
-              onInsert={(event) => {
-                if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
-                  onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
-                } else if (_.isEqual(_.get(this.state.formMeta, 'type'), 'img')) {
-                  onImageInsert(event);
-                }
-                this.editorHelper.closeModal();
-              }}
-              onFocus={() => {
-                onInputFocus();
-              }}
-              onBlur={() => {
-                onInputBlur();
-              }}
-            />
-          )}
-          {_.isEqual(this.state.modal.type, 'preview') && (
-            <HTMLPreview
-              html={value}
-            />
-          )}
-        </Modal>
+        {!_.isEmpty(description) && (
+          <div className="hawk-rich-text-editor__description">{description}</div>
+        )}
+        {isBottomOptions && (
+          <Modal
+            isOpen={this.state.modal.isOpen}
+            hideCloseIcon={_.isEqual(this.state.modal.type, 'preview')}
+            className={getClassnames('hawk-rich-text-editor__modal', {
+              [`hawk-rich-text-editor__modal-type-${this.state.modal.type}`]: !_.isEmpty(this.state.modal.type),
+            })}
+            title={_.isEqual(_.get(this.state.modal, 'type'), 'link')
+              ? 'Insert or Edit Link'
+              : _.isEqual(_.get(this.state.modal, 'type'), 'img')
+                && 'Insert or Edit Image'
+            }
+            onKeyDown={() => {
+              this.editorHelper.closeModal();
+            }}
+            onClose={() => {
+              this.editorHelper.closeModal();
+            }}
+          >
+            {_.includes(['link', 'img'], _.get(this.state.modal, 'type')) && (
+              <FormComponent
+                onCancel={() => {
+                  this.editorHelper.closeModal();
+                }}
+                onInsert={(event) => {
+                  if (_.isEqual(_.get(this.state.formMeta, 'type'), 'link')) {
+                    onLinkInsert(event[_.get(this.state.formMeta, 'type')]);
+                  } else if (_.isEqual(_.get(this.state.formMeta, 'type'), 'img')) {
+                    onImageInsert(event);
+                  }
+                  this.editorHelper.closeModal();
+                }}
+                onFocus={() => {
+                  onInputFocus();
+                }}
+                onBlur={() => {
+                  onInputBlur();
+                }}
+              />
+            )}
+            {_.isEqual(this.state.modal.type, 'preview') && (
+              <HTMLPreview
+                html={value}
+              />
+            )}
+          </Modal>
+        )}
       </div>
     );
   }

@@ -25,6 +25,7 @@ initialState = {
 };
 
 <RichTextEditor
+  label="Rich Text Editor"
   toolbarClass="toolbar"
   editableClass="editable"
   editableId="containerEditable1"
@@ -36,11 +37,13 @@ initialState = {
     , 'center justify', 'right justify', 'outdent', 'indent', 'undo', 'redo', 'image'
   ]}
   htmlAttributes={{
-    rows: '10',
+    rows: '5',
   }}
   value={state.body}
   onChange={({ html, text }) => {
     setState({ body: html });
   }}
+  isBottomOptions
+  description="Here rich text editor description"
 />
 ```

@@ -23,6 +23,7 @@
     "@hawk-ui/dropdown": "^4.1.4",
     "@hawk-ui/file-upload": "^4.1.4",
     "@hawk-ui/input": "^4.1.4",
+    "@hawk-ui/label": "^4.1.4",
     "@hawk-ui/modal": "^4.1.4",
     "@hawk-ui/resizable": "^4.1.4",
     "classnames": "^2.2.6",
