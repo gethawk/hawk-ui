@@ -2,49 +2,49 @@
 # yarn lockfile v1
 
 
-"@hawk-ui/button@^4.1.3":
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.1.3.tgz#9d2ad4aab3a1527cfcae08f0f665550a3366ab59"
-  integrity sha512-1bpXEMt3RPBgSnFbXdhgrCTbX4v0gzvPBVS8cxeWK1LoCmA8zjly46c3uZcj//2T5KqKD1qVEJh9j6I8ilcB8g==
+"@hawk-ui/button@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.1.5.tgz#67bf4e69b9d8de33a40e31387b3d366ebc1ac727"
+  integrity sha512-YpHCVQtahyRCTgWo6VMY30ugnL/0/MNzobBqXzsemYlwUzmH2u+Q15Y2T87CPjiJZOgpEW/r7x/Nl0l32gaj1g==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-"@hawk-ui/input@^4.1.3":
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.1.3.tgz#24112ed8447b601032d90844449535309726bc7f"
-  integrity sha512-3tFbIX5PImCAdMXU5YFLaB0F0ftFB1/JA2Gj2lL2ayzsdFfqat/MPAEg/OSyQK5AzRpUOZc/7NRcKpfDB/Ki+g==
+"@hawk-ui/input@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.1.5.tgz#5ff2f9f28151953090e21d72db9cf1d056a7218e"
+  integrity sha512-OWFP6PYO9YEKWb8NboODHsdqU1sB+oBawP4KAECUIhOCK/vsnXhKbtgv97an+hPFCTvL1sVRRKbyF0C95QkQ/A==
   dependencies:
-    "@hawk-ui/label" "^4.1.3"
-    "@hawk-ui/tooltip" "^4.1.3"
+    "@hawk-ui/label" "^4.1.5"
+    "@hawk-ui/tooltip" "^4.1.5"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-"@hawk-ui/label@^4.1.3":
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.1.3.tgz#3a37921fd1641a057f991ce80f47f14e2e48a562"
-  integrity sha512-iLHwLBx2ZA3jTU7r+JEnPVK4QReA+d/k8VI8dDDc2Yt8NjESmWVwX949Ln5mSRVtqmhoqim8pdQyhS47lnnXGA==
+"@hawk-ui/label@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.1.5.tgz#a56fbd6584b5fe15acb6b4f91bd3bc1709575d70"
+  integrity sha512-FiVeDwBW7tpFdel9/dYPMBs4UbfKFWiQkVzWkBxu11HvihYmFc6hJbZOdkwtD1RZKpKkdHbhT79K66CXf9o9Ng==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-"@hawk-ui/suggestions@^4.1.3":
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/suggestions/-/suggestions-4.1.3.tgz#fdd9af503f2a2e9e94fbedfd2444e7dd5497b07e"
-  integrity sha512-jVzpuUk/QcPjkco5RnTLlvVj4uIybkMfNmVPrb6QghmQiajfiUY9q05yg2JpMhTiJaT+AQkG7TxPJJL+8zAyKw==
+"@hawk-ui/suggestions@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/suggestions/-/suggestions-4.1.5.tgz#b2e938dc3dbd1910b2a0a93623370d4ceadcd9bb"
+  integrity sha512-uPnjbfg7kdxbLgai29Z4/VtWar9W+6V1jwuphGuiVYXo5G8W5Wq3DMv6Xpi+wMiIqn0qHmEFr4uruajiGDhX6Q==
   dependencies:
-    "@hawk-ui/input" "^4.1.3"
+    "@hawk-ui/input" "^4.1.5"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-"@hawk-ui/tooltip@^4.1.3":
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.1.3.tgz#d978925f983a7b59a50a9af5a3e719fc8a85f0b1"
-  integrity sha512-yw18CgN2frlnMmzAFJTq9hgjl1HGdRpJRvPxx+NiyrLRUAQGfi6qF5oPOHAcj1987NYMS4ID0KT+OdlJeODGEA==
+"@hawk-ui/tooltip@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.1.5.tgz#46584b3c4810bcc474cb6fb969a48ca3f3e5e398"
+  integrity sha512-4VmX2n/c9a4165uou9J/Smmzv0/zfeGtNLnjWhtcCkNohQkPykFHC3gJQM4Zg0TZlPpe7YYMWy8AlyxZpuBUvw==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"

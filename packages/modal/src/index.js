@@ -86,7 +86,7 @@ export default class Modal extends Component {
           id="hawk-modal__content"
         >
           <div className="hawk-modal__content-header">
-            <div className="hawk-modal__content-header__title">{_.isString(title) ? title : null}</div>
+            <div className="hawk-modal__content-header__title">{title ? title : null}</div>
             {hideCloseIcon ? (
               <span
                 className="hawk-modal__content-header__close"

@@ -2,30 +2,30 @@
 # yarn lockfile v1
 
 
-"@hawk-ui/input@^4.0.5":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.0.5.tgz#797c5fbe4da3473cdf534b6b636889f2abce7349"
-  integrity sha512-piTbsyfqC6QALd69LRLOW8Wbk2ONvzx5b7sUVB6bZ3cTTQIDXskNYxhT7nQfKiIdJ4GwuqNc1V4w5iFkTpz6qg==
+"@hawk-ui/input@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.1.5.tgz#5ff2f9f28151953090e21d72db9cf1d056a7218e"
+  integrity sha512-OWFP6PYO9YEKWb8NboODHsdqU1sB+oBawP4KAECUIhOCK/vsnXhKbtgv97an+hPFCTvL1sVRRKbyF0C95QkQ/A==
   dependencies:
-    "@hawk-ui/label" "^4.0.5"
-    "@hawk-ui/tooltip" "^4.0.5"
+    "@hawk-ui/label" "^4.1.5"
+    "@hawk-ui/tooltip" "^4.1.5"
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-"@hawk-ui/label@^4.0.5":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.0.5.tgz#4d99f732f11e59970b72f7605a30f7a1a45e92bb"
-  integrity sha512-2ccHMPAIhUggi/9reoz+BClBzBdIB2jO4fgdxnK+JaS/mzNLuNvQU4SfNOAxhM9A3a+c8jYwROjo3Sdg8W35rw==
+"@hawk-ui/label@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.1.5.tgz#a56fbd6584b5fe15acb6b4f91bd3bc1709575d70"
+  integrity sha512-FiVeDwBW7tpFdel9/dYPMBs4UbfKFWiQkVzWkBxu11HvihYmFc6hJbZOdkwtD1RZKpKkdHbhT79K66CXf9o9Ng==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-"@hawk-ui/tooltip@^4.0.5":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.0.5.tgz#d5db9b1e2a18e818d464df46d0fe9c0bbe9eedd7"
-  integrity sha512-j78yGkVVFZ4gbtxtDfmNV+2u9hYzb4NX+Ha7h5vYJ3p/kivSG1yyxqqZHg5ucacmXpNXMWoB8e7ueilZIMxxKg==
+"@hawk-ui/tooltip@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.1.5.tgz#46584b3c4810bcc474cb6fb969a48ca3f3e5e398"
+  integrity sha512-4VmX2n/c9a4165uou9J/Smmzv0/zfeGtNLnjWhtcCkNohQkPykFHC3gJQM4Zg0TZlPpe7YYMWy8AlyxZpuBUvw==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"

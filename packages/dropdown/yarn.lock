@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@hawk-ui/button@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.1.5.tgz#67bf4e69b9d8de33a40e31387b3d366ebc1ac727"
+  integrity sha512-YpHCVQtahyRCTgWo6VMY30ugnL/0/MNzobBqXzsemYlwUzmH2u+Q15Y2T87CPjiJZOgpEW/r7x/Nl0l32gaj1g==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
 classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"

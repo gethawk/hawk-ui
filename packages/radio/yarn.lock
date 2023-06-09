@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@hawk-ui/label@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.1.5.tgz#a56fbd6584b5fe15acb6b4f91bd3bc1709575d70"
+  integrity sha512-FiVeDwBW7tpFdel9/dYPMBs4UbfKFWiQkVzWkBxu11HvihYmFc6hJbZOdkwtD1RZKpKkdHbhT79K66CXf9o9Ng==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
 classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"

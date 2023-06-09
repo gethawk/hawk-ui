@@ -2,6 +2,35 @@
 # yarn lockfile v1
 
 
+"@hawk-ui/input@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.1.5.tgz#5ff2f9f28151953090e21d72db9cf1d056a7218e"
+  integrity sha512-OWFP6PYO9YEKWb8NboODHsdqU1sB+oBawP4KAECUIhOCK/vsnXhKbtgv97an+hPFCTvL1sVRRKbyF0C95QkQ/A==
+  dependencies:
+    "@hawk-ui/label" "^4.1.5"
+    "@hawk-ui/tooltip" "^4.1.5"
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
+"@hawk-ui/label@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.1.5.tgz#a56fbd6584b5fe15acb6b4f91bd3bc1709575d70"
+  integrity sha512-FiVeDwBW7tpFdel9/dYPMBs4UbfKFWiQkVzWkBxu11HvihYmFc6hJbZOdkwtD1RZKpKkdHbhT79K66CXf9o9Ng==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
+"@hawk-ui/tooltip@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.1.5.tgz#46584b3c4810bcc474cb6fb969a48ca3f3e5e398"
+  integrity sha512-4VmX2n/c9a4165uou9J/Smmzv0/zfeGtNLnjWhtcCkNohQkPykFHC3gJQM4Zg0TZlPpe7YYMWy8AlyxZpuBUvw==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
 classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
