@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/tag",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "description": "hawk-ui: Basic Tag Component",
   "main": "dist/index.min.js",
   "scripts": {

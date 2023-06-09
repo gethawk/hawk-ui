@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/file-upload",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "description": "hawk-ui: File Upload Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -19,9 +19,9 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^4.1.5",
-    "@hawk-ui/input": "^4.1.5",
-    "@hawk-ui/loader": "^4.1.5",
+    "@hawk-ui/button": "^4.1.6",
+    "@hawk-ui/input": "^4.1.6",
+    "@hawk-ui/loader": "^4.1.6",
     "classnames": "^2.2.6",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2"
