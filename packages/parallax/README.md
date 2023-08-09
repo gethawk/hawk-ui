@@ -15,7 +15,7 @@
 
 
 #### With Close Button and background dark
-[Demo](https://hawk.wallnit.com/#!/Parallax/1)
+[Demo](https://hawk.oncrypt.co/#!/Parallax/1)
 ```js static
 import Parallax from '@hawk-ui/parallax';
 ```

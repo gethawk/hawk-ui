@@ -15,7 +15,7 @@
 
 
 #### With Close Button and background dark
-[Demo](https://hawk.wallnit.com/#!/Modal/1)
+[Demo](https://hawk.oncrypt.co/#!/Modal/1)
 ```js static
 import Modal from '@hawk-ui/modal';
 ```
@@ -57,7 +57,7 @@ initialState = {
 
 
 #### Without Close Button and background light
-[Demo](https://hawk.wallnit.com/#!/Modal/3)
+[Demo](https://hawk.oncrypt.co/#!/Modal/3)
 ```js static
 import Modal from '@hawk-ui/modal';
 ```

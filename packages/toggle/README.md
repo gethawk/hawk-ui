@@ -15,7 +15,7 @@
 
 
 #### Without Required
-[Demo](https://hawk.wallnit.com/#!/Toggle/1)
+[Demo](https://hawk.oncrypt.co/#!/Toggle/1)
 ```js static
 import Toggle from '@hawk-ui/toggle';
 ```
@@ -40,7 +40,7 @@ initialState = {
 
 
 #### With Required
-[Demo](https://hawk.wallnit.com/#!/Toggle/3)
+[Demo](https://hawk.oncrypt.co/#!/Toggle/3)
 ```js static
 import Toggle from '@hawk-ui/toggle';
 ```
@@ -69,7 +69,7 @@ initialState = {
 
 
 #### With Disabled
-[Demo](https://hawk.wallnit.com/#!/Toggle/5)
+[Demo](https://hawk.oncrypt.co/#!/Toggle/5)
 ```js static
 import Toggle from '@hawk-ui/toggle';
 ```

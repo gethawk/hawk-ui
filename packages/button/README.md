@@ -15,7 +15,7 @@
 
 
 #### Simple Button:
-[Demo](https://hawk.wallnit.com/#!/Button/1)
+[Demo](https://hawk.oncrypt.co/#!/Button/1)
 ```js static
 import Button from '@hawk-ui/button';
 ```
@@ -52,7 +52,7 @@ import Button from '@hawk-ui/button';
 
 
 #### Disabled Button:
-[Demo](https://hawk.wallnit.com/#!/Button/3)
+[Demo](https://hawk.oncrypt.co/#!/Button/3)
 ```js static
 import Button from '@hawk-ui/button';
 ```
@@ -89,7 +89,7 @@ import Button from '@hawk-ui/button';
 
 
 #### Icon Button:
-[Demo](https://hawk.wallnit.com/#!/Button/5)
+[Demo](https://hawk.oncrypt.co/#!/Button/5)
 ```js static
 import Button from '@hawk-ui/button';
 ```

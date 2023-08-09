@@ -15,7 +15,7 @@
 
 
 #### Without Label and Without Required:
-[Demo](https://hawk.wallnit.com/#!/Input/1)
+[Demo](https://hawk.oncrypt.co/#!/Input/1)
 ```js static
 import Input from '@hawk-ui/input';
 ```
@@ -42,7 +42,7 @@ initialState = {
 
 
 #### With Copy
-[Demo](https://hawk.wallnit.com/#!/Input/3)
+[Demo](https://hawk.oncrypt.co/#!/Input/3)
 ```js static
 import Input from '@hawk-ui/input';
 ```
@@ -70,7 +70,7 @@ initialState = {
 
 
 #### With Password Visible
-[Demo](https://hawk.wallnit.com/#!/Input/5)
+[Demo](https://hawk.oncrypt.co/#!/Input/5)
 ```js static
 import Input from '@hawk-ui/input';
 ```
@@ -97,7 +97,7 @@ initialState = {
 
 
 #### With Label and With Required
-[Demo](https://hawk.wallnit.com/#!/Input/7)
+[Demo](https://hawk.oncrypt.co/#!/Input/7)
 ```js static
 import Input from '@hawk-ui/input';
 ```
@@ -126,7 +126,7 @@ initialState = {
 
 
 #### Textarea With Label
-[Demo](https://hawk.wallnit.com/#!/Input/9)
+[Demo](https://hawk.oncrypt.co/#!/Input/9)
 ```js static
 import Input from '@hawk-ui/input';
 ```

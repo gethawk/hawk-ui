@@ -15,7 +15,7 @@
 
 
 #### Draggable And Resizable
-[Demo](https://hawk.wallnit.com/#!/Resizable/1)
+[Demo](https://hawk.oncrypt.co/#!/Resizable/1)
 ```js static
 import Resizable from '@hawk-ui/resizable';
 ```

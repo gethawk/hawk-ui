@@ -15,7 +15,7 @@
 
 
 #### Border Picker:
-[Demo](https://hawk.wallnit.com/#!/BorderPicker/1)
+[Demo](https://hawk.oncrypt.co/#!/BorderPicker/1)
 ```js static
 import BorderPicker from '@hawk-ui/border-picker';
 ```

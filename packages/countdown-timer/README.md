@@ -15,7 +15,7 @@
 
 
 #### Password Strength
-[Demo](https://hawk.wallnit.com/#!/CountdownTimer/1)
+[Demo](https://hawk.oncrypt.co/#!/CountdownTimer/1)
 ```js static
 import CountdownTimer from '@hawk-ui/countdown-timer';
 ```

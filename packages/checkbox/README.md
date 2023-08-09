@@ -15,7 +15,7 @@
 
 
 #### Without Required
-[Demo](https://hawk.wallnit.com/#!/Checkbox/1)
+[Demo](https://hawk.oncrypt.co/#!/Checkbox/1)
 ```js static
 import Checkbox from '@hawk-ui/checkbox';
 ```
@@ -53,7 +53,7 @@ initialState = {
 
 
 #### With Required
-[Demo](https://hawk.wallnit.com/#!/Checkbox/3)
+[Demo](https://hawk.oncrypt.co/#!/Checkbox/3)
 ```js static
 import Checkbox from '@hawk-ui/checkbox';
 ```
@@ -95,7 +95,7 @@ initialState = {
 
 
 #### Without object
-[Demo](https://hawk.wallnit.com/#!/Checkbox/5)
+[Demo](https://hawk.oncrypt.co/#!/Checkbox/5)
 ```js static
 import Checkbox from '@hawk-ui/checkbox';
 ```

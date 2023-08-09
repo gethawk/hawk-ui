@@ -15,7 +15,7 @@
 
 
 #### Horizontal Stepper
-[Demo](https://hawk.wallnit.com/#!/Stepper/1)
+[Demo](https://hawk.oncrypt.co/#!/Stepper/1)
 ```js static
 import Stepper from '@hawk-ui/stepper';
 ```

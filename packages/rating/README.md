@@ -15,7 +15,7 @@
 
 
 #### Rating
-[Demo](https://hawk.wallnit.com/#!/Rating/1)
+[Demo](https://hawk.oncrypt.co/#!/Rating/1)
 ```js static
 import Rating from '@hawk-ui/rating';
 ```

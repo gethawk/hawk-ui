@@ -15,7 +15,7 @@
 
 
 #### Single Date Selector
-[Demo](https://hawk.wallnit.com/#!/DatePicker/1)
+[Demo](https://hawk.oncrypt.co/#!/DatePicker/1)
 ```js static
 import DatePicker from '@hawk-ui/date-picker';
 ```
@@ -43,7 +43,7 @@ initialState = {
 
 
 #### Range Date Selector
-[Demo](https://hawk.wallnit.com/#!/DatePicker/3)
+[Demo](https://hawk.oncrypt.co/#!/DatePicker/3)
 ```js static
 import DatePicker from '@hawk-ui/date-picker';
 ```

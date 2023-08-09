@@ -15,7 +15,7 @@
 
 
 #### Magnifier
-[Demo](https://hawk.wallnit.com/#!/Magnifier/1)
+[Demo](https://hawk.oncrypt.co/#!/Magnifier/1)
 ```js static
 import Magnifier from '@hawk-ui/magnifier';
 ```

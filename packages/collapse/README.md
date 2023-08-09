@@ -15,7 +15,7 @@
 
 
 #### Collapse
-[Demo](https://hawk.wallnit.com/#!/Collapse/1)
+[Demo](https://hawk.oncrypt.co/#!/Collapse/1)
 ```js static
 import Collapse from '@hawk-ui/collapse';
 ```

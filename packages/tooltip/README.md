@@ -15,7 +15,7 @@
 
 
 #### Tooltip with content:
-[Demo](https://hawk.wallnit.com/#!/Tooltip/1)
+[Demo](https://hawk.oncrypt.co/#!/Tooltip/1)
 ```js static
 import Tooltip from '@hawk-ui/tooltip';
 ```
@@ -30,7 +30,7 @@ import Tooltip from '@hawk-ui/tooltip';
 
 
 #### Tooltip with options:
-[Demo](https://hawk.wallnit.com/#!/Tooltip/3)
+[Demo](https://hawk.oncrypt.co/#!/Tooltip/3)
 ```js static
 import Tooltip from '@hawk-ui/tooltip';
 ```

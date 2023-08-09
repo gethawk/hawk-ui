@@ -15,7 +15,7 @@
 
 
 #### Simple table
-[Demo](https://hawk.wallnit.com/#!/Table/1)
+[Demo](https://hawk.oncrypt.co/#!/Table/1)
 ```js static
 import Table from '@hawk-ui/table';
 ```
@@ -95,7 +95,7 @@ initialState = {
 
 
 #### Multiple Row
-[Demo](https://hawk.wallnit.com/#!/Table/3)
+[Demo](https://hawk.oncrypt.co/#!/Table/3)
 ```js static
 import Table from '@hawk-ui/table';
 ```
@@ -168,7 +168,7 @@ initialState = {
 
 
 #### Without Header
-[Demo](https://hawk.wallnit.com/#!/Table/5)
+[Demo](https://hawk.oncrypt.co/#!/Table/5)
 ```js static
 import Table from '@hawk-ui/table';
 ```
@@ -218,7 +218,7 @@ initialState = {
 
 
 #### Table Selectable
-[Demo](https://hawk.wallnit.com/#!/Table/7)
+[Demo](https://hawk.oncrypt.co/#!/Table/7)
 ```js static
 import Table from '@hawk-ui/table';
 ```
@@ -272,7 +272,7 @@ initialState = {
 
 
 #### Download Selectable
-[Demo](https://hawk.wallnit.com/#!/Table/9)
+[Demo](https://hawk.oncrypt.co/#!/Table/9)
 ```js static
 import Table from '@hawk-ui/table';
 ```
@@ -332,7 +332,7 @@ initialState = {
 
 
 #### Table Sorting
-[Demo](https://hawk.wallnit.com/#!/Table/11)
+[Demo](https://hawk.oncrypt.co/#!/Table/11)
 ```js static
 import Table from '@hawk-ui/table';
 ```

@@ -15,7 +15,7 @@
 
 
 #### With Hex Code
-[Demo](https://hawk.wallnit.com/#!/ColorPicker/1)
+[Demo](https://hawk.oncrypt.co/#!/ColorPicker/1)
 ```js static
 import ColorPicker from '@hawk-ui/color-picker';
 ```
@@ -28,7 +28,7 @@ import ColorPicker from '@hawk-ui/color-picker';
 
 
 ### With Background
-[Demo](https://hawk.wallnit.com/#!/ColorPicker/3)
+[Demo](https://hawk.oncrypt.co/#!/ColorPicker/3)
 ```js static
 import ColorPicker from '@hawk-ui/color-picker';
 ```
@@ -42,7 +42,7 @@ import ColorPicker from '@hawk-ui/color-picker';
 
 
 ### With Text
-[Demo](https://hawk.wallnit.com/#!/ColorPicker/5)
+[Demo](https://hawk.oncrypt.co/#!/ColorPicker/5)
 ```js static
 import ColorPicker from '@hawk-ui/color-picker';
 ```
@@ -58,7 +58,7 @@ import ColorPicker from '@hawk-ui/color-picker';
 
 
 ### With Icon
-[Demo](https://hawk.wallnit.com/#!/ColorPicker/7)
+[Demo](https://hawk.oncrypt.co/#!/ColorPicker/7)
 ```js static
 import ColorPicker from '@hawk-ui/color-picker';
 ```

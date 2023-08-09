@@ -15,7 +15,7 @@
 
 
 #### Password Strength
-[Demo](https://hawk.wallnit.com/#!/PasswordStrength/1)
+[Demo](https://hawk.oncrypt.co/#!/PasswordStrength/1)
 ```js static
 import PasswordStrength from '@hawk-ui/password-strength';
 ```

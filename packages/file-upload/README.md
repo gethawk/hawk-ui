@@ -15,7 +15,7 @@
 
 
 #### File Upload With Button:
-[Demo](https://hawk.wallnit.com/#!/FileUpload/1)
+[Demo](https://hawk.oncrypt.co/#!/FileUpload/1)
 ```js static
 import FileUpload from '@hawk-ui/file-upload';
 ```
@@ -32,7 +32,7 @@ import FileUpload from '@hawk-ui/file-upload';
 
 
 #### File Upload With Icon
-[Demo](https://hawk.wallnit.com/#!/FileUpload/3)
+[Demo](https://hawk.oncrypt.co/#!/FileUpload/3)
 ```js static
 import FileUpload from '@hawk-ui/file-upload';
 ```
@@ -47,7 +47,7 @@ import FileUpload from '@hawk-ui/file-upload';
 
 
 #### File Upload With Describable
-[Demo](https://hawk.wallnit.com/#!/FileUpload/5)
+[Demo](https://hawk.oncrypt.co/#!/FileUpload/5)
 ```js static
 import FileUpload from '@hawk-ui/file-upload';
 ```
@@ -66,7 +66,7 @@ import FileUpload from '@hawk-ui/file-upload';
 
 
 #### On Drag and Drop
-[Demo](https://hawk.wallnit.com/#!/FileUpload/7)
+[Demo](https://hawk.oncrypt.co/#!/FileUpload/7)
 ```js static
 import FileUpload from '@hawk-ui/file-upload';
 ```

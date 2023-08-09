@@ -15,7 +15,7 @@
 
 
 #### Pill:
-[Demo](https://hawk.wallnit.com/#!/Pill/1)
+[Demo](https://hawk.oncrypt.co/#!/Pill/1)
 ```js static
 import Pill from '@hawk-ui/pill';
 ```

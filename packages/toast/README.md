@@ -15,7 +15,7 @@
 
 
 #### Top Left:
-[Demo](https://hawk.wallnit.com/#!/Toast/1)
+[Demo](https://hawk.oncrypt.co/#!/Toast/1)
 ```js static
 import Toast from '@hawk-ui/toast';
 ```
@@ -61,7 +61,7 @@ initialState = {
 
 
 #### Top Right
-[Demo](https://hawk.wallnit.com/#!/Toast/3)
+[Demo](https://hawk.oncrypt.co/#!/Toast/3)
 ```js static
 import Toast from '@hawk-ui/toast';
 ```
@@ -107,7 +107,7 @@ initialState = {
 
 
 #### Bottom Right
-[Demo](https://hawk.wallnit.com/#!/Toast/5)
+[Demo](https://hawk.oncrypt.co/#!/Toast/5)
 ```js static
 import Toast from '@hawk-ui/toast';
 ```
@@ -153,7 +153,7 @@ initialState = {
 
 
 #### Bottom Left
-[Demo](https://hawk.wallnit.com/#!/Toast/7)
+[Demo](https://hawk.oncrypt.co/#!/Toast/7)
 ```js static
 import Toast from '@hawk-ui/toast';
 ```

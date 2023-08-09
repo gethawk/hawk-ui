@@ -14,7 +14,7 @@
 ## Usage
 
 #### Text Button:
-[Demo](https://hawk.wallnit.com/#!/ButtonGroup/1)
+[Demo](https://hawk.oncrypt.co/#!/ButtonGroup/1)
 ```js static
 import ButtonGroup from '@hawk-ui/button-group';
 ```
@@ -42,7 +42,7 @@ initialState = {
 
 
 #### Outlined Button:
-[Demo](https://hawk.wallnit.com/#!/ButtonGroup/3)
+[Demo](https://hawk.oncrypt.co/#!/ButtonGroup/3)
 ```js static
 import ButtonGroup from '@hawk-ui/button-group';
 ```
@@ -69,7 +69,7 @@ initialState = {
 ```
 
 #### Contained Button:
-[Demo](https://hawk.wallnit.com/#!/ButtonGroup/5)
+[Demo](https://hawk.oncrypt.co/#!/ButtonGroup/5)
 ```js static
 import ButtonGroup from '@hawk-ui/button-group';
 ```

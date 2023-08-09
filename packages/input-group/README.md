@@ -15,7 +15,7 @@
 
 
 #### Addon Left Placement
-[Demo](https://hawk.wallnit.com/#!/InputGroup/1)
+[Demo](https://hawk.oncrypt.co/#!/InputGroup/1)
 ```js static
 import InputGroup from '@hawk-ui/input-group';
 ```
@@ -42,7 +42,7 @@ initialState = {
 
 
 #### Addon Right Placement
-[Demo](https://hawk.wallnit.com/#!/InputGroup/3)
+[Demo](https://hawk.oncrypt.co/#!/InputGroup/3)
 ```js static
 import InputGroup from '@hawk-ui/input-group';
 ```
@@ -55,7 +55,7 @@ import InputGroup from '@hawk-ui/input-group';
 
 
 #### Disabled
-[Demo](https://hawk.wallnit.com/#!/InputGroup/5)
+[Demo](https://hawk.oncrypt.co/#!/InputGroup/5)
 ```js
 initialState = {
   value: 'Hello World',
@@ -78,7 +78,7 @@ initialState = {
 
 
 #### Addon Medium Placement
-[Demo](https://hawk.wallnit.com/#!/InputGroup/7)
+[Demo](https://hawk.oncrypt.co/#!/InputGroup/7)
 ```js static
 import InputGroup from '@hawk-ui/input-group';
 ```
@@ -91,7 +91,7 @@ import InputGroup from '@hawk-ui/input-group';
 
 
 #### Addon Large Placement
-[Demo](https://hawk.wallnit.com/#!/InputGroup/9)
+[Demo](https://hawk.oncrypt.co/#!/InputGroup/9)
 ```js static
 import InputGroup from '@hawk-ui/input-group';
 ```
@@ -104,7 +104,7 @@ import InputGroup from '@hawk-ui/input-group';
 
 
 #### Addon Icon
-[Demo](https://hawk.wallnit.com/#!/InputGroup/11)
+[Demo](https://hawk.oncrypt.co/#!/InputGroup/11)
 ```js static
 import InputGroup from '@hawk-ui/input-group';
 ```
@@ -117,7 +117,7 @@ import InputGroup from '@hawk-ui/input-group';
 
 
 #### Addon Element
-[Demo](https://hawk.wallnit.com/#!/InputGroup/13)
+[Demo](https://hawk.oncrypt.co/#!/InputGroup/13)
 ```js static
 import InputGroup from '@hawk-ui/input-group';
 ```

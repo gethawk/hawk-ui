@@ -15,7 +15,7 @@
 
 
 #### Tags Input
-[Demo](https://hawk.wallnit.com/#!/TagsInput/1)
+[Demo](https://hawk.oncrypt.co/#!/TagsInput/1)
 ```js static
 import TagsInput from '@hawk-ui/tags-input';
 ```

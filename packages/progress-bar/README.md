@@ -15,7 +15,7 @@
 
 
 #### Progress Bar With Vary Color
-[Demo](https://hawk.wallnit.com/#!/ProgressBar/1)
+[Demo](https://hawk.oncrypt.co/#!/ProgressBar/1)
 ```js static
 import ProgressBar from '@hawk-ui/progress-bar';
 ```
@@ -28,7 +28,7 @@ import ProgressBar from '@hawk-ui/progress-bar';
 
 
 #### Progress Bar With Same Color
-[Demo](https://hawk.wallnit.com/#!/ProgressBar/3)
+[Demo](https://hawk.oncrypt.co/#!/ProgressBar/3)
 ```js static
 import ProgressBar from '@hawk-ui/progress-bar';
 ```

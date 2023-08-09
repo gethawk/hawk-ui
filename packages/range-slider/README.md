@@ -15,7 +15,7 @@
 
 
 #### Default Range Slider
-[Demo](https://hawk.wallnit.com/#!/RangeSlider/1)
+[Demo](https://hawk.oncrypt.co/#!/RangeSlider/1)
 ```js static
 import RangeSlider from '@hawk-ui/range-slider';
 ```
@@ -38,7 +38,7 @@ initialState = {
 
 
 #### Range Slider 0 - 50
-[Demo](https://hawk.wallnit.com/#!/RangeSlider/3)
+[Demo](https://hawk.oncrypt.co/#!/RangeSlider/3)
 ```js static
 import RangeSlider from '@hawk-ui/range-slider';
 ```

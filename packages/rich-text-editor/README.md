@@ -15,7 +15,7 @@
 
 
 #### Rich Text Editor
-[Demo](https://hawk.wallnit.com/#!/RichTextEditor/1)
+[Demo](https://hawk.oncrypt.co/#!/RichTextEditor/1)
 ```js static
 import RichTextEditor from '@hawk-ui/rich-text-editor';
 ```

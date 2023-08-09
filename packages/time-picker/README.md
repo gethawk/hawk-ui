@@ -15,7 +15,7 @@
 
 
 #### Time Picker:
-[Demo](https://hawk.wallnit.com/#!/TimePicker/1)
+[Demo](https://hawk.oncrypt.co/#!/TimePicker/1)
 ```js static
 import TimePicker from '@hawk-ui/time-picker';
 ```

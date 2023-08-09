@@ -15,7 +15,7 @@
 
 
 #### Without Required
-[Demo](https://hawk.wallnit.com/#!/Label/1)
+[Demo](https://hawk.oncrypt.co/#!/Label/1)
 ```js static
 import Label from '@hawk-ui/label';
 ```
@@ -27,7 +27,7 @@ import Label from '@hawk-ui/label';
 
 
 #### With Required
-[Demo](https://hawk.wallnit.com/#!/Label/3)
+[Demo](https://hawk.oncrypt.co/#!/Label/3)
 ```js static
 import Label from '@hawk-ui/label';
 ```
@@ -40,7 +40,7 @@ import Label from '@hawk-ui/label';
 
 
 #### With Left icon
-[Demo](https://hawk.wallnit.com/#!/Label/5)
+[Demo](https://hawk.oncrypt.co/#!/Label/5)
 ```js static
 import Label from '@hawk-ui/label';
 ```
@@ -53,7 +53,7 @@ import Label from '@hawk-ui/label';
 
 
 #### With Right icon
-[Demo](https://hawk.wallnit.com/#!/Label/7)
+[Demo](https://hawk.oncrypt.co/#!/Label/7)
 ```js static
 import Label from '@hawk-ui/label';
 ```

@@ -5,7 +5,7 @@ case "$1" in
 
 "prod")
 	export AWS_DEFAULT_REGION='ap-south-1'
-	export S3_BUCKET='hawk.wallnit.com'
+	export S3_BUCKET='hawk.oncrypt.co'
 ;;
 
 esac

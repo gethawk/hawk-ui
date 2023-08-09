@@ -15,7 +15,7 @@
 
 
 #### Contained carousel:
-[Demo](https://hawk.wallnit.com/#!/Carousel/1)
+[Demo](https://hawk.oncrypt.co/#!/Carousel/1)
 ```js static
 import Carousel from '@hawk-ui/carousel';
 ```
@@ -69,7 +69,7 @@ initialState = {
 
 
 #### Card carousel:
-[Demo](https://hawk.wallnit.com/#!/Carousel/2)
+[Demo](https://hawk.oncrypt.co/#!/Carousel/2)
 ```js static
 import Carousel from '@hawk-ui/carousel';
 ```
@@ -124,7 +124,7 @@ initialState = {
 
 
 #### Poster carousel:
-[Demo](https://hawk.wallnit.com/#!/Carousel/3)
+[Demo](https://hawk.oncrypt.co/#!/Carousel/3)
 ```js static
 import Carousel from '@hawk-ui/carousel';
 ```

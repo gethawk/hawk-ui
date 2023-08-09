@@ -15,7 +15,7 @@
 
 
 #### With Close Button and background dark
-[Demo](https://hawk.wallnit.com/#!/NavigationDrawer/1)
+[Demo](https://hawk.oncrypt.co/#!/NavigationDrawer/1)
 ```js static
 import NavigationDrawer from '@hawk-ui/navigation-drawer';
 ```
@@ -85,7 +85,7 @@ initialState = {
 
 
 #### Without Close Button and background light
-[Demo](https://hawk.wallnit.com/#!/NavigationDrawer/3)
+[Demo](https://hawk.oncrypt.co/#!/NavigationDrawer/3)
 ```js static
 import NavigationDrawer from '@hawk-ui/navigation-drawer';
 ```

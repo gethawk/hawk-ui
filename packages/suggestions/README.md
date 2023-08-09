@@ -15,7 +15,7 @@
 
 
 #### Suggestions
-[Demo](https://hawk.wallnit.com/#!/Suggestions/1)
+[Demo](https://hawk.oncrypt.co/#!/Suggestions/1)
 ```js static
 import Suggestions from '@hawk-ui/suggestions';
 ```

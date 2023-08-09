@@ -15,7 +15,7 @@
 
 
 #### Image
-[Demo](https://hawk.wallnit.com/#!/Image/1)
+[Demo](https://hawk.oncrypt.co/#!/Image/1)
 ```js static
 import Image from '@hawk-ui/image';
 ```

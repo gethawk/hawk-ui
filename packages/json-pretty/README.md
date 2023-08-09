@@ -15,7 +15,7 @@
 
 
 #### Theme: Light
-[Demo](https://hawk.wallnit.com/#!/JsonPretty/1)
+[Demo](https://hawk.oncrypt.co/#!/JsonPretty/1)
 ```js static
 import JsonPretty from '@hawk-ui/json-pretty';
 ```
@@ -27,7 +27,7 @@ import JsonPretty from '@hawk-ui/json-pretty';
 
 
 #### Theme: Dark
-[Demo](https://hawk.wallnit.com/#!/JsonPretty/3)
+[Demo](https://hawk.oncrypt.co/#!/JsonPretty/3)
 ```js static
 import JsonPretty from '@hawk-ui/json-pretty';
 ```

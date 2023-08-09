@@ -15,7 +15,7 @@
 
 
 #### Jelly Loader
-[Demo](https://hawk.wallnit.com/#!/Loader/1)
+[Demo](https://hawk.oncrypt.co/#!/Loader/1)
 ```js static
 import Loader from '@hawk-ui/loader';
 ```
@@ -27,7 +27,7 @@ import Loader from '@hawk-ui/loader';
 
 
 #### Spinner Loader
-[Demo](https://hawk.wallnit.com/#!/Loader/3)
+[Demo](https://hawk.oncrypt.co/#!/Loader/3)
 ```js static
 import Loader from '@hawk-ui/loader';
 ```

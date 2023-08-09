@@ -15,7 +15,7 @@
 
 
 #### Pagination
-[Demo](https://hawk.wallnit.com/#!/Pagination/1)
+[Demo](https://hawk.oncrypt.co/#!/Pagination/1)
 ```js static
 import Pagination from '@hawk-ui/pagination';
 ```

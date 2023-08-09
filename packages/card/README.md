@@ -15,7 +15,7 @@
 
 
 #### Box Card
-[Demo](https://hawk.wallnit.com/#!/Card/1)
+[Demo](https://hawk.oncrypt.co/#!/Card/1)
 ```js static
 import Card from '@hawk-ui/card';
 ```
@@ -57,7 +57,7 @@ import Card from '@hawk-ui/card';
 
 
 #### Circle Card
-[Demo](https://hawk.wallnit.com/#!/Card/3)
+[Demo](https://hawk.oncrypt.co/#!/Card/3)
 ```js static
 import Card from '@hawk-ui/card';
 ```
