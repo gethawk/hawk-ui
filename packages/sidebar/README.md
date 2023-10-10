@@ -22,18 +22,18 @@ import Sidebar from '@hawk-ui/sidebar';
 ```js
 const panes = [
     {
-      title: 'Settings',
+      title: 'Home',
       icon: 'fas fa-cog',
       extras: [
         {
-          key: 'profile',
-          title: 'Profile',
+          key: 'about-us',
+          title: 'About Us',
           link: '',
           isEnable: true,
         },
         {
-          key: 'change-password',
-          title: 'Change Password',
+          key: 'Contact Us',
+          title: 'contact-us',
           link: '',
           isEnable: true,
         },
