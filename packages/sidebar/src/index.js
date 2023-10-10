@@ -12,6 +12,7 @@ class Sidebar extends Component {
   static propTypes = {
     variant: PropTypes.oneOf(['expanded', 'collapsed']),
     panes: PropTypes.array,
+    activeKey: PropTypes.string,
   };
   static defaultProps = {
     variant: 'expanded',
@@ -20,7 +21,7 @@ class Sidebar extends Component {
   state = {};
 
   render() {
-    const { variant, panes } = this.props;
+    const { variant, panes, activeKey } = this.props;
 
     return (
       <div
@@ -49,7 +50,11 @@ class Sidebar extends Component {
                     href={item.link}
                     className="hawk-sidebar--section-menu-link"
                   >
-                    <div className="hawk-sidebar--section-menu-item">
+                    <div
+                      className={getClassnames('hawk-sidebar--section-menu-item', {
+                        active: activeKey === item.key,
+                      })}
+                    >
                       <span>{item.title}</span>
                       <i className="fas fa-caret-right" />
                     </div>

@@ -63,5 +63,6 @@ const panes = [
 
 <Sidebar
   panes={panes}
+  activeKey="profile"
 />
 ```

@@ -28,6 +28,9 @@
   &--section-menu {
     &-link {
       text-decoration: unset;
+      .active {
+        background-color: #E8EAF6;
+      }
     }
     &-item {
       display: flex;
@@ -35,9 +38,11 @@
       align-items: center;
       padding: 5px 10px;
       border-radius: 4px;
-      background-color: #E8EAF6;
       margin: 10px 0;
       font-size: 14px;
+      &:hover {
+        background-color: #E8EAF6;
+      }
     }
   }
 }
