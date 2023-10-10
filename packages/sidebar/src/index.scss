@@ -1,0 +1,43 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-sidebar {
+  flex-shrink: 0;
+  z-index: 1;
+  box-shadow: rgba(67, 90, 111, 0.42) 0px 0px 1px 0px;
+  &--expanded {
+    width: 250px;
+  }
+  &--container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 20px;
+    &-item {
+      &-section {
+        border-bottom: 1px solid #d9d9d9;
+        .title {
+          margin: 10px 0;
+          span {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  &--section-menu {
+    &-link {
+      text-decoration: unset;
+    }
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background-color: #E8EAF6;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@hawk-ui/sidebar",
+  "version": "4.1.7",
+  "description": "hawk-ui: Basic Sidebar Component",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=sidebar"
+  },
+  "keywords": [
+    "sidebar",
+    "react",
+    "react component",
+    "react sidebar",
+    "hawk",
+    "hawk-ui",
+    "ui"
+  ],
+  "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
