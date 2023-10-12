@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/timeline",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "hawk-ui: Basic Timeline Component",
   "main": "dist/index.min.js",
   "scripts": {
