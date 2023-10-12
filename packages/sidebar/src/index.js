@@ -2,6 +2,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
+// react modules
+import Tooltip from '@hawk-ui/tooltip';
 // css modules
 import './index.scss';
 
@@ -49,24 +51,30 @@ class Sidebar extends Component {
               )}
               <div className="hawk-sidebar--section-menu">
                 {_.map(pane.extras, (item) => (
-                  <a
+                  <Tooltip
                     key={item.title}
-                    href={item.link}
-                    className="hawk-sidebar--section-menu-link"
+                    position="right"
+                    content={item.title}
+                    isDisabled={variant === 'expanded'}
                   >
-                    <div
-                      className={getClassnames('hawk-sidebar--section-menu-item', {
-                        active: activeKey === item.key,
-                      })}
+                    <a
+                      href={item.link}
+                      className="hawk-sidebar--section-menu-link"
                     >
-                      {variant === 'expanded' ? (
-                        <Fragment>
-                          <span>{item.title}</span>
-                          <i className="fas fa-caret-right" />
-                        </Fragment>
-                      ) : <i className={item.icon} />}
-                    </div>
-                  </a>
+                      <div
+                        className={getClassnames('hawk-sidebar--section-menu-item', {
+                          active: activeKey === item.key,
+                        })}
+                      >
+                        {variant === 'expanded' ? (
+                          <Fragment>
+                            <span>{item.title}</span>
+                            <i className="fas fa-caret-right" />
+                          </Fragment>
+                        ) : <i className={item.icon} />}
+                      </div>
+                    </a>
+                  </Tooltip>
                 ))}
               </div>
             </div>

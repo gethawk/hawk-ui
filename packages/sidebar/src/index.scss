@@ -20,9 +20,16 @@
     width: 75px;
     &-container {
       padding: 0;
-      .hawk-sidebar--section-menu-item {
-        justify-content: center;
-        padding: 20px 0;
+      .hawk-sidebar--section-menu {
+        &-item {
+          justify-content: center;
+          padding: 20px 0;
+        }
+        .hawk-tooltip {
+          &__content {
+            top: 14px;
+          }
+        }
       }
     }
   }
@@ -44,6 +51,8 @@
     }
   }
   &--section-menu {
+    display: flex;
+    flex-direction: column;
     &-link {
       text-decoration: unset;
       .active {

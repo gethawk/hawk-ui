@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@hawk-ui/tooltip@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.2.0.tgz#59129f2c77ae3dbae442144cf3c5960a71b5f9c7"
+  integrity sha512-bQE9l2SGFvkgJ9/BwDly316eMKeJ6hG7IsxT/dPswMs5q1sSWIAysxiH/TPPbua3gPJ6WpWoGUz4cQDpx/TVVg==
+  dependencies:
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
 classnames@^2.2.6:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
