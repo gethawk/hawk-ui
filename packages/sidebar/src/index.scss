@@ -6,13 +6,31 @@
   box-shadow: rgba(67, 90, 111, 0.42) 0px 0px 1px 0px;
   &--expanded {
     width: 250px;
+    &-container {
+      padding: 20px;
+      .hawk-sidebar--section-menu-item {
+        justify-content: space-between;
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+      }
+    }
+  }
+  &--collapsed {
+    width: 75px;
+    &-container {
+      padding: 0;
+      .hawk-sidebar--section-menu-item {
+        justify-content: center;
+        padding: 20px 0;
+      }
+    }
   }
   &--container {
     position: sticky;
     top: 0;
     left: 0;
     height: 100vh;
-    padding: 20px;
     &-item {
       &-section {
         border-bottom: 1px solid #d9d9d9;
@@ -34,11 +52,7 @@
     }
     &-item {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 5px 10px;
-      border-radius: 4px;
-      margin: 10px 0;
       font-size: 14px;
       &:hover {
         background-color: #E8EAF6;

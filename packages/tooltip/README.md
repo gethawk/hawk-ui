@@ -47,3 +47,19 @@ const panes = [
   Hover me
 </Tooltip>
 ```
+
+
+#### Tooltip disabled:
+[Demo](https://hawk.oncrypt.co/#!/Tooltip/1)
+```js static
+import Tooltip from '@hawk-ui/tooltip';
+```
+```js
+<Tooltip
+  position="right"
+  content="Tooltip"
+  isDisabled
+>
+  Hover me
+</Tooltip>
+```

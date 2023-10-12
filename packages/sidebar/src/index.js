@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 // css modules
@@ -29,7 +29,11 @@ class Sidebar extends Component {
           [`hawk-sidebar--${variant}`]: variant,
         })}
       >
-        <div className="hawk-sidebar--container">
+        <div
+          className={getClassnames('hawk-sidebar--container', {
+            [`hawk-sidebar--${variant}-container`]: variant,
+          })}
+        >
           {_.map(panes, (pane) => (
             <div
               key={pane.title}
@@ -55,8 +59,12 @@ class Sidebar extends Component {
                         active: activeKey === item.key,
                       })}
                     >
-                      <span>{item.title}</span>
-                      <i className="fas fa-caret-right" />
+                      {variant === 'expanded' ? (
+                        <Fragment>
+                          <span>{item.title}</span>
+                          <i className="fas fa-caret-right" />
+                        </Fragment>
+                      ) : <i className={item.icon} />}
                     </div>
                   </a>
                 ))}
