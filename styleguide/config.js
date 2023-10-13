@@ -51,6 +51,7 @@ module.exports = {
         '../packages/select-dropdown/src/index.js',
         '../packages/tags-input/src/index.js',
         '../packages/tooltip/src/index.js',
+        '../packages/divider/src/index.js',
         '../packages/date-picker/src/index.js',
         '../packages/time-picker/src/index.js',
       ]),

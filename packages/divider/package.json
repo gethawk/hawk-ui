@@ -1,16 +1,16 @@
 {
-  "name": "@hawk-ui/card",
+  "name": "@hawk-ui/divider",
   "version": "4.2.2",
-  "description": "hawk-ui: Basic Card Component",
+  "description": "hawk-ui: Basic Divider Component",
   "main": "dist/index.min.js",
   "scripts": {
-    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=card"
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=divider"
   },
   "keywords": [
-    "card",
+    "divider",
     "react",
     "react component",
-    "react card",
+    "react divider",
     "hawk",
     "hawk-ui",
     "ui"
