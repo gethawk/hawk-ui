@@ -19,9 +19,9 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^4.2.1",
-    "@hawk-ui/input": "^4.2.1",
-    "@hawk-ui/input-group": "^4.2.1",
+    "@hawk-ui/button": "^4.2.2",
+    "@hawk-ui/input": "^4.2.2",
+    "@hawk-ui/input-group": "^4.2.2",
     "clamp": "^1.0.1",
     "color": "^3.1.2",
     "color-string": "^1.5.3",

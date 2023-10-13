@@ -19,7 +19,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/select-dropdown": "^4.2.1",
+    "@hawk-ui/select-dropdown": "^4.2.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
