@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/carousel",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "description": "hawk-ui: Basic Carousel Component",
   "main": "dist/index.min.js",
   "scripts": {

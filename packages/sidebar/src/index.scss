@@ -41,6 +41,13 @@
     &-item {
       &-section {
         border-bottom: 1px solid #d9d9d9;
+        margin-top: 20px;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          border-bottom: 0;
+        }
         .title {
           margin: 10px 0;
           span {

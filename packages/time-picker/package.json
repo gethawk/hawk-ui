@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/time-picker",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "description": "hawk-ui: Basic Time Picker Component",
   "main": "dist/index.min.js",
   "scripts": {
