@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/radio",
-  "version": "4.2.3",
+  "version": "4.2.4",
   "description": "hawk-ui: Basic Radio Component",
   "main": "dist/index.min.js",
   "scripts": {

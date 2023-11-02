@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/form",
-  "version": "4.2.3",
+  "version": "4.2.4",
   "description": "hawk-ui: Basic Form Component",
   "main": "dist/index.min.js",
   "scripts": {
