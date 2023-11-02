@@ -13,7 +13,9 @@ import './index.scss';
 class Sidebar extends Component {
   static propTypes = {
     variant: PropTypes.oneOf(['expanded', 'collapsed']),
+    header: PropTypes.object,
     panes: PropTypes.array,
+    footer: PropTypes.object,
     activeKey: PropTypes.string,
   };
   static defaultProps = {
@@ -23,7 +25,7 @@ class Sidebar extends Component {
   state = {};
 
   render() {
-    const { variant, panes, activeKey } = this.props;
+    const { variant, header, panes, footer, activeKey } = this.props;
 
     return (
       <div
@@ -36,49 +38,73 @@ class Sidebar extends Component {
             [`hawk-sidebar--${variant}-container`]: variant,
           })}
         >
-          {_.map(panes, (pane) => (
+          {header ? (
             <div
-              key={pane.title}
               className={getClassnames({
-                'hawk-sidebar--container-item-section': !pane.isDisabled,
+                [`hawk-sidebar--${variant}-header-title`]: header.title,
+                [`hawk-sidebar--${variant}-header-element`]: header.element,
               })}
             >
-              {!pane.isDisabled && (
-                <div className="title">
-                  <i className={pane.icon} />
-                  <span>{pane.title}</span>
-                </div>
-              )}
-              <div className="hawk-sidebar--section-menu">
-                {_.map(pane.extras, (item) => (
-                  <Tooltip
-                    key={item.title}
-                    position="right"
-                    content={item.title}
-                    isDisabled={variant === 'expanded'}
-                  >
-                    <a
-                      href={item.link}
-                      className="hawk-sidebar--section-menu-link"
-                    >
-                      <div
-                        className={getClassnames('hawk-sidebar--section-menu-item', {
-                          active: activeKey === item.key,
-                        })}
-                      >
-                        {variant === 'expanded' ? (
-                          <Fragment>
-                            <span>{item.title}</span>
-                            <i className="fas fa-caret-right" />
-                          </Fragment>
-                        ) : <i className={item.icon} />}
-                      </div>
-                    </a>
-                  </Tooltip>
-                ))}
-              </div>
+              {header.title ? header.title : header.element}
             </div>
-          ))}
+          ) : null}
+          <div className="hawk-sidebar--container-pane">
+            <div>
+              {_.map(panes, (pane) => (
+                <div
+                  key={pane.title}
+                  className={getClassnames({
+                    'hawk-sidebar--container-item-section': !pane.isDisabled,
+                  })}
+                >
+                  {!pane.isDisabled && (
+                    <div className="title">
+                      <i className={pane.icon} />
+                      <span>{pane.title}</span>
+                    </div>
+                  )}
+                  <div className="hawk-sidebar--section-menu">
+                    {_.map(pane.extras, (item) => (
+                      <Tooltip
+                        key={item.title}
+                        position="right"
+                        content={item.title}
+                        isDisabled={variant === 'expanded'}
+                      >
+                        <a
+                          href={item.link}
+                          className="hawk-sidebar--section-menu-link"
+                        >
+                          <div
+                            className={getClassnames('hawk-sidebar--section-menu-item', {
+                              active: activeKey === item.key,
+                            })}
+                          >
+                            {variant === 'expanded' ? (
+                              <Fragment>
+                                <span>{item.title}</span>
+                                <i className="fas fa-caret-right" />
+                              </Fragment>
+                            ) : <i className={item.icon} />}
+                          </div>
+                        </a>
+                      </Tooltip>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {footer ? (
+              <div
+                className={getClassnames({
+                  [`hawk-sidebar--${variant}-footer-title`]: footer.title,
+                  [`hawk-sidebar--${variant}-footer-element`]: footer.element,
+                })}
+              >
+                {footer.title ? footer.title : footer.element}
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     );
