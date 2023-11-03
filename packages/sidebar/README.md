@@ -78,6 +78,93 @@ const footer = {
 ```
 
 
+#### Expanded sidebar without title:
+[Demo](https://hawk.oncrypt.co/#!/Sidebar/1)
+```js static
+import Sidebar from '@hawk-ui/sidebar';
+```
+```js
+const header = {
+  title: 'Wallnit',
+};
+
+const panes = [
+  {
+    title: 'Home',
+    icon: 'fas fa-cog',
+    extras: [
+      {
+        key: 'about-us',
+        title: 'About Us',
+        link: '/#src-21',
+        isEnable: true,
+        extras: [
+          {
+            key: 'about-us-1',
+            title: 'About us 1',
+            link: '',
+          },
+          {
+            key: 'about-us-2',
+            title: 'About us 2',
+            link: '',
+          },
+        ],
+      },
+      {
+        key: 'Contact Us',
+        title: 'contact-us',
+        link: '/#src-21',
+        isEnable: true,
+        extras: [
+          {
+            key: 'contact-us-1',
+            title: 'Contact us 1',
+            link: '',
+          },
+          {
+            key: 'contact-us-2',
+            title: 'Contact us 2',
+            link: '',
+          },
+        ],
+      },
+    ],
+    isDisabled: true,
+  },
+  {
+    title: 'Settings',
+    icon: 'fas fa-cog',
+    extras: [
+      {
+        key: 'profile',
+        title: 'Profile',
+        link: '',
+        isEnable: true,
+      },
+      {
+        key: 'change-password',
+        title: 'Change Password',
+        link: '',
+        isEnable: true,
+      },
+    ],
+    isDisabled: true,
+  },
+];
+
+const footer = {
+  title: 'Logout',
+};
+
+<Sidebar
+  header={header}
+  panes={panes}
+  footer={footer}
+  activeKey="profile"
+/>
+```
+
 
 #### collapsed sidebar:
 [Demo](https://hawk.oncrypt.co/#!/Sidebar/1)

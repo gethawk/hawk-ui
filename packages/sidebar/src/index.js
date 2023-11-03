@@ -22,10 +22,13 @@ class Sidebar extends Component {
     variant: 'expanded',
   }
 
-  state = {};
+  state = {
+    activeOptions: '',
+  };
 
   render() {
     const { variant, header, panes, footer, activeKey } = this.props;
+    const { activeOptions } = this.state;
 
     return (
       <div
@@ -79,6 +82,11 @@ class Sidebar extends Component {
                             className={getClassnames('hawk-sidebar--section-menu-item', {
                               active: activeKey === item.key,
                             })}
+                            onClick={() => {
+                              this.setState({
+                                activeOptions: item.key,
+                              });
+                            }}
                           >
                             {variant === 'expanded' ? (
                               <Fragment>
@@ -88,6 +96,17 @@ class Sidebar extends Component {
                             ) : <i className={item.icon} />}
                           </div>
                         </a>
+                        {variant === 'expanded' && item.extras && _.isEqual(item.key, activeOptions) ? (
+                          <div className="hawk-sidebar--section-submenu">
+                            {_.map(item.extras, (subItem) => (
+                              <div className="hawk-sidebar--section-submenu-link">
+                                <a href={subItem.link}>
+                                  {subItem.title}
+                                </a>
+                              </div>
+                            ))}
+                          </div>
+                        ) : null}
                       </Tooltip>
                     ))}
                   </div>

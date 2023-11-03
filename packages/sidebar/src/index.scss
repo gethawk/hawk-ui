@@ -106,15 +106,29 @@
     &-link {
       text-decoration: unset;
       .active {
-        background-color: #E8EAF6;
+        background-color: #eaf1fa;
       }
     }
     &-item {
       display: flex;
       align-items: center;
       font-size: 14px;
+      color: #6997DB;
       &:hover {
-        background-color: #E8EAF6;
+        background-color: #eaf1fa;
+      }
+    }
+  }
+  &--section-submenu {
+    padding: 0 20px;
+    &-link {
+      padding: 5px 10px;
+      margin: 5px 0;
+      font-size: 12px;
+      cursor: pointer;
+      a {
+        text-decoration: unset;
+        color: #6997DB;
       }
     }
   }
