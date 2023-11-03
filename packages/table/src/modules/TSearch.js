@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // React modules
 import _ from 'lodash';
-import Input from '@hawk-ui/input';
 import Button from '@hawk-ui/button';
+import Dropdown from '@hawk-ui/dropdown';
+import Input from '@hawk-ui/input';
 import SelectDropdown from '@hawk-ui/select-dropdown';
 // context modules
 import { TableContext } from '../context/tableContext';
@@ -46,11 +47,23 @@ export default class TSearch extends Component {
         }
       >
         <span>
-          {_.includes(['csv', 'print'], item.key) ? getExportTitle(item) : item.title}
+          {
+            _.includes(['csv', 'print'], item.key) ?
+              getExportTitle(item) : item.title
+          }
         </span>
       </Button>
     );
   };
+
+  exportDropdown = (item) => (
+    <Dropdown
+      title={item.title}
+      suggestions={item.suggestions}
+      renderSuggestion={(suggestion) => suggestion[item.renderSuggestion]}
+      selectValue={(meta, value) => item.onClick(meta, value)}
+    />
+  );
 
   render() {
     const { exports, entries, noOfEntries } = this.context;
@@ -75,9 +88,11 @@ export default class TSearch extends Component {
               )}
             </TableContext.Consumer>
           )}
-          {_.map(_.get(exports, 'options'), (item) => (
+          {_.map(_.get(exports, 'options'), (item) => (_.isEqual(item.key, 'dropdown') ? (
+            this.exportDropdown(item)
+          ) : (
             this.exportBtn(item, _.get(exports, 'headers'), _.get(exports, 'items'))
-          ))}
+          )))}
         </div>
         <div className="hawk-table__filter-search">
           <TableContext.Consumer>

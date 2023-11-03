@@ -71,6 +71,17 @@ initialState = {
         title: 'Sort',
         onClick: () => console.log('query click'),
       },
+      {
+        key: 'dropdown',
+        title: 'Dropdown',
+        suggestions: [
+          { title: 'Action', value: 'action', isActive: true },
+          { title: 'Another action', value: 'another action', isActive: false },
+          { title: 'Something else here', value: 'something else here', isActive: true },
+        ],
+        renderSuggestion: 'title',
+        onClick: (meta, value) => console.log('query click', meta, value),
+      },
     ],
     headers: {
       company: 'Company',

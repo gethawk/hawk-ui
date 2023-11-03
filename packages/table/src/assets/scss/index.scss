@@ -26,6 +26,15 @@
           }
         }
       }
+      .hawk-dropdown {
+        margin-left: 5px;
+        &:first-child {
+          margin-left: 0;
+        }
+        .hawk-button {
+          height: 100%;
+        }
+      }
     }
     &-search {
       display: flex;
