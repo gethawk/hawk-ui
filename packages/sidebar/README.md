@@ -161,7 +161,7 @@ const footer = {
   header={header}
   panes={panes}
   footer={footer}
-  activeKey="profile"
+  activeKey="about-us-1"
 />
 ```
 

@@ -99,7 +99,11 @@ class Sidebar extends Component {
                         {variant === 'expanded' && item.extras && _.isEqual(item.key, activeOptions) ? (
                           <div className="hawk-sidebar--section-submenu">
                             {_.map(item.extras, (subItem) => (
-                              <div className="hawk-sidebar--section-submenu-link">
+                              <div
+                                className={getClassnames('hawk-sidebar--section-submenu-link', {
+                                  active: activeKey === subItem.key,
+                                })}
+                              >
                                 <a href={subItem.link}>
                                   {subItem.title}
                                 </a>
