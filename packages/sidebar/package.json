@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/sidebar",
-  "version": "4.2.6",
+  "version": "4.2.7",
   "description": "hawk-ui: Basic Sidebar Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/tooltip": "^4.2.6",
+    "@hawk-ui/tooltip": "^4.2.7",
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
