@@ -66,6 +66,11 @@ initialState = {
         title: 'Print',
         columns: [0, 1, 2],
       },
+      {
+        key: 'button',
+        title: 'Sort',
+        onClick: () => console.log('query click'),
+      },
     ],
     headers: {
       company: 'Company',

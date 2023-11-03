@@ -33,19 +33,20 @@ export default class TSearch extends Component {
       <Button
         isDisabled={isSelectedExport && _.isEmpty(selected)}
         onClick={
-          getExportClick({
-            id: _.get(this.context, 'id'),
-            key: _.get(item, 'key'),
-            columns: _.get(item, 'columns'),
-            headers,
-            content,
-            isSelected: isSelectedExport,
-            selected,
-          })
+          _.includes(['csv', 'print'], item.key) ?
+            getExportClick({
+              id: _.get(this.context, 'id'),
+              key: _.get(item, 'key'),
+              columns: _.get(item, 'columns'),
+              headers,
+              content,
+              isSelected: isSelectedExport,
+              selected,
+            }) : () => item.onClick()
         }
       >
         <span>
-          {getExportTitle(item)}
+          {_.includes(['csv', 'print'], item.key) ? getExportTitle(item) : item.title}
         </span>
       </Button>
     );
