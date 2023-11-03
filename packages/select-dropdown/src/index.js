@@ -1,5 +1,5 @@
 // vendor modules
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // react modules
 import _ from 'lodash';
@@ -34,11 +34,13 @@ export default class SelectDropdown extends Component {
     messageIfEmpty: PropTypes.string,
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
+    isOverflowEnabled: PropTypes.func,
   };
   static defaultProps = {
     isReadOnly: true,
     isRequired: false,
     isDisabled: false,
+    isOverflowEnabled: false,
   }
   constructor(props) {
     super(props);
@@ -82,11 +84,11 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { children, isIcon, label, description, isDisabled, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty } = this.props;
+    const { children, isIcon, label, description, isDisabled, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty, isOverflowEnabled } = this.props;
     const { isOpen } = this.state;
 
     return (
-      <Fragment>
+      <div className="hawk-select-dropdown">
         {label && (
           <Label
             title={label}
@@ -94,7 +96,7 @@ export default class SelectDropdown extends Component {
             className="hawk-select-dropdown__label"
           />
         )}
-        <div ref={this.myRef} className="hawk-select-dropdown">
+        <div ref={this.myRef} className="hawk-select-dropdown__content">
           <Suggestions
             suggestions={this.state.suggestions}
             renderSuggestion={renderSuggestion}
@@ -147,7 +149,10 @@ export default class SelectDropdown extends Component {
         {isRequired && isError && (
           <span className="hawk-select-dropdown__error-message">{errorMessage}</span>
         )}
-      </Fragment>
+        {isOpen && isOverflowEnabled ? (
+          <div className="hawk-select-dropdown__overflow" />
+        ) : null}
+      </div>
     );
   }
 }

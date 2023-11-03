@@ -161,3 +161,47 @@ initialState = {
   )}
 />
 ```
+
+
+#### With overflow:
+[Demo](https://hawk.oncrypt.co/#!/SelectDropdown/1)
+```js static
+import SelectDropdown from '@hawk-ui/select-dropdown';
+```
+```js
+const suggestions = [
+  {title: 'Argentina', value: 'argentina'},
+  {title: 'Australia', value: 'australia'},
+  {title: 'Belgium', value: 'belgium'},
+  {title: 'Bhutan', value: 'bhutan' },
+  {title: 'Brazil', value: 'brazil' },
+  {title: 'Canada', value: 'canada' },
+  {title: 'China', value: 'china' },
+  {title: 'Colombia', value: 'colombia' },
+  {title: 'Egypt', value: 'egypt' },
+  {title: 'Finland', value: 'finland' },
+  {title: 'Georgia', value: 'georgia' },
+  {title: 'Germany', value: 'germany' },
+  {title: 'India', value: 'india' },
+  {title: 'Indonesia', value: 'indonesia' },
+];
+
+initialState = {
+  suggestionContent: suggestions,
+  selectedItem: '',
+  searchValue: '',
+};
+
+<SelectDropdown
+  suggestions={state.suggestionContent}
+  isIcon
+  placeholder="Select anyone"
+  searchValue={state.searchValue}
+  renderSuggestion={(suggestion) => suggestion.title}
+  onSuggestionSelect={(item, meta) => {
+    setState({ selectedItem: item.title, searchValue: item.title });
+  }}
+  label="Select Dropdown"
+  isOverflowEnabled
+/>
+```

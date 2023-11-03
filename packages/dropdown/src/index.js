@@ -20,6 +20,7 @@ export default class Dropdown extends Component {
       PropTypes.array,
       PropTypes.object,
     ]),
+    children: PropTypes.element,
     renderSuggestion: PropTypes.func,
     selectValue: PropTypes.func,
     isClickable: PropTypes.bool,
@@ -65,7 +66,7 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isHoverable } = this.props;
+    const { children, title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isHoverable } = this.props;
 
     return (
       <div
@@ -103,6 +104,9 @@ export default class Dropdown extends Component {
             id="hawk-dropdown__menu"
             x-placement="bottom-start"
           >
+            {children ? (
+              <div className="hawk-dropdown__children">{children}</div>
+            ) : null}
             {_.map(suggestions, (item, index) => (
               <Fragment>
                 {!item.isActive && !_.isUndefined(item.isActive) ? (

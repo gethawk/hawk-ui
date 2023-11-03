@@ -36,6 +36,33 @@ const suggestions = [
 ```
 
 
+#### Dropdown With Children
+[Demo](https://hawk.oncrypt.co/#!/Dropdown/1)
+```js static
+import Dropdown from '@hawk-ui/dropdown';
+```
+```js
+const suggestions = [
+  {title: 'Action', value: 'action', isActive: true},
+  {title: 'Another action', value: 'another action', isActive: false},
+  {title: 'Something else here', value: 'something else here', isActive: true},
+];
+
+<Dropdown
+  title="Dropdown"
+  isIcon
+  suggestions={suggestions}
+  renderSuggestion={(suggestion) => suggestion.title}
+  selectValue={(meta, item) => { console.log(meta, item); }}
+  children={(
+    <React.Fragment>
+      <span>Children Action</span>
+    </React.Fragment>
+  )}
+/>
+```
+
+
 #### Dropdown Link
 [Demo](https://hawk.oncrypt.co/#!/Dropdown/3)
 ```js static
