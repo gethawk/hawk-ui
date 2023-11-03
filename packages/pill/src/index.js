@@ -34,6 +34,12 @@ export default class Pill extends Component {
   }
   state = {};
 
+  onClick = (e) => {
+    if (_.isFunction(this.props.onClick)) {
+      this.props.onClick(e);
+    }
+  }
+
   render() {
     const { className, children, variant, icon, iconPlacement, stepIndex, isActive, onClick, isHover } = this.props;
 
@@ -47,6 +53,7 @@ export default class Pill extends Component {
           'hawk-pill__hoverable': isHover,
           [className]: !_.isEmpty(className),
         })}
+        onClick={(e) => { this.onClick(e); }}
       >
         {icon && (
           <i

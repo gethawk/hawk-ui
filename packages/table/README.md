@@ -75,7 +75,13 @@ initialState = {
     items: content,
   }}
 >
-  <Table.SEARCH />
+  <Table.SEARCH
+    placeholder="Search"
+    label={{
+      title: 'Search',
+      isVisible: true
+    }}
+  />
   <Table.CONTENT
     tableHeader={header}
     isLoading={false}
@@ -151,7 +157,11 @@ initialState = {
     items: contentValue,
   }}
 >
-  <Table.SEARCH />
+  <Table.SEARCH
+    label={{
+      isVisible: true
+    }}
+  />
   <Table.CONTENT
     tableHeader={header}
   />

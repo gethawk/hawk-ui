@@ -15,6 +15,8 @@ export default class TSearch extends Component {
   static propTypes = {
     selected: PropTypes.array,
     isSelectedExport: PropTypes.bool,
+    placeholder: PropTypes.string,
+    label: PropTypes.object,
   };
   static defaultProps = {
     isSelectedExport: false,
@@ -51,6 +53,7 @@ export default class TSearch extends Component {
 
   render() {
     const { exports, entries, noOfEntries } = this.context;
+    const { placeholder, label } = this.props;
 
     return (
       <div className="hawk-table__filter">
@@ -67,7 +70,6 @@ export default class TSearch extends Component {
                   onSuggestionSelect={(item) => {
                     onEntries(item);
                   }}
-                  label="Entries"
                 />
               )}
             </TableContext.Consumer>
@@ -81,8 +83,8 @@ export default class TSearch extends Component {
             {({ onSearch }) => (
               <Input
                 type="text"
-                isLabel
-                label="Search:"
+                placeholder={placeholder}
+                label={_.get(label, 'isVisible', false) ? label.title || 'Search:' : null}
                 onChange={(event) => {
                   onSearch(event);
                 }}
