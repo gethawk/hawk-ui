@@ -17,18 +17,16 @@ class Sidebar extends Component {
     panes: PropTypes.array,
     footer: PropTypes.object,
     activeKey: PropTypes.string,
+    onClick: PropTypes.func,
   };
   static defaultProps = {
     variant: 'expanded',
   }
 
-  state = {
-    activeOptions: '',
-  };
+  state = {};
 
   render() {
-    const { variant, header, panes, footer, activeKey } = this.props;
-    const { activeOptions } = this.state;
+    const { variant, header, panes, footer, activeKey, onClick } = this.props;
 
     return (
       <div
@@ -77,16 +75,12 @@ class Sidebar extends Component {
                         <a
                           href={item.link}
                           className="hawk-sidebar--section-menu-link"
+                          onClick={() => { onClick(item); }}
                         >
                           <div
                             className={getClassnames('hawk-sidebar--section-menu-item', {
                               active: activeKey === item.key,
                             })}
-                            onClick={() => {
-                              this.setState({
-                                activeOptions: item.key,
-                              });
-                            }}
                           >
                             {variant === 'expanded' ? (
                               <Fragment>
@@ -96,7 +90,7 @@ class Sidebar extends Component {
                             ) : <i className={item.icon} />}
                           </div>
                         </a>
-                        {variant === 'expanded' && item.extras && _.isEqual(item.key, activeOptions) ? (
+                        {variant === 'expanded' && item.extras && _.isEqual(item.key, activeKey) ? (
                           <div className="hawk-sidebar--section-submenu">
                             {_.map(item.extras, (subItem) => (
                               <div
@@ -104,7 +98,10 @@ class Sidebar extends Component {
                                   active: activeKey === subItem.key,
                                 })}
                               >
-                                <a href={subItem.link}>
+                                <a
+                                  href={subItem.link}
+                                  onClick={() => { onClick(subItem); }}
+                                >
                                   {subItem.title}
                                 </a>
                               </div>

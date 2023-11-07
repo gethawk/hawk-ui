@@ -36,8 +36,8 @@ const panes = [
         isEnable: true,
       },
       {
-        key: 'Contact Us',
-        title: 'contact-us',
+        key: 'contact-us',
+        title: 'Contact Us',
         link: '',
         isEnable: true,
       },
@@ -84,6 +84,10 @@ const footer = {
 import Sidebar from '@hawk-ui/sidebar';
 ```
 ```js
+initialState = {
+  activeKey: 'about-us',
+};
+
 const header = {
   title: 'Wallnit',
 };
@@ -112,8 +116,8 @@ const panes = [
         ],
       },
       {
-        key: 'Contact Us',
-        title: 'contact-us',
+        key: 'contact-us',
+        title: 'Contact Us',
         link: '/#src-21',
         isEnable: true,
         extras: [
@@ -161,7 +165,12 @@ const footer = {
   header={header}
   panes={panes}
   footer={footer}
-  activeKey="about-us-1"
+  activeKey={state.activeKey}
+  onClick={(event) => {
+    setState({
+      activeKey: event.key,
+    });
+  }}
 />
 ```
 
@@ -189,8 +198,8 @@ const panes = [
         isEnable: true,
       },
       {
-        key: 'Contact Us',
-        title: 'contact-us',
+        key: 'contact-us',
+        title: 'Contact Us',
         icon: 'far fa-id-badge',
         link: '',
         isEnable: true,
