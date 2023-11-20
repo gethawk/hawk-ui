@@ -24,12 +24,13 @@ export default class Divider extends Component {
   state = {};
 
   render() {
-    const { variant, children } = this.props;
+    const { variant, children, className } = this.props;
 
     return (
       <div
         className={getClassnames('hawk-divider', {
           [`hawk-divider--${variant}`]: variant,
+          [className]: _.isString(className),
         })}
       >
         {children}

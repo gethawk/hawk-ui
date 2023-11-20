@@ -25,6 +25,7 @@ export default class Toast extends Component {
     icon: PropTypes.string,
     onClick: PropTypes.func,
     onClose: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     hideCloseOption: false,
@@ -36,7 +37,7 @@ export default class Toast extends Component {
   state = {};
 
   render() {
-    const { position, type, icon, isIcon, isShow, isOverflow, children, hideCloseOption, onClick, onClose } = this.props;
+    const { position, type, icon, isIcon, isShow, isOverflow, children, hideCloseOption, onClick, onClose, className } = this.props;
 
     if (isShow) {
       return (
@@ -46,6 +47,7 @@ export default class Toast extends Component {
               'hawk-toast__visible': isShow,
               [`hawk-toast__${position}`]: _.isString(position),
               [`hawk-toast__${position}-animation`]: _.isString(position),
+              [className]: _.isString(className),
             })}
             onClick={onClick}
           >

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // react modules
+import getClassnames from 'classnames';
 import _ from 'lodash';
 import Suggestions from '@hawk-ui/suggestions';
 import Label from '@hawk-ui/label';
@@ -35,6 +36,7 @@ export default class SelectDropdown extends Component {
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
     isOverflowEnabled: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     isReadOnly: true,
@@ -84,11 +86,15 @@ export default class SelectDropdown extends Component {
   }
 
   render() {
-    const { children, isIcon, label, description, isDisabled, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty, isOverflowEnabled } = this.props;
+    const { children, isIcon, label, description, isDisabled, isRequired, isError, errorMessage, isReadOnly, placeholder, renderSuggestion, onSuggestionSelect, messageIfEmpty, isOverflowEnabled, className } = this.props;
     const { isOpen } = this.state;
 
     return (
-      <div className="hawk-select-dropdown">
+      <div
+        className={getClassnames('hawk-select-dropdown', {
+          [className]: _.isString(className),
+        })}
+      >
         {label && (
           <Label
             title={label}

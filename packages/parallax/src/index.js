@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // css modules
 import './index.scss';
@@ -12,15 +13,18 @@ export default class Parallax extends Component {
   static propTypes = {
     panes: PropTypes.array,
     style: PropTypes.object,
+    className: PropTypes.string,
   };
   state = {};
 
   render() {
-    const { panes, style } = this.props;
+    const { panes, style, className } = this.props;
 
     return (
       <div
-        className="hawk-parallax"
+        className={getClassnames('hawk-parallax', {
+          [className]: _.isString(className),
+        })}
         id="parallax-container"
         style={{ height: style.height }}
       >

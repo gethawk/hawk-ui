@@ -13,6 +13,7 @@ class Stepper extends Component {
   static propTypes = {
     panes: PropTypes.array,
     activeIndex: PropTypes.number,
+    className: PropTypes.string,
   };
   static defaultProps = {
     panes: [],
@@ -22,10 +23,14 @@ class Stepper extends Component {
   state = {};
 
   render() {
-    const { panes, activeIndex } = this.props;
+    const { panes, activeIndex, className } = this.props;
 
     return (
-      <ul className="hawk-stepper">
+      <ul
+        className={getClassnames('hawk-stepper', {
+          [className]: _.isString(className),
+        })}
+      >
         {_.map(panes, (item, index) => (
           <li
             key={index}

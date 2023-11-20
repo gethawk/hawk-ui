@@ -27,6 +27,7 @@ export default class FileUpload extends Component {
     isLoading: PropTypes.bool,
     fileNames: PropTypes.array,
     onUpload: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     variant: 'button',
@@ -51,10 +52,14 @@ export default class FileUpload extends Component {
   };
 
   render() {
-    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple, isLoading, fileNames } = this.props;
+    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple, isLoading, fileNames, className } = this.props;
 
     return (
-      <div className="hawk-file-upload">
+      <div
+        className={getClassnames('hawk-file-upload', {
+          [className]: _.isString(className),
+        })}
+      >
         {_.isEqual(variant, 'draggable') ? (
           <div className="hawk-file-upload__draggable">
             <div className="hawk-file-upload__draggable-content">

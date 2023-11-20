@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // css modules
 import './index.scss';
@@ -67,7 +68,11 @@ export default class ProgressBar extends Component {
     const { id, className, value, maxRange, isProgress, progressContent } = this.props;
 
     return (
-      <div className="hawk-progress-bar">
+      <div
+        className={getClassnames('hawk-progress-bar', {
+          [className]: _.isString(className),
+        })}
+      >
         <progress
           className={className}
           max={maxRange}

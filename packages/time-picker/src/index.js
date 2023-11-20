@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 import SelectDropdown from '@hawk-ui/select-dropdown';
 // css modules
@@ -69,7 +70,7 @@ export default class TimePicker extends Component {
   }
 
   render() {
-    const { onSelect } = this.props;
+    const { onSelect, className } = this.props;
     const { startDate, endTimeOffset } = this.state;
     const startSlots = this.getTimings({
       date: moment(startDate),
@@ -83,7 +84,11 @@ export default class TimePicker extends Component {
     });
 
     return (
-      <div className="hawk-time-picker">
+      <div
+        className={getClassnames('hawk-time-picker', {
+          [className]: _.isString(className),
+        })}
+      >
         <SelectDropdown
           suggestions={startSlots}
           isInput

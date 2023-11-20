@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // css modules
 import './index.scss';
@@ -12,6 +13,7 @@ export default class Rating extends Component {
   static propTypes = {
     active: PropTypes.number,
     onClick: PropTypes.func,
+    className: PropTypes.string,
   };
   state = {
     active: this.props.active || 0,
@@ -27,10 +29,14 @@ export default class Rating extends Component {
   };
 
   render() {
-    const { active } = this.state;
+    const { active, className } = this.state;
 
     return (
-      <div className="hawk-rating">
+      <div
+        className={getClassnames('hawk-rating', {
+          [className]: _.isString(className),
+        })}
+      >
         <div className="hawk-rating__group">
           <input
             type="radio"

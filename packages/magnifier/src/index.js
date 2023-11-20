@@ -2,6 +2,8 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
+import _ from 'lodash';
 // css modules
 import './index.scss';
 
@@ -15,6 +17,7 @@ class Magnifier extends Component {
       PropTypes.element,
       PropTypes.array,
     ]),
+    className: PropTypes.string,
   };
   state = {};
 
@@ -83,10 +86,14 @@ class Magnifier extends Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
 
     return (
-      <div className="hawk-magnifier">
+      <div
+        className={getClassnames('hawk-magnifier', {
+          [className]: _.isString(className),
+        })}
+      >
         {children}
         <div id="resultMagnify" className="hawk-magnifier__result" />
       </div>

@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 // react modules
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
@@ -30,6 +31,7 @@ export default class DatePicker extends Component {
     isDayHighlighted: PropTypes.func,
     isOutsideRange: PropTypes.func,
     renderCalendarInfo: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     format: 'DD MMM YYYY',
@@ -72,11 +74,16 @@ export default class DatePicker extends Component {
   }
 
   render() {
-    const { format, value, renderInput } = this.props;
+    const { format, value, renderInput, className } = this.props;
     const { startMoment } = value;
 
     return (
-      <div ref={this.myRef} className="hawk-date-picker">
+      <div
+        ref={this.myRef}
+        className={getClassnames('hawk-date-picker', {
+          [className]: _.isString(className),
+        })}
+      >
         <div
           className="hawk-date-picker__container"
           onClick={() => { this.setState({ isOpen: !this.state.isOpen }); }}

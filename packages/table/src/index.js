@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // React modules
 import TSearch from './modules/TSearch';
@@ -32,6 +33,7 @@ export default class Table extends Component {
     entries: PropTypes.object,
     onSearch: PropTypes.func,
     onShowEntries: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     id: 'table',
@@ -110,9 +112,15 @@ export default class Table extends Component {
   };
 
   render() {
+    const { className } = this.props;
+
     return (
       <TableContext.Provider value={this.state}>
-        <div className="hawk-table">
+        <div
+          className={getClassnames('hawk-table', {
+            [className]: _.isString(className),
+          })}
+        >
           {this.props.children}
         </div>
       </TableContext.Provider>

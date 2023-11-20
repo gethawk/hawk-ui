@@ -22,6 +22,7 @@ export default class Carousel extends Component {
     header: PropTypes.array,
     id: PropTypes.string,
     options: PropTypes.bool,
+    className: PropTypes.string,
   };
   static defaultProps = {
     id: 'carousel',
@@ -75,13 +76,14 @@ export default class Carousel extends Component {
   };
 
   render() {
-    const { slides, id, options, variant, header, layout } = this.props;
+    const { slides, id, options, variant, header, layout, className } = this.props;
     const { slideOptions } = this.state;
 
     return (
       <div
         className={getClassnames('hawk-carousel', {
           [`hawk-carousel__${layout}`]: _.isString(layout),
+          [className]: _.isString(className),
         })}
       >
         <div

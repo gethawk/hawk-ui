@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@hawk-ui/button@^4.1.5":
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.1.5.tgz#67bf4e69b9d8de33a40e31387b3d366ebc1ac727"
-  integrity sha512-YpHCVQtahyRCTgWo6VMY30ugnL/0/MNzobBqXzsemYlwUzmH2u+Q15Y2T87CPjiJZOgpEW/r7x/Nl0l32gaj1g==
+"@hawk-ui/button@^4.2.8":
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.2.8.tgz#ae9547c78662069ed28437c00e230383d2e31f66"
+  integrity sha512-DxRUyd1ibIEc70puFkxLOEOhg5Z8eGbx4xlCMe3UNeWoSlk0t0rN6+BFvc9ZEYH0E6nXiuTm4z+VNvMTUGiQVA==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
@@ -16,6 +16,11 @@ classnames@^2.2.6:
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
+classnames@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
+
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -25,6 +30,11 @@ lodash@^4.17.15:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"

@@ -24,6 +24,7 @@ export default class Dropdown extends Component {
     renderSuggestion: PropTypes.func,
     selectValue: PropTypes.func,
     isClickable: PropTypes.bool,
+    className: PropTypes.string,
   };
   static defaultProps = {
     renderSuggestion: () => ('render suggestion'),
@@ -66,12 +67,14 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { children, title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isHoverable } = this.props;
+    const { children, title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isHoverable, className } = this.props;
 
     return (
       <div
         ref={this.myRef}
-        className="hawk-dropdown"
+        className={getClassnames('hawk-dropdown', {
+          [className]: _.isString(className),
+        })}
       >
         <Button
           className="hawk-dropdown__button"

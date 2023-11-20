@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 // react modules
+import _ from 'lodash';
 import Tooltip from '@hawk-ui/tooltip';
 // css modules
 import './index.scss';
@@ -18,6 +19,7 @@ class Sidebar extends Component {
     footer: PropTypes.object,
     activeKey: PropTypes.string,
     onClick: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     variant: 'expanded',
@@ -26,12 +28,13 @@ class Sidebar extends Component {
   state = {};
 
   render() {
-    const { variant, header, panes, footer, activeKey, onClick } = this.props;
+    const { variant, header, panes, footer, activeKey, onClick, className } = this.props;
 
     return (
       <div
         className={getClassnames('hawk-sidebar', {
           [`hawk-sidebar--${variant}`]: variant,
+          [className]: _.isString(className),
         })}
       >
         <div

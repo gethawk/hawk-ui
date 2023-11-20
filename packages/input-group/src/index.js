@@ -32,6 +32,7 @@ export default class InputGroup extends Component {
     isRequired: PropTypes.bool,
     isError: PropTypes.bool,
     errorMessage: PropTypes.string,
+    className: PropTypes.string,
   };
   static defaultProps = {
     isAddonIcon: false,
@@ -44,7 +45,7 @@ export default class InputGroup extends Component {
   state = {};
 
   render() {
-    const { addon, isAddonIcon, addonSize, addonPlacement, label, description, type, value, placeholder, onChange, isDisabled, isRequired, isError, errorMessage } = this.props;
+    const { addon, isAddonIcon, addonSize, addonPlacement, label, description, type, value, placeholder, onChange, isDisabled, isRequired, isError, errorMessage, className } = this.props;
 
     return (
       <Fragment>
@@ -57,6 +58,7 @@ export default class InputGroup extends Component {
         )}
         <div
           className={getClassNames('hawk-input-group', {
+            [className]: _.isString(className),
             [`hawk-input-group__addon-size__${addonSize}`]: _.isString(addonSize),
             [`hawk-input-group__addon-placement__${addonPlacement}`]: _.isString(addonPlacement),
           })}

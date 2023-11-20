@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
-import getClassNames from 'classnames';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 import Button from '@hawk-ui/button';
 // css modules
@@ -20,6 +20,7 @@ export default class ButtonGroup extends Component {
     ]),
     value: PropTypes.object,
     onClick: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     variant: 'contained',
@@ -27,19 +28,20 @@ export default class ButtonGroup extends Component {
   state = {};
 
   render() {
-    const { panes, variant, value, onClick } = this.props;
+    const { panes, variant, value, onClick, className } = this.props;
 
     return (
       <div
-        className={getClassNames('hawk-button-group', {
+        className={getClassnames('hawk-button-group', {
           [`hawk-button-group__${variant}`]: _.isString(variant),
+          [className]: _.isString(className),
         })}
       >
         {_.map(panes, (item, index) => (
           <Button
             key={index}
             variant={variant}
-            className={getClassNames('hawk-button-group__button', {
+            className={getClassnames('hawk-button-group__button', {
               active: _.isEqual(value, index + 1),
             })}
             onClick={() => {

@@ -1,6 +1,8 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
+import _ from 'lodash';
 // css modules
 import './index.scss';
 
@@ -16,6 +18,7 @@ export default class RangeSlider extends Component {
     max: PropTypes.number,
     step: PropTypes.number,
     onChange: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     min: 0,
@@ -46,10 +49,14 @@ export default class RangeSlider extends Component {
   };
 
   render() {
-    const { value, min, max, step } = this.props;
+    const { value, min, max, step, className } = this.props;
 
     return (
-      <div className="hawk-range-slider">
+      <div
+        className={getClassnames('hawk-range-slider', {
+          [className]: _.isString(className),
+        })}
+      >
         <div
           className="hawk-range-slider__value"
           id={this.props.valueId}

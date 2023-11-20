@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // css modules
 import './index.scss';
@@ -12,15 +13,20 @@ import './index.scss';
 export default class Timeline extends Component {
   static propTypes = {
     panes: PropTypes.array,
+    className: PropTypes.string,
   };
 
   state = {};
 
   render() {
-    const { panes } = this.props;
+    const { panes, className } = this.props;
 
     return (
-      <div className="hawk-timeline">
+      <div
+        className={getClassnames('hawk-timeline', {
+          [className]: _.isString(className),
+        })}
+      >
         <ul>
           {_.map(panes, (item, index) => (
             <li key={index}>

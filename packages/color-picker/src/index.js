@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 // react modules
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 import Input from '@hawk-ui/input';
 import Picker from './component/picker';
@@ -19,6 +20,7 @@ export default class ColorPicker extends Component {
     title: PropTypes.string,
     onSave: PropTypes.func,
     defaultColor: PropTypes.string,
+    className: PropTypes.string,
   };
   static defaultProps = {
     showHexCode: true,
@@ -81,7 +83,7 @@ export default class ColorPicker extends Component {
   };
 
   render() {
-    const { showHexCode, isText, isIcon, title } = this.props;
+    const { showHexCode, isText, isIcon, title, className } = this.props;
     let code = this.state.defaultColor;
 
     if (!_.includes(this.state.defaultColor, '#')) {
@@ -89,7 +91,12 @@ export default class ColorPicker extends Component {
     }
 
     return (
-      <div ref={this.myRef} className="hawk-color-picker">
+      <div
+        ref={this.myRef}
+        className={getClassnames('hawk-color-picker', {
+          [className]: _.isString(className),
+        })}
+      >
         <div
           className="hawk-color-picker__input-picker"
           onClick={() => {

@@ -42,6 +42,7 @@ export default class RichTextEditor extends Component {
     description: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     toolbarClass: 'toolbar',
@@ -105,11 +106,15 @@ export default class RichTextEditor extends Component {
   }))()
 
   render() {
-    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, label, description, value, onChange, isBottomOptions, isRequired } = this.props;
+    const { editableId, placeholder, toolbarClass, editableClass, toolbarItems, htmlAttributes, label, description, value, onChange, isBottomOptions, isRequired, className } = this.props;
     const FormComponent = _.get(Components, _.get(this.state.formMeta, 'type'));
 
     return (
-      <div className="hawk-rich-text-editor">
+      <div
+        className={getClassnames('hawk-rich-text-editor', {
+          [className]: _.isString(className),
+        })}
+      >
         {label && (
           <Label
             title={label}

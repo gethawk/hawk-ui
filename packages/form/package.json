@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/form",
-  "version": "4.2.8",
+  "version": "4.2.9",
   "description": "hawk-ui: Basic Form Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -35,8 +35,8 @@
     "@hawk-ui/select-dropdown": "^4.2.8",
     "@hawk-ui/tags-input": "^4.2.8",
     "axios": "^0.19.2",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.15",
+    "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
     "prop-types": "^15.7.2"
   },
   "publishConfig": {

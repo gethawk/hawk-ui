@@ -2,16 +2,16 @@
 # yarn lockfile v1
 
 
-"@hawk-ui/tooltip@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.2.0.tgz#59129f2c77ae3dbae442144cf3c5960a71b5f9c7"
-  integrity sha512-bQE9l2SGFvkgJ9/BwDly316eMKeJ6hG7IsxT/dPswMs5q1sSWIAysxiH/TPPbua3gPJ6WpWoGUz4cQDpx/TVVg==
+"@hawk-ui/tooltip@^4.2.8":
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.2.8.tgz#68787ebd4bce22f5f82954db2db9f67a20a4c38a"
+  integrity sha512-ywUx6v88+5sctPM6g+qcZuY4aFPCWYzOa8IrlwpmfpjQ7EzVlw/FvKQJmNwTe9GTbSpvFT+3LKIUHlKeLjeVhg==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
-classnames@^2.2.6:
+classnames@^2.2.6, classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -21,7 +21,7 @@ classnames@^2.2.6:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-lodash@^4.17.15:
+lodash@^4.17.15, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==

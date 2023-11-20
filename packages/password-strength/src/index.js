@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // css modules
 import './index.scss';
@@ -74,9 +75,12 @@ export default class PasswordStrength extends Component {
     const { className } = this.props;
 
     return (
-      <div className="hawk-password-strength">
+      <div
+        className={getClassnames('hawk-password-strength', {
+          [className]: _.isString(className),
+        })}
+      >
         <progress
-          className={className}
           max="100"
           value="0"
           id="strength"

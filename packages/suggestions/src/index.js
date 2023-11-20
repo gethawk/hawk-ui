@@ -143,6 +143,7 @@ export default class Suggestions extends Component {
     onSuggestionSelect: PropTypes.func,
     searchContent: PropTypes.array,
     onSearch: PropTypes.func,
+    className: PropTypes.string,
   };
   static INPUT = SuggestionsInput;
   static CONTAINER = SuggestionsWrap;
@@ -228,9 +229,15 @@ export default class Suggestions extends Component {
   };
 
   render() {
+    const { className } = this.props;
+
     return (
       <SuggestionContext.Provider value={this.state}>
-        <div className="hawk-suggestions">
+        <div
+          className={getClassnames('hawk-suggestions', {
+            [className]: _.isString(className),
+          })}
+        >
           {this.props.children}
         </div>
       </SuggestionContext.Provider>

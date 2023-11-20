@@ -18,16 +18,18 @@ class CheckboxContent extends Component {
     isRequired: PropTypes.bool,
     selectedItem: PropTypes.array,
     htmlAttributes: PropTypes.object,
+    className: PropTypes.string,
   };
   state = {};
 
   render() {
-    const { index, value, label, checked, onChange, isError, isRequired, selectedItem, htmlAttributes } = this.props;
+    const { index, value, label, checked, onChange, isError, isRequired, selectedItem, htmlAttributes, className } = this.props;
 
     return (
       <label
         className={getClassnames('hawk-checkbox', {
           disabled: _.includes(_.keys(htmlAttributes), 'disabled'),
+          [className]: _.isString(className),
         })}
         key={index}
       >

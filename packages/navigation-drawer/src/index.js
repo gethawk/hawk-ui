@@ -25,6 +25,7 @@ export default class NavigationDrawer extends Component {
     type: PropTypes.oneOf(['light', 'dark']),
     position: PropTypes.oneOf(['left', 'right']),
     isOpen: PropTypes.bool,
+    className: PropTypes.string,
   };
   static defaultProps = {
     type: 'dark',
@@ -73,10 +74,14 @@ export default class NavigationDrawer extends Component {
   }
 
   render() {
-    const { title, children, type, hideCloseIcon, position, isOpen } = this.props;
+    const { title, children, type, hideCloseIcon, position, isOpen, className } = this.props;
 
     return (
-      <div className="hawk-navigation-drawer">
+      <div
+        className={getClassnames('hawk-navigation-drawer', {
+          [className]: _.isString(className),
+        })}
+      >
         <div
           className={getClassnames('hawk-navigation-drawer__content', `hawk-navigation-drawer__content-${position}`, {
             [`hawk-navigation-drawer__content-${position}-closed`]: !isOpen,

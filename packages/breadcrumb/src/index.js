@@ -1,6 +1,7 @@
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import getClassnames from 'classnames';
 import _ from 'lodash';
 // css modules
 import './index.scss';
@@ -14,14 +15,19 @@ class Breadcrumb extends Component {
       PropTypes.array,
       PropTypes.object,
     ]),
+    className: PropTypes.string,
   };
   state = {};
 
   render() {
-    const { panes } = this.props;
+    const { panes, className } = this.props;
 
     return (
-      <ol className="hawk-breadcrumb">
+      <ol
+        className={getClassnames('hawk-breadcrumb', {
+          [className]: _.isString(className),
+        })}
+      >
         {_.map(panes, (item, index) => (
           <li
             key={index}

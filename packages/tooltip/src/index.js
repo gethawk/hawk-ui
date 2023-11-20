@@ -23,14 +23,19 @@ export default class Tooltip extends Component {
       PropTypes.array,
     ]),
     isDisabled: PropTypes.bool,
+    className: PropTypes.string,
   };
   state = {};
 
   render() {
-    const { children, position, content, isDisabled } = this.props;
+    const { children, position, content, isDisabled, className } = this.props;
 
     return (
-      <div className="hawk-tooltip">
+      <div
+        className={getClassnames('hawk-tooltip', {
+          [className]: _.isString(className),
+        })}
+      >
         {children}
         <div
           className={getClassnames('hawk-tooltip__content', {

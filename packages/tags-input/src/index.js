@@ -36,6 +36,7 @@ export default class TagsInput extends Component {
     onKeyDown: PropTypes.func,
     onAddTag: PropTypes.func,
     onRemoveTag: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     renderTag: () => ('render tag'),
@@ -79,7 +80,7 @@ export default class TagsInput extends Component {
   };
 
   render() {
-    const { label, description, isRequired, isError, errorMessage, placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags } = this.props;
+    const { label, description, isRequired, isError, errorMessage, placeholder, onChange, renderSuggestion, messageIfEmpty, onAddTag, tags, className } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -91,7 +92,12 @@ export default class TagsInput extends Component {
             className="hawk-tags-input__label"
           />
         )}
-        <div ref={this.myRef} className="hawk-tags-input">
+        <div
+          ref={this.myRef}
+          className={getClassNames('hawk-tags-input', {
+            [className]: _.isString(className),
+          })}
+        >
           <Suggestions
             suggestions={this.state.suggestions}
             renderSuggestion={renderSuggestion}

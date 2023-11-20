@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/color-picker",
-  "version": "4.2.8",
+  "version": "4.2.9",
   "description": "hawk-ui: Basic Color Picker Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -23,9 +23,10 @@
     "@hawk-ui/input": "^4.2.8",
     "@hawk-ui/input-group": "^4.2.8",
     "clamp": "^1.0.1",
+    "classnames": "^2.3.2",
     "color": "^3.1.2",
     "color-string": "^1.5.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
     "react-themeable": "^1.1.0"
   },
