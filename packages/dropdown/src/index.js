@@ -25,11 +25,13 @@ export default class Dropdown extends Component {
     selectValue: PropTypes.func,
     isClickable: PropTypes.bool,
     className: PropTypes.string,
+    shouldDropdownShow: PropTypes.bool,
   };
   static defaultProps = {
     renderSuggestion: () => ('render suggestion'),
     isClickable: true,
     isHoverable: false,
+    shouldDropdownShow: false,
   }
   constructor(props) {
     super(props);
@@ -45,6 +47,14 @@ export default class Dropdown extends Component {
     document.addEventListener('click', this.onClick);
     if (isHoverable) {
       document.addEventListener('mouseout', this.onClick);
+    }
+  }
+
+  componentWillReceiveProps(nextProps, prevProps) {
+    if (!_.isEqual(nextProps.shouldDropdownShow, prevProps.shouldDropdownShow)) {
+      this.setState({
+        shouldDropdownShow: nextProps.shouldDropdownShow,
+      });
     }
   }
 

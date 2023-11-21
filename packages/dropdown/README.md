@@ -42,6 +42,9 @@ const suggestions = [
 import Dropdown from '@hawk-ui/dropdown';
 ```
 ```js
+initialState = {
+  shouldDropdownShow: false,
+};
 const suggestions = [
   {title: 'Action', value: 'action', isActive: true},
   {title: 'Another action', value: 'another action', isActive: false},
@@ -52,11 +55,20 @@ const suggestions = [
   title="Dropdown"
   isIcon
   suggestions={suggestions}
+  shouldDropdownShow={state.shouldDropdownShow}
   renderSuggestion={(suggestion) => suggestion.title}
   selectValue={(meta, item) => { console.log(meta, item); }}
   children={(
     <React.Fragment>
-      <span>Children Action</span>
+      <span
+        onClick={() => {
+          setState({
+            shouldDropdownShow: false,
+          });
+        }}
+      >
+        Children Action
+      </span>
     </React.Fragment>
   )}
 />
