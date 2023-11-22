@@ -13,6 +13,7 @@ module.exports = {
         '../packages/label/src/index.js',
         '../packages/input/src/index.js',
         '../packages/input-group/src/index.js',
+        '../packages/increment-decrement/src/index.js',
         '../packages/rich-text-editor/src/index.js',
         '../packages/file-upload/src/index.js',
         '../packages/range-slider/src/index.js',

@@ -1,0 +1,65 @@
+@import '../../../assets/scss/utils/variables';
+
+.hawk-increment-decrement {
+  display: flex;
+  .hawk-button {
+    padding: 4px 6px;
+    span {
+      padding: 2px;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      display: flex;
+      align-items: self-end;
+      font-size: 18px;
+      justify-content: center;
+    }
+    &:hover {
+      background-color: unset;
+      span {
+        background: $blue-2;
+      }
+    }
+    &__outlined {
+      &-disabled {
+        opacity: unset;
+        span {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+  .hawk-input {
+    &__disabled {
+      cursor: pointer;
+      background-color: $white;
+      color: $blue-1;
+    }
+  }
+  &--dec-btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+  &--inc-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  &--input {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: unset;
+    width: 18px;
+    text-align: center;
+    border-color: $blue-1;
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+}
