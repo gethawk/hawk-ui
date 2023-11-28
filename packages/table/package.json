@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/table",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "description": "hawk-ui: Basic Table Component",
   "main": "dist/index.min.js",
   "scripts": {
