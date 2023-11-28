@@ -1,16 +1,16 @@
 {
-  "name": "@hawk-ui/button-group",
+  "name": "@hawk-ui/bottom-drawer",
   "version": "4.3.2",
-  "description": "hawk-ui: Button Group Component",
+  "description": "hawk-ui: Basic Bottom Drawer Component",
   "main": "dist/index.min.js",
   "scripts": {
-    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=button-group"
+    "build": "webpack --config ../../webpack.lib.config.js --env.pkg=bottom-drawer"
   },
   "keywords": [
-    "button group",
+    "bottom drawer",
     "react",
     "react component",
-    "react button group",
+    "react bottom drawer",
     "hawk",
     "hawk-ui",
     "ui"
@@ -18,7 +18,6 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^4.3.1",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2"
