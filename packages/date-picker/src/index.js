@@ -88,7 +88,7 @@ export default class DatePicker extends Component {
           className="hawk-date-picker__container"
           onClick={() => { this.setState({ isOpen: !this.state.isOpen }); }}
         >
-          <i className="fa fa-sort-down hawk-date-picker__input-icon" />
+          <i className="far fa-calendar hawk-date-picker__input-icon" />
           <Input
             className="hawk-date-picker__input"
             value={renderInput ? moment(renderInput()).format(format) : moment(startMoment).format(format)}
