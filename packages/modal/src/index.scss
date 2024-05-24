@@ -1,14 +1,18 @@
 @import '../../../assets/scss/utils/variables';
 
 .hawk-modal {
+  display: flex;
+  align-items: center;
   width: 100%;
+  height: 100vh;
   position: fixed;
   z-index: 10;
-  left: 0;
-  top: 60px;
-  bottom: 60px;
+  top: 0px;
+  left: 0px;
+  transition: all 0.1s ease 0s;
   overflow: auto;
-  transition: all 0.5s;
+  visibility: unset;
+  opacity: unset;
   &__closed {
     overflow: hidden;
     visibility: hidden;
@@ -23,6 +27,8 @@
     top: 0;
     overflow: auto;
     z-index: -1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     &-type {
       &-light {
         background: rgba(255,255,255,.9);

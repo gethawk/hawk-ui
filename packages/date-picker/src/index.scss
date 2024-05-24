@@ -8,11 +8,12 @@
     &-icon {
       position: absolute;
       right: 16px;
-      top: 9px;
+      top: 12px;
       opacity: .8;
       margin: -3px;
       -webkit-transition: opacity .1s ease;
       transition: opacity .1s ease;
+      z-index: 1;
     }
   }
   &__menu {
