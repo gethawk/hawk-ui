@@ -76,10 +76,16 @@ initialState = {
 };
 
 <FileUpload
-  title="Drag and Drop Image Here"
-  description="Supported file types: (*.png, *.jpg, *.jpeg). View format instructions."
+  content={(
+    <>
+      <div style={{ fontSize: '16px', fontWeight: '500', color: '#425a70' }}>Drag and Drop Image Here</div>
+      <div style={{ fontSize: '12px', color: '#66788a', marginTop: '6px' }}>Supported file types: (*.png, *.jpg, *.jpeg). View format instructions.</div>
+    </>
+  )}
+  title=""
+  description=""
   variant="draggable"
-  isLoading
+  isLoading={false}
   onUpload={(files) => {
     console.log('query files', files);
   }}

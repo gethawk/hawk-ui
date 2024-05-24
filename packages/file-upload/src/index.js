@@ -20,7 +20,7 @@ export default class FileUpload extends Component {
     description: PropTypes.string,
     placeholder: PropTypes.string,
     accept: PropTypes.string,
-    title: PropTypes.string,
+    content: PropTypes.element,
     btnTitle: PropTypes.string,
     btnIcon: PropTypes.string,
     isMultiple: PropTypes.bool,
@@ -52,7 +52,7 @@ export default class FileUpload extends Component {
   };
 
   render() {
-    const { variant, label, description, placeholder, title, btnTitle, btnIcon, accept, isMultiple, isLoading, fileNames, className } = this.props;
+    const { variant, label, content, description, placeholder, btnTitle, btnIcon, accept, isMultiple, isLoading, fileNames, className } = this.props;
 
     return (
       <div
@@ -69,12 +69,7 @@ export default class FileUpload extends Component {
                 />
               ) : (
                 <Fragment>
-                  {title && (
-                    <div className="hawk-file-upload__draggable-title">{title}</div>
-                  )}
-                  {description && (
-                    <div className="hawk-file-upload__draggable-description">{description}</div>
-                  )}
+                  {content && content}
                 </Fragment>
               )}
             </div>
