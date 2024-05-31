@@ -68,7 +68,7 @@ initialState = {
       },
       {
         key: 'button',
-        title: 'Sort',
+        title: 'Custom',
         onClick: () => console.log('query click'),
       },
       {

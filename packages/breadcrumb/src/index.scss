@@ -3,23 +3,39 @@
 .hawk-breadcrumb {
   display: flex;
   flex-wrap: wrap;
+
   &__item {
+    display: flex;
+    align-items: center;
     font-size: 14px;
     color: $gray-7;
     text-transform: capitalize;
-    a {
-      color: $blue-1;
-      text-decoration: unset;
-    }
+
+    /* Remove the "/" content */
     &::before {
-      content: "/";
-      color: $gray-7;
-      padding: 0 7px;
+      content: unset; // Remove the slash content
     }
+
+    /* Add Font Awesome icon */
+    &::after {
+      content: "\f054";
+      font-family: 'Font Awesome 5 Free';
+      font-size: 10px;
+      font-weight: 900;
+      padding: 0 7px;
+      color: $gray-7;
+    }
+
+    /* Styling for the first child */
     &:first-child {
       &::before {
         content: unset;
       }
+    }
+
+    a {
+      color: $blue-1;
+      text-decoration: unset;
     }
   }
 }
