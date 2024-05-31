@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/suggestions",
-  "version": "4.3.3",
+  "version": "4.3.4",
   "description": "hawk-ui: Basic Suggestions Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/input": "^4.3.3",
+    "@hawk-ui/input": "^4.3.4",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2"
