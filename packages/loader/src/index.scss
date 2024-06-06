@@ -7,7 +7,7 @@
  */
 
 .hawk-loader {
-  &__jelly {
+  &--jelly {
     width: 35px;
     height: 50px;
     &-container {
@@ -63,7 +63,7 @@
  */
 
  .hawk-loader {
-   &__spinner {
+   &--spinner {
     width: 70px;
     & > div {
       width: 14px;
@@ -75,11 +75,11 @@
       -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
       animation: sk-bouncedelay 1.4s infinite ease-in-out both;
     }
-    .hawk-loader__spinner-bounce1 {
+    .hawk-loader--spinner-bounce1 {
       -webkit-animation-delay: -0.32s;
       animation-delay: -0.32s;
     }
-    .hawk-loader__spinner-bounce2 {
+    .hawk-loader--spinner-bounce2 {
       -webkit-animation-delay: -0.16s;
       animation-delay: -0.16s;
     }
@@ -99,4 +99,49 @@
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
+}
+
+/**
+ * ==============================================
+ * Hawk Loader Wheel
+ * ==============================================
+ */
+
+ .hawk-loader--wheel {
+  border-style: solid;
+  border-color: $gray-14;
+  border-radius: 50%;
+  border-top-style: solid;
+  border-top-color: $blue-1;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: auto;
+  &-small {
+    border-width: 3px;
+    border-top-width: 3px;
+    width: 16px;
+    height: 16px;
+  }
+  &-medium {
+    border-width: 5px;
+    border-top-width: 5px;
+    width: 30px;
+    height: 30px;
+  }
+  &-large {
+    border-width: 8px;
+    border-top-width: 8px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

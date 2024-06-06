@@ -10,59 +10,68 @@ import './index.scss';
  */
 export default class Loader extends Component {
   static propTypes = {
-    type: PropTypes.string,
+    variant: PropTypes.oneOf(['spinner', 'jelly', 'wheel']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     className: PropTypes.string,
   };
   static defaultProps = {
-    type: 'spinner',
+    variant: 'spinner',
+    size: 'large',
   }
   state = {};
 
   render() {
-    const { type, className } = this.props;
+    const { variant, size, className } = this.props;
 
     return (
       <div
         className={getClassnames({
-          [`hawk-loader__${type}`]: _.isString(type),
+          [`hawk-loader--${variant}`]: _.isString(variant),
           [className]: _.isString(className),
         })}
       >
-        {type === 'spinner' ? (
+        {variant === 'spinner' ? (
           <Fragment>
             <div
               className={getClassnames({
-                [`hawk-loader__${type}-bounce1`]: _.isString(type),
+                [`hawk-loader--${variant}-bounce1`]: _.isString(variant),
               })}
             />
             <div
               className={getClassnames({
-                [`hawk-loader__${type}-bounce2`]: _.isString(type),
+                [`hawk-loader--${variant}-bounce2`]: _.isString(variant),
               })}
             />
             <div
               className={getClassnames({
-                [`hawk-loader__${type}-bounce3`]: _.isString(type),
+                [`hawk-loader--${variant}-bounce3`]: _.isString(variant),
               })}
             />
           </Fragment>
-        ) : (
+        ) : variant === 'jelly' ? (
           <div
             className={getClassnames({
-              [`hawk-loader__${type}-container`]: _.isString(type),
+              [`hawk-loader--${variant}-container`]: _.isString(variant),
             })}
           >
             <div
               className={getClassnames({
-                [`hawk-loader__${type}-shadow`]: _.isString(type),
+                [`hawk-loader--${variant}-shadow`]: _.isString(variant),
               })}
             />
             <div
               className={getClassnames({
-                [`hawk-loader__${type}-box`]: _.isString(type),
+                [`hawk-loader--${variant}-box`]: _.isString(variant),
               })}
             />
           </div>
+        ) : (
+          <div
+            className={getClassnames({
+              [`hawk-loader--${variant}`]: _.isString(variant),
+              [`hawk-loader--${variant}-${size}`]: _.isString(size),
+            })}
+          />
         )}
       </div>
     );

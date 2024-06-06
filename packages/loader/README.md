@@ -21,7 +21,7 @@ import Loader from '@hawk-ui/loader';
 ```
 ```js
 <Loader
-  type="jelly"
+  variant="jelly"
 />
 ```
 
@@ -33,4 +33,16 @@ import Loader from '@hawk-ui/loader';
 ```
 ```js
 <Loader />
+```
+
+
+#### Wheel Loader
+[Demo](https://hawk.oncrypt.co/#!/Loader/3)
+```js static
+import Loader from '@hawk-ui/loader';
+```
+```js
+<Loader
+  variant="wheel"
+/>
 ```
