@@ -68,8 +68,8 @@ export default class Loader extends Component {
         ) : (
           <div
             className={getClassnames({
-              [`hawk-loader--${variant}`]: _.isString(variant),
-              [`hawk-loader--${variant}-${size}`]: _.isString(size),
+              [`hawk-loader--${variant}-circle`]: _.isString(variant),
+              [`hawk-loader--${variant}-circle-${size}`]: _.isString(size),
             })}
           />
         )}
