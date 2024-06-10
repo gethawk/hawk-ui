@@ -27,6 +27,7 @@ initialState = {
 <div>
   <Modal
     isOpen={state.isOpen}
+    bgScroll={false}
     hideCloseIcon
     type="dark"
     title="Modal Title"

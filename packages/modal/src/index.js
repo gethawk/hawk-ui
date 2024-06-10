@@ -25,9 +25,11 @@ export default class Modal extends Component {
     className: PropTypes.string,
     type: PropTypes.oneOf(['light', 'dark']),
     isOpen: PropTypes.bool,
+    bgScroll: PropTypes.bool,
   };
   static defaultProps = {
     type: 'dark',
+    bgScroll: true,
   };
 
   componentDidMount() {
@@ -36,21 +38,27 @@ export default class Modal extends Component {
   }
 
   componentWillReceiveProps(nextProps, preProps) {
-    if (!_.isEqual(nextProps.isOpen, preProps.isOpen) && nextProps.isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
+    if (this.props.bgScroll) {
+      if (!_.isEqual(nextProps.isOpen, preProps.isOpen) && nextProps.isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
     }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.onKeyDown, false);
-    document.removeEventListener('click', this.onClick, false);
+    if (this.props.bgScroll) {
+      document.removeEventListener('keydown', this.onKeyDown, false);
+      document.removeEventListener('click', this.onClick, false);
+    }
   }
 
   onKeyDown = (event) => {
     if (event.keyCode === keyCodes.ESCAPE) {
-      document.body.style.overflow = 'auto';
+      if (this.props.bgScroll) {
+        document.body.style.overflow = 'auto';
+      }
       this.props.onKeyDown(event);
     }
   }
@@ -59,14 +67,18 @@ export default class Modal extends Component {
     const element = document.getElementById('hawk-modal__overflow');
 
     if (element === event.target) {
-      document.body.style.overflow = 'auto';
+      if (this.props.bgScroll) {
+        document.body.style.overflow = 'auto';
+      }
       this.props.onKeyDown(event);
     }
   }
 
   onClose = () => {
     if (_.isFunction(this.props.onClose)) {
-      document.body.style.overflow = 'auto';
+      if (this.props.bgScroll) {
+        document.body.style.overflow = 'auto';
+      }
       this.props.onClose();
     }
   }
