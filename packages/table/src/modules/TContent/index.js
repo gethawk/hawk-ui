@@ -21,6 +21,7 @@ export default class TContent extends Component {
     selected: PropTypes.array,
     onSelect: PropTypes.func,
     sortBy: PropTypes.array,
+    onSort: PropTypes.func,
     filterBy: PropTypes.array,
     renderLoading: PropTypes.element,
     renderDataNotFound: PropTypes.func,
@@ -75,9 +76,10 @@ export default class TContent extends Component {
   };
 
   render() {
-    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, renderLoading, sortBy, filterBy, renderDataNotFound, collapseIndex } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, renderLoading, sortBy, onSort: propsOnSort, filterBy, renderDataNotFound, collapseIndex } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
+    const onSort = propsOnSort || this.context.onSort;
 
     return (
       <table id={this.context.id}>
@@ -90,6 +92,7 @@ export default class TContent extends Component {
             isSorting={isSorting}
             isFilter={isFilter}
             sortBy={sortBy}
+            onSort={onSort}
             filterBy={filterBy}
             onMultiSelect={this.onMultiSelect}
           />

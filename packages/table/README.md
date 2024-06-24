@@ -97,6 +97,9 @@ initialState = {
       title: 'Search',
       isVisible: true
     }}
+    onSearch={(e) => {
+      console.log('query e', e.target.value);
+    }}
   />
   <Table.CONTENT
     tableHeader={header}
@@ -395,6 +398,9 @@ initialState = {
     tableHeader={header}
     isSorting
     sortBy={['company', 'country']}
+    onSort={(e) => {
+      console.log('query e', e);
+    }}
   />
   <Table.PAGINATION
     pageRangeDisplayed={PAGE_RANGE_DISPLAYED}

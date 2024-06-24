@@ -56,7 +56,7 @@ export default class Table extends Component {
     };
 
     this.onSort = (event) => {
-      this.onSortColumn(event);
+      this.onSortColumn(event.sortedColumn);
     };
 
     this.onEntries = (event) => {

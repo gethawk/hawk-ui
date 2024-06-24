@@ -18,6 +18,7 @@ export default class TSearch extends Component {
     isSelectedExport: PropTypes.bool,
     placeholder: PropTypes.string,
     label: PropTypes.object,
+    onSearch: PropTypes.func,
   };
   static defaultProps = {
     isSelectedExport: false,
@@ -25,6 +26,7 @@ export default class TSearch extends Component {
   }
   static displayName = 'TSearch';
   static contextType = TableContext;
+
   state = {};
 
   exportBtn = (item, headers = {}, content = []) => {
@@ -67,7 +69,8 @@ export default class TSearch extends Component {
 
   render() {
     const { exports, entries, noOfEntries } = this.context;
-    const { placeholder, label } = this.props;
+    const { placeholder, label, onSearch: propsOnSearch } = this.props;
+    const onSearch = propsOnSearch || this.context.onSearch;
 
     return (
       <div className="hawk-table__filter">
@@ -95,18 +98,14 @@ export default class TSearch extends Component {
           )))}
         </div>
         <div className="hawk-table__filter-search">
-          <TableContext.Consumer>
-            {({ onSearch }) => (
-              <Input
-                type="text"
-                placeholder={placeholder}
-                label={_.get(label, 'isVisible', false) ? label.title || 'Search:' : null}
-                onChange={(event) => {
-                  onSearch(event);
-                }}
-              />
-            )}
-          </TableContext.Consumer>
+          <Input
+            type="text"
+            placeholder={placeholder}
+            label={_.get(label, 'isVisible', false) ? label.title || 'Search:' : null}
+            onChange={(event) => {
+              onSearch(event);
+            }}
+          />
         </div>
       </div>
     );

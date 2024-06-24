@@ -6,8 +6,6 @@ import getClassnames from 'classnames';
 import _ from 'lodash';
 import Checkbox from '@hawk-ui/checkbox';
 import Dropdown from '@hawk-ui/dropdown';
-// context modules
-import { TableContext } from '../../context/tableContext';
 // utils modules
 import { sortByColumn } from '../../utils/sorting';
 // constant modules
@@ -24,6 +22,7 @@ export default class Head extends Component {
     sortBy: PropTypes.array,
     filterBy: PropTypes.array,
     onMultiSelect: PropTypes.func,
+    onSort: PropTypes.func,
   };
   static defaultProps = {
     isSelectable: false,
@@ -38,34 +37,34 @@ export default class Head extends Component {
   };
 
   renderHeaderCell = (column) => {
-    const { tableContent } = this.props;
+    const { tableContent, onSort } = this.props;
     const isOrderingSetForColumn = this.state.sortingMeta.columnKey === column.key;
 
     return (
-      <TableContext.Consumer>
-        {({ onSort }) => (
-          <i
-            className={getClassnames('icon fas', {
-              'fa-sort-amount-up': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
-              'fa-sort-amount-down': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
-            })}
-            onClick={() => {
-              const order = !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING) ? sortOrders.ASCENDING : sortOrders.DESCENDING;
+      <i
+        className={getClassnames('icon fas', {
+          'fa-sort-amount-up': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
+          'fa-sort-amount-down': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
+        })}
+        onClick={() => {
+          const order = !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING) ? sortOrders.ASCENDING : sortOrders.DESCENDING;
 
-              this.setState({
-                sortingMeta: {
-                  columnKey: column.dataIndex,
-                  order,
-                },
-              }, () => {
-                const sortedColumn = sortByColumn(column.dataIndex, tableContent, this.state.sortingMeta.order);
+          this.setState({
+            sortingMeta: {
+              columnKey: column.dataIndex,
+              order,
+            },
+          }, () => {
+            const sortedColumn = sortByColumn(column.dataIndex, tableContent, this.state.sortingMeta.order);
 
-                onSort(sortedColumn);
-              });
-            }}
-          />
-        )}
-      </TableContext.Consumer>
+            onSort({
+              index: column.dataIndex,
+              order: this.state.sortingMeta.order,
+              sortedColumn,
+            });
+          });
+        }}
+      />
     );
   };
 
