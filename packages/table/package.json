@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/table",
-  "version": "4.3.7",
+  "version": "4.3.8",
   "description": "hawk-ui: Basic Table Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,13 +18,13 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^4.3.7",
-    "@hawk-ui/checkbox": "^4.3.7",
-    "@hawk-ui/dropdown": "^4.3.7",
-    "@hawk-ui/input": "^4.3.7",
-    "@hawk-ui/loader": "^4.3.7",
-    "@hawk-ui/pagination": "^4.3.7",
-    "@hawk-ui/select-dropdown": "^4.3.7",
+    "@hawk-ui/button": "^4.3.8",
+    "@hawk-ui/checkbox": "^4.3.8",
+    "@hawk-ui/dropdown": "^4.3.8",
+    "@hawk-ui/input": "^4.3.8",
+    "@hawk-ui/loader": "^4.3.8",
+    "@hawk-ui/pagination": "^4.3.8",
+    "@hawk-ui/select-dropdown": "^4.3.8",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2"
