@@ -66,7 +66,7 @@ export default class Body extends Component {
                       )}
                       {_.map(tableHeader, (item, subIndex) => (
                         !_.isEmpty(item) && (
-                          !_.isEmpty(item.dataIndex) ? (
+                          _.isFunction(item.render) ? <td key={subIndex}>{item.render(content, index)}</td> : (
                             <td key={subIndex}>
                               {_.isString(item.dataIndex) ? (
                                 <span>
@@ -92,7 +92,7 @@ export default class Body extends Component {
                                 </div>
                               )}
                             </td>
-                          ) : <td key={subIndex}>{item.render(content, index)}</td>
+                          )
                         )
                       ))}
                     </tr>

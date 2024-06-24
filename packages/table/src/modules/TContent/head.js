@@ -40,11 +40,14 @@ export default class Head extends Component {
     const { tableContent, onSort } = this.props;
     const isOrderingSetForColumn = this.state.sortingMeta.columnKey === column.key;
 
+    console.log('query isOrderingSetForColumn', isOrderingSetForColumn);
+
     return (
       <i
         className={getClassnames('icon fas', {
-          'fa-sort-amount-up': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
-          'fa-sort-amount-down': !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
+          'fa-sort': !isOrderingSetForColumn,
+          'fa-arrow-up': isOrderingSetForColumn && _.isEqual(this.state.sortingMeta.order, sortOrders.ASCENDING),
+          'fa-arrow-down': isOrderingSetForColumn && _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING),
         })}
         onClick={() => {
           const order = !isOrderingSetForColumn || _.isEqual(this.state.sortingMeta.order, sortOrders.DESCENDING) ? sortOrders.ASCENDING : sortOrders.DESCENDING;
