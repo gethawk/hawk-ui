@@ -6,6 +6,7 @@ import getClassnames from 'classnames';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import Input from '@hawk-ui/input';
+import Label from '@hawk-ui/label';
 import moment from 'moment';
 import _ from 'lodash';
 // css modules
@@ -16,6 +17,7 @@ import './index.scss';
  */
 export default class DatePicker extends Component {
   static propTypes = {
+    label: PropTypes.string,
     value: PropTypes.shape({
       startMoment: PropTypes.string,
       endMoment: PropTypes.object,
@@ -24,6 +26,7 @@ export default class DatePicker extends Component {
       value: PropTypes.bool,
       reason: PropTypes.string,
     }),
+    isRequired: PropTypes.bool,
     format: PropTypes.string,
     onChange: PropTypes.func,
     renderInput: PropTypes.func,
@@ -34,6 +37,7 @@ export default class DatePicker extends Component {
     className: PropTypes.string,
   };
   static defaultProps = {
+    isRequired: false,
     format: 'DD MMM YYYY',
     value: {
       startMoment: moment(),
@@ -74,7 +78,7 @@ export default class DatePicker extends Component {
   }
 
   render() {
-    const { format, value, renderInput, className } = this.props;
+    const { label, format, value, renderInput, className, isRequired } = this.props;
     const { startMoment } = value;
 
     return (
@@ -84,6 +88,13 @@ export default class DatePicker extends Component {
           [className]: _.isString(className),
         })}
       >
+        {label && (
+          <Label
+            title={label}
+            isRequired={isRequired}
+            className="hawk-date-picker__label"
+          />
+        )}
         <div
           className="hawk-date-picker__container"
           onClick={() => { this.setState({ isOpen: !this.state.isOpen }); }}

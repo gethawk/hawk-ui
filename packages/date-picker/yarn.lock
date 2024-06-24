@@ -2,33 +2,33 @@
 # yarn lockfile v1
 
 
-"@hawk-ui/input@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.2.8.tgz#c645af3e8762a76f267d2f5c1c8e2091dfa2cd8a"
-  integrity sha512-hH0I4w9UtVQWEHOgtbgjW9wx3fKaAU1bba8ParXBECpzic6R9w0oGT5KPcjXmvxt4iPsDCD0pQAS1t3cCICCWw==
+"@hawk-ui/input@^4.3.9":
+  version "4.3.9"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.3.9.tgz#dd1eafa37071d761c393d3bb9582d60ea0409f2c"
+  integrity sha512-4LoFiT5sKqcghuBwiOprBPDRr23DUWs9YlDF34L8zcNJMmSUDMxF4ofdamAGTVUs9toczAzBwaJINDt18had4Q==
   dependencies:
-    "@hawk-ui/label" "^4.2.8"
-    "@hawk-ui/tooltip" "^4.2.8"
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    "@hawk-ui/label" "^4.3.9"
+    "@hawk-ui/tooltip" "^4.3.9"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/label@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.2.8.tgz#3d8cf066311a8c2fcc3b4cc5fbf853ec83ddcc68"
-  integrity sha512-obVThpzxDFyGd0ucvdmcawfs47AU4vCWXdXsfzRwEE9Gxbkvqv4EF5HHBZHbjpDdmNfW4zJFth07JdFPtuF3pw==
+"@hawk-ui/label@^4.3.9":
+  version "4.3.9"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.3.9.tgz#ac0b9991ee139a708d463d34c8d8340ace4d36d2"
+  integrity sha512-hBImmK86sIuponbvKGxTyka927sxeSknLr+3+YxXzISgJdI1LIo0SM8u6XErerRgQgSzI0qIpKofOReAfNMWuw==
   dependencies:
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/tooltip@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.2.8.tgz#68787ebd4bce22f5f82954db2db9f67a20a4c38a"
-  integrity sha512-ywUx6v88+5sctPM6g+qcZuY4aFPCWYzOa8IrlwpmfpjQ7EzVlw/FvKQJmNwTe9GTbSpvFT+3LKIUHlKeLjeVhg==
+"@hawk-ui/tooltip@^4.3.9":
+  version "4.3.9"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.3.9.tgz#4dd7aa724b4f145fdcfb44ca7e17238e49fabf07"
+  integrity sha512-2fz7hIv4QqHVXgD3fzB88w03lM6bisN6LwWTvgjV7XTggB8hnDyMREdwuF8I3MJNwS26yiHZg+6x2PbCk89Nsw==
   dependencies:
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
 airbnb-prop-types@^2.10.0, airbnb-prop-types@^2.14.0, airbnb-prop-types@^2.15.0:
@@ -75,11 +75,6 @@ call-bind@^1.0.0, call-bind@^1.0.2:
   dependencies:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.2"
-
-classnames@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
-  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 classnames@^2.3.2:
   version "2.3.2"
@@ -265,7 +260,7 @@ is-touch-device@^1.0.1:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-lodash@^4.1.1, lodash@^4.17.15:
+lodash@^4.1.1:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==

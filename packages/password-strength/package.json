@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/password-strength",
-  "version": "4.3.9",
+  "version": "4.4.0",
   "description": "hawk-ui: Basic Password Strength Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/input": "^4.3.9",
+    "@hawk-ui/input": "^4.4.0",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2"
