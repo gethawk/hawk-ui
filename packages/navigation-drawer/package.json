@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/navigation-drawer",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "description": "hawk-ui: Basic Navigation Drawer Component",
   "main": "dist/index.min.js",
   "scripts": {

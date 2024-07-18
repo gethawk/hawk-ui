@@ -43,6 +43,7 @@ export default class DatePicker extends Component {
       startMoment: moment(),
       endMoment: moment(),
     },
+    isOutsideRange: (day) => moment().isAfter(day, 'day'),
   };
   constructor(props) {
     super(props);
@@ -97,12 +98,18 @@ export default class DatePicker extends Component {
         )}
         <div
           className="hawk-date-picker__container"
-          onClick={() => { this.setState({ isOpen: !this.state.isOpen }); }}
+          onClick={() => {
+            this.setState({ isOpen: !this.state.isOpen });
+          }}
         >
           <i className="far fa-calendar hawk-date-picker__input-icon" />
           <Input
             className="hawk-date-picker__input"
-            value={renderInput ? moment(renderInput()).format(format) : moment(startMoment).format(format)}
+            value={
+              renderInput
+                ? moment(renderInput()).format(format)
+                : moment(startMoment).format(format)
+            }
             readOnly
           />
         </div>
@@ -110,7 +117,9 @@ export default class DatePicker extends Component {
           <div className="hawk-date-picker__menu">
             <SingleDatePicker
               onDateChange={this.onDateChange}
-              onFocusChange={() => { this.setState({ focused: true }); }}
+              onFocusChange={() => {
+                this.setState({ focused: true });
+              }}
               focused={this.state.isOpen}
               hideKeyboardShortcutsPanel
               date={startMoment}
@@ -123,6 +132,7 @@ export default class DatePicker extends Component {
               renderCalendarInfo={() => (
                 _.isFunction(this.props.renderCalendarInfo) ? this.props.renderCalendarInfo() : false
               )}
+              isOutsideRange={this.props.isOutsideRange}
             />
           </div>
         ) : null}
