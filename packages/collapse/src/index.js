@@ -1,10 +1,7 @@
-// vendor modules
 import React, { Component } from 'react';
-// react modules
 import PropTypes from 'prop-types';
 import getClassnames from 'classnames';
 import _ from 'lodash';
-// css modules
 import './index.scss';
 
 /**
@@ -12,48 +9,62 @@ import './index.scss';
  */
 export default class Collapse extends Component {
   static propTypes = {
-    headers: PropTypes.array,
-    panes: PropTypes.array,
+    headers: PropTypes.array.isRequired,
+    panes: PropTypes.array.isRequired,
     className: PropTypes.string,
   };
 
   componentDidMount() {
-    const accordianItemHeaders = document.querySelectorAll(
-      '.hawk-collapse-item-header',
-    );
+    this.setupAccordion();
+  }
 
-    accordianItemHeaders.forEach(accordianItemHeader => {
-      accordianItemHeader.addEventListener('click', () => {
-        const current = document.querySelector('.hawk-collapse-item-header.active');
+  componentDidUpdate(prevProps) {
+    // If headers or panes change (i.e., if filtered content changes)
+    if (prevProps.headers !== this.props.headers || prevProps.panes !== this.props.panes) {
+      this.setupAccordion();
+    }
+  }
 
-        if (current && current !== accordianItemHeader) {
-          current.classList.toggle('active');
-          current.nextElementSibling.style.maxHeight = 0;
-        }
-        accordianItemHeader.classList.toggle('active');
+  setupAccordion() {
+    // Ensure event listeners are added after render
+    const accordionItemHeaders = document.querySelectorAll('.hawk-collapse-item-header');
 
-        const accordianItemBody = accordianItemHeader.nextElementSibling;
-
-        if (accordianItemHeader.classList.contains('active')) {
-          accordianItemBody.style.maxHeight = `${accordianItemBody.scrollHeight}px`;
-        } else {
-          accordianItemBody.style.maxHeight = 0;
-        }
-      });
+    accordionItemHeaders.forEach((accordionItemHeader) => {
+      accordionItemHeader.removeEventListener('click', this.handleAccordionClick);
+      accordionItemHeader.addEventListener('click', this.handleAccordionClick);
     });
   }
+
+  handleAccordionClick = (event) => {
+    const accordionItemHeader = event.currentTarget;
+    const current = document.querySelector('.hawk-collapse-item-header.active');
+
+    // Collapse the previously active item
+    if (current && current !== accordionItemHeader) {
+      current.classList.remove('active');
+      current.nextElementSibling.style.maxHeight = 0;
+    }
+
+    // Toggle the clicked item
+    accordionItemHeader.classList.toggle('active');
+
+    const accordionItemBody = accordionItemHeader.nextElementSibling;
+
+    // Expand or collapse the clicked item
+    if (accordionItemHeader.classList.contains('active')) {
+      accordionItemBody.style.maxHeight = `${accordionItemBody.scrollHeight}px`;
+    } else {
+      accordionItemBody.style.maxHeight = 0;
+    }
+  };
 
   render() {
     const { headers, panes, className } = this.props;
 
     return (
-      <div
-        className={getClassnames('hawk-collapse', {
-          [className]: _.isString(className),
-        })}
-      >
+      <div className={getClassnames('hawk-collapse', { [className]: _.isString(className) })}>
         {_.map(headers, (header, index) => (
-          <div className="hawk-collapse-item">
+          <div key={index} className="hawk-collapse-item">
             <div className="hawk-collapse-item-header">
               {header}
             </div>
