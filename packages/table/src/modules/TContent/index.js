@@ -1,3 +1,4 @@
+/* eslint-disable react/no-did-update-set-state */
 // vendor modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -37,6 +38,14 @@ export default class TContent extends Component {
   state = {
     selectedItems: this.props.selected || [],
   };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.selected !== this.props.selected) {
+      this.setState({
+        selectedItems: this.props.selected || [],
+      });
+    }
+  }
 
   onMultiSelect = () => {
     const { selectedItems } = this.state;
