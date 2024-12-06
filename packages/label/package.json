@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/label",
-  "version": "4.4.2",
+  "version": "4.4.3",
   "description": "hawk-ui: Basic Label Component",
   "main": "dist/index.min.js",
   "scripts": {
