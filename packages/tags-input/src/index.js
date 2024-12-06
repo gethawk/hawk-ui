@@ -44,6 +44,7 @@ export default class TagsInput extends Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
+    this.inputInstance = React.createRef();
   }
   state = {
     suggestions: this.props.suggestions,
@@ -76,7 +77,10 @@ export default class TagsInput extends Component {
   }
 
   triggerFocus = () => {
-    this.inputInstance.focus();
+    // Ensure inputInstance is assigned and focus method exists
+    if (this.inputInstance.current && typeof this.inputInstance.current.focus === 'function') {
+      this.inputInstance.current.focus();
+    }
   };
 
   render() {
@@ -113,14 +117,13 @@ export default class TagsInput extends Component {
               className={getClassNames('hawk-tags-input__wrapper', {
                 'hawk-tags-input__wrapper-error': isRequired && isError,
               })}
-              onClick={() => { this.triggerFocus(); }}
+              onClick={this.triggerFocus}
             >
               {_.map(tags, (item, index) => (
-                <React.Fragment>
+                <React.Fragment key={index}>
                   {!_.isEmpty(item) && (
                     <span
                       className="hawk-tags-input__tag"
-                      key={index}
                     >
                       {this.props.renderTag(item)}
                       <i
@@ -138,7 +141,7 @@ export default class TagsInput extends Component {
                   onChange(event);
                   this.setState({ isOpen: true });
                 }}
-                ref={(ref) => { this.inputInstance = ref; }}
+                ref={this.inputInstance}
                 onKeyDown={(event) => {
                   if (event.keyCode === keyCodes.BACKSPACE) {
                     if (_.isEmpty(this.props.searchValue)) {
