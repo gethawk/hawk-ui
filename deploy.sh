@@ -14,3 +14,8 @@ yarn run styleguide:build
 
 aws s3 cp index.html s3://${S3_BUCKET}/
 aws s3 cp --recursive ./build/ s3://${S3_BUCKET}/build
+
+
+
+# aws s3 cp index.html s3://hawk.oncrypt.co/ --profile wallnit
+# aws s3 cp ./build/ s3://hawk.oncrypt.co/build/ --recursive --profile wallnit
