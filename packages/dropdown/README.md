@@ -29,6 +29,7 @@ const suggestions = [
 <Dropdown
   title="Dropdown"
   isIcon
+  isMultiClickable
   suggestions={suggestions}
   renderSuggestion={(suggestion) => suggestion.title}
   selectValue={(meta, item) => { console.log(meta, item); }}

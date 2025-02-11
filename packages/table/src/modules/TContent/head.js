@@ -40,8 +40,6 @@ export default class Head extends Component {
     const { tableContent, onSort } = this.props;
     const isOrderingSetForColumn = this.state.sortingMeta.columnKey === column.key;
 
-    console.log('query isOrderingSetForColumn', isOrderingSetForColumn);
-
     return (
       <i
         className={getClassnames('icon fas', {
@@ -71,16 +69,20 @@ export default class Head extends Component {
     );
   };
 
-  renderFilter = (suggestions) => (
-    <div className="hawk-table__content-filter">
-      <Dropdown
-        title={<i className="fas fa-filter" />}
-        isClickable={false}
-        suggestions={suggestions}
-        renderSuggestion={(suggestion) => suggestion}
-      />
-    </div>
-  );
+  renderFilter = (suggestions) => {
+    console.log('query suggestions', suggestions);
+
+    return (
+      <div className="hawk-table__content-filter">
+        <Dropdown
+          title={<i className="fas fa-filter" />}
+          isClickable={false}
+          suggestions={suggestions}
+          renderSuggestion={(suggestion) => suggestion}
+        />
+      </div>
+    );
+  };
 
   render() {
     const { tableHeader, tableContent, isSelectable, selected, isSorting, isFilter, sortBy, filterBy, onMultiSelect } = this.props;
