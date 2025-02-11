@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/divider",
-  "version": "4.4.4",
+  "version": "4.4.5",
   "description": "hawk-ui: Basic Divider Component",
   "main": "dist/index.min.js",
   "scripts": {
