@@ -15,6 +15,7 @@ export default class Dropdown extends Component {
   static propTypes = {
     title: PropTypes.string,
     isIcon: PropTypes.bool,
+    isMultiClickable: PropTypes.bool,
     isHoverable: PropTypes.bool,
     suggestions: PropTypes.oneOfType([
       PropTypes.array,
@@ -32,6 +33,7 @@ export default class Dropdown extends Component {
     isClickable: true,
     isHoverable: false,
     shouldDropdownShow: false,
+    isMultiClickable: false,
   }
   constructor(props) {
     super(props);
@@ -77,7 +79,7 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { children, title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isHoverable, className } = this.props;
+    const { children, title, isIcon, suggestions, renderSuggestion, isMultiClickable, selectValue, isClickable, isHoverable, className } = this.props;
 
     return (
       <div
@@ -135,7 +137,7 @@ export default class Dropdown extends Component {
                       <div
                         className="hawk-dropdown__item"
                         key={index}
-                        onClick={() => isClickable && this.setState({
+                        onClick={() => isClickable && !isMultiClickable && this.setState({
                           shouldDropdownShow: false,
                         }, () => {
                           selectValue(index, item);

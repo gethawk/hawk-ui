@@ -450,6 +450,7 @@ const filterCountry = [
 initialState = {
   searchContent: content,
   selectedItems: [1, 3],
+  selectedFilterCountry: [],
 };
 
 <Table
@@ -476,6 +477,9 @@ initialState = {
           options: (
             <Checkbox
               options={filterCompany}
+              onChange={(event) => {
+                console.log('query event', event);
+              }}
             />
           ),
         },
@@ -486,6 +490,21 @@ initialState = {
           options: (
             <Checkbox
               options={filterCountry}
+              selectedItem={state.selectedFilterCountry}
+              onChange={(event) => {
+                if (state.selectedFilterCountry.indexOf(event.target.value) !== -1) {
+                  let country = state.selectedFilterCountry.filter(function(item) {
+                    return item !== event.target.value;
+                  });
+                  setState({
+                    selectedFilterCountry: country,
+                  });
+                } else {
+                  setState({
+                    selectedFilterCountry: [...state.selectedFilterCountry, event.target.value],
+                  });
+                }
+              }}
             />
           ),
         },
