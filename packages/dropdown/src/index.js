@@ -73,9 +73,11 @@ export default class Dropdown extends Component {
     if (this.myRef.current.contains(event.target)) {
       return;
     }
-    this.setState({
-      shouldDropdownShow: false,
-    });
+    if (!isMultiClickable) {
+      this.setState({
+        shouldDropdownShow: false,
+      });
+    }
   }
 
   render() {
@@ -132,7 +134,9 @@ export default class Dropdown extends Component {
                       <a
                         href={item.link}
                         className="hawk-dropdown__item"
-                      >{renderSuggestion(item)}</a>
+                      >
+                        {renderSuggestion(item)}
+                      </a>
                     ) : (
                       <div
                         className="hawk-dropdown__item"

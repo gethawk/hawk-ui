@@ -442,9 +442,9 @@ const filterCompany = [
 ];
 
 const filterCountry = [
-  { key: 1, label: 'Austria', value: 1 },
-  { key: 1, label: 'Germany', value: 2 },
-  { key: 3, label: 'Mexico', value: 3 },
+  { key: 1, label: 'austria', value: 'austria' },
+  { key: 1, label: 'germany', value: 'germany' },
+  { key: 3, label: 'mexico', value: 'mexico' },
 ];
 
 initialState = {
@@ -461,37 +461,62 @@ initialState = {
     tableHeader={header}
     isFilter
     filterBy={[
-      {
-        key: 'company',
-        properties: {
-          search: (
-            <Input
-              type="text"
-              className="hawk-input"
-              onChange={(event) => {
-                console.log('company search', event)
-              }}
-              placeholder="Search Company"
-            />
-          ),
-          options: (
-            <Checkbox
-              options={filterCompany}
-              onChange={(event) => {
-                console.log('query event', event);
-              }}
-            />
-          ),
-        },
-      },
+      // {
+      //   key: 'company',
+      //   properties: {
+      //     search: (
+      //       <Input
+      //         type="text"
+      //         className="hawk-input"
+      //         onChange={(event) => {
+      //           console.log('company search', event)
+      //         }}
+      //         placeholder="Search Company"
+      //       />
+      //     ),
+      //     options: (
+      //       <Checkbox
+      //         options={filterCompany}
+      //         onChange={(event) => {
+      //           console.log('query event', event);
+      //         }}
+      //       />
+      //     ),
+      //   },
+      // },
       {
         key: 'country',
-        properties: {
-          options: (
+        // properties: {
+        //   isMultiClickable: true,
+        //   options: (
+        //     <Checkbox
+        //       options={filterCountry}
+        //       selectedItem={state.selectedFilterCountry}
+        //       onChange={(event) => {
+        //         console.log('query event', event.target.value);
+        //         if (state.selectedFilterCountry.indexOf(event.target.value) !== -1) {
+        //           let country = state.selectedFilterCountry.filter(function(item) {
+        //             return item !== event.target.value;
+        //           });
+        //           setState({
+        //             selectedFilterCountry: country,
+        //           });
+        //         } else {
+        //           setState({
+        //             selectedFilterCountry: [...state.selectedFilterCountry, event.target.value],
+        //           });
+        //         }
+        //       }}
+        //     />
+        //   ),
+        // },
+        children: (
+          <div>
             <Checkbox
               options={filterCountry}
               selectedItem={state.selectedFilterCountry}
               onChange={(event) => {
+                console.log('query event', event.target.value);
                 if (state.selectedFilterCountry.indexOf(event.target.value) !== -1) {
                   let country = state.selectedFilterCountry.filter(function(item) {
                     return item !== event.target.value;
@@ -506,8 +531,8 @@ initialState = {
                 }
               }}
             />
-          ),
-        },
+          </div>
+        ),
       },
     ]}
   />

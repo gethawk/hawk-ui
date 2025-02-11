@@ -69,20 +69,17 @@ export default class Head extends Component {
     );
   };
 
-  renderFilter = (suggestions) => {
-    console.log('query suggestions', suggestions);
-
-    return (
-      <div className="hawk-table__content-filter">
-        <Dropdown
-          title={<i className="fas fa-filter" />}
-          isClickable={false}
-          suggestions={suggestions}
-          renderSuggestion={(suggestion) => suggestion}
-        />
-      </div>
-    );
-  };
+  renderFilter = (suggestions, children) => (
+    <div className="hawk-table__content-filter">
+      <Dropdown
+        title={<i className="fas fa-filter" />}
+        shouldDropdownShow
+        suggestions={suggestions}
+        renderSuggestion={(suggestion) => suggestion}
+        children={children}
+      />
+    </div>
+  );
 
   render() {
     const { tableHeader, tableContent, isSelectable, selected, isSorting, isFilter, sortBy, filterBy, onMultiSelect } = this.props;
@@ -108,7 +105,7 @@ export default class Head extends Component {
                     this.renderHeaderCell(item)
                   )}
                   {_.map(filterBy, (filter) => isFilter && _.includes(filter, item.key) && (
-                    this.renderFilter(_.get(filter, 'properties', {}))
+                    this.renderFilter(_.get(filter, 'properties', {}), _.get(filter, 'children'))
                   ))}
                 </div>
               </th>

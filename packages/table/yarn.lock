@@ -2,108 +2,105 @@
 # yarn lockfile v1
 
 
-"@hawk-ui/button@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.2.8.tgz#ae9547c78662069ed28437c00e230383d2e31f66"
-  integrity sha512-DxRUyd1ibIEc70puFkxLOEOhg5Z8eGbx4xlCMe3UNeWoSlk0t0rN6+BFvc9ZEYH0E6nXiuTm4z+VNvMTUGiQVA==
+"@hawk-ui/button@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/button/-/button-4.4.5.tgz#8202f5b504fbfe42987f5b2f91d82c989cf8957d"
+  integrity sha512-+p1qmu+CYzUI4JpvRTOzkK4puDDQ4ciF8mTROZ+Y4epqWO0okkIE2eWLT3K4d99j85J8hTfN3GpgigfT5W8b4w==
   dependencies:
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/checkbox@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/checkbox/-/checkbox-4.2.8.tgz#37a75640f283bb4b64022b8cc0c3683f85aaaf89"
-  integrity sha512-UQVAc+NGbLy2jDknicrqlhnNB+L/nP3axvN/v1BWFaTaIzbfK8CbgtoI+b8fvaLVqLYXwOoaYUa2VhAK5FUbNw==
+"@hawk-ui/checkbox@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/checkbox/-/checkbox-4.4.5.tgz#b88aa8de700114179ca8a0bafd7d39cf50eca508"
+  integrity sha512-xfoHD2CDQxNMU3IOIaPTMFqZkDAosMU2aslNZAYXtqMAOVGRGbTirG38oA24g9j1udPpRMwihd+Hi1elYY4ujQ==
   dependencies:
-    "@hawk-ui/input" "^4.2.8"
-    "@hawk-ui/label" "^4.2.8"
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    "@hawk-ui/input" "^4.4.5"
+    "@hawk-ui/label" "^4.4.5"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/dropdown@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/dropdown/-/dropdown-4.2.8.tgz#49eb394bae0c09e4da6ea5c2b6b8803534b356ba"
-  integrity sha512-0uxn1+rMUpI+vxI6yjAlEXWfGaci5dbNQmEaxMzwnB3V+solGpU01orKJEzfq93Py5T+iF22PUKxCG9UVP0XMQ==
+"@hawk-ui/dropdown@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/dropdown/-/dropdown-4.4.5.tgz#c6b617a2134a44b4f1246ae256bb88418d65fedd"
+  integrity sha512-auhKqEUysBwsxuQ5Wru94IUYcz12hG/+x1EKflDv6f/wRQ/C/2Is/JeqbjoAXeVrRtx3U3I0snV7P/PONEo2XA==
   dependencies:
-    "@hawk-ui/button" "^4.2.8"
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    "@hawk-ui/button" "^4.4.5"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/input@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.2.8.tgz#c645af3e8762a76f267d2f5c1c8e2091dfa2cd8a"
-  integrity sha512-hH0I4w9UtVQWEHOgtbgjW9wx3fKaAU1bba8ParXBECpzic6R9w0oGT5KPcjXmvxt4iPsDCD0pQAS1t3cCICCWw==
+"@hawk-ui/input@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/input/-/input-4.4.5.tgz#41f61828680b888315bbcba182c3d5ca270a6e94"
+  integrity sha512-xgT1Js55Ng3iVbq/LvDjocnGh1ZHtzlj+QLd43zr2d38chFxCYQnuwZ+ZkvNXpRaThOIixYFJVmcVR/TXdTpFw==
   dependencies:
-    "@hawk-ui/label" "^4.2.8"
-    "@hawk-ui/tooltip" "^4.2.8"
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    "@hawk-ui/label" "^4.4.5"
+    "@hawk-ui/tooltip" "^4.4.5"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/label@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.2.8.tgz#3d8cf066311a8c2fcc3b4cc5fbf853ec83ddcc68"
-  integrity sha512-obVThpzxDFyGd0ucvdmcawfs47AU4vCWXdXsfzRwEE9Gxbkvqv4EF5HHBZHbjpDdmNfW4zJFth07JdFPtuF3pw==
+"@hawk-ui/label@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/label/-/label-4.4.5.tgz#ef9a211cabac3151515b3f974d152c9fca2753ff"
+  integrity sha512-aCIy8H1iFB06WKecbd39yRC/o3jVBvFlyZJT82DdqpMTZvltQI8DrNs3mi9ufeaMCb48pzbb8/unA5r5hSCnzA==
   dependencies:
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/loader@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/loader/-/loader-4.2.8.tgz#14cc003a82ff88c31d97c86e46feecdda4455a7e"
-  integrity sha512-pF8aXpG00pm1pDcyrX0FPgYCccTwazVktrvdQDcB9BnNrTCOJHgw+a60vLOKl1Jla5B0ys1plNpYnv/pVQFiiw==
+"@hawk-ui/loader@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/loader/-/loader-4.4.5.tgz#71f78ba0cac91b289318d342c1c007e63d9aae52"
+  integrity sha512-M4CBL9W2UcciC+eG/+Z9mS/H4j3WrsetolEcpCB2Sesyjid/ifAuTdgKNQP2dBMQIOtKBP0n6nT0UDghqQH4Zg==
   dependencies:
-    classnames "^2.2.6"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/pagination@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/pagination/-/pagination-4.2.8.tgz#e89e9ec042ff5aa91abc47ea7ba1e6a36c0614ed"
-  integrity sha512-5vIULdRaMVOR2rbW+HSrHLqGajQzCjkKSded++vhkFYC8u6BIAt3cLMRB3Cv30ugkX0SsHgY80hmJZlTWsEGJw==
+"@hawk-ui/pagination@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/pagination/-/pagination-4.4.5.tgz#2a9843587cadbb0b7af75d961ac64dddc6ce6f80"
+  integrity sha512-UkXn0zMFs9Sc/USsqKNOgHXwwWHtt1JTO/2bo5gongrKM+58HoYisQGzzLYEj3kB18sTmn3vtC17c5AAJN15nA==
   dependencies:
-    classnames "^2.2.6"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/select-dropdown@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/select-dropdown/-/select-dropdown-4.2.8.tgz#b0c511619b1367841dbc8cffa8b388ef03e4658b"
-  integrity sha512-AlkCZWNNm14Voc1//DXuL+0RpV+IYDBTV8UDD3FNOUe88xHyh2LrW/hwxLSasqK7Hxor8As6iauoUciiTSM7Xg==
+"@hawk-ui/select-dropdown@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/select-dropdown/-/select-dropdown-4.4.5.tgz#a55999e306d4efca4a626ce49bc996270ce6a0cb"
+  integrity sha512-xiXVGNydZTCr8pTSd4mOQb6pY0B5wzq2yY1mCsd4tcPJsO+ZTn5fOaKGiCCBsEXrbmmBEtifCUflv1PhvGpRLQ==
   dependencies:
-    "@hawk-ui/button" "^4.2.8"
-    "@hawk-ui/input" "^4.2.8"
-    "@hawk-ui/label" "^4.2.8"
-    "@hawk-ui/suggestions" "^4.2.8"
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    "@hawk-ui/button" "^4.4.5"
+    "@hawk-ui/input" "^4.4.5"
+    "@hawk-ui/label" "^4.4.5"
+    "@hawk-ui/suggestions" "^4.4.5"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/suggestions@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/suggestions/-/suggestions-4.2.8.tgz#35e7fadc178593427152dfa3048c15ab266411df"
-  integrity sha512-Juz5S0SZG7hFjwIEGweQkEPjFVUxBeLIFkP192zFdRLBWK/pjw1R3u6nl095p4J8/5gL/oJLlNAKhB+cbPDW2Q==
+"@hawk-ui/suggestions@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/suggestions/-/suggestions-4.4.5.tgz#6e13fefa4b91eacbdd5911f8c038ed215d928275"
+  integrity sha512-pKisjxa6vW7ZENA4cvbPTHURlpHyZCHC8o6NxOAKcPDGFQxfhuKKoIMa2ZABbxL0sQkctyYYpg5P/YiHXjRMyA==
   dependencies:
-    "@hawk-ui/input" "^4.2.8"
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    "@hawk-ui/input" "^4.4.5"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
 
-"@hawk-ui/tooltip@^4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.2.8.tgz#68787ebd4bce22f5f82954db2db9f67a20a4c38a"
-  integrity sha512-ywUx6v88+5sctPM6g+qcZuY4aFPCWYzOa8IrlwpmfpjQ7EzVlw/FvKQJmNwTe9GTbSpvFT+3LKIUHlKeLjeVhg==
+"@hawk-ui/tooltip@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@hawk-ui/tooltip/-/tooltip-4.4.5.tgz#f3a5deeb0bed33d3c0d3f096ba2d2f6ede148af0"
+  integrity sha512-kZxIy2CxrW9aPp2Bpy+2XOWXu8I2zp6a2W/ph9s/cv3hBmV+Lg43ucGBgC9/AeGUfErOEH+HyfrAMGpwruOFew==
   dependencies:
-    classnames "^2.2.6"
-    lodash "^4.17.15"
+    classnames "^2.3.2"
+    lodash "^4.17.21"
     prop-types "^15.7.2"
-
-classnames@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
-  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 classnames@^2.3.2:
   version "2.3.2"
@@ -114,11 +111,6 @@ classnames@^2.3.2:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
-
-lodash@^4.17.15:
-  version "4.17.20"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
-  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 lodash@^4.17.21:
   version "4.17.21"
