@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/resizable",
-  "version": "4.4.5",
+  "version": "4.4.6",
   "description": "hawk-ui: Resizable Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,8 +18,8 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^4.4.5",
-    "@hawk-ui/tooltip": "^4.4.5",
+    "@hawk-ui/button": "^4.4.6",
+    "@hawk-ui/tooltip": "^4.4.6",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2"
