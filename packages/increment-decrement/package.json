@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/increment-decrement",
-  "version": "4.4.6",
+  "version": "4.4.7",
   "description": "hawk-ui: Increment Decrement Component",
   "main": "dist/index.min.js",
   "scripts": {
@@ -18,8 +18,8 @@
   "author": "Saurabh Gaur <gaursaurabh68@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@hawk-ui/button": "^4.4.6",
-    "@hawk-ui/input": "^4.4.6",
+    "@hawk-ui/button": "^4.4.7",
+    "@hawk-ui/input": "^4.4.7",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2"

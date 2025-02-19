@@ -73,7 +73,7 @@ export default class Dropdown extends Component {
     if (this.myRef.current.contains(event.target)) {
       return;
     }
-    if (!isMultiClickable) {
+    if (!this.props.isMultiClickable) {
       this.setState({
         shouldDropdownShow: false,
       });
@@ -81,7 +81,7 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { children, title, isIcon, suggestions, renderSuggestion, isMultiClickable, selectValue, isClickable, isHoverable, className } = this.props;
+    const { children, title, isIcon, suggestions, renderSuggestion, selectValue, isClickable, isMultiClickable, isHoverable, className } = this.props;
 
     return (
       <div
