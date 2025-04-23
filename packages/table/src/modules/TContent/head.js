@@ -73,7 +73,6 @@ export default class Head extends Component {
     <div className="hawk-table__content-filter">
       <Dropdown
         title={<i className="fas fa-filter" />}
-        shouldDropdownShow
         suggestions={suggestions}
         renderSuggestion={(suggestion) => suggestion}
         children={children}
