@@ -166,15 +166,13 @@ export default class Suggestions extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!_.isEqual(nextProps.suggestions, this.props.suggestions)) {
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(this.props.suggestions, prevProps.suggestions)) {
       this.setState({
-        suggestions: nextProps.suggestions,
+        suggestions: this.props.suggestions,
+        selectedIndex: -1,
       });
     }
-    this.setState({
-      selectedIndex: -1,
-    });
   }
 
   onSearchInput = (event) => {

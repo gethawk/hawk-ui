@@ -55,7 +55,8 @@ module.exports = {
       "react/no-did-mount-set-state": "off",
       "no-undef": "off",
       "no-param-reassign": "off",
-      "react/no-children-prop": "off"
+      "react/no-children-prop": "off",
+      "react/no-did-update-set-state": "off"
     },
     "ecmaFeatures": {
       "jsx": true,

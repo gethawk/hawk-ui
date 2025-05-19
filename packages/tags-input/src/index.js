@@ -55,10 +55,10 @@ export default class TagsInput extends Component {
     document.addEventListener('click', this.onClick);
   }
 
-  componentWillReceiveProps(nextProps, prevProps) {
-    if (!_.isEqual(nextProps.suggestions, prevProps.Suggestions)) {
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(this.props.suggestions, prevProps.suggestions)) {
       this.setState({
-        suggestions: nextProps.suggestions,
+        suggestions: this.props.suggestions,
       });
     }
   }
@@ -141,7 +141,9 @@ export default class TagsInput extends Component {
                   onChange(event);
                   this.setState({ isOpen: true });
                 }}
-                ref={this.inputInstance}
+                ref={(el) => {
+                  this.inputInstance.current = el && el.querySelector ? el.querySelector('input') : null;
+                }}
                 onKeyDown={(event) => {
                   if (event.keyCode === keyCodes.BACKSPACE) {
                     if (_.isEmpty(this.props.searchValue)) {
