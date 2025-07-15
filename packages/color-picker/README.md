@@ -22,7 +22,7 @@ import ColorPicker from '@hawk-ui/color-picker';
 ```js
 <ColorPicker
   defaultColor="#f18ca6"
-  onSave={(event) => { console.log('query onSave', event); }}
+  onSave={(event) => { console.log('onSave', event); }}
 />
 ```
 
@@ -36,7 +36,7 @@ import ColorPicker from '@hawk-ui/color-picker';
 <ColorPicker
   defaultColor="f18ca6"
   showHexCode={false}
-  onSave={(event) => { console.log('query onSave', event); }}
+  onSave={(event) => { console.log('onSave', event); }}
 />
 ```
 
@@ -52,7 +52,7 @@ import ColorPicker from '@hawk-ui/color-picker';
   showHexCode={false}
   isText
   title="A"
-  onSave={(event) => { console.log('query onSave', event); }}
+  onSave={(event) => { console.log('onSave', event); }}
 />
 ```
 
@@ -68,6 +68,6 @@ import ColorPicker from '@hawk-ui/color-picker';
   showHexCode={false}
   isIcon
   title="fas fa-paint-roller"
-  onSave={(event) => { console.log('query onSave', event); }}
+  onSave={(event) => { console.log('onSave', event); }}
 />
 ```

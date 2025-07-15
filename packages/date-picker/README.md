@@ -27,7 +27,6 @@ initialState = {
 
 <DatePicker
   onChange={(value) => {
-    console.log('query value', moment(value).set(null).toISOString());
     setState({
       selectedDate: value,
     });
@@ -35,6 +34,35 @@ initialState = {
   renderInput={() => (
     !state.selectedDate ? <span>Start Date</span> : state.selectedDate
   )}
+  value={{
+    startMoment: state.selectedDate,
+  }}
+/>
+```
+
+
+#### With Placeholder
+[Demo](https://hawk.oncrypt.co/#!/DatePicker/2)
+```js static
+import DatePicker from '@hawk-ui/date-picker';
+```
+```js
+const moment = require('moment');
+initialState = {
+  selectedDate: null,
+};
+
+<DatePicker
+  onChange={(value) => {
+    setState({
+      selectedDate: value,
+    });
+  }}
+  renderInput={() =>
+    !state.selectedDate
+      ? 'Select Date'
+      : moment(state.selectedDate).format('DD MMM YYYY')
+  }
   value={{
     startMoment: state.selectedDate,
   }}
@@ -58,7 +86,10 @@ initialState = {
   <div style={{ width: '100%', marginRight: '10px' }}>
     <DatePicker
       onChange={(value) => {
-        const updatedEndDate = !state.endDate || moment(state.endDate).isBefore(moment(value), 'days') ? value : null;
+        const updatedEndDate =
+          !state.endDate || moment(state.endDate).isBefore(moment(value), 'days')
+            ? value
+            : null;
 
         setState({
           startDate: value,
@@ -66,9 +97,11 @@ initialState = {
         });
       }}
       isDayBlocked={(day) => (day.isBefore(moment(), 'days'))}
-      renderInput={() => (
-        !state.startDate ? <span>Start Date</span> : state.startDate
-      )}
+      renderInput={() =>
+        !state.startDate
+          ? 'Start Date'
+          : moment(state.startDate).format('DD MMM YYYY')
+      }
       value={{
         startMoment: state.startDate,
       }}
@@ -78,17 +111,18 @@ initialState = {
   <div style={{ width: '100%', marginLeft: '10px' }}>
     <DatePicker
       onChange={(value) => {
-        console.log('query value', moment(value).set(null).toISOString());
         setState({
           endDate: value,
         });
       }}
-      isDayBlocked={(day) => (
-        day.isBefore(state.startDate ? moment(state.startDate) : moment(), 'days')
-      )}
-      renderInput={() => (
-        !state.endDate ? <span>End Date</span> : state.endDate
-      )}
+      isDayBlocked={(day) =>
+        day.isBefore(state.startDate ? moment(state.startDate) : moment(), 'day')
+      }
+      renderInput={() =>
+        !state.endDate
+          ? 'End Date'
+          : moment(state.endDate).format('DD MMM YYYY')
+      }
       value={{
         startMoment: state.endDate,
       }}

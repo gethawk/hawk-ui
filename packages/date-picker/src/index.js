@@ -107,8 +107,10 @@ export default class DatePicker extends Component {
             className="hawk-date-picker__input"
             value={
               renderInput
-                ? moment(renderInput()).format(format)
-                : moment(startMoment).format(format)
+                ? (typeof renderInput() === 'string' || React.isValidElement(renderInput())
+                  ? renderInput()
+                  : moment(renderInput()).format(format))
+                : (startMoment ? moment(startMoment).format(format) : 'Select Date')
             }
             readOnly
           />

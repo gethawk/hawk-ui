@@ -25,7 +25,7 @@ import FileUpload from '@hawk-ui/file-upload';
   accept="images/*"
   isMultiple
   onUpload={(file) => {
-    console.log('query file', file);
+    console.log('file', file);
   }}
 />
 ```
@@ -40,7 +40,7 @@ import FileUpload from '@hawk-ui/file-upload';
 <FileUpload
   btnIcon="fas fa-upload"
   onUpload={(file) => {
-    console.log('query file', file);
+    console.log('file', file);
   }}
 />
 ```
@@ -59,7 +59,7 @@ import FileUpload from '@hawk-ui/file-upload';
   placeholder="Please select a file to Upload"
   variant="input"
   onUpload={(file) => {
-    console.log('query file', file);
+    console.log('file', file);
   }}
 />
 ```
@@ -87,7 +87,7 @@ initialState = {
   variant="draggable"
   isLoading={false}
   onUpload={(files) => {
-    console.log('query files', files);
+    console.log('files', files);
   }}
 />
 ```

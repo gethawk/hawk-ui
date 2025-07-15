@@ -24,7 +24,7 @@ import IncrementDecrement from '@hawk-ui/increment-decrement';
   min={0}
   max={10}
   onClick={(e) => {
-    console.log('query value', e);
+    console.log('value', e);
   }}
 />
 ```

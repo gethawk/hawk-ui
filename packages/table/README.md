@@ -52,7 +52,7 @@ initialState = {
     default: 10,
   }}
   onShowEntries={(event) => {
-    console.log('query onShowEntries', event);
+    console.log('onShowEntries', event);
   }}
   exports={{
     options: [
@@ -69,7 +69,7 @@ initialState = {
       {
         key: 'button',
         title: 'Custom',
-        onClick: () => console.log('query click'),
+        onClick: () => console.log('click'),
       },
       {
         key: 'dropdown',
@@ -80,7 +80,7 @@ initialState = {
           { title: 'Something else here', value: 'something else here', isActive: true },
         ],
         renderSuggestion: 'title',
-        onClick: (meta, value) => console.log('query click', meta, value),
+        onClick: (meta, value) => console.log('click', meta, value),
       },
     ],
     headers: {
@@ -98,7 +98,7 @@ initialState = {
       isVisible: true
     }}
     onSearch={(e) => {
-      console.log('query e', e.target.value);
+      console.log('e', e.target.value);
     }}
   />
   <Table.CONTENT
@@ -399,7 +399,7 @@ initialState = {
     isSorting
     sortBy={['company', 'country']}
     onSort={(e) => {
-      console.log('query e', e);
+      console.log('e', e);
     }}
   />
   <Table.PAGINATION
@@ -478,7 +478,7 @@ initialState = {
       //       <Checkbox
       //         options={filterCompany}
       //         onChange={(event) => {
-      //           console.log('query event', event);
+      //           console.log('event', event);
       //         }}
       //       />
       //     ),
@@ -493,7 +493,7 @@ initialState = {
         //       options={filterCountry}
         //       selectedItem={state.selectedFilterCountry}
         //       onChange={(event) => {
-        //         console.log('query event', event.target.value);
+        //         console.log('event', event.target.value);
         //         if (state.selectedFilterCountry.indexOf(event.target.value) !== -1) {
         //           let country = state.selectedFilterCountry.filter(function(item) {
         //             return item !== event.target.value;
@@ -516,7 +516,7 @@ initialState = {
               options={filterCountry}
               selectedItem={state.selectedFilterCountry}
               onChange={(event) => {
-                console.log('query event', event.target.value);
+                console.log('event', event.target.value);
                 if (state.selectedFilterCountry.indexOf(event.target.value) !== -1) {
                   let country = state.selectedFilterCountry.filter(function(item) {
                     return item !== event.target.value;
