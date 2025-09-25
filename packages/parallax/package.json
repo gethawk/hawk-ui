@@ -1,6 +1,6 @@
 {
   "name": "@hawk-ui/parallax",
-  "version": "4.5.1",
+  "version": "4.5.2",
   "description": "hawk-ui: Basic Parallax Component",
   "main": "dist/index.min.js",
   "scripts": {
