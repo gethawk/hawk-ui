@@ -25,6 +25,7 @@ export default class TContent extends Component {
     onSort: PropTypes.func,
     filterBy: PropTypes.array,
     renderLoading: PropTypes.element,
+    rowRender: PropTypes.func,
     renderDataNotFound: PropTypes.func,
     collapseIndex: PropTypes.number,
   };
@@ -85,7 +86,7 @@ export default class TContent extends Component {
   };
 
   render() {
-    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, renderLoading, sortBy, onSort: propsOnSort, filterBy, renderDataNotFound, collapseIndex } = this.props;
+    const { tableHeader, isHeaderShow, isSelectable, isSorting, isFilter, isLoading, renderLoading, rowRender, sortBy, onSort: propsOnSort, filterBy, renderDataNotFound, collapseIndex } = this.props;
     const { selectedItems } = this.state;
     const { tableContent } = this.context;
     const onSort = propsOnSort || this.context.onSort;
@@ -112,6 +113,7 @@ export default class TContent extends Component {
           selectedItems={selectedItems}
           isLoading={isLoading}
           renderLoading={renderLoading}
+          rowRender={rowRender}
           isSelectable={isSelectable}
           onSelect={this.onSelect}
           renderDataNotFound={renderDataNotFound}
